@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Index</title>
+<!--[if lt IE 9]><script src="js/html5shiv.min.js"></script><![endif]-->
+<link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> 
+<link href="style.css" rel="stylesheet">
+<link href="css/all.css" rel="stylesheet">
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/dataTables.bootstrap4.min.css" rel="stylesheet">
+<link href="css/responsive.bootstrap4.min.css" rel="stylesheet">
+<link href="css/responsive.css" rel="stylesheet">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="images/favicon.png">
+</head>
+
+<body class="login-body">
+<div class="login-wrapper">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-6 col-md-8">
+<div class="login-box">
+<div class="logo text-center"><a href="#"><img src="images/logo.png" alt=""></a></div>
+<form action="#" method="post">
+<div class="form-group"><input type="text" class="form-control" placeholder="EMAIL"></div>
+<div class="form-group"><input type="password" class="form-control" placeholder="PASSWORD"></div>
+<div class="custom-control custom-switch mb-4">
+<input type="checkbox" class="custom-control-input order-2" id="customSwitch1">
+<label class="custom-control-label order-1" for="customSwitch1">Keep me logged in</label>
+</div>
+<div class="form-group row justify-content-center"><div class="col-8"><input type="submit" class="btn btn-primary btn-block" value="Login Now"></div></div>
+<div class="mt-5 text-center">Not a user? <a href="#">Register now</a></div>
+</form>
+</div>
+<div class="box-shadow"><img src="images/shadow.png" alt=""></div>
+</div>
+</div>
+</div>
+
+<footer class="site-footer pt-5">
+<div class="container">
+<p>Copyright © 2021 Dernafies. All rights reserved | Developed by <a href="#"><img src="images/copyright-logo.png" alt=""></a></p>
+</div>
+</footer>
+
+
+</div>
+
+<!-- Bootstrap core JavaScript================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="js/jquery-min.js" ></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/ie10-viewport-bug-workaround.js"></script>
+<script src="js/ie-emulation-modes-warning.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/jquery.matchHeight-min.js"></script>
+<script src="js/jquery.dataTables.min.js"></script>
+<script src="js/dataTables.bootstrap4.min.js"></script>
+<script src="js/dataTables.responsive.min.js"></script>
+<script type="text/javascript">
+$('.coleql_height').matchHeight();
+
+$(document).ready( function () {
+$('#dataTable')
+.addClass('nowrap')
+.dataTable( {
+responsive: true,
+});
+});
+
+$("#dataTable tbody").sortable({
+helper: fixHelperModified,
+stop: function(event,ui) {renumber_table('#dataTable')}
+}).disableSelection();
+</script>
+</body>
+</html>

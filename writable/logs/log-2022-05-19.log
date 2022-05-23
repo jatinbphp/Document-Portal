@@ -1,0 +1,33 @@
+CRITICAL - 2022-05-19 09:28:41 --> count(): Argument #1 ($value) must be of type Countable|array, null given
+#0 /var/www/html/documentportal/system/View/View.php(230): include()
+#1 /var/www/html/documentportal/system/View/View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 /var/www/html/documentportal/system/Common.php(1271): CodeIgniter\View\View->render()
+#3 /var/www/html/documentportal/app/Controllers/BaseController.php(80): view()
+#4 /var/www/html/documentportal/app/Controllers/Users.php(261): App\Controllers\BaseController->render_template()
+#5 /var/www/html/documentportal/system/CodeIgniter.php(929): App\Controllers\Users->edit()
+#6 /var/www/html/documentportal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#7 /var/www/html/documentportal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#8 /var/www/html/documentportal/index.php(38): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-05-19 09:29:27 --> count(): Argument #1 ($value) must be of type Countable|array, null given
+#0 /var/www/html/documentportal/system/View/View.php(230): include()
+#1 /var/www/html/documentportal/system/View/View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 /var/www/html/documentportal/system/Common.php(1271): CodeIgniter\View\View->render()
+#3 /var/www/html/documentportal/app/Controllers/BaseController.php(80): view()
+#4 /var/www/html/documentportal/app/Controllers/Users.php(261): App\Controllers\BaseController->render_template()
+#5 /var/www/html/documentportal/system/CodeIgniter.php(929): App\Controllers\Users->edit()
+#6 /var/www/html/documentportal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#7 /var/www/html/documentportal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#8 /var/www/html/documentportal/index.php(38): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-05-19 09:30:01 --> count(): Argument #1 ($value) must be of type Countable|array, null given
+#0 /var/www/html/documentportal/system/View/View.php(230): include()
+#1 /var/www/html/documentportal/system/View/View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 /var/www/html/documentportal/system/Common.php(1271): CodeIgniter\View\View->render()
+#3 /var/www/html/documentportal/app/Controllers/BaseController.php(80): view()
+#4 /var/www/html/documentportal/app/Controllers/Users.php(261): App\Controllers\BaseController->render_template()
+#5 /var/www/html/documentportal/system/CodeIgniter.php(929): App\Controllers\Users->edit()
+#6 /var/www/html/documentportal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#7 /var/www/html/documentportal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#8 /var/www/html/documentportal/index.php(38): CodeIgniter\CodeIgniter->run()
+#9 {main}

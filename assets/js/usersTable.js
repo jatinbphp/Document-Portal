@@ -250,11 +250,14 @@ $(document).ready(function() {
             "orderable": false,
             "targets": -1
         }, {
-            "width": "85%",
+            "width": "40",
             "targets": 0
         }, {
-            "width": "15%",
+            "width": "40",
             "targets": 1
+        }, {
+            "width": "20%",
+            "targets": 2
         }, ]
     });
     // SubCategory delete Event    

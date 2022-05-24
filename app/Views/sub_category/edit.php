@@ -20,7 +20,7 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <form id="companyFormAddEdit" method="POST" action="<?php echo base_url('subcategory/update/'.$subcategory['id']) ?>">
+                        <form id="subcatFormAddEdit" method="POST" action="<?php echo base_url('subcategory/update/'.$subcategory['id']) ?>">
                         
 							<input type="hidden" name="_method" value="PUT" />
                          
@@ -29,7 +29,7 @@
 									<input type="hidden" name="id" value="<?php echo $subcategory['id']; ?>" />
                                     <div class="form-group">
                                         <label class="lableTitle"for="">Category :<span class="asterisk-sign">*</span></label>
-                                        <select name="categoryName" id="" class="form-control" REQUIRED>
+                                        <select name="categoryName" id="categoryName" class="form-control" REQUIRED>
 											<option value="">-- Select Category --</option>
 												<?php if(count($category) > 0): ?>
 													<?php foreach($category as $key => $value): ?>
@@ -41,7 +41,7 @@
                                     
                                     <div class="form-group">
 										<label class="lableTitle"for="">Sub Category :<span class="asterisk-sign">*</span></label>                                     
-                                        <input type="text" name="SubCatName" value="<?php echo $subcategory['SubCatName'] ?>" class="form-control" id="" placeholder="Sub-Category Name">
+                                        <input type="text" name="SubCatName" value="<?php echo $subcategory['SubCatName'] ?>" class="form-control" id="SubCatName" placeholder="Sub-Category Name">
                                     </div>
                                     
                                 </div>
@@ -59,9 +59,9 @@
 </div>
 
 <script type="text/javascript">
-    $(".Company-Menu .inner").addClass("show");
-    $(".Company-Menu .toggle").addClass("activAcc");
-    $(".Company-Menu .inner").css("display", "block")
-    $('.Company-Menu .Company-Menu').addClass('active');
+    $(".SubCategory-Menu .inner").addClass("show");
+    $(".SubCategory-Menu .toggle").addClass("activAcc");
+    $(".SubCategory-Menu .inner").css("display", "block")
+    $('.SubCategory-Menu .SubCategory-Menu').addClass('active');
 </script>
 <script src="<?php echo base_url('assets/js/usersFormValidation.js') ?>"></script>

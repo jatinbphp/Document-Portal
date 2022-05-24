@@ -131,4 +131,98 @@ $(document).ready(function() {
             form.submit();
         }
     });
+    $('#companyFormAddEdit').validate({
+        // errorClass : 'text-danger',
+        rules: {
+            companyName: {
+                required: true,
+            },
+        },
+        messages: {
+            companyName: {
+                required: "Please enter Company Name",
+            },
+        },
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
+    $('#documentFormAddEdit').validate({
+        // errorClass : 'text-danger',
+        rules: {
+            docName: {
+                required: true,
+            },
+            userID: {
+                required: true,
+            },
+            categoryID: {
+                required: true,
+            },
+            docFile: {
+                required: true,
+            },
+            expireDate: {
+                required: true,
+            },
+        },
+        messages: {
+            docName: {
+                required: "Please enter Document Name",
+            },
+            userID: {
+                required: "Please select User Name",
+            },
+            categoryID: {
+                required: "Please select Category",
+            },
+            docFile: {
+                required: "Please select Document file",
+            },
+            expireDate: {
+                required: "Please select Expire Date",
+            },
+        },
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
+    $('#categoryFormAddEdit').validate({
+        // errorClass : 'text-danger',
+        rules: {
+            categoryName: {
+                required: true,
+            },
+        },
+        messages: {
+            categoryName: {
+                required: "Please enter Category Name",
+            },
+        },
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
+    $('#subcatFormAddEdit').validate({
+        // errorClass : 'text-danger',
+        rules: {
+            categoryName: {
+                required: true,
+            },
+            SubCatName: {
+                required: true,
+            },
+        },
+        messages: {
+            categoryName: {
+                required: "Please select Category Name",
+            },
+            SubCatName: {
+                required: "Please select Sub Category Name",
+            },
+        },
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
 });

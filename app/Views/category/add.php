@@ -20,13 +20,13 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <form id="companyFormAddEdit" method="post" action="<?php echo base_url('category/add'); ?>" enctype="multipart/form-data">
+                        <form id="categoryFormAddEdit" method="post" action="<?php echo base_url('category/add'); ?>" enctype="multipart/form-data">
                             
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label class="lableTitle"for="companyName">Category Name :<span class="asterisk-sign">*</span></label>
-                                        <input type="text" name="categoryName" class="form-control" id="companyName" placeholder="Category Name">
+                                        <label class="lableTitle"for="categoryName">Category Name :<span class="asterisk-sign">*</span></label>
+                                        <input type="text" name="categoryName" class="form-control" id="categoryName" placeholder="Category Name">
                                     </div>
                                 </div>
                             </div>
@@ -43,9 +43,9 @@
 </div>
 
 <script type="text/javascript">
-    $(".Company-Menu .inner").addClass("show");
-    $(".Company-Menu .toggle").addClass("activAcc");
-    $(".Company-Menu .inner").css("display", "block")
-    $('.Company-Menu .Company-Menu').addClass('active');
+    $(".Category-Menu .inner").addClass("show");
+    $(".Category-Menu .toggle").addClass("activAcc");
+    $(".Category-Menu .inner").css("display", "block")
+    $('.Category-Menu .Category-Menu').addClass('active');
 </script>
 <script src="<?php echo base_url('assets/js/usersFormValidation.js') ?>"></script>

@@ -11,9 +11,9 @@
                 </ul>
                     <li class="Company-Menu"><a class="" href="<?php echo base_url('company'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-9.png'); ?>" alt=""> Company</a></li>
 
-                     <li class="Company-Menu"><a class="" href="<?php echo base_url('category'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-9.png'); ?>" alt=""> Category</a></li>
+                     <li class="Category-Menu"><a class="" href="<?php echo base_url('category'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-9.png'); ?>" alt=""> Category</a></li>
                     
-                    <!-- <li class="Company-Menu"><a class="" href="<?php echo base_url('subcategory'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-9.png'); ?>" alt=""> Sub Category</a></li> -->
+                    <li class="SubCategory-Menu"><a class="" href="<?php echo base_url('subcategory'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-9.png'); ?>" alt=""> Sub Category</a></li>
 
                     <li class="Document-Menu"><a class="" href="<?php echo base_url('documents'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-9.png'); ?>" alt=""> Manage Document</a></li>
               	

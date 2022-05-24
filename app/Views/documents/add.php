@@ -20,7 +20,7 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <form id="userFormAdd" method="post" action="<?php echo base_url('documents/add'); ?>" enctype="multipart/form-data">
+                        <form id="documentFormAddEdit" method="post" action="<?php echo base_url('documents/add'); ?>" enctype="multipart/form-data">
                             
                             <div class="row">
                                 <div class="col-md-6">
@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="lableTitle"for="email">Users:<span class="asterisk-sign">*</span></label>
+                                        <label class="lableTitle"for="userID">Users:<span class="asterisk-sign">*</span></label>
                                         <select name="userID" id="userID" class="form-control" REQUIRED>
                                             <option value="">-- Select Users --</option>
                                             <?php 

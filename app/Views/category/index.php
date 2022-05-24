@@ -34,9 +34,9 @@
     </div>
 </div>
 <script type="text/javascript">
-    $(".manageUsers-Menu .inner").addClass("show");
-    $(".manageUsers-Menu .toggle").addClass("activAcc");
-    $(".manageUsers-Menu .inner").css("display", "block")
-    $('.manageUsers-Menu .UsersTypes-Menu').addClass('active');
+    $(".Category-Menu .inner").addClass("show");
+    $(".Category-Menu .toggle").addClass("activAcc");
+    $(".Category-Menu .inner").css("display", "block")
+    $('.Category-Menu .Category-Menu').addClass('active');
 </script>
 <script src="<?php echo base_url('assets/js/usersTable.js') ?>"></script>

@@ -20,7 +20,7 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <form id="companyFormAddEdit" method="POST" action="<?php echo base_url('subcategory/add') ?>" enctype="multipart/form-data">
+                        <form id="subcatFormAddEdit" method="POST" action="<?php echo base_url('subcategory/add') ?>" enctype="multipart/form-data">
                          
                             <div class="row">
                                 <div class="col-md-12">
@@ -39,7 +39,7 @@
                                     
                                     <div class="form-group">
 										<label class="lableTitle"for="">Sub Category :<span class="asterisk-sign">*</span></label>                                     
-                                        <input type="text" name="SubCatName" class="form-control" id="" placeholder="Sub-Category Name">
+                                        <input type="text" name="SubCatName" class="form-control" id="SubCatName" placeholder="Sub-Category Name">
                                     </div>
                                     
                                 </div>
@@ -57,9 +57,9 @@
 </div>
 
 <script type="text/javascript">
-    $(".Company-Menu .inner").addClass("show");
-    $(".Company-Menu .toggle").addClass("activAcc");
-    $(".Company-Menu .inner").css("display", "block")
-    $('.Company-Menu .Company-Menu').addClass('active');
+    $(".SubCategory-Menu .inner").addClass("show");
+    $(".SubCategory-Menu .toggle").addClass("activAcc");
+    $(".SubCategory-Menu .inner").css("display", "block")
+    $('.SubCategory-Menu .SubCategory-Menu').addClass('active');
 </script>
 <script src="<?php echo base_url('assets/js/usersFormValidation.js') ?>"></script>

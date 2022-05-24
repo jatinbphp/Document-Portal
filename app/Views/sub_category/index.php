@@ -22,7 +22,7 @@
                         <tr>
                             <th>Category</th>
                             <th>Sub-Category</th>
-                            <th style="width: 15%">Action</th>
+                            <th style="width: 20%">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,9 +35,9 @@
     </div>
 </div>
 <script type="text/javascript">
-    $(".manageUsers-Menu .inner").addClass("show");
-    $(".manageUsers-Menu .toggle").addClass("activAcc");
-    $(".manageUsers-Menu .inner").css("display", "block")
-    $('.manageUsers-Menu .UsersTypes-Menu').addClass('active');
+    $(".SubCategory-Menu .inner").addClass("show");
+    $(".SubCategory-Menu .toggle").addClass("activAcc");
+    $(".SubCategory-Menu .inner").css("display", "block")
+    $('.SubCategory-Menu .SubCategory-Menu').addClass('active');
 </script>
 <script src="<?php echo base_url('assets/js/usersTable.js') ?>"></script>

@@ -27,7 +27,7 @@ class Documents extends BaseController{
 
 				$uploadDir = 'uploads/documents';
 				$ext = pathinfo($_FILES['docFile']['name'],PATHINFO_EXTENSION);
-				$filenm =time().'_profile'.$ext;
+				$filenm =time().'_profile.'.$ext;
 				$docFile = str_replace(' ', '-', $filenm);
 				$uploadedFile = $uploadDir.'/'.$docFile;
 
@@ -129,17 +129,11 @@ class Documents extends BaseController{
         $data = array();
         foreach ($fetch_data as $key => $row) {
             $sub_array = array(); 
-
-            // $imgSrc = '';
-            // if (!empty($row['docFile'])){
-            //     $imgSrc = base_url('uploads/documents/'.$row['docFile']);
-            // } else {
-            //     $imgSrc = base_url('assets/images/user.svg');
-            // }
+            
             $imgSrc = base_url('assets/images/download1.png');
             $id = $row['id'];
-            //$sub_array[] = '<div class="user-img"><img src="'.$imgSrc.'"></div>';
-             $sub_array[] = '<div class="download-img"><a href='. base_url( 'assets/uploads/documents/'.$row['docFile']).'> <img src="'.$imgSrc.'"></a></div>';
+            
+            $sub_array[] = '<a href = "' . base_url( '/uploads/documents/'.$row['docFile']). '" target="_blank"><img src="'.$imgSrc.'"></a>';
             $sub_array[] = $row['docName'];  
 			$sub_array[] = $row['firstName']." ".$row['lastName'];  
 			$sub_array[] = $row['categoryName']; 
@@ -285,13 +279,8 @@ class Documents extends BaseController{
 	  	$id = $_POST['dataid'];
 
 	  	$model_subCat = new SubCategoryModel;
-		$subCat = $model_subCat->where('CategotyId',$id)->findall();
+		$subCat = $model_subCat->where('CategoryId',$id)->findall();
 		echo json_encode($subCat);
   	}
-
-  	// public function download($id = ''){
-
-  	// }
-
 }
 ?>

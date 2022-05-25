@@ -23,7 +23,7 @@ class Reporting extends BaseController{
 		foreach($query->getResult('array') as $result){
 			$data[] = $result;
 		}
-		$fileName = "exportdata-".date('d-m-Y').".xls";
+		$fileName = "Report-".date('d-m-Y').".xls";
 		header('Content-Type: application/vnd.ms-excel');
 		header('Content-Disposition: attachment; filename='.$fileName);
 		$heading = false;

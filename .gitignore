@@ -1,2 +1,2 @@
 /writable/session
-/app/config
+/app/Config/Database.php

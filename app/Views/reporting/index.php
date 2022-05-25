@@ -29,7 +29,7 @@
 									<option value="">Show All</option>
 									<?php if(count($company) > 0): ?>
 										<?php foreach($company as $key => $value): ?>
-											<option value="<?php //echo $value['companyName'] ?> <?php echo $value['id'] ?>"><?php echo $value['companyName'] ?></option>
+											<option value="<?php echo $value['id'] ?>"><?php echo $value['companyName'] ?></option>
 										<?php endforeach; ?>
 									<?php endif; ?>
 									
@@ -49,7 +49,6 @@
                             <th>Status</th>
                             <th>Company</th>
                             <th>Date</th>
-                            <th style="width: 15%">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -86,14 +85,14 @@
 
 
 
-$("select").click(function(){
-	$.post("<?php echo base_url('reporting/getData'); ?>",   // url
-       { myData: companyName = this.value }, // data to be submit
-			function(data, status, jqXHR) {// success callback
+//$("select").click(function(){
+	//$.post("<?php echo base_url('reporting/getData'); ?>",   // url
+       //{ myData: companyName = this.value }, // data to be submit
+			//function(data, status, jqXHR) {// success callback
                 //$('p').append('status: ' + status + ', data: ' + data);
                 //alert("true");
-        });
-  });
+        //});
+  //});
 
 
 
@@ -153,9 +152,8 @@ $("select").click(function(){
     $(".manageUsers-Menu .inner").css("display", "block")
     $('.manageUsers-Menu .Users-Menu').addClass('active');
     
-    $('#categoryFilter').change(function(){
-		
-	});
+    
+    
 </script>
 <script src="<?php echo base_url('assets/js/usersTable.js') ?>"></script>
 

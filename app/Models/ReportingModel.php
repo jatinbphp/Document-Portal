@@ -113,9 +113,8 @@ class ReportingModel extends Model
         //search
         if((isset($_POST["search"]["value"])) && ($_POST["search"]["value"] != '')) {
 			 
-            //$searchString = $_POST["search"]["value"];
+            $searchString = $_POST["search"]["value"];
             
-            //$searchString = $companyName;
           
             $searchArray = array();
             if(!empty($searchColumn)){            
@@ -143,10 +142,6 @@ class ReportingModel extends Model
                 } 
             }
         }        
-
-        // $sql = $this->getCompiledSelect(); 
-        // echo $sql;
-        // exit;
 
     }
 }

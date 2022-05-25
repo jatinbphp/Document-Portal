@@ -283,41 +283,8 @@ $(document).ready(function() {
         });
     });
     
-    
-    //reporting table
-	$('#reportingTable').DataTable({
-        "processing": true,
-        "serverSide": true,
-        "responsive": true,
-        "order": [],
-        "ajax": {
-            url: "reporting/fetch_users_data",
-            type: "POST",
-            data:{'comapny_id':$('#categoryFilter').find('selected').val()}
-        },
-        "columnDefs": [{
-            "orderable": false,
-            "targets": -1
-        }, {
-            "orderable": false,
-            "targets": 0
-        }, {
-            "orderable": false,
-            "targets": 6
-        }, {
-            "width": "10%",
-            "targets": 0
-        }, {
-            "width": "15%",
-            "targets": 1
-        }, {
-            "width": "10%",
-            "targets": 2
-        }, {
-            "width": "10%",
-            "targets": 3
-        }, ]
-    });
+   
+	
     // User delete Event    
     $(document).on('click', '.deleteUsers', function(event) {
         event.preventDefault();
@@ -341,5 +308,50 @@ $(document).ready(function() {
         });
     });
     
+    
+     $('#categoryFilter').change(function(e){
+		$("#reportingTable").dataTable().fnDestroy();
+		filterData();
+	});
+    
+    filterData();
+    
+    function filterData(){
+		
+		
+		
+		//reporting table
+		$('#reportingTable').DataTable({
+			"processing": true,
+			"serverSide": true,
+			"responsive": true,
+			"order": [],
+			"ajax": {
+				url: "reporting/fetch_users_data",
+				type: "POST",
+				data:{'comapny_id':$('#categoryFilter').val()}
+				//data:{'test':'test'}
+			},
+			"columnDefs": [{
+				"orderable": false,
+				"targets": -1
+			}, {
+				"orderable": false,
+				"targets": 0
+			}, {
+				"orderable": false,
+				"targets": 5
+			}, {
+				"width": "10%",
+				"targets": 0
+			}, {
+				"width": "15%",
+				"targets": 1
+			}, {
+				"width": "10%",
+				"targets": 2
+			}]
+		});
+	}
     
 });

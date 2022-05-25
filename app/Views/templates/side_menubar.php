@@ -17,7 +17,9 @@
                     <li class="Document-Menu"><a class="" href="<?php echo base_url('documents'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-9.png'); ?>" alt=""> Manage Document</a></li>
                     
                     <li class="Reporting-Menu"><a class="" href="<?php echo base_url('reporting'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-4.png'); ?>" alt=""> Reporting</a></li>
-              	
+         
+					<li class="Reporting-Category"><a class="" href="<?php echo base_url(''); ?>"><img src="<?php echo base_url('assets/images/dash-icon-4.png'); ?>" alt=""> Category</a></li>
+
             </li>
 
            <!--  <li class="manageInvoice-Menu">

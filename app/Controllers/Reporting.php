@@ -40,7 +40,7 @@ class Reporting extends BaseController{
 	
 	public function getData() {
 		$companyName = $this->request->getPost('myData');
-		//echo $companyName;
+		echo $companyName;
 		
 		//echo $_POST['myData'];
 		//echo "true";
@@ -114,7 +114,7 @@ class Reporting extends BaseController{
         	$sub_array[] = $row['dateAdded'];
          	//$actionLink = $model_user->getActionLink('',$row['id'],'Users','',$row['userTypeID']); 
             $actionLink = $model_user->getActionLink('',$row['id'],$row['userTypeID'],'Users','');
-            $sub_array[] = $actionLink;
+            //~ $sub_array[] = $actionLink;
             $data[] = $sub_array;
         } 
 
@@ -136,15 +136,23 @@ class Reporting extends BaseController{
 
 
 		public function fetch_users_data(){
-		
-
+	
 		$db = \Config\Database::connect();		
   	 	$global_tblUsers = 'Users';
  	  	$global_tbluser_type = 'UserTypes';
 	  	$global_tblcompany = 'Company';
         // equal condition
-        $whereEqual = array(); 
- 		
+        
+        
+		$whereEqual = array();
+		
+		
+		if(isset($_POST['comapny_id']) && $_POST['comapny_id'] != '' ){
+			
+ 			 $whereEqual[$global_tblUsers.'.companyId'] = $_POST['comapny_id'];
+ 		}
+        //$whereEqual = array($global_tblUsers.".companyId" => $_POST['comapny_id']); 
+       
         // not equal condition
         $whereNotEqual = array();
 
@@ -199,7 +207,7 @@ class Reporting extends BaseController{
         	$sub_array[] = $row['dateAdded'];
          	//$actionLink = $model_user->getActionLink('',$row['id'],'Users','',$row['userTypeID']); 
             $actionLink = $model_user->getActionLink('',$row['id'],$row['userTypeID'],'Users','');
-            $sub_array[] = $actionLink;
+            //~ $sub_array[] = $actionLink;
             $data[] = $sub_array;
         } 
 

@@ -107,7 +107,7 @@ class Documents extends BaseController{
         $orderColumn = array('', $global_tblDocuments.".firstName", $global_tblDocuments.".email", $global_tblDocuments.".isActive", $global_tblusers.".firstName", $global_tblDocuments.".isActive");
 
         // search column
-        $searchColumn = array($global_tblDocuments.".docName",$global_tblusers.".firstName",$global_tblDocuments.".isActive");
+        $searchColumn = array($global_tblDocuments.".docName",$global_tblusers.".firstName",$global_tblusers.".lastName",$global_tblDocuments.".isActive");
 
         // order by
         $orderBy = array($global_tblDocuments.'.id' => "DESC");

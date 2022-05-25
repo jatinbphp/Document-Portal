@@ -1,0 +1,53 @@
+ERROR - 2022-05-25 17:03:05 --> Unknown column 'DocumentsManage.email' in 'order clause'
+CRITICAL - 2022-05-25 17:03:05 --> Call to a member function getResult() on bool
+#0 /var/www/html/documentportal/system/BaseModel.php(603): CodeIgniter\Model->doFindAll()
+#1 /var/www/html/documentportal/app/Models/DocumentsModel.php(58): CodeIgniter\BaseModel->findAll()
+#2 /var/www/html/documentportal/app/Controllers/Documents.php(126): App\Models\DocumentsModel->make_datatables()
+#3 /var/www/html/documentportal/system/CodeIgniter.php(929): App\Controllers\Documents->fetch_documents()
+#4 /var/www/html/documentportal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/documentportal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/documentportal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-05-25 17:03:08 --> Unknown column 'DocumentsManage.email' in 'order clause'
+CRITICAL - 2022-05-25 17:03:08 --> Call to a member function getResult() on bool
+#0 /var/www/html/documentportal/system/BaseModel.php(603): CodeIgniter\Model->doFindAll()
+#1 /var/www/html/documentportal/app/Models/DocumentsModel.php(58): CodeIgniter\BaseModel->findAll()
+#2 /var/www/html/documentportal/app/Controllers/Documents.php(126): App\Models\DocumentsModel->make_datatables()
+#3 /var/www/html/documentportal/system/CodeIgniter.php(929): App\Controllers\Documents->fetch_documents()
+#4 /var/www/html/documentportal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/documentportal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/documentportal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-05-25 17:03:14 --> Unknown column 'DocumentsManage.email' in 'order clause'
+CRITICAL - 2022-05-25 17:03:14 --> Call to a member function getResult() on bool
+#0 /var/www/html/documentportal/system/BaseModel.php(603): CodeIgniter\Model->doFindAll()
+#1 /var/www/html/documentportal/app/Models/DocumentsModel.php(58): CodeIgniter\BaseModel->findAll()
+#2 /var/www/html/documentportal/app/Controllers/Documents.php(126): App\Models\DocumentsModel->make_datatables()
+#3 /var/www/html/documentportal/system/CodeIgniter.php(929): App\Controllers\Documents->fetch_documents()
+#4 /var/www/html/documentportal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/documentportal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/documentportal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-05-25 17:03:16 --> Unknown column 'DocumentsManage.email' in 'order clause'
+CRITICAL - 2022-05-25 17:03:16 --> Call to a member function getResult() on bool
+#0 /var/www/html/documentportal/system/BaseModel.php(603): CodeIgniter\Model->doFindAll()
+#1 /var/www/html/documentportal/app/Models/DocumentsModel.php(58): CodeIgniter\BaseModel->findAll()
+#2 /var/www/html/documentportal/app/Controllers/Documents.php(126): App\Models\DocumentsModel->make_datatables()
+#3 /var/www/html/documentportal/system/CodeIgniter.php(929): App\Controllers\Documents->fetch_documents()
+#4 /var/www/html/documentportal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/documentportal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/documentportal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-05-25 17:21:28 --> Error connecting to the database: Access denied for user '****'@'localhost' (using password: YES)
+CRITICAL - 2022-05-25 17:21:28 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: YES)
+#0 /var/www/html/documentportal/system/Database/BaseConnection.php(625): CodeIgniter\Database\BaseConnection->initialize()
+#1 /var/www/html/documentportal/system/Database/BaseBuilder.php(1881): CodeIgniter\Database\BaseConnection->query()
+#2 /var/www/html/documentportal/system/Model.php(197): CodeIgniter\Database\BaseBuilder->get()
+#3 /var/www/html/documentportal/system/BaseModel.php(603): CodeIgniter\Model->doFindAll()
+#4 /var/www/html/documentportal/app/Controllers/Documents.php(70): CodeIgniter\BaseModel->findAll()
+#5 /var/www/html/documentportal/system/CodeIgniter.php(929): App\Controllers\Documents->add()
+#6 /var/www/html/documentportal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#7 /var/www/html/documentportal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#8 /var/www/html/documentportal/index.php(38): CodeIgniter\CodeIgniter->run()
+#9 {main}

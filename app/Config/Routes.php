@@ -79,6 +79,11 @@ $routes->post('subcategory/add', 'SubCategory::create',['filter' => 'auth']);
 $routes->put('subcategory/update/(:any)', 'SubCategory::update/$1',['filter' => 'auth']);
 $routes->get('subcategory/(:any)', 'SubCategory::$1',['filter' => 'auth']);
 
+//Reporting
+$routes->get('reporting', 'Reporting::index',['filter' => 'auth']);
+$routes->get('reporting/export', 'Reporting::export',['filter' => 'auth']);
+$routes->post('reporting/getData', 'Reporting::getData',['filter' => 'auth']);
+
 // $routes->get('invoice', 'Invoice::index',['filter' => 'auth']);
 // $routes->get('invoice/(:any)', 'Invoice::$1',['filter' => 'auth']);
 // $routes->get('Invoice', 'Invoice::index',['filter' => 'auth']);

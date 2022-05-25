@@ -23,7 +23,7 @@ class App extends BaseConfig
 	 *
 	 * @var string
 	 */
-	public $baseURL = 'http://localhost/documentportal/';
+	public $baseURL = 'http://localhost/Document-Portal/';
 
 	/**
 	 * --------------------------------------------------------------------------

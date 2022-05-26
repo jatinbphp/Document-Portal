@@ -51,3 +51,186 @@ Main connection [MySQLi]: Access denied for user '****'@'localhost' (using passw
 #7 /var/www/html/documentportal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
 #8 /var/www/html/documentportal/index.php(38): CodeIgniter\CodeIgniter->run()
 #9 {main}
+CRITICAL - 2022-05-25 17:36:57 --> Undefined array key "length"
+#0 /var/www/html/Document-Portal/app/Models/ReportingModel.php(58): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/app/Controllers/Reporting.php(90): App\Models\ReportingModel->make_datatables()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Reporting->getData()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#5 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-05-25 17:37:04 --> Undefined array key "length"
+#0 /var/www/html/Document-Portal/app/Models/ReportingModel.php(58): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/app/Controllers/Reporting.php(90): App\Models\ReportingModel->make_datatables()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Reporting->getData()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#5 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-05-25 17:37:19 --> Undefined array key "length"
+#0 /var/www/html/Document-Portal/app/Models/ReportingModel.php(58): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/app/Controllers/Reporting.php(90): App\Models\ReportingModel->make_datatables()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Reporting->getData()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#5 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-05-25 17:37:22 --> Undefined array key "length"
+#0 /var/www/html/Document-Portal/app/Models/ReportingModel.php(58): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/app/Controllers/Reporting.php(90): App\Models\ReportingModel->make_datatables()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Reporting->getData()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#5 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-05-25 17:39:52 --> count(): Argument #1 ($value) must be of type Countable|array, null given
+#0 /var/www/html/Document-Portal/system/View/View.php(230): include()
+#1 /var/www/html/Document-Portal/system/View/View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#3 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#4 /var/www/html/Document-Portal/app/Controllers/Documents.php(13): App\Controllers\BaseController->render_template()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Documents->index()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#7 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#8 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-05-25 17:40:42 --> Class "App\Controllers\CompanyModel" not found
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Documents->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-05-25 17:44:07 --> syntax error, unexpected variable "$value", expecting "," or ";"
+#0 /var/www/html/Document-Portal/system/View/View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#2 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#3 /var/www/html/Document-Portal/app/Controllers/Documents.php(20): App\Controllers\BaseController->render_template()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Documents->index()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-25 17:44:38 --> syntax error, unexpected variable "$value", expecting "," or ";"
+#0 /var/www/html/Document-Portal/system/View/View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#2 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#3 /var/www/html/Document-Portal/app/Controllers/Documents.php(20): App\Controllers\BaseController->render_template()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Documents->index()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-25 17:44:51 --> syntax error, unexpected variable "$value", expecting "," or ";"
+#0 /var/www/html/Document-Portal/system/View/View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#2 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#3 /var/www/html/Document-Portal/app/Controllers/Documents.php(20): App\Controllers\BaseController->render_template()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Documents->index()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-25 17:45:02 --> syntax error, unexpected variable "$value", expecting "," or ";"
+#0 /var/www/html/Document-Portal/system/View/View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#2 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#3 /var/www/html/Document-Portal/app/Controllers/Documents.php(20): App\Controllers\BaseController->render_template()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Documents->index()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-25 17:45:23 --> syntax error, unexpected variable "$value", expecting "," or ";"
+#0 /var/www/html/Document-Portal/system/View/View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#2 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#3 /var/www/html/Document-Portal/app/Controllers/Documents.php(20): App\Controllers\BaseController->render_template()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Documents->index()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-25 17:46:09 --> syntax error, unexpected variable "$value", expecting "," or ";"
+#0 /var/www/html/Document-Portal/system/View/View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#2 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#3 /var/www/html/Document-Portal/app/Controllers/Documents.php(20): App\Controllers\BaseController->render_template()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Documents->index()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-25 17:48:57 --> Undefined array key "companyName"
+#0 /var/www/html/Document-Portal/app/Views/documents/index.php(45): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/View/View.php(230): include('...')
+#2 /var/www/html/Document-Portal/system/View/View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#4 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#5 /var/www/html/Document-Portal/app/Controllers/Documents.php(19): App\Controllers\BaseController->render_template()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Documents->index()
+#7 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#8 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#9 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-05-25 17:49:57 --> syntax error, unexpected token "echo"
+#0 /var/www/html/Document-Portal/system/View/View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#2 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#3 /var/www/html/Document-Portal/app/Controllers/Documents.php(19): App\Controllers\BaseController->render_template()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Documents->index()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-25 17:52:08 --> Undefined array key "length"
+#0 /var/www/html/Document-Portal/app/Models/ReportingModel.php(58): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/app/Controllers/Reporting.php(90): App\Models\ReportingModel->make_datatables()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Reporting->getData()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#5 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-05-25 17:52:12 --> Undefined array key "length"
+#0 /var/www/html/Document-Portal/app/Models/ReportingModel.php(58): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/app/Controllers/Reporting.php(90): App\Models\ReportingModel->make_datatables()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Reporting->getData()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#5 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-05-25 17:52:14 --> Undefined array key "length"
+#0 /var/www/html/Document-Portal/app/Models/ReportingModel.php(58): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/app/Controllers/Reporting.php(90): App\Models\ReportingModel->make_datatables()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Reporting->getData()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#5 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-05-25 18:27:16 --> Undefined array key "companyId"
+#0 /var/www/html/Document-Portal/app/Controllers/Documents.php(100): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Documents->fetch_documents()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-05-25 18:27:46 --> Undefined array key "companyId"
+#0 /var/www/html/Document-Portal/app/Controllers/Documents.php(100): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Documents->fetch_documents()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-05-25 18:27:59 --> Undefined array key "companyId"
+#0 /var/www/html/Document-Portal/app/Controllers/Documents.php(100): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Documents->fetch_documents()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-05-25 18:28:24 --> Undefined array key "companyId"
+#0 /var/www/html/Document-Portal/app/Controllers/Documents.php(100): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Documents->fetch_documents()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}

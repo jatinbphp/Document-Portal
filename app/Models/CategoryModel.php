@@ -19,7 +19,7 @@ class CategoryModel extends Model
 	protected $validationMessages   = [];
 	protected $skipValidation       = false;
 	protected $cleanValidationRules = true;
-	protected $allowedFields = ['categoryName'];
+	protected $allowedFields = ['categoryName','is_deleted'];
 
 	public function get_all_data($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn)
     {   
@@ -138,7 +138,11 @@ class CategoryModel extends Model
                      $this->orderBy($orderFieldName,$orderFieldType);             
                 } 
             }
-        }        
+        } 
+
+        // $sql = $this->getCompiledSelect(); 
+        // echo $sql;
+        // exit;       
     }
 }
 

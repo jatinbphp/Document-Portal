@@ -282,9 +282,6 @@ $(document).ready(function() {
             }
         });
     });
-    
-   
-	
     // User delete Event    
     $(document).on('click', '.deleteUsers', function(event) {
         event.preventDefault();
@@ -307,51 +304,135 @@ $(document).ready(function() {
             }
         });
     });
-    
-    
-     $('#categoryFilter').change(function(e){
-		$("#reportingTable").dataTable().fnDestroy();
-		filterData();
-	});
-    
+    $('#categoryFilter').change(function(e) {
+        $("#reportingTable").dataTable().fnDestroy();
+        filterData();
+    });
     filterData();
-    
-    function filterData(){
-		
-		
-		
-		//reporting table
-		$('#reportingTable').DataTable({
-			"processing": true,
-			"serverSide": true,
-			"responsive": true,
-			"order": [],
-			"ajax": {
-				url: "reporting/fetch_users_data",
-				type: "POST",
-				data:{'comapny_id':$('#categoryFilter').val()}
-				//data:{'test':'test'}
-			},
-			"columnDefs": [{
-				"orderable": false,
-				"targets": -1
-			}, {
-				"orderable": false,
-				"targets": 0
-			}, {
-				"orderable": false,
-				"targets": 5
-			}, {
-				"width": "10%",
-				"targets": 0
-			}, {
-				"width": "15%",
-				"targets": 1
-			}, {
-				"width": "10%",
-				"targets": 2
-			}]
-		});
-	}
-    
+
+    function filterData() {
+        //reporting table
+        $('#reportingTable').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "responsive": true,
+            "order": [],
+            "ajax": {
+                url: "reporting/fetch_users_data",
+                type: "POST",
+                data: {
+                    'comapny_id': $('#categoryFilter').val()
+                }
+                //data:{'test':'test'}
+            },
+            "columnDefs": [{
+                "orderable": false,
+                "targets": -1
+            }, {
+                "orderable": false,
+                "targets": 0
+            }, {
+                "orderable": false,
+                "targets": 5
+            }, {
+                "width": "10%",
+                "targets": 0
+            }, {
+                "width": "15%",
+                "targets": 1
+            }, {
+                "width": "10%",
+                "targets": 2
+            }]
+        });
+    }
+    //company filter in documentlist
+    $('#companySearch').change(function(e) {
+        $companyId = $('#companySearch').val();
+        if ($companyId == '') {
+            $("#documentsTable").css("display", "block");
+            $("#companySearchTable").css("display", "none");
+        } else {
+            $("#companySearchTable").css("display", "block");
+            $("#documentsTable").css("display", "none");
+        }
+        $("#companySearchTable").dataTable().fnDestroy();
+        filterCompanyData();
+    });
+    $('#userSearch').change(function(e) {
+        $("#companySearchTable").dataTable().fnDestroy();
+        filterUserData();
+    });
+    //filterCompanyData();
+    function filterCompanyData() {
+        //reporting table
+        $('#companySearchTable').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "responsive": true,
+            "order": [],
+            "ajax": {
+                url: "documents/fetch_company_data",
+                type: "POST",
+                data: {
+                    'comapny_id': $('#companySearch').val()
+                }
+            },
+            "columnDefs": [{
+                "orderable": false,
+                "targets": -1
+            }, {
+                "orderable": false,
+                "targets": 0
+            }, {
+                "orderable": false,
+                "targets": 5
+            }, {
+                "width": "10%",
+                "targets": 0
+            }, {
+                "width": "15%",
+                "targets": 1
+            }, {
+                "width": "10%",
+                "targets": 2
+            }]
+        });
+    }
+
+    function filterUserData() {
+        //reporting table
+        $('#companySearchTable').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "responsive": true,
+            "order": [],
+            "ajax": {
+                url: "documents/fetch_company_data",
+                type: "POST",
+                data: {
+                    'user_id': $('#userSearch').val()
+                }
+            },
+            "columnDefs": [{
+                "orderable": false,
+                "targets": -1
+            }, {
+                "orderable": false,
+                "targets": 0
+            }, {
+                "orderable": false,
+                "targets": 5
+            }, {
+                "width": "10%",
+                "targets": 0
+            }, {
+                "width": "15%",
+                "targets": 1
+            }, {
+                "width": "10%",
+                "targets": 2
+            }]
+        });
+    }
 });

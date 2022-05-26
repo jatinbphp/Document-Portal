@@ -1,0 +1,206 @@
+CRITICAL - 2022-05-26 08:59:05 --> Undefined array key "length"
+#0 /var/www/html/Document-Portal/app/Models/ReportingModel.php(58): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/app/Controllers/Reporting.php(90): App\Models\ReportingModel->make_datatables()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Reporting->getData()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#5 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-05-26 08:59:10 --> Undefined array key "companyId"
+#0 /var/www/html/Document-Portal/app/Controllers/Documents.php(100): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Documents->fetch_documents()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-05-26 09:02:04 --> Undefined array key "companyId"
+#0 /var/www/html/Document-Portal/app/Controllers/Documents.php(100): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Documents->fetch_documents()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-05-26 09:06:38 --> Undefined array key "companyId"
+#0 /var/www/html/Document-Portal/app/Controllers/Documents.php(100): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Documents->fetch_documents()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-05-26 09:08:01 --> Undefined array key "companyId"
+#0 /var/www/html/Document-Portal/app/Controllers/Documents.php(100): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Documents->fetch_documents()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-05-26 09:08:13 --> Undefined array key "companyId"
+#0 /var/www/html/Document-Portal/app/Controllers/Documents.php(100): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Documents->fetch_documents()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-05-26 09:10:19 --> Undefined array key "companyId"
+#0 /var/www/html/Document-Portal/app/Controllers/Documents.php(100): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Documents->fetch_documents()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-05-26 09:21:11 --> Undefined array key "companyId"
+#0 /var/www/html/Document-Portal/app/Controllers/Documents.php(105): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Documents->fetch_documents()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-05-26 09:26:28 --> Undefined array key "companyId"
+#0 /var/www/html/Document-Portal/app/Controllers/Documents.php(112): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Documents->fetch_documents()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-05-26 09:27:18 --> Undefined array key "companyId"
+#0 /var/www/html/Document-Portal/app/Controllers/Documents.php(112): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Documents->fetch_documents()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-05-26 09:27:54 --> Undefined variable $companyId
+#0 /var/www/html/Document-Portal/app/Controllers/Documents.php(111): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Documents->fetch_documents()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-05-26 09:28:12 --> Undefined variable $companyId
+#0 /var/www/html/Document-Portal/app/Controllers/Documents.php(111): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Documents->fetch_documents()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-05-26 09:41:29 --> Class "App\Controllers\ReportingModel" not found
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Documents->companySearch()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-05-26 09:42:19 --> Class "App\Controllers\ReportingModel" not found
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Documents->companySearch()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-05-26 09:42:29 --> Class "App\Controllers\ReportingModel" not found
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Documents->companySearch()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-05-26 11:49:12 --> Undefined variable $img_thumnail
+#0 /var/www/html/Document-Portal/app/Views/documents/add.php(114): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/View/View.php(230): include('...')
+#2 /var/www/html/Document-Portal/system/View/View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#4 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#5 /var/www/html/Document-Portal/app/Controllers/Documents.php(92): App\Controllers\BaseController->render_template()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Documents->add()
+#7 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#8 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#9 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-05-26 11:49:30 --> Undefined variable $img_thumnail
+#0 /var/www/html/Document-Portal/app/Views/documents/add.php(112): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/View/View.php(230): include('...')
+#2 /var/www/html/Document-Portal/system/View/View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#4 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#5 /var/www/html/Document-Portal/app/Controllers/Documents.php(92): App\Controllers\BaseController->render_template()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Documents->add()
+#7 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#8 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#9 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-05-26 12:01:52 --> syntax error, unexpected token "public"
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-05-26 12:47:30 --> syntax error, unexpected token ";", expecting ")"
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-05-26 12:48:20 --> There is no data to update.
+#0 /var/www/html/Document-Portal/system/BaseModel.php(896): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset()
+#1 /var/www/html/Document-Portal/system/Model.php(718): CodeIgniter\BaseModel->update()
+#2 /var/www/html/Document-Portal/app/Controllers/Category.php(99): CodeIgniter\Model->update()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Category->delete()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-05-26 12:50:13 --> There is no data to update.
+#0 /var/www/html/Document-Portal/system/BaseModel.php(896): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset()
+#1 /var/www/html/Document-Portal/system/Model.php(718): CodeIgniter\BaseModel->update()
+#2 /var/www/html/Document-Portal/app/Controllers/Category.php(97): CodeIgniter\Model->update()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Category->delete()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-05-26 12:52:16 --> There is no data to update.
+#0 /var/www/html/Document-Portal/system/BaseModel.php(896): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset()
+#1 /var/www/html/Document-Portal/system/Model.php(718): CodeIgniter\BaseModel->update()
+#2 /var/www/html/Document-Portal/app/Controllers/Category.php(97): CodeIgniter\Model->update()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Category->delete()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-05-26 12:53:40 --> There is no data to update.
+#0 /var/www/html/Document-Portal/system/BaseModel.php(896): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset()
+#1 /var/www/html/Document-Portal/system/Model.php(718): CodeIgniter\BaseModel->update()
+#2 /var/www/html/Document-Portal/app/Controllers/Category.php(97): CodeIgniter\Model->update()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Category->delete()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-05-26 12:55:42 --> There is no data to update.
+#0 /var/www/html/Document-Portal/system/BaseModel.php(896): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset()
+#1 /var/www/html/Document-Portal/system/Model.php(718): CodeIgniter\BaseModel->update()
+#2 /var/www/html/Document-Portal/app/Controllers/Category.php(97): CodeIgniter\Model->update()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Category->delete()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-05-26 12:57:33 --> There is no data to update.
+#0 /var/www/html/Document-Portal/system/BaseModel.php(896): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset()
+#1 /var/www/html/Document-Portal/system/Model.php(718): CodeIgniter\BaseModel->update()
+#2 /var/www/html/Document-Portal/app/Controllers/Category.php(98): CodeIgniter\Model->update()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Category->delete()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-05-26 13:05:33 --> Undefined variable $global_tblcategory
+#0 /var/www/html/Document-Portal/app/Controllers/Category.php(121): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Category->fetch_category()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}

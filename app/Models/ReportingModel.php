@@ -143,6 +143,9 @@ class ReportingModel extends Model
             }
         }        
 
+        // $sql = $this->getCompiledSelect(); 
+        // echo $sql;
+        // exit;
     }
 }
  

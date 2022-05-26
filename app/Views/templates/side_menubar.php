@@ -4,9 +4,9 @@
 		<ul class="accordion">
 			<li class="Dashboard-Menu"><a href="<?php echo base_url('dashboard'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-1.png'); ?>" alt="">Dashboard</a></li>
 				
-					<li class="manageUsers-Menu"><a class="toggle" href="javascript:void(0)" onclick="showDiv()"><img src="<?php echo base_url('assets/images/dash-icon-5.png');?>" alt="">Manage Users</a></li>
+					<!-- <li class="manageUsers-Menu"><a class="toggle" href="javascript:void(0)" onclick="showDiv()"><img src="<?php echo base_url('assets/images/dash-icon-5.png');?>" alt="">Manage Users</a></li> -->
 					
-					<li class="Users-Menu" id="Users-Menu" style="display:none;"><a class="" href="<?php echo base_url('users'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-5.png'); ?>" alt=""> Users</a></li>
+					<li class="Users-Menu"><a class="" href="<?php echo base_url('users'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-5.png'); ?>" alt="">Manage Users</a></li>
 					
                     <li class="Company-Menu"><a class="" href="<?php echo base_url('company'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-9.png'); ?>" alt=""> Company</a></li>
 
@@ -18,7 +18,7 @@
                     
                     <li class="Reporting-Menu"><a class="" href="<?php echo base_url('reporting'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-4.png'); ?>" alt=""> Reporting</a></li>
          
-					<li class="Reporting-Category"><a class="" href="<?php echo base_url(''); ?>"><img src="<?php echo base_url('assets/images/dash-icon-4.png'); ?>" alt=""> Category</a></li>
+					<!-- <li class="Reporting-Category"><a class="" href="<?php echo base_url(''); ?>"><img src="<?php echo base_url('assets/images/dash-icon-4.png'); ?>" alt=""> Category</a></li> -->
 
             </li>
 

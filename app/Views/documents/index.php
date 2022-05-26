@@ -96,10 +96,10 @@
     </div>
 </div>
 <script type="text/javascript">
-    $(".manageDocuments-Menu .inner").addClass("show");
-    $(".manageDocuments-Menu .toggle").addClass("activAcc");
-    $(".manageDocuments-Menu .inner").css("display", "block")
-    $('.manageDocuments-Menu .Documents-Menu').addClass('active');
+  // $(".manageDocuments-Menu .inner").addClass("show");
+    // $(".manageDocuments-Menu .toggle").addClass("activAcc");
+    // $(".manageDocuments-Menu .inner").css("display", "block")
+    $('.Document-Menu').addClass('active');
 </script>
 <script src="<?php echo base_url('assets/js/usersTable.js') ?>"></script>
 

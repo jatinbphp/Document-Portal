@@ -142,10 +142,10 @@
 </div>
 
 <script type="text/javascript">
-    $(".manageDocuments-Menu .inner").addClass("show");
-    $(".manageDocuments-Menu .toggle").addClass("activAcc");
-    $(".manageDocuments-Menu .inner").css("display", "block")
-    $('.manageDocuments-Menu .Documents-Menu').addClass('active');
+    // $(".manageDocuments-Menu .inner").addClass("show");
+    // $(".manageDocuments-Menu .toggle").addClass("activAcc");
+    // $(".manageDocuments-Menu .inner").css("display", "block")
+    $('.Document-Menu').addClass('active');
 </script>
 <script src="<?php echo base_url('assets/js/usersFormValidation.js') ?>"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

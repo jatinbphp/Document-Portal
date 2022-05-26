@@ -38,10 +38,10 @@
     </div>
 </div>
 <script type="text/javascript">
-    $(".manageUsers-Menu .inner").addClass("show");
-    $(".manageUsers-Menu .toggle").addClass("activAcc");
-    $(".manageUsers-Menu .inner").css("display", "block")
-    $('.manageUsers-Menu .Users-Menu').addClass('active');
+    // $(".manageUsers-Menu .inner").addClass("show");
+    // $(".manageUsers-Menu .toggle").addClass("activAcc");
+    // $(".manageUsers-Menu .inner").css("display", "block")
+    $('.Users-Menu').addClass('active');
 </script>
 <script src="<?php echo base_url('assets/js/usersTable.js') ?>"></script>
 

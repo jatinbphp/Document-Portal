@@ -207,7 +207,7 @@ class Reporting extends BaseController{
         	$sub_array[] = $row['dateAdded'];
          	//$actionLink = $model_user->getActionLink('',$row['id'],'Users','',$row['userTypeID']); 
             $actionLink = $model_user->getActionLink('',$row['id'],$row['userTypeID'],'Users','');
-            //~ $sub_array[] = $actionLink;
+            //$sub_array[] = $actionLink;
             $data[] = $sub_array;
         } 
 

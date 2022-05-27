@@ -1,0 +1,1055 @@
+CRITICAL - 2022-05-26 11:19:49 --> count(): Parameter must be an array or an object that implements Countable
+#0 /var/www/html/Document-Portal/app/Views/reporting_category/index.php(30): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/View/View.php(230): include('/var/www/html/D...')
+#2 /var/www/html/Document-Portal/system/View/View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#4 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#5 /var/www/html/Document-Portal/app/Controllers/ReportingCategory.php(16): App\Controllers\BaseController->render_template()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#7 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#8 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#9 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-05-26 11:20:25 --> count(): Parameter must be an array or an object that implements Countable
+#0 /var/www/html/Document-Portal/app/Views/reporting_category/index.php(30): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/View/View.php(230): include('/var/www/html/D...')
+#2 /var/www/html/Document-Portal/system/View/View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#4 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#5 /var/www/html/Document-Portal/app/Controllers/ReportingCategory.php(16): App\Controllers\BaseController->render_template()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#7 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#8 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#9 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-05-26 12:14:47 --> Cannot use [] for reading
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-05-26 13:14:35 --> Cannot declare class App\Controllers\ReportingCategoryModel because the name is already in use
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-05-26 13:15:24 --> Invalid file: {0}
+#0 /var/www/html/Document-Portal/system/View/View.php(213): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+#1 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#2 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#3 /var/www/html/Document-Portal/app/Controllers/ReportingCategory.php(15): App\Controllers\BaseController->render_template()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-26 13:15:41 --> Invalid file: {0}
+#0 /var/www/html/Document-Portal/system/View/View.php(213): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+#1 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#2 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#3 /var/www/html/Document-Portal/app/Controllers/ReportingCategory.php(15): App\Controllers\BaseController->render_template()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-26 13:18:04 --> Invalid file: {0}
+#0 /var/www/html/Document-Portal/system/View/View.php(213): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+#1 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#2 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#3 /var/www/html/Document-Portal/app/Controllers/ReportingCategory.php(15): App\Controllers\BaseController->render_template()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-26 13:18:07 --> Invalid file: {0}
+#0 /var/www/html/Document-Portal/system/View/View.php(213): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+#1 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#2 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#3 /var/www/html/Document-Portal/app/Controllers/ReportingCategory.php(15): App\Controllers\BaseController->render_template()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-26 13:24:37 --> Invalid file: {0}
+#0 /var/www/html/Document-Portal/system/View/View.php(213): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+#1 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#2 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#3 /var/www/html/Document-Portal/app/Controllers/ReportingCategory.php(15): App\Controllers\BaseController->render_template()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-26 13:24:42 --> Invalid file: {0}
+#0 /var/www/html/Document-Portal/system/View/View.php(213): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+#1 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#2 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#3 /var/www/html/Document-Portal/app/Controllers/ReportingCategory.php(15): App\Controllers\BaseController->render_template()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-26 13:24:54 --> Invalid file: {0}
+#0 /var/www/html/Document-Portal/system/View/View.php(213): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+#1 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#2 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#3 /var/www/html/Document-Portal/app/Controllers/ReportingCategory.php(15): App\Controllers\BaseController->render_template()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-26 14:16:12 --> syntax error, unexpected '$query' (T_VARIABLE)
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-26 14:17:39 --> syntax error, unexpected '$query' (T_VARIABLE)
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-26 14:17:42 --> syntax error, unexpected '$query' (T_VARIABLE)
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-26 14:18:29 --> syntax error, unexpected '$queryresult' (T_VARIABLE)
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-26 14:18:50 --> syntax error, unexpected 'echo' (T_ECHO)
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-26 14:19:08 --> syntax error, unexpected '}'
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-26 14:19:44 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::form()
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 14:20:47 --> Not unique table/alias: 'category'
+ERROR - 2022-05-26 14:21:05 --> Not unique table/alias: 'category'
+ERROR - 2022-05-26 14:21:07 --> Not unique table/alias: 'category'
+ERROR - 2022-05-26 14:21:21 --> Not unique table/alias: 'category'
+ERROR - 2022-05-26 14:21:33 --> Not unique table/alias: 'category'
+ERROR - 2022-05-26 14:21:35 --> Not unique table/alias: 'category'
+ERROR - 2022-05-26 14:21:44 --> Not unique table/alias: 'category'
+ERROR - 2022-05-26 14:21:47 --> Not unique table/alias: 'category'
+ERROR - 2022-05-26 14:22:14 --> Not unique table/alias: 'category'
+ERROR - 2022-05-26 14:22:16 --> Not unique table/alias: 'category'
+ERROR - 2022-05-26 14:22:35 --> Table 'hseqssco_document.SubCatName' doesn't exist
+ERROR - 2022-05-26 14:24:17 --> Table 'hseqssco_document.SubCatName' doesn't exist
+ERROR - 2022-05-26 14:24:24 --> Table 'hseqssco_document.SubCatName' doesn't exist
+ERROR - 2022-05-26 14:24:53 --> Not unique table/alias: 'category'
+ERROR - 2022-05-26 14:24:55 --> Not unique table/alias: 'category'
+ERROR - 2022-05-26 14:25:03 --> Not unique table/alias: 'category'
+ERROR - 2022-05-26 14:27:57 --> Not unique table/alias: 'category'
+ERROR - 2022-05-26 14:33:44 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 14:33:44 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 14:34:30 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 14:34:30 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 14:34:36 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 14:34:36 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 14:36:26 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 14:36:26 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 14:36:56 --> Unknown column 'SubCategory.SubCatName' in 'field list'
+CRITICAL - 2022-05-26 14:36:56 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-05-26 14:42:58 --> Call to a member function select() on null
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 14:43:53 --> Not unique table/alias: 'category'
+CRITICAL - 2022-05-26 14:43:53 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 14:44:10 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 14:44:10 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 14:44:13 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 14:44:13 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 14:45:41 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 14:45:41 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 14:45:41 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 14:45:41 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-05-26 15:03:43 --> Call to a member function select() on null
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-05-26 15:12:36 --> syntax error, unexpected end of file, expecting function (T_FUNCTION) or const (T_CONST)
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-26 15:14:54 --> syntax error, unexpected end of file, expecting function (T_FUNCTION) or const (T_CONST)
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-26 15:16:02 --> syntax error, unexpected end of file, expecting function (T_FUNCTION) or const (T_CONST)
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-26 15:16:16 --> syntax error, unexpected end of file, expecting function (T_FUNCTION) or const (T_CONST)
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+ERROR - 2022-05-26 15:16:46 --> Unknown column 'SubCategory' in 'field list'
+CRITICAL - 2022-05-26 15:16:46 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-05-26 15:34:03 --> Invalid file: {0}
+#0 /var/www/html/Document-Portal/system/View/View.php(213): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+#1 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#2 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#3 /var/www/html/Document-Portal/app/Controllers/ReportingCategory.php(29): App\Controllers\BaseController->render_template()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-26 15:34:39 --> Illegal string offset 'categoryName'
+#0 /var/www/html/Document-Portal/app/Views/reporting_category/index.php(32): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/View/View.php(230): include('/var/www/html/D...')
+#2 /var/www/html/Document-Portal/system/View/View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#4 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#5 /var/www/html/Document-Portal/app/Controllers/ReportingCategory.php(29): App\Controllers\BaseController->render_template()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#7 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#8 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#9 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-05-26 15:36:20 --> Illegal string offset 'SubCatName'
+#0 /var/www/html/Document-Portal/app/Views/reporting_category/index.php(32): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/View/View.php(230): include('/var/www/html/D...')
+#2 /var/www/html/Document-Portal/system/View/View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#4 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#5 /var/www/html/Document-Portal/app/Controllers/ReportingCategory.php(29): App\Controllers\BaseController->render_template()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#7 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#8 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#9 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-05-26 15:47:06 --> syntax error, unexpected '?>'
+#0 /var/www/html/Document-Portal/system/View/View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#2 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#3 /var/www/html/Document-Portal/app/Controllers/ReportingCategory.php(29): App\Controllers\BaseController->render_template()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-26 15:47:18 --> syntax error, unexpected ':'
+#0 /var/www/html/Document-Portal/system/View/View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#2 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#3 /var/www/html/Document-Portal/app/Controllers/ReportingCategory.php(29): App\Controllers\BaseController->render_template()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-26 15:48:16 --> syntax error, unexpected ':'
+#0 /var/www/html/Document-Portal/system/View/View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#2 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#3 /var/www/html/Document-Portal/app/Controllers/ReportingCategory.php(29): App\Controllers\BaseController->render_template()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-26 15:48:43 --> syntax error, unexpected ':'
+#0 /var/www/html/Document-Portal/system/View/View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#2 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#3 /var/www/html/Document-Portal/app/Controllers/ReportingCategory.php(29): App\Controllers\BaseController->render_template()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-26 15:49:25 --> Invalid argument supplied for foreach()
+#0 /var/www/html/Document-Portal/app/Views/reporting_category/index.php(30): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/View/View.php(230): include('/var/www/html/D...')
+#2 /var/www/html/Document-Portal/system/View/View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#4 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#5 /var/www/html/Document-Portal/app/Controllers/ReportingCategory.php(29): App\Controllers\BaseController->render_template()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#7 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#8 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#9 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-05-26 15:50:09 --> Invalid argument supplied for foreach()
+#0 /var/www/html/Document-Portal/app/Views/reporting_category/index.php(30): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/View/View.php(230): include('/var/www/html/D...')
+#2 /var/www/html/Document-Portal/system/View/View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#4 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#5 /var/www/html/Document-Portal/app/Controllers/ReportingCategory.php(29): App\Controllers\BaseController->render_template()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#7 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#8 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#9 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-05-26 16:01:24 --> syntax error, unexpected '}', expecting ';' or ','
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+ERROR - 2022-05-26 16:08:26 --> Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'hseqssco_document.SubCategory.SubCatName' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+CRITICAL - 2022-05-26 16:08:26 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 16:16:59 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ON SubCategory.CategoryId = category.id  
+							ORDER BY order_id)' at line 4
+CRITICAL - 2022-05-26 16:16:59 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 16:17:33 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ON SubCategory.CategoryId = category.id  
+							ORDER BY order_id)' at line 4
+CRITICAL - 2022-05-26 16:17:33 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 16:17:36 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ON SubCategory.CategoryId = category.id  
+							ORDER BY order_id)' at line 4
+CRITICAL - 2022-05-26 16:17:36 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 16:27:00 --> Unknown column 'SubCatName' in 'field list'
+CRITICAL - 2022-05-26 16:27:00 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 16:31:05 --> The used SELECT statements have a different number of columns
+CRITICAL - 2022-05-26 16:31:05 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 16:38:00 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DISTINCT(category.categoryName)
+FROM SubCategory  
+INNER JOIN category  
+ON SubC' at line 1
+CRITICAL - 2022-05-26 16:38:00 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 16:38:16 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DISTINCT(category.categoryName)
+FROM SubCategory  
+INNER JOIN category  
+ON SubC' at line 1
+CRITICAL - 2022-05-26 16:38:16 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 16:39:13 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DISTINCT(category.categoryName)
+FROM SubCategory  
+INNER JOIN category  
+ON SubC' at line 1
+CRITICAL - 2022-05-26 16:39:13 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 16:39:55 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DISTINCT(category.categoryName)
+FROM SubCategory  
+INNER JOIN category  
+ON SubC' at line 1
+CRITICAL - 2022-05-26 16:39:55 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 16:40:29 --> Operand should contain 1 column(s)
+CRITICAL - 2022-05-26 16:40:29 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 16:41:49 --> Operand should contain 1 column(s)
+CRITICAL - 2022-05-26 16:41:49 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 16:41:51 --> Operand should contain 1 column(s)
+CRITICAL - 2022-05-26 16:41:51 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 16:46:36 --> Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'hseqssco_document.SubCategory.SubCatName' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+CRITICAL - 2022-05-26 16:46:36 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 16:47:00 --> Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'hseqssco_document.SubCategory.SubCatName' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+CRITICAL - 2022-05-26 16:47:00 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 16:47:18 --> Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'hseqssco_document.SubCategory.SubCatName' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+CRITICAL - 2022-05-26 16:47:18 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 16:47:27 --> Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'hseqssco_document.SubCategory.SubCatName' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+CRITICAL - 2022-05-26 16:47:27 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 16:47:27 --> Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'hseqssco_document.SubCategory.SubCatName' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+CRITICAL - 2022-05-26 16:47:27 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 16:47:28 --> Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'hseqssco_document.SubCategory.SubCatName' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+CRITICAL - 2022-05-26 16:47:28 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 16:48:00 --> Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'hseqssco_document.category.categoryName' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+CRITICAL - 2022-05-26 16:48:00 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 16:57:00 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'id
+)' at line 4
+CRITICAL - 2022-05-26 16:57:00 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 16:57:25 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'id
+)' at line 4
+CRITICAL - 2022-05-26 16:57:25 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 17:04:27 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DISTINCT category.categoryName
+FROM SubCategory  
+INNER JOIN category  
+ON SubCa' at line 1
+CRITICAL - 2022-05-26 17:04:27 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 17:05:07 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DISTINCT(category.categoryName)
+FROM SubCategory  
+INNER JOIN category  
+ON SubC' at line 1
+CRITICAL - 2022-05-26 17:05:07 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 17:05:09 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DISTINCT(category.categoryName)
+FROM SubCategory  
+INNER JOIN category  
+ON SubC' at line 1
+CRITICAL - 2022-05-26 17:05:09 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 17:05:09 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DISTINCT(category.categoryName)
+FROM SubCategory  
+INNER JOIN category  
+ON SubC' at line 1
+CRITICAL - 2022-05-26 17:05:09 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 17:05:10 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DISTINCT(category.categoryName)
+FROM SubCategory  
+INNER JOIN category  
+ON SubC' at line 1
+CRITICAL - 2022-05-26 17:05:10 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 17:05:10 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DISTINCT(category.categoryName)
+FROM SubCategory  
+INNER JOIN category  
+ON SubC' at line 1
+CRITICAL - 2022-05-26 17:05:10 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 17:05:17 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DISTINCT(category.categoryName
+FROM SubCategory  
+INNER JOIN category  
+ON SubCa' at line 1
+CRITICAL - 2022-05-26 17:05:17 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 17:05:17 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DISTINCT(category.categoryName
+FROM SubCategory  
+INNER JOIN category  
+ON SubCa' at line 1
+CRITICAL - 2022-05-26 17:05:17 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 17:05:18 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DISTINCT(category.categoryName
+FROM SubCategory  
+INNER JOIN category  
+ON SubCa' at line 1
+CRITICAL - 2022-05-26 17:05:18 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 17:05:26 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DISTINCT category.categoryName
+FROM SubCategory  
+INNER JOIN category  
+ON SubCa' at line 1
+CRITICAL - 2022-05-26 17:05:26 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 17:05:27 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DISTINCT category.categoryName
+FROM SubCategory  
+INNER JOIN category  
+ON SubCa' at line 1
+CRITICAL - 2022-05-26 17:05:27 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 17:05:27 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DISTINCT category.categoryName
+FROM SubCategory  
+INNER JOIN category  
+ON SubCa' at line 1
+CRITICAL - 2022-05-26 17:05:27 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-05-26 17:11:20 --> syntax error, unexpected 'print_r' (T_STRING), expecting ';' or ','
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-26 17:16:04 --> Invalid file: {0}
+#0 /var/www/html/Document-Portal/system/View/View.php(213): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+#1 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#2 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#3 /var/www/html/Document-Portal/app/Controllers/ReportingCategory.php(28): App\Controllers\BaseController->render_template()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-26 17:17:57 --> array_unique() expects parameter 1 to be array, string given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/app/Views/reporting_category/index.php(33): array_unique()
+#2 /var/www/html/Document-Portal/system/View/View.php(230): include('/var/www/html/D...')
+#3 /var/www/html/Document-Portal/system/View/View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#4 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#5 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#6 /var/www/html/Document-Portal/app/Controllers/ReportingCategory.php(28): App\Controllers\BaseController->render_template()
+#7 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#8 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#9 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#10 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-05-26 17:20:36 --> syntax error, unexpected '$cat' (T_VARIABLE), expecting '('
+#0 /var/www/html/Document-Portal/system/View/View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#2 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#3 /var/www/html/Document-Portal/app/Controllers/ReportingCategory.php(29): App\Controllers\BaseController->render_template()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-26 17:20:39 --> syntax error, unexpected '$cat' (T_VARIABLE), expecting '('
+#0 /var/www/html/Document-Portal/system/View/View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#2 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#3 /var/www/html/Document-Portal/app/Controllers/ReportingCategory.php(29): App\Controllers\BaseController->render_template()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-26 17:24:51 --> syntax error, unexpected 'print_r' (T_STRING), expecting ')'
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-26 17:25:40 --> syntax error, unexpected 'print_r' (T_STRING), expecting ')'
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-26 17:26:19 --> syntax error, unexpected 'print_r' (T_STRING), expecting ')'
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-26 17:52:28 --> Invalid argument supplied for foreach()
+#0 /var/www/html/Document-Portal/app/Views/reporting_category/index.php(30): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/View/View.php(230): include('/var/www/html/D...')
+#2 /var/www/html/Document-Portal/system/View/View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#4 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#5 /var/www/html/Document-Portal/app/Controllers/ReportingCategory.php(31): App\Controllers\BaseController->render_template()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#7 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#8 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#9 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-05-26 18:02:11 --> syntax error, unexpected '='
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-26 18:02:54 --> Call to undefined method CodeIgniter\Database\MySQLi\Connection::select()
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 18:04:49 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 18:04:49 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 18:05:45 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 18:05:45 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 18:05:47 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 18:05:47 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 18:05:50 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 18:05:50 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 18:05:54 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 18:05:54 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 18:05:57 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 18:05:57 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-05-26 18:06:33 --> Call to a member function select() on null
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 18:07:28 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 18:07:28 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 18:07:29 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 18:07:29 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 18:07:30 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 18:07:30 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 18:07:30 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 18:07:30 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 18:07:30 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 18:07:30 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 18:08:36 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 18:08:36 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 18:08:36 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 18:08:36 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 18:08:37 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 18:08:37 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 18:08:37 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 18:08:37 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 18:08:37 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 18:08:37 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 18:08:37 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 18:08:37 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 18:08:50 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 18:08:50 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 18:08:51 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 18:08:51 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 18:08:51 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 18:08:51 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 18:08:51 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 18:08:51 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 18:08:52 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 18:08:52 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 18:08:52 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 18:08:52 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 18:08:52 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 18:08:52 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 18:08:52 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 18:08:52 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 18:08:53 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 18:08:53 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 18:08:53 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 18:08:53 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 18:08:53 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 18:08:53 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 18:08:54 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 18:08:54 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 18:08:54 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 18:08:54 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-26 18:08:55 --> Not unique table/alias: 'SubCategory'
+CRITICAL - 2022-05-26 18:08:55 --> Call to a member function getResultArray() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-05-26 19:02:14 --> syntax error, unexpected 'endforeach' (T_ENDFOREACH), expecting end of file
+#0 /var/www/html/Document-Portal/system/View/View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#2 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#3 /var/www/html/Document-Portal/app/Controllers/ReportingCategory.php(36): App\Controllers\BaseController->render_template()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}

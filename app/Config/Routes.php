@@ -82,7 +82,12 @@ $routes->get('subcategory/(:any)', 'SubCategory::$1',['filter' => 'auth']);
 //Reporting
 $routes->get('reporting', 'Reporting::index',['filter' => 'auth']);
 $routes->get('reporting/export', 'Reporting::export',['filter' => 'auth']);
-$routes->post('reporting/getData', 'Reporting::getData',['filter' => 'auth']);
+//$routes->post('reporting/getData', 'Reporting::getData',['filter' => 'auth']);
+
+//Reporting Category
+$routes->get('reporting/category', 'ReportingCategory::index',['filter' => 'auth']);
+
+
 
 // $routes->get('invoice', 'Invoice::index',['filter' => 'auth']);
 // $routes->get('invoice/(:any)', 'Invoice::$1',['filter' => 'auth']);

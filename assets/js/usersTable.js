@@ -139,6 +139,7 @@ $(document).ready(function() {
             }
         });
     });
+    
     //documents
     $('#documentsTable').DataTable({
         "processing": true,
@@ -194,6 +195,8 @@ $(document).ready(function() {
             }
         });
     });
+    
+    //category Table
     $('#categoryTable').DataTable({
         "processing": true,
         "serverSide": true,
@@ -236,6 +239,7 @@ $(document).ready(function() {
             }
         });
     });
+    
     // SubCategory Table    
     $('#subCategoryTable').DataTable({
         "processing": true,
@@ -308,8 +312,9 @@ $(document).ready(function() {
         });
     });
     
-    
-     $('#categoryFilter').change(function(e){
+   
+   //reporting table
+   $('#categoryFilter').change(function(e){
 		$("#reportingTable").dataTable().fnDestroy();
 		filterData();
 	});
@@ -353,5 +358,31 @@ $(document).ready(function() {
 			}]
 		});
 	}
+	
+/*
+	//Reporting Category Table
+    $('#repCatTable').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "responsive": true,
+        "order": [],
+        "ajax": {
+            url: "reporting/category/fetch_reporting_data",
+            type: "POST",
+           
+        },
+        "columnDefs": [{
+            "orderable": false,
+            "targets": -1
+        }, {
+            "width": "85%",
+            "targets": 0
+        }, {
+            "width": "15%",
+            "targets": 1
+        }, ]
+    });
+    // Category delete Event    
     
+    */
 });

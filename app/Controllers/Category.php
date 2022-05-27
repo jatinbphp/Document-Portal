@@ -21,8 +21,6 @@ class Category extends BaseController
 		if($_POST){
 			$request = service('request');
 			$session = session();
-
-
 			$categoryName = $request->getPost('categoryName');
 			
 			$data = array(
@@ -57,9 +55,7 @@ class Category extends BaseController
 
 			$request = service('request');
 			$session = session();
-
 			$categoryName = $request->getPost('categoryName');
-		
 			$data = array(
 				'categoryName' => $categoryName,
 			);
@@ -78,7 +74,6 @@ class Category extends BaseController
 		}
 
 		$this->data['page_title'] = "Category Edit";
-
 		$categoryData = $model_category->where('id', $id)->first(); 
 		$this->data['category'] = $categoryData;
 		$this->render_template('category/edit',$this->data);

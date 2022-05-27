@@ -311,7 +311,7 @@ class Documents extends BaseController{
 		echo json_encode($subCat);
   	}
 
-public function fetch_company_data(){
+	public function fetch_company_data(){
 		$db = \Config\Database::connect();		
   	 	$global_tblUsers = 'Users';
  	  	$global_tbluser_type = 'UserTypes';

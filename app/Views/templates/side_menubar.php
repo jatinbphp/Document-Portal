@@ -20,7 +20,7 @@
                     
                     <li class="UserReport-Menu" id="userReport" style="display: none;"><a class="" href="<?php echo base_url('reporting'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-4.png'); ?>" alt=""> User Report</a></li>
          
-					<li class="Reporting-Category" id="categoryReport" style="display: none;"><a class="" href="<?php echo base_url('reporting/category'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-4.png'); ?>" alt="">Category Category</a></li>
+					<li class="Reporting-Category" id="categoryReport" style="display: none;"><a class="" href="<?php echo base_url('reporting/category'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-4.png'); ?>" alt="">Category Report</a></li>
 
             </li>
 

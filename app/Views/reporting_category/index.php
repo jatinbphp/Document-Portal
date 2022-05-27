@@ -25,19 +25,21 @@
                             <!--th style="width: 15%">Action</th-->
                         </tr>
                     </thead>
-						<tbody> 
-							<?php foreach($category as $id => $categoryData): ?>
-								<tr>
-									<td><?php echo $categoryData ?></td>
-										<td> 
-											<table class="table table-bordered" id="nestedtable" cellspacing="0" width="100%">
-												<?php foreach($subcategory as $subcategoryData => $foreignId): ?>
-													<tr><td><?php if($id == $foreignId){echo $subcategoryData;} ?></td></tr>
-												<?php endforeach; ?>		
-											</table>
-										</td>
-								</tr>
-							<?php endforeach; ?>
+						<tbody>
+							<?php if(!empty($category) && !empty($subcategory)): ?> 
+								<?php foreach($category as $id => $categoryData): ?>
+									<tr>
+										<td><?php echo $categoryData ?></td>
+											<td> 
+												<table class="table table-bordered" id="nestedtable" cellspacing="0" width="100%">
+													<?php foreach($subcategory as $subcategoryData => $foreignId): ?>
+														<tr><td><?php if($id == $foreignId){echo $subcategoryData;} ?></td></tr>
+													<?php endforeach; ?>		
+												</table>
+											</td>
+										</tr>
+								<?php endforeach; ?>
+							<?php endif; ?>
 						</tbody>
 					<tfoot>
                     </tfoot>

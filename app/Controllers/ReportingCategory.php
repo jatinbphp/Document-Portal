@@ -19,8 +19,8 @@ class ReportingCategory extends BaseController
 			$category[] = $results['categoryName'];
 			
 		}
-		
 		$cat = array_combine($id, $category);
+		
 		$builder = $db->table('SubCategory');
 		$builder->select('CategoryId, SubCatName');
 		$query = $builder->get();

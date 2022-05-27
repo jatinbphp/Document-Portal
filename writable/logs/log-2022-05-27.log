@@ -861,3 +861,13 @@ CRITICAL - 2022-05-27 16:01:11 --> Call to a member function getResult() on bool
 #5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
 #6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
 #7 {main}
+CRITICAL - 2022-05-27 17:56:08 --> syntax error, unexpected end of file, expecting elseif (T_ELSEIF) or else (T_ELSE) or endif (T_ENDIF)
+#0 /var/www/html/Document-Portal/system/View/View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#2 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#3 /var/www/html/Document-Portal/app/Controllers/ReportingCategory.php(57): App\Controllers\BaseController->render_template()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ReportingCategory->index()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}

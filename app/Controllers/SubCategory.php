@@ -29,11 +29,9 @@ class SubCategory extends BaseController
 	
 	public function create(){
 		
-		$subcategory = new SubCategoryModel();
-	
+			$subcategory = new SubCategoryModel();
 			$request = service('request');
 			$session = session();
-
 			$categoryName = $request->getPost('subCategory');
 			$SubCatName = $request->getPost('SubCatName');
 			
@@ -64,7 +62,6 @@ class SubCategory extends BaseController
 	
 	public function edit($id=''){
 		$model_subcategory= new SubCategoryModel;
-		
 		$this->data['page_title'] = "SubCategory Edit";
 		$subCategoryData = $model_subcategory->where('id', $id)->first(); 
 		$this->data['subcategory'] = $subCategoryData;
@@ -74,11 +71,9 @@ class SubCategory extends BaseController
 	}
 	
 	public function update($id=''){
-		$model_subcategory= new SubCategoryModel;
-			
+			$model_subcategory= new SubCategoryModel;
 			$request = service('request');
 			$session = session();
-
 			$categoryName = $request->getPost('categoryName');
 			$SubCatName = $request->getPost('SubCatName');
 		

@@ -308,7 +308,7 @@ $(document).ready(function() {
             }
         });
     });
-<<<<<<< HEAD
+
     
    
    //reporting table
@@ -383,50 +383,7 @@ $(document).ready(function() {
     // Category delete Event    
     
     */
-});
-=======
-    $('#categoryFilter').change(function(e) {
-        $("#reportingTable").dataTable().fnDestroy();
-        filterData();
-    });
-    filterData();
 
-    function filterData() {
-        //reporting table
-        $('#reportingTable').DataTable({
-            "processing": true,
-            "serverSide": true,
-            "responsive": true,
-            "order": [],
-            "ajax": {
-                url: "reporting/fetch_users_data",
-                type: "POST",
-                data: {
-                    'comapny_id': $('#categoryFilter').val()
-                }
-                //data:{'test':'test'}
-            },
-            "columnDefs": [{
-                "orderable": false,
-                "targets": -1
-            }, {
-                "orderable": false,
-                "targets": 0
-            }, {
-                "orderable": false,
-                "targets": 5
-            }, {
-                "width": "10%",
-                "targets": 0
-            }, {
-                "width": "15%",
-                "targets": 1
-            }, {
-                "width": "10%",
-                "targets": 2
-            }]
-        });
-    }
     //company filter in documentlist
     $('#companySearch').change(function(e) {
         $companyId = $('#companySearch').val();
@@ -517,4 +474,3 @@ $(document).ready(function() {
         });
     }
 });
->>>>>>> 3dba451e1afdda509f1a981b903d787833b590e7

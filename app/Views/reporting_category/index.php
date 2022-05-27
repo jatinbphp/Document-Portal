@@ -14,7 +14,7 @@
             </div>
             <?php endif; ?>
 
-            <h3>Category <!--a class="btn btn-info" style="float: right;" href="<?php echo base_url(''); ?>">Add Category</a--></h3>
+            <h3>Category Report <!--a class="btn btn-info" style="float: right;" href="<?php echo base_url(''); ?>">Add Category</a--></h3>
 
             <div class="item-wrap item-list-table">
                 <table id="repCatTable" class="table table-bordered" cellspacing="0" width="100%">
@@ -25,28 +25,34 @@
                             <!--th style="width: 15%">Action</th-->
                         </tr>
                     </thead>
-                    <tbody> 
-                    
-						
-						<tr>
-							<td>Category 1</td>
-								<td> 
-									<table class="table table-bordered" cellspacing="0" width="100%">
-										<tr><td>SubCategory 1</td></tr> 
-										<tr><td>SubCategory 2</td></tr>
-									</table>
-								</td>
-						</tr>
-        
-                         
-                    </tbody>
-                    <tfoot>
+						<tbody> 
+							<?php foreach($category as $id => $categoryData): ?>
+								<tr>
+									<td><?php echo $categoryData ?></td>
+										<td> 
+											<table class="table table-bordered" id="nestedtable" cellspacing="0" width="100%">
+												<?php foreach($subcategory as $subcategoryData => $foreignId): ?>
+													<tr><td><?php if($id == $foreignId){echo $subcategoryData;} ?></td></tr>
+												<?php endforeach; ?>		
+											</table>
+										</td>
+								</tr>
+							<?php endforeach; ?>
+						</tbody>
+					<tfoot>
                     </tfoot>
                 </table>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+$('#nestedtable tr').each(function () {
+     if (!$.trim($(this).text())) $(this).remove();
+});
+</script>
+
 <script type="text/javascript">
     $(".Category-Menu .inner").addClass("show");
     $(".Category-Menu .toggle").addClass("activAcc");

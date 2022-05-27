@@ -85,7 +85,7 @@ class Documents extends BaseController{
         $this->data['category'] = $category->where('is_deleted',0)->findall();
 
         $subCategory = new SubCategoryModel;
-        $this->data['subCategory'] = $subCategory->findall();
+        $this->data['subCategory'] = $subCategory->where('is_deleted',0)->findall();
 
         $company = new CompanyModel;
 		$this->data['company'] = $company->findall();
@@ -271,7 +271,7 @@ class Documents extends BaseController{
         $this->data['category'] = $category->where('is_deleted',0)->findall();
 
         $subCategory = new SubCategoryModel;
-        $this->data['subCategory'] = $subCategory->findall();
+        $this->data['subCategory'] = $subCategory->where('is_deleted',0)->findall();
 
         $company = new CompanyModel;
 		$this->data['company'] = $company->findall();

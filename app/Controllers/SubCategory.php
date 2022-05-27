@@ -107,8 +107,16 @@ class SubCategory extends BaseController
 	{		
 		$session = session();
 		$model_subcategory= new SubCategoryModel;
-    	$model_subcategory->where('id', $id);
-		$temp =  $model_subcategory->delete();
+
+		$deletedata = 1;
+		$data= array(
+             'is_deleted' => $deletedata,
+			);
+        	$model_subcategory->set($data);
+    		$model_subcategory->where('id', $id);
+			$temp =  $model_subcategory->update();
+    		//$model_subcategory->where('id', $id);
+			//$temp =  $model_subcategory->delete();
 		if($temp){ 
        		$session->setFlashdata("success", "Sub Category deleted Successfully.");
         	return redirect()->to('subcategory');
@@ -128,6 +136,9 @@ class SubCategory extends BaseController
 	  	
         // equal condition
         $whereEqual = array(); 
+
+        $is_deleted = 0;
+	  	$whereEqual[$global_tblCategory.'.is_deleted'] = $is_deleted;
  		
         // not equal condition
         $whereNotEqual = array();

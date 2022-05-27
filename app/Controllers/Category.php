@@ -22,6 +22,7 @@ class Category extends BaseController
 			$request = service('request');
 			$session = session();
 
+
 			$categoryName = $request->getPost('categoryName');
 			
 			$data = array(
@@ -29,7 +30,12 @@ class Category extends BaseController
 			);
 
 			$insertId =  $model_category->insert($data);
-        	
+
+			
+			if (! is_dir ( 'uploads/documents/'.$insertId )) {
+        		mkdir ( 'uploads/documents/'.$insertId, 0777, true );
+    		}
+
         	if($insertId > 0){ 
 	            $session->setFlashdata("success", "Category added Successfully.");
 	            return redirect()->to('category');
@@ -82,8 +88,14 @@ class Category extends BaseController
 	{		
 		$session = session();
 		$model_category= new CategoryModel;
-    	$model_category->where('id', $id);
-		$temp =  $model_category->delete();
+		$deletedata = 1;
+		$data= array(
+             'is_deleted' => $deletedata,
+			);
+        	$model_category->set($data);
+    		$model_category->where('id', $id);
+			$temp =  $model_category->update();
+
 		if($temp){ 
        		$session->setFlashdata("success", "Category deleted Successfully.");
         	return redirect()->to('category');
@@ -104,6 +116,9 @@ class Category extends BaseController
  		
         // not equal condition
         $whereNotEqual = array();
+
+        $is_deleted = 0;
+	  	$whereEqual[$global_tblCategory.'.is_deleted'] = $is_deleted;
 
         $notIn = array();     
 

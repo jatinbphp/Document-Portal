@@ -35,9 +35,9 @@
     </div>
 </div>
 <script type="text/javascript">
-    $(".SubCategory-Menu .inner").addClass("show");
-    $(".SubCategory-Menu .toggle").addClass("activAcc");
-    $(".SubCategory-Menu .inner").css("display", "block")
-    $('.SubCategory-Menu .SubCategory-Menu').addClass('active');
+   // $(".SubCategory-Menu .inner").addClass("show");
+    // $(".SubCategory-Menu .toggle").addClass("activAcc");
+    // $(".SubCategory-Menu .inner").css("display", "block")
+    $('.SubCategory-Menu').addClass('active');
 </script>
 <script src="<?php echo base_url('assets/js/usersTable.js') ?>"></script>

@@ -33,7 +33,7 @@ class Database extends Config
 	public $default = [
 		'DSN'      => '',
 		'hostname' => 'localhost',
-		'username' => 'pma',
+		'username' => 'root',
 		'password' => 'nxsolteam',
 		'database' => 'hseqssco_document',
 		'DBDriver' => 'MySQLi',

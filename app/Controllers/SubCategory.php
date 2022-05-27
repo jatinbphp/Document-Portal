@@ -21,7 +21,7 @@ class SubCategory extends BaseController
 		
 		$model_category = new CategoryModel;
 		$this->data['page_title'] = "Sub_Category";
-		$this->data['subcategory'] = $model_category->findall();
+		$this->data['subcategory'] = $model_category->where('is_deleted',0)->findall();
 		$this->render_template('sub_category/add',$this->data);
 		
 		//$this->render_template('category/add');
@@ -45,6 +45,10 @@ class SubCategory extends BaseController
 			);
 
 			$insertId =  $subcategory->insert($data);
+
+			if (! is_dir ( 'uploads/documents/'.$categoryName.'/'.$insertId )) {
+        		mkdir ( 'uploads/documents/'.$categoryName.'/'.$insertId, 0777, true );
+    		}
         	
         	if($insertId > 0){ 
 	            $session->setFlashdata("success", "Sub Category added Successfully.");
@@ -65,7 +69,7 @@ class SubCategory extends BaseController
 		$subCategoryData = $model_subcategory->where('id', $id)->first(); 
 		$this->data['subcategory'] = $subCategoryData;
 		$category =  new CategoryModel;
-		$this->data['category'] = $category->findall();
+		$this->data['category'] = $category->where('is_deleted',0)->findall();
 		$this->render_template('sub_category/edit',$this->data);
 	}
 	
@@ -103,8 +107,16 @@ class SubCategory extends BaseController
 	{		
 		$session = session();
 		$model_subcategory= new SubCategoryModel;
-    	$model_subcategory->where('id', $id);
-		$temp =  $model_subcategory->delete();
+
+		$deletedata = 1;
+		$data= array(
+             'is_deleted' => $deletedata,
+			);
+        	$model_subcategory->set($data);
+    		$model_subcategory->where('id', $id);
+			$temp =  $model_subcategory->update();
+    		//$model_subcategory->where('id', $id);
+			//$temp =  $model_subcategory->delete();
 		if($temp){ 
        		$session->setFlashdata("success", "Sub Category deleted Successfully.");
         	return redirect()->to('subcategory');
@@ -124,6 +136,9 @@ class SubCategory extends BaseController
 	  	
         // equal condition
         $whereEqual = array(); 
+
+        $is_deleted = 0;
+	  	$whereEqual[$global_tblCategory.'.is_deleted'] = $is_deleted;
  		
         // not equal condition
         $whereNotEqual = array();

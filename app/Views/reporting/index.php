@@ -147,10 +147,10 @@ $("select").click(function(){
   
 
 <script type="text/javascript">
-    $(".manageUsers-Menu .inner").addClass("show");
-    $(".manageUsers-Menu .toggle").addClass("activAcc");
-    $(".manageUsers-Menu .inner").css("display", "block")
-    $('.manageUsers-Menu .Users-Menu').addClass('active');
+    // $(".manageUsers-Menu .inner").addClass("show");
+    // $(".manageUsers-Menu .toggle").addClass("activAcc");
+    // $(".manageUsers-Menu .inner").css("display", "block")
+    $('.Reporting-Menu').addClass('active');
     
     
     

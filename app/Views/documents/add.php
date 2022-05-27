@@ -23,14 +23,14 @@
                         <form id="documentFormAddEdit" method="post" action="<?php echo base_url('documents/add'); ?>" enctype="multipart/form-data">
                             
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                          <label class="lableTitle"for="docName">Name :<span class="asterisk-sign">*</span></label>
                                          <input type="text" name="docName" class="form-control" id="docName" placeholder="Name">
                                         
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="lableTitle"for="userID">Users:<span class="asterisk-sign">*</span></label>
                                         <select name="userID" id="userID" class="form-control" REQUIRED>
@@ -39,6 +39,22 @@
                                             if(count($users)>0){
                                                 foreach ($users as $key => $value) { ?>
                                                     <option value="<?php echo $value['id']; ?>"><?php echo $value['firstName'].' ' .$value['lastName'] ; ?></option>
+                                                <?php
+                                                }
+                                            } ?>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="lableTitle"for="companyID">Company:<span class="asterisk-sign">*</span></label>
+                                        <select name="companyID" id="companyID" class="form-control" REQUIRED>
+                                            <option value="">-- Select Company --</option>
+                                            <?php 
+                                            if(count($company)>0){
+                                                foreach ($company as $key => $value) { ?>
+                                                    <option value="<?php echo $value['id']; ?>"><?php echo $value['companyName']; ?></option>
                                                 <?php
                                                 }
                                             } ?>
@@ -91,11 +107,11 @@
                                                 <input id="docFile" name="docFile" type="file">
                                             </div>
                                             </br>
-                                            <?php
+                                           <!--  <?php
                                             $img_thumnail = '';
                                             $img_thumnail = base_url('assets/images/default.png'); ?>
 
-                                            <img style="border: 1px solid #eee; padding: 5px;" id="thumbnail_img" width="100" height="100" src="<?php echo $img_thumnail; ?>">
+                                            <img style="border: 1px solid #eee; padding: 5px;" id="thumbnail_img" width="100" height="100" src="<?php echo $img_thumnail; ?>"> -->
                                         </div>
                                         <label class="lableTitle"id="image-error" class="error" for="Document"></label>
                                     </div>
@@ -128,10 +144,10 @@
 </div>
 
 <script type="text/javascript">
-    $(".manageDocuments-Menu .inner").addClass("show");
-    $(".manageDocuments-Menu .toggle").addClass("activAcc");
-    $(".manageDocuments-Menu .inner").css("display", "block")
-    $('.manageDocuments-Menu .Documents-Menu').addClass('active');
+    // $(".manageDocuments-Menu .inner").addClass("show");
+    // $(".manageDocuments-Menu .toggle").addClass("activAcc");
+    // $(".manageDocuments-Menu .inner").css("display", "block")
+    $('.Document-Menu').addClass('active');
 </script>
 <script src="<?php echo base_url('assets/js/usersFormValidation.js') ?>"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

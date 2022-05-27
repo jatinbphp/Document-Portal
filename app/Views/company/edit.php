@@ -42,9 +42,9 @@
 </div>
 
 <script type="text/javascript">
-    $(".Company-Menu .inner").addClass("show");
-    $(".Company-Menu .toggle").addClass("activAcc");
-    $(".Company-Menu .inner").css("display", "block")
-    $('.Company-Menu .Company-Menu').addClass('active');
+    // $(".Company-Menu .inner").addClass("show");
+    // $(".Company-Menu .toggle").addClass("activAcc");
+    // $(".Company-Menu .inner").css("display", "block")
+    $('.Company-Menu').addClass('active');
 </script>
 <script src="<?php echo base_url('assets/js/usersFormValidation.js') ?>"></script>

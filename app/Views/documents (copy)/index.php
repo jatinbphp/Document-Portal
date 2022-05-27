@@ -1,10 +1,4 @@
-<style>
-#companySearchTable{display:none}
-#companySearchTable_length{display: none;}
-#companySearchTable_filter{display: none;}
-#documentsTable_info{display: none;}
-#documentsTable_paginate{display: none;}
-</style>
+
 <div class="wrapper">
     <div class="row">
         <div class="col-sm-12">
@@ -63,29 +57,9 @@
                             <th>User Name</th>
                             <th>Category</th>
                             <th>Sub Category</th>
-                            <th>Company</th>
                             <th>Expire Date</th>
                             <th>Status</th>
                             <th style="width: 15%">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="item-wrap item-list-table comapanyData">
-                <table id="companySearchTable" class="table table-bordered" cellspacing="0" width="100%" >
-
-                   
-                    <thead class="thead-dark">
-                       <tr>
-                            <th>Photo</th>
-                            <th>Full Name</th>
-                            <th>Email</th>
-                            <th>Status</th>
-                            <th>Company</th>
-                            <th>Date</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -96,15 +70,15 @@
     </div>
 </div>
 <script type="text/javascript">
-  // $(".manageDocuments-Menu .inner").addClass("show");
-    // $(".manageDocuments-Menu .toggle").addClass("activAcc");
-    // $(".manageDocuments-Menu .inner").css("display", "block")
-    $('.Document-Menu').addClass('active');
+    $(".manageDocuments-Menu .inner").addClass("show");
+    $(".manageDocuments-Menu .toggle").addClass("activAcc");
+    $(".manageDocuments-Menu .inner").css("display", "block")
+    $('.manageDocuments-Menu .Documents-Menu').addClass('active');
 </script>
 <script src="<?php echo base_url('assets/js/usersTable.js') ?>"></script>
 
 
-<!-- <script>
+<script>
    display_documentTable();
         $('#companySearch').on('change', function(event) {
             $("#documentsTable").dataTable().fnDestroy();
@@ -152,5 +126,5 @@
     });
               
         }
-</script> -->
+</script>
 

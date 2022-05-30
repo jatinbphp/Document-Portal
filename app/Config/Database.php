@@ -34,7 +34,7 @@ class Database extends Config
 		'DSN'      => '',
 		'hostname' => 'localhost',
 		'username' => 'root',
-		'password' => 'nxsolteam',
+		'password' => 'nxsol123',
 		'database' => 'hseqssco_document',
 		'DBDriver' => 'MySQLi',
 		'DBPrefix' => '',

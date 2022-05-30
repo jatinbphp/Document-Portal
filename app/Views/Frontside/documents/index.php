@@ -1,3 +1,10 @@
+<style>
+#companySearchTable{display:none}
+#companySearchTable_length{display: none;}
+#companySearchTable_filter{display: none;}
+#documentsTable_info{display: none;}
+#documentsTable_paginate{display: none;}
+</style>
 <div class="wrapper">
     <div class="row">
         <div class="col-sm-12">
@@ -14,11 +21,11 @@
             </div>
             <?php endif; ?>
 
-            <h3>Manage Documents <a class="btn btn-info" style="float: right;" href="<?php echo base_url('documents/add'); ?>">Upload Documents</a></h3>
+            <h3>Manage Documents <a class="btn btn-info" style="float: right;" href="<?php echo base_url('userDocuments/add'); ?>">Upload Documents</a></h3>
 
             <div class="item-wrap item-list-table">
                 <table id="documentsTable" class="table table-bordered" cellspacing="0" width="100%" >
-
+<!-- 
                     <div class="row">
                         <div class="col-sm-12 col-md-4">
                             <div class="category-filter">
@@ -48,7 +55,7 @@
                                  </select>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <thead class="thead-dark">
                         <tr>
                             <th>Download File</th>
@@ -67,6 +74,24 @@
                 </table>
             </div>
 
+            <div class="item-wrap item-list-table comapanyData">
+                <table id="companySearchTable" class="table table-bordered" cellspacing="0" width="100%" >
+
+                   
+                    <thead class="thead-dark">
+                       <tr>
+                            <th>Photo</th>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Company</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
@@ -76,6 +101,6 @@
     // $(".manageDocuments-Menu .inner").css("display", "block")
     $('.Document-Menu').addClass('active');
 </script>
-<script src="<?php echo base_url('assets/js/usersTable.js') ?>"></script>
+<script src="<?php echo base_url('assets/js/usersDataTable.js') ?>"></script>
 
 

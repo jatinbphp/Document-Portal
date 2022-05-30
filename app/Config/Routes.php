@@ -89,32 +89,21 @@ $routes->get('reporting/category', 'ReportingCategory::index',['filter' => 'auth
 
 
 
-// $routes->get('invoice', 'Invoice::index',['filter' => 'auth']);
-// $routes->get('invoice/(:any)', 'Invoice::$1',['filter' => 'auth']);
-// $routes->get('Invoice', 'Invoice::index',['filter' => 'auth']);
-// $routes->get('Invoice/(:any)', 'Invoice::$1',['filter' => 'auth']);
-
-// $routes->get('customers', 'Customers::index',['filter' => 'auth']);
-// $routes->get('customers/(:any)', 'Customers::$1',['filter' => 'auth']);
-// $routes->get('Customers', 'Customers::index',['filter' => 'auth']);
-// $routes->get('Customers/(:any)', 'Customers::$1',['filter' => 'auth']);
-
-// $routes->get('createpdf', 'Createpdf::index',['filter' => 'auth']);
 
 
-// $routes->get('datalist', 'Crud::index');
-// $routes->get('adduser', 'Crud::create');
-// $routes->post('submit-form', 'Crud::store');
-// $routes->get('edituser/(:num)', 'Crud::singleUser/$1');
-// $routes->post('updateuser/(:num)', 'Crud::updateuser/$1');
-// $routes->get('delete/(:num)', 'Crud::delete/$1');
 
-// $routes->get('users-list', 'UserCrud::index');
-// $routes->get('user-form', 'UserCrud::create');
-// $routes->post('submit-form', 'UserCrud::store');
-// $routes->get('edit-view/(:num)', 'UserCrud::singleUser/$1');
-// $routes->post('update', 'UserCrud::update');
-// $routes->get('delete/(:num)', 'UserCrud::delete/$1');
+
+
+
+// User Routes
+//Document Managemant
+$routes->get('userDocuments', 'UserDocuments::index',['filter' => 'auth']);
+$routes->get('userDocuments/(:any)', 'UserDocuments::$1',['filter' => 'auth']);
+$routes->get('UserDocuments', 'UserDocuments::index',['filter' => 'auth']);
+$routes->get('UserDocuments/(:any)', 'UserDocuments::$1',['filter' => 'auth']);
+
+
+
 
 /*
  * --------------------------------------------------------------------

@@ -325,6 +325,7 @@ $(document).ready(function() {
                 data: {
                     'comapny_id': $('#categoryFilter').val()
                 }
+                //data:{'test':'test'}
             },
             "columnDefs": [{
                 "orderable": false,
@@ -347,31 +348,62 @@ $(document).ready(function() {
             }]
         });
     }
-    //company filter in documentlist
-    $('#companySearch').change(function(e) {
-        $companyId = $('#companySearch').val();
-        if ($companyId != '') {
-            $("#documentsTable").dataTable().fnDestroy();
-            filterCompanyData();
-        }
-    });
-    $('#userSearch').change(function(e) {
-        $("#documentsTable").dataTable().fnDestroy();
-        filterUserData();
-    });
-    //filterCompanyData();
-    function filterCompanyData() {
-        //reporting table
-        $('#documentsTable').DataTable({
+    /*
+        //Reporting Category Table
+        $('#repCatTable').DataTable({
             "processing": true,
             "serverSide": true,
             "responsive": true,
             "order": [],
             "ajax": {
-                url: "documents/fetch_documents",
+                url: "reporting/category/fetch_reporting_data",
+                type: "POST",
+               
+            },
+            "columnDefs": [{
+                "orderable": false,
+                "targets": -1
+            }, {
+                "width": "85%",
+                "targets": 0
+            }, {
+                "width": "15%",
+                "targets": 1
+            }, ]
+        });
+        // Category delete Event    
+        
+        */
+    //company filter in documentlist
+    $('#companySearch').change(function(e) {
+        $companyId = $('#companySearch').val();
+        if ($companyId == '') {
+            $("#documentsTable").css("display", "block");
+            $("#companySearchTable").css("display", "none");
+        } else {
+            $("#companySearchTable").css("display", "block");
+            $("#documentsTable").css("display", "none");
+        }
+        $("#companySearchTable").dataTable().fnDestroy();
+        filterCompanyData();
+    });
+    $('#userSearch').change(function(e) {
+        $("#companySearchTable").dataTable().fnDestroy();
+        filterUserData();
+    });
+    //filterCompanyData();
+    function filterCompanyData() {
+        //reporting table
+        $('#companySearchTable').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "responsive": true,
+            "order": [],
+            "ajax": {
+                url: "documents/fetch_company_data",
                 type: "POST",
                 data: {
-                    'company_id': $('#companySearch').val()
+                    'comapny_id': $('#companySearch').val()
                 }
             },
             "columnDefs": [{
@@ -398,13 +430,13 @@ $(document).ready(function() {
 
     function filterUserData() {
         //reporting table
-        $('#documentsTable').DataTable({
+        $('#companySearchTable').DataTable({
             "processing": true,
             "serverSide": true,
             "responsive": true,
             "order": [],
             "ajax": {
-                url: "documents/fetch_documents",
+                url: "documents/fetch_company_data",
                 type: "POST",
                 data: {
                     'user_id': $('#userSearch').val()

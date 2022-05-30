@@ -20,7 +20,7 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <form id="documentFormAddEdit" method="post" action="<?php echo base_url('documents/edit/'.$docData['id']); ?>" enctype="multipart/form-data">
+                        <form id="documentFormAddEdit" method="post" action="<?php echo base_url('userDocuments/edit/'.$docData['id']); ?>" enctype="multipart/form-data">
                             
                             <div class="row">
                                 <div class="col-md-4">
@@ -30,7 +30,7 @@
                                         
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                               <!--  <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="lableTitle"for="email">Users:<span class="asterisk-sign">*</span></label>
                                         <select name="userID" id="userID" class="form-control" REQUIRED>
@@ -44,8 +44,8 @@
                                             } ?>
                                         </select>
                                     </div>
-                                </div>
-                                <div class="col-md-4">
+                                </div> -->
+                                <!-- <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="lableTitle"for="email">Company:<span class="asterisk-sign">*</span></label>
                                         <select name="userID" id="userID" class="form-control" REQUIRED>
@@ -59,11 +59,9 @@
                                             } ?>
                                         </select>
                                     </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6">
+                                </div> -->
+                            
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="lableTitle"for="firstName">Category :<span class="asterisk-sign">*</span></label>
                                         <select name="categoryID" id="categoryID" class="form-control" REQUIRED>
@@ -78,7 +76,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="lableTitle"for="lastName">Sub Category :<span class="asterisk-sign">*</span></label>
                                         <select name="subCategoryID" id="subCategoryID" class="form-control" REQUIRED>
@@ -115,20 +113,22 @@
                                         <label class="lableTitle"id="image-error" class="error" for="Document"></label>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                               <!--  <div class="col-md-3">
                                     <label class="lableTitle"for="expireDate">Expire Date :</label>
                                     <div class="form-group form-check">
-                                       <input type="date" name="expireDate" class="form-check-input" id="expireDate" value="<?php echo date('Y-m-d',strtotime($docData['expireDate'])); ?>">
+                                        <input type="date" name="expireDate" class="form-check-input" id="expireDate" value="<?php echo date('Y-m-d',strtotime($docData['expireDate'])); ?>">
                                         
                                     </div>
-                                </div> 
-                                <div class="col-md-3">
+                                </div> --> 
+                               <!--  <div class="col-md-3">
                                     <label class="lableTitle"for="isActive">Active/InActive :</label>
                                     <div class="form-group form-check">
-                                         <input type="checkbox" name="isActive" class="form-check-input" id="isActive" <?php echo ($docData['isActive'] == 1)?"checked":""; ?>>
+                                        <input type="checkbox" name="isActive" class="form-check-input" id="isActive" <?php echo ($docData['isActive'] == 1)?"checked":""; ?>>
                                         <label class="form-check-label" for="isActive">is Active</label>
+
+                                        
                                     </div>
-                                </div>                     
+                                </div>  -->                    
                             </div>                                
                             
                             <button type="submit" class="btn btn-info">Submit</button>

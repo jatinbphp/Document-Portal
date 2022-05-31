@@ -47,7 +47,7 @@
                             
                             
                             <button type="submit" class="btn btn-info">Submit</button>
-                            <a href="<?php echo base_url('category'); ?>" type="button" class="btn btn-warning">Back</a>
+                            <a href="<?php echo base_url('subcategory'); ?>" type="button" class="btn btn-warning">Back</a>
                         </form>
                     </div>
                 </div>

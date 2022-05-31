@@ -53,6 +53,7 @@ $(document).ready(function() {
             }
         });
     });
+    
     // user Types Table    
     $('#user_typesTable').DataTable({
         "processing": true,
@@ -194,6 +195,42 @@ $(document).ready(function() {
             }
         });
     });
+    
+    
+    // report documents table
+    $('#uploadedDocuments').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "responsive": true,
+        "order": [],
+        "ajax": {
+            url: "UploadedDocuments/fetch_uploaded_documents",
+            type: "POST",
+        },
+        "columnDefs": [{
+            "orderable": false,
+            "targets": -1
+        }, {
+            "orderable": false,
+            "targets": 0
+        }, {
+            "orderable": false,
+            "targets": 6
+        }, {
+            "width": "10%",
+            "targets": 0
+        }, {
+            "width": "15%",
+            "targets": 1
+        }, {
+            "width": "10%",
+            "targets": 2
+        }, {
+            "width": "10%",
+            "targets": 3
+        }, ]
+    });
+    
     //category Table
     $('#categoryTable').DataTable({
         "processing": true,
@@ -351,18 +388,18 @@ $(document).ready(function() {
     $('#companySearch').change(function(e) {
         $companyId = $('#companySearch').val();
         if ($companyId != '') {
-            $("#documentsTable").dataTable().fnDestroy();
+            $("#documentsTable, #uploadedDocuments").dataTable().fnDestroy();
             filterCompanyData();
         }
     });
     $('#userSearch').change(function(e) {
-        $("#documentsTable").dataTable().fnDestroy();
+        $("#documentsTable, #uploadedDocuments").dataTable().fnDestroy();
         filterUserData();
     });
     //filterCompanyData();
     function filterCompanyData() {
         //reporting table
-        $('#documentsTable').DataTable({
+        $('#documentsTable, #uploadedDocuments').DataTable({
             "processing": true,
             "serverSide": true,
             "responsive": true,
@@ -398,7 +435,7 @@ $(document).ready(function() {
 
     function filterUserData() {
         //reporting table
-        $('#documentsTable').DataTable({
+        $('#documentsTable, #uploadedDocuments').DataTable({
             "processing": true,
             "serverSide": true,
             "responsive": true,
@@ -431,4 +468,5 @@ $(document).ready(function() {
             }]
         });
     }
+    
 });

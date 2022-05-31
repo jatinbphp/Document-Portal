@@ -59,6 +59,6 @@ $('#nestedtable tr').each(function () {
     $(".Category-Menu .inner").addClass("show");
     $(".Category-Menu .toggle").addClass("activAcc");
     $(".Category-Menu .inner").css("display", "block")
-    $('.Category-Menu .Category-Menu').addClass('active');
+    $('.Reporting-Menu').addClass('active');
 </script>
 <script src="<?php echo base_url('assets/js/usersTable.js') ?>"></script>

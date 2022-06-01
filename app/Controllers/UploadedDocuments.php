@@ -14,16 +14,12 @@ class UploadedDocuments extends BaseController{
 	public function index(){
 
 		$company = new CompanyModel;
-		$this->data['company'] = $company->findall();
-		$users = new UsersModel;
-		$this->data['users'] = $users->findall();
+        $this->data['company'] = $company->findall();
+        $users = new UsersModel;
+        $this->data['users'] = $users->findall();
 
-		$this->data['page_title'] = 'Documents Report';
-
-		//$this->render_template('uploaded_documents/index',$this->data);
-
-		$this->render_template('document_edit/index',$this->data);
-
+        $this->data['page_title'] = 'Documents Report';
+        $this->render_template('reporting/uploaded_documents/index',$this->data);
 	}
 	
 

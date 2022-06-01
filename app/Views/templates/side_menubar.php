@@ -24,7 +24,7 @@
 					
 					<li class="UploadsReport-SubMenu" id="uploadsReport" style="display: none;"><a class="" href="<?php echo base_url('uploadedDocuments'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-4.png'); ?>" alt="">Uploaded Documents</a></li>
 					
-					
+					<li class="EditReport-SubMenu" id="editReport" style="display: none;"><a class="" href="<?php echo base_url('editedDocuments'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-4.png'); ?>" alt="">Document Edit Log</a></li>
 
             </li>
 
@@ -54,6 +54,6 @@ function showDiv() {
    document.getElementById('userReport').style.display = "block";
    document.getElementById('categoryReport').style.display = "block";
    document.getElementById('uploadsReport').style.display = "block";
-   
+   document.getElementById('editReport').style.display = "block";
 }
 </script>

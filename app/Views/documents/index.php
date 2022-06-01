@@ -14,7 +14,7 @@
             </div>
             <?php endif; ?>
 
-            <h3>Manage Documents <a class="btn btn-info" style="float: right;" href="<?php echo base_url('documents/add'); ?>">Upload Documents</a></h3>
+            <h3>Documments Edit log <a class="btn btn-info" style="float: right;" href="<?php echo base_url('documents/add'); ?>">Upload Documents</a></h3>
 
             <div class="item-wrap item-list-table">
                 <table id="documentsTable" class="table table-bordered" cellspacing="0" width="100%" >

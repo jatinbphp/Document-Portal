@@ -19,7 +19,7 @@ class UserDocumentsModel extends Model
 	protected $validationMessages   = [];
 	protected $skipValidation       = false;
 	protected $cleanValidationRules = true;
-	protected $allowedFields = [  'docName', 'categoryID', 'subCategoryID', 'userID','docFile', 'status','expireDate', 'dateAdded','companyID','is_user'];
+	protected $allowedFields = [  'docName', 'categoryID', 'subCategoryID', 'userID','docFile', 'status','expireDate', 'dateAdded','companyID','is_user','isActive'];
 
 
 	public function get_all_data($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn)

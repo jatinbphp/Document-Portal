@@ -15,6 +15,7 @@
                     <li class="SubCategory-Menu"><a class="" href="<?php echo base_url('subcategory'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-9.png'); ?>" alt=""> Sub Category</a></li>
 
                     <li class="Document-Menu"><a class="" href="<?php echo base_url('documents'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-9.png'); ?>" alt=""> Manage Document</a></li>
+                    <li class="AllDocument-Menu"><a class="" href="<?php echo base_url('docs'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-9.png'); ?>" alt=""> All Documents</a></li>
                     
                     <li class="Reporting-Menu"><a class="" href="javascript:void(0)" onclick="showDiv()"><img src="<?php echo base_url('assets/images/dash-icon-4.png'); ?>" alt=""> Reporting</a></li>
                     

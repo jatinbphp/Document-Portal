@@ -127,13 +127,14 @@ class SubCategory extends BaseController
 	public function fetch_category(){
 		
 		$db = \Config\Database::connect();		
-  	 	$global_tblCategory = 'SubCategory';
+  	 	$global_tblSubCategory = 'SubCategory';
+  	 	$global_tblCategory = 'category';
 	  	
         // equal condition
         $whereEqual = array(); 
 
         $is_deleted = 0;
-	  	$whereEqual[$global_tblCategory.'.is_deleted'] = $is_deleted;
+	  	$whereEqual[$global_tblSubCategory.'.is_deleted'] = $is_deleted;
  		
         // not equal condition
         $whereNotEqual = array();
@@ -141,21 +142,21 @@ class SubCategory extends BaseController
         $notIn = array();     
 
         // select data
-        $selectColumn[$global_tblCategory.'.*'] = $global_tblCategory.'.*';
+        $selectColumn[$global_tblSubCategory.'.*'] = $global_tblSubCategory.'.*';
         $selectColumn['category.categoryName'] = 'category.categoryName';
       	
         // order column
-        $orderColumn = array($global_tblCategory.".SubCatName" );
+        $orderColumn = array($global_tblSubCategory.".SubCatName" );
 
         // search column
-        $searchColumn = array($global_tblCategory.".SubCatName");
+        $searchColumn = array($global_tblSubCategory.".SubCatName");
 
         // order by
-        $orderBy = array($global_tblCategory.'.id' => "ASC");
+        $orderBy = array($global_tblCategory.'.categoryName' => "ASC");
 
         // join table
         $joinTableArray = array();
-        $joinTableArray = array(array("joinTable"=>"category", "joinField"=>"id", "relatedJoinTable"=>$global_tblCategory, "relatedJoinField"=>"CategoryId","type"=>"left"));
+        $joinTableArray = array(array("joinTable"=>"category", "joinField"=>"id", "relatedJoinTable"=>$global_tblSubCategory, "relatedJoinField"=>"CategoryId","type"=>"left"));
 
      	$model_category= new SubCategoryModel;
         $fetch_data = $model_category->make_datatables( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn);

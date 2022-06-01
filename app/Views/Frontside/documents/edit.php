@@ -113,14 +113,14 @@
                                         <label class="lableTitle"id="image-error" class="error" for="Document"></label>
                                     </div>
                                 </div>
-                               <!--  <div class="col-md-3">
+                                <div class="col-md-3">
                                     <label class="lableTitle"for="expireDate">Expire Date :</label>
                                     <div class="form-group form-check">
                                         <input type="date" name="expireDate" class="form-check-input" id="expireDate" value="<?php echo date('Y-m-d',strtotime($docData['expireDate'])); ?>">
                                         
                                     </div>
-                                </div> --> 
-                               <!--  <div class="col-md-3">
+                                </div> 
+                                <div class="col-md-3">
                                     <label class="lableTitle"for="isActive">Active/InActive :</label>
                                     <div class="form-group form-check">
                                         <input type="checkbox" name="isActive" class="form-check-input" id="isActive" <?php echo ($docData['isActive'] == 1)?"checked":""; ?>>
@@ -128,7 +128,7 @@
 
                                         
                                     </div>
-                                </div>  -->                    
+                                </div>                     
                             </div>                                
                             
                             <button type="submit" class="btn btn-info">Submit</button>

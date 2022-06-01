@@ -47,28 +47,29 @@ class Email extends BaseConfig
 	 *
 	 * @var string
 	 */
-	public $SMTPHost = 'mail.crowdfunding.ecnetsolutions.dev';
+	//public $SMTPHost = 'mail.crowdfunding.ecnetsolutions.dev';
+	public $SMTPHost = 'smtp.googlemail.com';
 
 	/**
 	 * SMTP Username
 	 *
 	 * @var string
 	 */
-	public $SMTPUser = 'noreply@crowdfunding.ecnetsolutions.dev';
+	public $SMTPUser = 'jayashree.s.php@gmail.com';
 
 	/**
 	 * SMTP Password
 	 *
 	 * @var string
 	 */
-	public $SMTPPass = '4Feot-[C+}vb';
+	public $SMTPPass = 'nxsolteam';
 
 	/**
 	 * SMTP Port
 	 *
 	 * @var integer
 	 */
-	public $SMTPPort = 587;
+	public $SMTPPort = 465;
 
 	/**
 	 * SMTP Timeout (in seconds)

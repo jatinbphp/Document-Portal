@@ -58,7 +58,7 @@ class UserDocuments extends BaseController{
 
 			
 			
-			$data = array(
+			$data1 = array(
 
 				'docName' =>$docName,
 				'categoryID' => $categoryID,
@@ -67,15 +67,60 @@ class UserDocuments extends BaseController{
 				'companyID' => $companyID,
 				'docFile' => $docFile,
 				'expireDate' => $expireDate,
-				'isActive' => isset($isActive) ? 1 : 0, 
-				'is_user' => isset($isActive) ? 1 : 0,
-
+				'is_user' => isset($userID) ? 1 : 0,
+				'isActive' => 0, 
 				);
 				
-			$insertId = $documents->insert($data);
+				
 
-			$this->session->set($comId); 
-			$session = session();
+			$insertId = $documents->insert($data1);
+
+			$firstName = $companyId['firstName'];
+			$lastName = $companyId['lastName'];
+
+			$company_model = new CompanyModel;
+			$companyName = $company_model->where('id',$comId)->first();
+			$company =$companyName['companyName'];
+			$url = base_url('userDocuments/edit/'.$insertId);
+			$message = 'Hello <br> <br>
+
+			One document uploaded by '.$firstName.' '.$lastName.'
+
+			<br><br>User Name: '.$firstName.''.$lastName.'
+			<br>Compony:'.$firstName.'
+
+			<br><br>Please active this document by this link:<a href = "'.$url.'"> Click Here</a';
+			
+			//send mail code here
+			
+			
+			// $email = \Config\Services::email();
+			// $email->setFrom('jayashree.s.php@gmail.com', 'your Title Here');
+			// $email->setTo('amit.kk.php@gmail.com');
+			// $email->setSubject('Confirmation ');
+			// $email->setMessage($message);
+			// $email->send();
+
+			$url = base_url('documents/edit/'.$insertId);
+			    $message = "Please activate the account ".$url;
+				$email = \Config\Services::email();
+		        $email->setFrom('dhaval.b.php@gmail.com', 'your Title Here');
+		        $email->setTo('jayashree.s.php@gmail.com');
+		        $email->setSubject('Confirmation ');
+		        $email->setMessage($message);
+		        // $email->send();
+
+		         if ($email->send()) 
+		        {
+		            echo 'Email successfully sent';
+		        } 
+		        else 
+		        {
+		            $data = $email->printDebugger(['headers']);
+		            print_r($data);
+		        }
+
+			
 			if($insertId > 0){
 				$session->setFlashdata('session', "Successfully added new Document");
 				return redirect()->to('userDocuments');
@@ -143,7 +188,7 @@ class UserDocuments extends BaseController{
         $orderColumn = array('', $global_tblDocuments.".firstName", $global_tblDocuments.".email", $global_tblDocuments.".isActive", $global_tblusers.".firstName", $global_tblDocuments.".isActive");
 
         // search column
-        $searchColumn = array($global_tblDocuments.".docName",$global_tblusers.".firstName",$global_tblusers.".lastName",$global_tblDocuments.".isActive");
+        $searchColumn = array($global_tblDocuments.".docName",$global_tblusers.".firstName",$global_tblusers.".lastName",$global_tblcategory.".categoryName",$global_tblsubcategory.".SubCatName",$global_tblcompany.'.companyName');
 
         // order by
         $orderBy = array($global_tblDocuments.'.id' => "DESC");
@@ -268,7 +313,7 @@ class UserDocuments extends BaseController{
 				'docFile' => $docFile,
 				'expireDate' => $expireDate,
 				'isActive' => isset($isActive) ? 1 : 0,
-				'is_user' => isset($isActive) ? 1 : 0,  
+				'is_user' => isset($userID) ? 1 : 0,  
 
 
 				);

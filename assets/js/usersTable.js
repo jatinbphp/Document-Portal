@@ -431,4 +431,59 @@ $(document).ready(function() {
             }]
         });
     }
+    //documents
+    $('#managedocumentsTable').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "responsive": true,
+        "order": [],
+        "ajax": {
+            url: "docs/fetch_managedocuments",
+            type: "POST",
+        },
+        "columnDefs": [{
+            "orderable": false,
+            "targets": -1
+        }, {
+            "orderable": false,
+            "targets": 0
+        }, {
+            "orderable": false,
+            "targets": 6
+        }, {
+            "width": "10%",
+            "targets": 0
+        }, {
+            "width": "15%",
+            "targets": 1
+        }, {
+            "width": "10%",
+            "targets": 2
+        }, {
+            "width": "10%",
+            "targets": 3
+        }, ]
+    });
+    // User delete Event    
+    $(document).on('click', '.deleteDocuments', function(event) {
+        event.preventDefault();
+        var id = $(this).attr("data-id");
+        swal({
+            title: "Are you sure?",
+            text: "Delete Document",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: '#DD6B55',
+            confirmButtonText: 'Yes, Delete',
+            cancelButtonText: "No, cancel",
+            closeOnConfirm: false,
+            closeOnCancel: false
+        }, function(isConfirm) {
+            if (isConfirm) {
+                window.location.href = baseurl + '/docs/delete/' + id;
+            } else {
+                swal("Cancelled", "Your data safe!", "error");
+            }
+        });
+    });
 });

@@ -159,9 +159,9 @@ $(document).ready(function() {
             categoryID: {
                 required: true,
             },
-            docFile: {
-                required: true,
-            },
+            // docFile: {
+            //     required: true,
+            // },
             expireDate: {
                 required: true,
             },
@@ -176,9 +176,9 @@ $(document).ready(function() {
             categoryID: {
                 required: "Please select Category",
             },
-            docFile: {
-                required: "Please select Document file",
-            },
+            // docFile: {
+            //     required: "Please select Document file",
+            // },
             expireDate: {
                 required: "Please select Expire Date",
             },

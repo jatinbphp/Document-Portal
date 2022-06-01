@@ -3,10 +3,10 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class SubCategoryModel extends Model
+class ManageDocumentsModel extends Model
 {
     protected $DBGroup              = 'default';
-	protected $table                = 'SubCategory';
+	protected $table                = 'DocumentsManage';
 	protected $primaryKey           = 'id';
 	protected $useAutoIncrement     = true;
 	protected $insertID             = 0;
@@ -19,7 +19,8 @@ class SubCategoryModel extends Model
 	protected $validationMessages   = [];
 	protected $skipValidation       = false;
 	protected $cleanValidationRules = true;
-	protected $allowedFields = ['CategoryId','SubCatName','dateAdded','is_deleted'];
+	protected $allowedFields = [  'docName', 'categoryID', 'subCategoryID', 'userID','docFile', 'status','expireDate', 'dateAdded','companyID'];
+
 
 	public function get_all_data($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn)
     {   
@@ -31,13 +32,13 @@ class SubCategoryModel extends Model
 
     public function getActionLink($path,$id,$type,$view=null,$userdelete=null){
 
-        $actionLinkVar = '';  
+         $actionLinkVar = '';  
 
-        $actionLinkVar .= '<a title="Edit Sub-Category" href="' . base_url( 'subcategory/edit/'.$id). '" class="btn btn-warning" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;"><i class="fa fa-edit"></i></a>';
+        $actionLinkVar .= '<a title="Edit Documents" href="' . base_url( 'docs/edit/'.$id). '" class="btn btn-warning" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;"><i class="fa fa-edit"></i></a>';
 
-        
-        $actionLinkVar .= '<a href="' . base_url( 'subcategory/delete/'.$id). '" title="Delete User Types" class="btn btn-danger deleteData deleteSubCategory" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;" data-id="' . $id . '"><i class="fa fa-trash"></i></a>';
-        
+        if($userdelete!=1){
+            $actionLinkVar .= '<a href="' . base_url( 'docs/delete/'.$id). '" title="Delete Document" class="btn btn-danger deleteData deleteDocuments" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;" data-id="' . $id . '"><i class="fa fa-trash"></i></a>';
+        }
  
         return $actionLinkVar;
 
@@ -53,7 +54,7 @@ class SubCategoryModel extends Model
     public function make_datatables($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$orwhere=null)
     {
          $this->make_query($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$orwhere);
-		
+
         $result = $this->findAll($_POST['length'], $_POST['start']);
         return  $result ;
         
@@ -76,7 +77,7 @@ class SubCategoryModel extends Model
             $this->select($selectName);
         }
 
-
+        
         //equal data condition
         if(!empty($whereData)){            
             foreach ($whereData as $fieldName => $fieldValue) {
@@ -138,11 +139,12 @@ class SubCategoryModel extends Model
                      $this->orderBy($orderFieldName,$orderFieldType);             
                 } 
             }
-        } 
+        }        
 
         // $sql = $this->getCompiledSelect(); 
         // echo $sql;
-        // exit;       
+        // exit;
+
     }
 }
  

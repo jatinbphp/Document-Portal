@@ -166,9 +166,8 @@ class UserDocuments extends BaseController{
 	  	 $whereEqual=array();
 
 	  	 
-	  	 $whereEqual[$global_tblDocuments.'.userID']= trim($_SESSION
-	  	 ['id']); $whereEqual[$global_tblDocuments.'.companyID']= trim
-	  	 ($comId);
+	  	 $whereEqual[$global_tblDocuments.'.userID']= trim($_SESSION['id']); 
+	  	 $whereEqual[$global_tblDocuments.'.companyID']= trim($comId);
 
 
         // not equal condition

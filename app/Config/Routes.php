@@ -82,15 +82,19 @@ $routes->get('subcategory/(:any)', 'SubCategory::$1',['filter' => 'auth']);
 //Reporting
 $routes->get('reporting', 'Reporting::index',['filter' => 'auth']);
 $routes->get('reporting/export', 'Reporting::export',['filter' => 'auth']);
-//$routes->post('reporting/getData', 'Reporting::getData',['filter' => 'auth']);
-
-//Reporting Category
 $routes->get('reporting/category', 'ReportingCategory::index',['filter' => 'auth']);
+$routes->get('uploadedDocuments', 'UploadedDocuments::index',['filter' => 'auth']);
+$routes->get('editedDocuments', 'DocumentEdit::index',['filter' => 'auth']);
+
 
 $routes->get('docs', 'ManageDocuments::index',['filter' => 'auth']);
 $routes->get('docs/(:any)', 'ManageDocuments::$1',['filter' => 'auth']);
 $routes->get('Docs', 'ManageDocuments::index',['filter' => 'auth']);
 $routes->get('Docs/(:any)', 'ManageDocuments::$1',['filter' => 'auth']);
+
+
+//$routes->get('reporting/documents', 'UploadedDocuments::index',['filter' => 'auth']);
+//$routes->post('reporting/getData', 'Reporting::getData',['filter' => 'auth']);
 
 
 
@@ -106,6 +110,9 @@ $routes->get('userDocuments', 'UserDocuments::index',['filter' => 'auth']);
 $routes->get('userDocuments/(:any)', 'UserDocuments::$1',['filter' => 'auth']);
 $routes->get('UserDocuments', 'UserDocuments::index',['filter' => 'auth']);
 $routes->get('UserDocuments/(:any)', 'UserDocuments::$1',['filter' => 'auth']);
+
+
+
 
 
 

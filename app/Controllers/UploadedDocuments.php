@@ -19,7 +19,11 @@ class UploadedDocuments extends BaseController{
 		$this->data['users'] = $users->findall();
 
 		$this->data['page_title'] = 'Documents Report';
-		$this->render_template('uploaded_documents/index',$this->data);
+
+		//$this->render_template('uploaded_documents/index',$this->data);
+
+		$this->render_template('document_edit/index',$this->data);
+
 	}
 	
 

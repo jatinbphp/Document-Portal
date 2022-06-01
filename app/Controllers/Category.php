@@ -9,9 +9,7 @@ class Category extends BaseController
 
 	public function index(){
 		$model_company = new CategoryModel;
- 		 
 		$this->data['page_title'] = "Category"; 
-		
 		$this->render_template('category/index', $this->data);
 	}
 	

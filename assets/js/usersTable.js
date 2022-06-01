@@ -382,11 +382,9 @@ $(document).ready(function() {
     }
     //company filter in documentlist
     $('#companySearch').change(function(e) {
-        $companyId = $('#companySearch').val();
-        if ($companyId != '') {
+			$companyId = $('#companySearch').val();
             $("#documentsTable, #uploadedDocuments").dataTable().fnDestroy();
             filterCompanyData();
-        }
     });
     $('#userSearch').change(function(e) {
         $("#documentsTable, #uploadedDocuments").dataTable().fnDestroy();
@@ -519,4 +517,39 @@ $(document).ready(function() {
             }
         });
     });
+    
+    //document edit log table
+    $('#editedDocument').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "responsive": true,
+        "order": [],
+        "ajax": {
+            url: "DocumentEdit/fetch_edited_documents",
+            type: "POST",
+        },
+        "columnDefs": [{
+            "orderable": false,
+            "targets": -1
+        }, {
+            "orderable": false,
+            "targets": 0
+        }, {
+            "orderable": false,
+            "targets": 3
+        }, {
+            "width": "10%",
+            "targets": 0
+        }, {
+            "width": "15%",
+            "targets": 1
+        }, {
+            "width": "10%",
+            "targets": 2
+        }, {
+            "width": "10%",
+            "targets": 3
+        }, ]
+    });
+    
 });

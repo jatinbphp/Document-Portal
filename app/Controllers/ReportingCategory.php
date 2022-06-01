@@ -54,7 +54,7 @@ class ReportingCategory extends BaseController
 		
 		$this->data['category'] = $cat;
 		$this->data['subcategory'] = $sub;
-		$this->render_template('reporting_category/index', $this->data);
+		$this->render_template('reporting/reporting_category/index', $this->data);
 		
 		
 	}

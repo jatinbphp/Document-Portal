@@ -11,7 +11,7 @@ class Reporting extends BaseController{
 		$company = new CompanyModel;
 		$this->data['company'] = $company->findall();
 		$this->data['page_title'] = 'Reporting';
-		$this->render_template('reporting/index',$this->data);
+		$this->render_template('reporting/general_report/index',$this->data);
 	}
 	
 	public function export(){

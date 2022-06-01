@@ -29,11 +29,11 @@
 							<?php if(!empty($category) && !empty($subcategory)): ?> 
 								<?php foreach($category as $id => $categoryData): ?>
 									<tr>
-										<td><?php echo $categoryData ?></td>
+										<td style="color: black;"><?php echo $categoryData ?></td>
 											<td> 
 												<table class="table table-bordered" id="nestedtable" cellspacing="0" width="100%">
 													<?php foreach($subcategory as $subcategoryData => $foreignId): ?>
-														<tr><td><?php if($id == $foreignId){echo $subcategoryData;} ?></td></tr>
+														<tr><td style="color: black;"><?php if($id == $foreignId){echo $subcategoryData;} ?></td></tr>
 													<?php endforeach; ?>		
 												</table>
 											</td>

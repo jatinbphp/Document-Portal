@@ -78,8 +78,9 @@
     // $(".manageDocuments-Menu .inner").css("display", "block")
     $('.Reporting-Menu').addClass('active');
 </script>
-<!--script src="<?php //echo base_url('assets/js/usersTable.js') ?>"></script-->
-<script src="<?php echo base_url('assets/js/tables.js') ?>"></script>
+<script src="<?php echo base_url('assets/js/usersTable.js') ?>"></script>
+<!--script src="<?php //echo base_url('assets/js/tables.js') ?>"></script-->
+
 
 
 

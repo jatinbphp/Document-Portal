@@ -217,7 +217,9 @@ class Documents extends BaseController{
 
 			$request = service('request');
 			$session = session();
-
+			
+			$categoryID = $_POST['categoryID'];
+			$subCategoryID = $_POST['subCategoryID'];
 			$docFile = '';
 	        if ($_FILES['docFile']['size']>0) {
 

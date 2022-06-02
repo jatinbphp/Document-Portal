@@ -11,6 +11,7 @@ class ReportingCategory extends BaseController
 		$db      = \Config\Database::connect();
 		$builder = $db->table('category');
 		$builder->select('id, categoryName');
+		$builder->where('is_deleted', 0);
 		$query = $builder->get();
 		$id = array();
 		$category= array();
@@ -23,6 +24,7 @@ class ReportingCategory extends BaseController
 		
 		$builder = $db->table('SubCategory');
 		$builder->select('CategoryId, SubCatName');
+		$builder->where('is_deleted', 0);
 		$query = $builder->get();
 		$foreignId = array();
 		$subcategory = array();

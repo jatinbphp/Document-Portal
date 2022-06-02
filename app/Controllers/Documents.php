@@ -36,7 +36,6 @@ class Documents extends BaseController{
 			$userID = $request->getPost('userID');
 			$companyID = $request->getPost('companyID');
 			$expireDate = $request->getPost('expireDate');
-
 			$docFile ='';
 
 			if($_FILES['docFile']['size']>0){
@@ -65,17 +64,15 @@ class Documents extends BaseController{
 				'isActive' => isset($isActive) ? 1 : 0, 
 
 				);
-				
-			$insertId = $documents->insert($data);
-
-			if($insertId > 0){
-				$session->setFlashdata('session', "Successfully added new Document");
-				return redirect()->to('documents');
-			}
-			else{
-				$session->setFlashdata('session',"document not added Successfully");
-				return redirect()->to('documents');
-			}
+				$insertId = $documents->insert($data);
+				if($insertId > 0){
+					$session->setFlashdata('session', "Successfully added new Document");
+					return redirect()->to('documents');
+				}
+				else{
+					$session->setFlashdata('session',"document not added Successfully");
+					return redirect()->to('documents');
+					}
 		}
 
         $users = new UsersModel;
@@ -212,6 +209,7 @@ class Documents extends BaseController{
 	}
 
 	public function edit($id=''){
+		
 	$model_documents = new DocumentsModel;
 		if($_POST){
 
@@ -244,6 +242,7 @@ class Documents extends BaseController{
 			$userID = $request->getPost('userID');
 			$companyID = $request->getPost('companyID');
 			$expireDate = $request->getPost('expireDate');
+			$edited_date = date('Y-d-m H:m:s');
 			$data = array(
 
 				'docName' =>$docName,
@@ -253,6 +252,7 @@ class Documents extends BaseController{
 				'companyID' => $companyID, 
 				'docFile' => $docFile,
 				'expireDate' => $expireDate,
+				'edited_date' => $edited_date,
 				'isActive' => isset($isActive) ? 1 : 0, 
 
 				);

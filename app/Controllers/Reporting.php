@@ -222,11 +222,5 @@ class Reporting extends BaseController{
         
     }
 
-    
-
-		
-
-  
-
 }
 ?>

@@ -78,17 +78,13 @@ class UploadedDocuments extends BaseController{
        );
 
 
-     	$model_user= new UploadedDocumentsModel;
-        $fetch_data = $model_user->make_datatables( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn);
-      
-     	
+     	$model_uploads= new UploadedDocumentsModel;
+        $fetch_data = $model_uploads->make_datatables( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn);     	
         $data = array();
         foreach ($fetch_data as $key => $row) {
             $sub_array = array(); 
-            
             $imgSrc = base_url('assets/images/download1.png');
             $id = $row['id'];
-            
             $sub_array[] = '<a href = "' . base_url( '/uploads/documents/'.$row['categoryID'].'/'.$row['subCategoryID'].'/'.$row['docFile']). '" target="_blank"><img src="'.$imgSrc.'"></a>';
             $sub_array[] = $row['docName'];  
 			$sub_array[] = $row['firstName']." ".$row['lastName'];  
@@ -106,15 +102,15 @@ class UploadedDocuments extends BaseController{
 		    
         	//$sub_array[] = $row['dateAdded'];
          	//$actionLink = $model_user->getActionLink('',$row['id'],'Documents','',$row['userTypeID']); 
-            $actionLink = $model_user->getActionLink('',$row['id'],'','Documents','');
+            //$actionLink = $model_uploads->getActionLink('',$row['id'],'','Documents','');
             $sub_array[] = $actionLink;
             $data[] = $sub_array;
 
         } 
         $output = array(
             "draw" =>  $_POST["draw"] ,
-            "recordsTotal" => $model_user->get_all_data( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn),
-            "recordsFiltered" => $model_user->get_filtered_data( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn),
+            "recordsTotal" => $model_uploads->get_all_data( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn),
+            "recordsFiltered" => $model_uploads->get_filtered_data( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn),
             "data" => $data,
         );
 

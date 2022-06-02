@@ -19,7 +19,7 @@ class DocumentEditModel extends Model
 	protected $validationMessages   = [];
 	protected $skipValidation       = false;
 	protected $cleanValidationRules = true;
-	protected $allowedFields = [  'docName', 'categoryID', 'subCategoryID', 'userID','docFile', 'status','expireDate', 'dateAdded','companyID'];
+	protected $allowedFields = [  'docName', 'categoryID', 'subCategoryID', 'userID','docFile', 'status','expireDate', 'dateAdded','companyID','edited_date'];
 
 
 	public function get_all_data($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn)

@@ -173,7 +173,7 @@ $(document).ready(function() {
         }, ]
     });
     // User delete Event    
-    $(document).on('click', '.deleteDocuments', function(event) {
+    $(document).on('click', '.manageDocDelete', function(event) {
         event.preventDefault();
         var id = $(this).attr("data-id");
         swal({

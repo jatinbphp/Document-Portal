@@ -1,0 +1,388 @@
+CRITICAL - 2022-06-02 09:38:07 --> syntax error, unexpected 'h' (T_STRING), expecting ')'
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-06-02 09:38:42 --> syntax error, unexpected ';', expecting ')'
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-06-02 10:11:29 --> syntax error, unexpected '$companyID' (T_VARIABLE), expecting ';' or ','
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-06-02 10:12:18 --> syntax error, unexpected '$companyID' (T_VARIABLE), expecting ';' or ','
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-06-02 10:12:19 --> syntax error, unexpected '$companyID' (T_VARIABLE), expecting ';' or ','
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-06-02 10:49:35 --> syntax error, unexpected 'IS' (T_STRING)
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+ERROR - 2022-06-02 10:50:01 --> Incorrect DATETIME value: 'IS NOT NULL'
+CRITICAL - 2022-06-02 10:50:01 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/BaseModel.php(603): CodeIgniter\Model->doFindAll()
+#1 /var/www/html/Document-Portal/app/Models/DocumentsModel.php(58): CodeIgniter\BaseModel->findAll()
+#2 /var/www/html/Document-Portal/app/Controllers/DocumentEdit.php(81): App\Models\DocumentsModel->make_datatables()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\DocumentEdit->fetch_edited_documents()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-06-02 10:50:04 --> Incorrect DATETIME value: 'IS NOT NULL'
+CRITICAL - 2022-06-02 10:50:04 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/BaseModel.php(603): CodeIgniter\Model->doFindAll()
+#1 /var/www/html/Document-Portal/app/Models/DocumentsModel.php(58): CodeIgniter\BaseModel->findAll()
+#2 /var/www/html/Document-Portal/app/Controllers/DocumentEdit.php(81): App\Models\DocumentsModel->make_datatables()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\DocumentEdit->fetch_edited_documents()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-06-02 10:50:08 --> Incorrect DATETIME value: 'IS NOT NULL'
+CRITICAL - 2022-06-02 10:50:08 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/BaseModel.php(603): CodeIgniter\Model->doFindAll()
+#1 /var/www/html/Document-Portal/app/Models/DocumentsModel.php(58): CodeIgniter\BaseModel->findAll()
+#2 /var/www/html/Document-Portal/app/Controllers/DocumentEdit.php(81): App\Models\DocumentsModel->make_datatables()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\DocumentEdit->fetch_edited_documents()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-06-02 10:50:11 --> Incorrect DATETIME value: 'IS NOT NULL'
+CRITICAL - 2022-06-02 10:50:11 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/BaseModel.php(603): CodeIgniter\Model->doFindAll()
+#1 /var/www/html/Document-Portal/app/Models/DocumentsModel.php(58): CodeIgniter\BaseModel->findAll()
+#2 /var/www/html/Document-Portal/app/Controllers/DocumentEdit.php(81): App\Models\DocumentsModel->make_datatables()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\DocumentEdit->fetch_edited_documents()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-06-02 10:54:44 --> Incorrect DATETIME value: '0000-00-00 00:00:00'
+CRITICAL - 2022-06-02 10:54:44 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/BaseModel.php(603): CodeIgniter\Model->doFindAll()
+#1 /var/www/html/Document-Portal/app/Models/DocumentsModel.php(58): CodeIgniter\BaseModel->findAll()
+#2 /var/www/html/Document-Portal/app/Controllers/DocumentEdit.php(81): App\Models\DocumentsModel->make_datatables()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\DocumentEdit->fetch_edited_documents()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-06-02 10:54:47 --> Incorrect DATETIME value: '0000-00-00 00:00:00'
+CRITICAL - 2022-06-02 10:54:47 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/BaseModel.php(603): CodeIgniter\Model->doFindAll()
+#1 /var/www/html/Document-Portal/app/Models/DocumentsModel.php(58): CodeIgniter\BaseModel->findAll()
+#2 /var/www/html/Document-Portal/app/Controllers/DocumentEdit.php(81): App\Models\DocumentsModel->make_datatables()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\DocumentEdit->fetch_edited_documents()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-06-02 10:54:50 --> Incorrect DATETIME value: '0000-00-00 00:00:00'
+CRITICAL - 2022-06-02 10:54:50 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/BaseModel.php(603): CodeIgniter\Model->doFindAll()
+#1 /var/www/html/Document-Portal/app/Models/DocumentsModel.php(58): CodeIgniter\BaseModel->findAll()
+#2 /var/www/html/Document-Portal/app/Controllers/DocumentEdit.php(81): App\Models\DocumentsModel->make_datatables()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\DocumentEdit->fetch_edited_documents()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-06-02 10:54:52 --> Incorrect DATETIME value: '0000-00-00 00:00:00'
+CRITICAL - 2022-06-02 10:54:52 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/BaseModel.php(603): CodeIgniter\Model->doFindAll()
+#1 /var/www/html/Document-Portal/app/Models/DocumentsModel.php(58): CodeIgniter\BaseModel->findAll()
+#2 /var/www/html/Document-Portal/app/Controllers/DocumentEdit.php(81): App\Models\DocumentsModel->make_datatables()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\DocumentEdit->fetch_edited_documents()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-06-02 10:54:54 --> Incorrect DATETIME value: '0000-00-00 00:00:00'
+CRITICAL - 2022-06-02 10:54:54 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/BaseModel.php(603): CodeIgniter\Model->doFindAll()
+#1 /var/www/html/Document-Portal/app/Models/DocumentsModel.php(58): CodeIgniter\BaseModel->findAll()
+#2 /var/www/html/Document-Portal/app/Controllers/DocumentEdit.php(81): App\Models\DocumentsModel->make_datatables()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\DocumentEdit->fetch_edited_documents()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-06-02 10:55:38 --> Incorrect DATETIME value: '0'
+CRITICAL - 2022-06-02 10:55:38 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/BaseModel.php(603): CodeIgniter\Model->doFindAll()
+#1 /var/www/html/Document-Portal/app/Models/DocumentsModel.php(58): CodeIgniter\BaseModel->findAll()
+#2 /var/www/html/Document-Portal/app/Controllers/DocumentEdit.php(81): App\Models\DocumentsModel->make_datatables()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\DocumentEdit->fetch_edited_documents()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-06-02 10:55:41 --> Incorrect DATETIME value: '0'
+CRITICAL - 2022-06-02 10:55:41 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/BaseModel.php(603): CodeIgniter\Model->doFindAll()
+#1 /var/www/html/Document-Portal/app/Models/DocumentsModel.php(58): CodeIgniter\BaseModel->findAll()
+#2 /var/www/html/Document-Portal/app/Controllers/DocumentEdit.php(81): App\Models\DocumentsModel->make_datatables()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\DocumentEdit->fetch_edited_documents()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-06-02 10:55:46 --> Incorrect DATETIME value: '0'
+CRITICAL - 2022-06-02 10:55:46 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/BaseModel.php(603): CodeIgniter\Model->doFindAll()
+#1 /var/www/html/Document-Portal/app/Models/DocumentsModel.php(58): CodeIgniter\BaseModel->findAll()
+#2 /var/www/html/Document-Portal/app/Controllers/DocumentEdit.php(81): App\Models\DocumentsModel->make_datatables()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\DocumentEdit->fetch_edited_documents()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-06-02 10:59:11 --> Call to undefined function App\Controllers\UNIX_TIMESTAMP()
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\DocumentEdit->fetch_edited_documents()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-02 10:59:16 --> Call to undefined function App\Controllers\UNIX_TIMESTAMP()
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\DocumentEdit->fetch_edited_documents()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-02 10:59:50 --> Call to undefined function App\Controllers\UNIX_TIMESTAMP()
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\DocumentEdit->fetch_edited_documents()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-02 10:59:50 --> Call to undefined function App\Controllers\UNIX_TIMESTAMP()
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\DocumentEdit->fetch_edited_documents()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-02 10:59:51 --> Call to undefined function App\Controllers\UNIX_TIMESTAMP()
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\DocumentEdit->fetch_edited_documents()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-02 10:59:51 --> Call to undefined function App\Controllers\UNIX_TIMESTAMP()
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\DocumentEdit->fetch_edited_documents()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-02 10:59:52 --> Call to undefined function App\Controllers\UNIX_TIMESTAMP()
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\DocumentEdit->fetch_edited_documents()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-02 10:59:53 --> Call to undefined function App\Controllers\UNIX_TIMESTAMP()
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\DocumentEdit->fetch_edited_documents()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-02 10:59:53 --> Call to undefined function App\Controllers\UNIX_TIMESTAMP()
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\DocumentEdit->fetch_edited_documents()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-02 10:59:54 --> Call to undefined function App\Controllers\UNIX_TIMESTAMP()
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\DocumentEdit->fetch_edited_documents()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-02 11:00:49 --> Call to undefined function App\Controllers\UNIX_TIMESTAMP()
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\DocumentEdit->fetch_edited_documents()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-02 11:00:50 --> Call to undefined function App\Controllers\UNIX_TIMESTAMP()
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\DocumentEdit->fetch_edited_documents()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-02 11:00:50 --> Call to undefined function App\Controllers\UNIX_TIMESTAMP()
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\DocumentEdit->fetch_edited_documents()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-02 11:00:51 --> Call to undefined function App\Controllers\UNIX_TIMESTAMP()
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\DocumentEdit->fetch_edited_documents()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-02 11:00:51 --> Call to undefined function App\Controllers\UNIX_TIMESTAMP()
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\DocumentEdit->fetch_edited_documents()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-02 11:00:52 --> Call to undefined function App\Controllers\UNIX_TIMESTAMP()
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\DocumentEdit->fetch_edited_documents()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-02 11:00:52 --> Call to undefined function App\Controllers\UNIX_TIMESTAMP()
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\DocumentEdit->fetch_edited_documents()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-02 11:00:53 --> Call to undefined function App\Controllers\UNIX_TIMESTAMP()
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\DocumentEdit->fetch_edited_documents()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-02 11:00:53 --> Call to undefined function App\Controllers\UNIX_TIMESTAMP()
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\DocumentEdit->fetch_edited_documents()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-06-02 11:03:57 --> Incorrect DATETIME value: '0000-00-00 00:00:00'
+CRITICAL - 2022-06-02 11:03:57 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/BaseModel.php(603): CodeIgniter\Model->doFindAll()
+#1 /var/www/html/Document-Portal/app/Models/DocumentsModel.php(58): CodeIgniter\BaseModel->findAll()
+#2 /var/www/html/Document-Portal/app/Controllers/DocumentEdit.php(83): App\Models\DocumentsModel->make_datatables()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\DocumentEdit->fetch_edited_documents()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-06-02 11:04:00 --> Incorrect DATETIME value: '0000-00-00 00:00:00'
+CRITICAL - 2022-06-02 11:04:00 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/BaseModel.php(603): CodeIgniter\Model->doFindAll()
+#1 /var/www/html/Document-Portal/app/Models/DocumentsModel.php(58): CodeIgniter\BaseModel->findAll()
+#2 /var/www/html/Document-Portal/app/Controllers/DocumentEdit.php(83): App\Models\DocumentsModel->make_datatables()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\DocumentEdit->fetch_edited_documents()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-06-02 11:04:02 --> Incorrect DATETIME value: '0000-00-00 00:00:00'
+CRITICAL - 2022-06-02 11:04:02 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/BaseModel.php(603): CodeIgniter\Model->doFindAll()
+#1 /var/www/html/Document-Portal/app/Models/DocumentsModel.php(58): CodeIgniter\BaseModel->findAll()
+#2 /var/www/html/Document-Portal/app/Controllers/DocumentEdit.php(83): App\Models\DocumentsModel->make_datatables()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\DocumentEdit->fetch_edited_documents()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-06-02 11:04:04 --> Incorrect DATETIME value: '0000-00-00 00:00:00'
+CRITICAL - 2022-06-02 11:04:04 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/BaseModel.php(603): CodeIgniter\Model->doFindAll()
+#1 /var/www/html/Document-Portal/app/Models/DocumentsModel.php(58): CodeIgniter\BaseModel->findAll()
+#2 /var/www/html/Document-Portal/app/Controllers/DocumentEdit.php(83): App\Models\DocumentsModel->make_datatables()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\DocumentEdit->fetch_edited_documents()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-06-02 11:04:06 --> Incorrect DATETIME value: '0000-00-00 00:00:00'
+CRITICAL - 2022-06-02 11:04:06 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/BaseModel.php(603): CodeIgniter\Model->doFindAll()
+#1 /var/www/html/Document-Portal/app/Models/DocumentsModel.php(58): CodeIgniter\BaseModel->findAll()
+#2 /var/www/html/Document-Portal/app/Controllers/DocumentEdit.php(83): App\Models\DocumentsModel->make_datatables()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\DocumentEdit->fetch_edited_documents()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-06-02 11:04:08 --> Incorrect DATETIME value: '0000-00-00 00:00:00'
+CRITICAL - 2022-06-02 11:04:08 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/BaseModel.php(603): CodeIgniter\Model->doFindAll()
+#1 /var/www/html/Document-Portal/app/Models/DocumentsModel.php(58): CodeIgniter\BaseModel->findAll()
+#2 /var/www/html/Document-Portal/app/Controllers/DocumentEdit.php(83): App\Models\DocumentsModel->make_datatables()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\DocumentEdit->fetch_edited_documents()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-06-02 11:08:39 --> syntax error, unexpected '00' (T_LNUMBER)
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-06-02 12:58:09 --> Call to a member function getActionLink() on null
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\UploadedDocuments->fetch_uploaded_documents()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-02 12:58:14 --> Call to a member function getActionLink() on null
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\UploadedDocuments->fetch_uploaded_documents()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-02 13:18:15 --> syntax error, unexpected 'if' (T_IF)
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+ERROR - 2022-06-02 14:08:09 --> Unknown column 'is_user' in 'field list'
+ERROR - 2022-06-02 15:03:52 --> Unknown column 'is_user' in 'field list'

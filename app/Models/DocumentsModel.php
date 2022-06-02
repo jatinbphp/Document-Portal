@@ -19,7 +19,7 @@ class DocumentsModel extends Model
 	protected $validationMessages   = [];
 	protected $skipValidation       = false;
 	protected $cleanValidationRules = true;
-	protected $allowedFields = [  'docName', 'categoryID', 'subCategoryID', 'userID','docFile', 'status','expireDate', 'dateAdded','companyID'];
+	protected $allowedFields = [  'docName', 'categoryID', 'subCategoryID', 'userID','docFile', 'status','expireDate', 'dateAdded','companyID','edited_date'];
 
 
 	public function get_all_data($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn)
@@ -37,7 +37,7 @@ class DocumentsModel extends Model
         $actionLinkVar .= '<a title="Edit Documents" href="' . base_url( 'documents/edit/'.$id). '" class="btn btn-warning" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;"><i class="fa fa-edit"></i></a>';
 
         if($userdelete!=1){
-            $actionLinkVar .= '<a href="' . base_url( 'documents/delete/'.$id). '" title="Delete Document" class="btn btn-danger deleteData deleteDocuments" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;" data-id="' . $id . '"><i class="fa fa-trash"></i></a>';
+            $actionLinkVar .= '<a href="' . base_url( 'documents/delete/'.$id). '" title="Delete Document" class="btn btn-danger deleteData manageDocDelete" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;" data-id="' . $id . '"><i class="fa fa-trash"></i></a>';
         }
  
         return $actionLinkVar;

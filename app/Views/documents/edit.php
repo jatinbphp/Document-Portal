@@ -48,7 +48,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="lableTitle"for="email">Company:<span class="asterisk-sign">*</span></label>
-                                        <select name="userID" id="userID" class="form-control" REQUIRED>
+                                        <select name="companyID" id="companyID" class="form-control" REQUIRED>
                                             <option value="">-- Select Company --</option>
                                             <?php 
                                             if(count($company)>0){

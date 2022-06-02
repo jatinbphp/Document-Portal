@@ -14,7 +14,7 @@
             </div>
             <?php endif; ?>
 
-            <h3>Documments Edit log <a class="btn btn-info" style="float: right;" href="<?php echo base_url('documents/add'); ?>">Upload Documents</a></h3>
+            <h3>Manage Documments <a class="btn btn-info" style="float: right;" href="<?php echo base_url('documents/add'); ?>">Upload Documents</a></h3>
 
             <div class="item-wrap item-list-table">
                 <table id="documentsTable" class="table table-bordered" cellspacing="0" width="100%" >
@@ -24,12 +24,11 @@
                             <div class="category-filter">
                                 <select id="companySearch" class="form-control" name="companySearch">
                                     <option value="">Select Company</option>
-                                    <?php if(count($company) > 0): ?>
-                                        <?php foreach($company as $key => $value): ?>
-                                            <option value="<?php //echo $value['companyName'] ?> <?php echo $value['id'] ?>"><?php echo $value['companyName'] ?></option>
-                                        <?php endforeach; ?>
-                                    <?php endif; ?>
-                                    
+										<?php if(count($company) > 0): ?>
+											<?php foreach($company as $key => $value): ?>
+												<option value="<?php //echo $value['companyName'] ?> <?php echo $value['id'] ?>"><?php echo $value['companyName'] ?></option>
+											<?php endforeach; ?>
+										<?php endif; ?>                  
                                  </select>
                             </div>
                         </div>

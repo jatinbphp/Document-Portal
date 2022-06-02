@@ -32,6 +32,7 @@ class DocumentEdit extends BaseController{
 
         // equal condition
 	  	 $whereEqual=array();
+	  	 
 	  	 if(isset($_POST['company_id']) && $_POST['company_id'] != '' ){
 			
  			  $whereEqual[$global_tblDocuments.'.companyID']= trim($_POST['company_id']);
@@ -44,6 +45,8 @@ class DocumentEdit extends BaseController{
 
         // not equal condition
         $whereNotEqual = array();
+        $whereNotEqual[$global_tblDocuments.'.edited_date'] = 0; //Where edited date is not null
+
 
         $notIn = array();     
 
@@ -88,7 +91,7 @@ class DocumentEdit extends BaseController{
 			//$sub_array[] = $row['categoryName']; 
 			//$sub_array[] = $row['SubCatName']; 
 			//$sub_array[] = $row['companyName'];  
-			$sub_array[] = $row['expireDate']; 
+			$sub_array[] = $row['edited_date']; 
 
 		 	if($row['isActive'] == 1){
                 //$sub_array[] = '<span class="badge badge-success">Active</span>';

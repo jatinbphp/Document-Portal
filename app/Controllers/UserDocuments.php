@@ -313,8 +313,6 @@ class UserDocuments extends BaseController{
 				'expireDate' => $expireDate,
 				'isActive' => isset($isActive) ? 1 : 0,
 				'is_user' => isset($userID) ? 1 : 0,  
-
-
 				);
 			$model_documents->set($data);
         	$model_documents->where('id', $id);

@@ -99,20 +99,11 @@
 																					
 																					?>
 																			</td>
-																			
-																			
-
-																			
 																	</tr>
 																
 																
 																
-                                                                <!--a class="collapsed" role="button" data-toggle="collapse" href="#collapse-1-1-1" aria-expanded="false" aria-controls="collapse-1-1-1">
-                                                                <?php $url = base_url('/uploads/documents/'.$docvalue['categoryID'].'/'.$subcatvalue['id'].'/'.$docvalue['docFile']);?>
-                                                                <a href= "<?php //echo $url ?> target = _blank">
-                                                                <?php //echo $docvalue['docFile'];?>
-                                                                </a>
-                                                                </a-->
+                                                                
                                                                 
                                                                 
                                                            

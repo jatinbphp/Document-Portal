@@ -15,17 +15,18 @@
                     <li class="SubCategory-Menu"><a class="" href="<?php echo base_url('subcategory'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-9.png'); ?>" alt=""> Sub Category</a></li>
 
                     <li class="Document-Menu"><a class="" href="<?php echo base_url('documents'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-9.png'); ?>" alt=""> Manage Document</a></li>
+                    
                     <li class="AllDocument-Menu"><a class="" href="<?php echo base_url('docs'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-9.png'); ?>" alt=""> All Documents</a></li>
                     
                     <li class="Reporting-Menu"><a class="" href="javascript:void(0)" onclick="showDiv()"><img src="<?php echo base_url('assets/images/dash-icon-4.png'); ?>" alt=""> Reporting</a></li>
                     
-                    <li class="UserReport-SubMenu" id="userReport" style="display: none;"><a class="" href="<?php echo base_url('reporting'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-4.png'); ?>" alt=""> User Report</a></li>
+                    <li class="SubMenu" id="userReport" style="display: none;"><a class="" href="<?php echo base_url('reporting'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-4.png'); ?>" alt=""> User Report</a></li>
          
-					<li class="CategoryReport-SubMenu" id="categoryReport" style="display: none;"><a class="" href="<?php echo base_url('reporting/category'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-4.png'); ?>" alt="">Category Report</a></li>
+					<li class="SubMenu" id="categoryReport" style="display: none;"><a class="" href="<?php echo base_url('reporting/category'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-4.png'); ?>" alt="">Category Report</a></li>
 					
-					<li class="UploadsReport-SubMenu" id="uploadsReport" style="display: none;"><a class="" href="<?php echo base_url('uploadedDocuments'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-4.png'); ?>" alt="">Uploaded Documents</a></li>
+					<li class="SubMenu" id="uploadsReport" style="display: none;"><a class="" href="<?php echo base_url('uploadedDocuments'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-4.png'); ?>" alt="">Uploaded Documents</a></li>
 					
-					<li class="EditReport-SubMenu" id="editReport" style="display: none;"><a class="" href="<?php echo base_url('editedDocuments'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-4.png'); ?>" alt="">Document Edit Log</a></li>
+					<li class="SubMenu" id="editReport" style="display: none;"><a class="" href="<?php echo base_url('editedDocuments'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-4.png'); ?>" alt="">Document Edit Log</a></li>
 
             </li>
 
@@ -50,11 +51,17 @@
 </div>
 <div class="body-overlay"></div>
 
-<script>
+<!--script>
 function showDiv() {
    document.getElementById('userReport').style.display = "block";
    document.getElementById('categoryReport').style.display = "block";
    document.getElementById('uploadsReport').style.display = "block";
    document.getElementById('editReport').style.display = "block";
 }
+</script-->
+<script>
+$(".Reporting-Menu").click(function() {
+    $(".SubMenu").toggle();
+    //$('.Reporting-Menu').addClass('active');
+});
 </script>

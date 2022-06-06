@@ -1,0 +1,304 @@
+CRITICAL - 2022-06-06 09:35:28 --> Argument 2 passed to CodeIgniter\Database\BaseBuilder::set() must be of the type string or null, array given, called in /var/www/html/Document-Portal/system/Model.php on line 323
+#0 /var/www/html/Document-Portal/system/Model.php(323): CodeIgniter\Database\BaseBuilder->set()
+#1 /var/www/html/Document-Portal/system/BaseModel.php(917): CodeIgniter\Model->doUpdate()
+#2 /var/www/html/Document-Portal/system/Model.php(718): CodeIgniter\BaseModel->update()
+#3 /var/www/html/Document-Portal/app/Controllers/Users.php(270): CodeIgniter\Model->update()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->edit()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-06-06 12:31:46 --> syntax error, unexpected 'data' (T_STRING)
+#0 /var/www/html/Document-Portal/system/Router/Router.php(169): CodeIgniter\Router\Router->autoRoute()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(810): CodeIgniter\Router\Router->handle()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(390): CodeIgniter\CodeIgniter->tryToRouteIt()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2022-06-06 12:52:24 --> Column 'company_id' cannot be null
+ERROR - 2022-06-06 12:52:24 --> Column 'company_id' cannot be null
+ERROR - 2022-06-06 12:52:25 --> Column 'company_id' cannot be null
+ERROR - 2022-06-06 13:03:15 --> Column 'company_id' cannot be null
+ERROR - 2022-06-06 13:03:15 --> Column 'company_id' cannot be null
+ERROR - 2022-06-06 13:03:15 --> Column 'company_id' cannot be null
+ERROR - 2022-06-06 13:07:46 --> Column 'company_id' cannot be null
+ERROR - 2022-06-06 13:07:46 --> Column 'company_id' cannot be null
+ERROR - 2022-06-06 13:07:46 --> Column 'company_id' cannot be null
+CRITICAL - 2022-06-06 14:34:51 --> Call to undefined method App\Models\UserCompanyModel::getResults
+#0 /var/www/html/Document-Portal/app/Controllers/Users.php(107): CodeIgniter\Model->__call()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->add()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-06 14:36:00 --> Call to undefined method App\Models\UserCompanyModel::getResult
+#0 /var/www/html/Document-Portal/app/Controllers/Users.php(107): CodeIgniter\Model->__call()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->add()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-06 14:36:01 --> Call to undefined method App\Models\UserCompanyModel::getResult
+#0 /var/www/html/Document-Portal/app/Controllers/Users.php(107): CodeIgniter\Model->__call()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->add()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-06 14:36:01 --> Call to undefined method App\Models\UserCompanyModel::getResult
+#0 /var/www/html/Document-Portal/app/Controllers/Users.php(107): CodeIgniter\Model->__call()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->add()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-06 14:36:01 --> Call to undefined method App\Models\UserCompanyModel::getResult
+#0 /var/www/html/Document-Portal/app/Controllers/Users.php(107): CodeIgniter\Model->__call()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->add()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-06 14:36:03 --> Call to undefined method App\Models\UserCompanyModel::getResult
+#0 /var/www/html/Document-Portal/app/Controllers/Users.php(107): CodeIgniter\Model->__call()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->add()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2022-06-06 14:36:55 --> Not unique table/alias: 'user_company'
+ERROR - 2022-06-06 14:36:55 --> Not unique table/alias: 'user_company'
+ERROR - 2022-06-06 14:36:55 --> Not unique table/alias: 'user_company'
+ERROR - 2022-06-06 14:36:56 --> Not unique table/alias: 'user_company'
+ERROR - 2022-06-06 14:36:56 --> Not unique table/alias: 'user_company'
+ERROR - 2022-06-06 14:36:57 --> Not unique table/alias: 'user_company'
+ERROR - 2022-06-06 14:36:57 --> Not unique table/alias: 'user_company'
+ERROR - 2022-06-06 14:36:59 --> Not unique table/alias: 'user_company'
+ERROR - 2022-06-06 14:36:59 --> Not unique table/alias: 'user_company'
+ERROR - 2022-06-06 14:37:43 --> Not unique table/alias: 'user_company'
+ERROR - 2022-06-06 14:37:43 --> Not unique table/alias: 'user_company'
+ERROR - 2022-06-06 14:37:44 --> Not unique table/alias: 'user_company'
+ERROR - 2022-06-06 14:39:59 --> Not unique table/alias: 'user_company'
+CRITICAL - 2022-06-06 14:39:59 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->add()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-06 14:42:18 --> Call to a member function table() on null
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->add()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-06 14:42:19 --> Call to a member function table() on null
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->add()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-06 14:42:20 --> Call to a member function table() on null
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->add()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-06 14:43:51 --> Call to undefined function App\Controllers\connect()
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->add()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-06-06 14:44:20 --> Not unique table/alias: 'user_company'
+CRITICAL - 2022-06-06 14:44:20 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->add()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-06-06 14:44:36 --> Unknown column 'title' in 'field list'
+CRITICAL - 2022-06-06 14:44:36 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->add()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-06-06 14:44:36 --> Unknown column 'title' in 'field list'
+CRITICAL - 2022-06-06 14:44:36 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->add()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-06-06 14:44:37 --> Unknown column 'title' in 'field list'
+CRITICAL - 2022-06-06 14:44:37 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->add()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-06-06 14:45:25 --> Not unique table/alias: 'user_company'
+CRITICAL - 2022-06-06 14:45:25 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->add()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-06 14:48:03 --> syntax error, unexpected '}', expecting ';' or ','
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-06-06 16:01:54 --> syntax error, unexpected '$result' (T_VARIABLE)
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-06-06 16:03:15 --> syntax error, unexpected '$result' (T_VARIABLE)
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-06-06 16:03:16 --> syntax error, unexpected '$result' (T_VARIABLE)
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-06-06 16:03:16 --> syntax error, unexpected '$result' (T_VARIABLE)
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-06-06 16:03:44 --> syntax error, unexpected '$userCompany' (T_VARIABLE)
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-06-06 16:04:05 --> syntax error, unexpected '}'
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-06-06 16:05:45 --> Call to a member function insert() on null
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->edit()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-06 16:08:51 --> Call to a member function getInsertID() on null
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->edit()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-06 16:09:59 --> Call to a member function getUpdateID() on null
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->edit()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-06 16:12:19 --> syntax error, unexpected 'public' (T_PUBLIC)
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-06-06 16:12:21 --> syntax error, unexpected 'public' (T_PUBLIC)
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-06-06 16:12:23 --> syntax error, unexpected 'public' (T_PUBLIC)
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-06-06 16:12:24 --> syntax error, unexpected 'public' (T_PUBLIC)
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-06-06 16:12:25 --> syntax error, unexpected 'public' (T_PUBLIC)
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-06-06 16:12:25 --> syntax error, unexpected 'public' (T_PUBLIC)
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-06-06 16:12:32 --> syntax error, unexpected 'public' (T_PUBLIC)
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}

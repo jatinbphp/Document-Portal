@@ -1,7 +1,6 @@
 <div class="wrapper">
     <div class="row">
         <div class="col-sm-12">
-
             <?php if(session()->has('success')): ?>
             <div class="alert alert-success alert-dismissible" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -28,20 +27,20 @@
                                         <label class="lableTitle"for="userTypeID">User Type :<span class="asterisk-sign">*</span></label>
                                         <select name="userTypeID" id="userTypeID" class="form-control" REQUIRED>
                                             <option value="">-- Select User Type --</option>
-                                            <?php 
-                                            if(count($user_types)>0){
-                                                foreach ($user_types as $key => $value) { ?>
+                                            
+                                            <?php if(count($user_types)>0): ?>
+                                                <?php foreach ($user_types as $key => $value): ?>
                                                     <option value="<?php echo $value['id']; ?>"><?php echo $value['userTypeName']; ?></option>
-                                                <?php
-                                                }
-                                            } ?>
+                                                <?php endforeach; ?>
+                                               <?php endif; ?>
                                         </select>
                                     </div>
                                 </div>
+                                
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="lableTitle"for="email">Email Address:<span class="asterisk-sign">*</span></label>
-                                        <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+                                        <input type="email" name="email" class="form-control" id="email" placeholder="Email" autocomplete="off">
                                     </div>
                                 </div>
                             </div>
@@ -53,17 +52,20 @@
                                         <input type="text" name="firstName" class="form-control" id="firstName" placeholder="First Name">
                                     </div>
                                 </div>
+                                
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="lableTitle"for="lastName">Last Name :<span class="asterisk-sign">*</span></label>
                                         <input type="text" name="lastName" class="form-control" id="lastName" placeholder="Last Name">
                                     </div>
                                 </div>
+                                
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="lableTitle"for="companyId ">Company :<span class="asterisk-sign">*</span></label>
-                                         <select name="companyId" id="companyId" class="form-control" REQUIRED>
-                                            <option value="">-- Select Company --</option>
+                                         <!--select name="companyId" id="companyId" class="form-control" REQUIRED-->
+                                         <select id="companyId" class="js-states form-control" name="companyId[]" multiple>
+                                            <!--option value="">-- Select All --</option-->
                                             <?php 
                                             if(count($company)>0){
                                                 foreach ($company as $key => $value) { ?>
@@ -130,10 +132,19 @@
     </div>
 </div>
 
+<script src="<?php echo base_url('assets/js/usersFormValidation.js') ?>"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 <script type="text/javascript">
     // $(".manageUsers-Menu .inner").addClass("show");
     // $(".manageUsers-Menu .toggle").addClass("activAcc");
     // $(".manageUsers-Menu .inner").css("display", "block")
     $('.Users-Menu').addClass('active');
 </script>
-<script src="<?php echo base_url('assets/js/usersFormValidation.js') ?>"></script>
+<script>
+	$("#companyId").select2({
+			  placeholder: "-- Select Company --",
+			  allowClear: true		  
+	});	  
+</script>
+

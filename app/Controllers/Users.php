@@ -4,7 +4,7 @@ use App\Controllers\BaseController;
 use App\Models\UsersModel;
 use App\Models\User_typesModel;
 use App\Models\CompanyModel;
-
+use App\Models\UserCompanyModel;
 class Users extends BaseController{
 
 	public function index(){
@@ -14,7 +14,7 @@ class Users extends BaseController{
 
 	public function add(){
 		$users = new UsersModel;
-
+		$userCompany = new UserCompanyModel;
 		if($_POST){
 			
 			$request = service('request');
@@ -41,21 +41,55 @@ class Users extends BaseController{
 			$isActive = $request->getPost('isActive');
 			$userTypeID = $request->getPost('userTypeID');
 			$companyId = $request->getPost('companyId');
-			$data = array(
-
-				'firstName' =>$firstName,
-				'lastName' => $lastName,
-				'email' => $email, 
-				'userTypeID' => $userTypeID, 
-				'companyId' => $companyId, 
-				'profilePic' => $profilePic,
-				'pwd' => md5($pwd),
-				'isActive' => isset($isActive) ? 1 : 0, 
-
-				);
-
-			$insertId = $users->insert($data);
-
+			$flag = 0;
+			foreach($companyId as $company){
+				//check weather the user has selected only a single company(for now but this will be modified)
+				if(count($companyId) == 1){
+					$data = array(
+							'firstName' =>$firstName,
+							'lastName' => $lastName,
+							'email' => $email, 
+							'userTypeID' => $userTypeID, 
+							//~ 'companyId' => $value, 
+							'profilePic' => $profilePic,
+							'pwd' => md5($pwd),
+							'isActive' => isset($isActive) ? 1 : 0, 
+					);
+					$insertId = $users->insert($data);
+					
+					$user_id = $users->getInsertID();
+					$userCompany = new UserCompanyModel;
+					$data = array(
+						'user_id' => $user_id,
+						'company_id' => $company,
+					);
+					$insertId = $userCompany->insert($data);
+				}
+				else{
+					while($flag < 1){
+						$data = array(
+							'firstName' =>$firstName,
+							'lastName' => $lastName,
+							'email' => $email, 
+							'userTypeID' => $userTypeID, 
+							//~ 'companyId' => $value, 
+							'profilePic' => $profilePic,
+							'pwd' => md5($pwd),
+							'isActive' => isset($isActive) ? 1 : 0, 
+						);
+						$insertId = $users->insert($data);
+						$flag = $flag  +1;
+					}
+					$user_id = $users->getInsertID();
+					$userCompany = new UserCompanyModel;
+					$data = array(
+						'user_id' => $user_id,
+						'company_id' => $company,
+					);
+					$insertId = $userCompany->insert($data);
+				}
+			}
+				
 			if($insertId > 0){
 				$session->setFlashdata('session', "Successfully added new User");
 				return redirect()->to('users');
@@ -66,6 +100,20 @@ class Users extends BaseController{
 			}
 		}
 
+		//$userCompany = new UserCompanyModel;
+		//$userCompany->select('Company.companyName, user_company.id');
+		//$userCompany->join('Company', 'user_company.company_id = Company.id', 'left');
+		//$query = $userCompany->get();
+		//foreach($query->getResult('array') as $row){
+			//echo "<pre>";
+			//print_r($row);
+		//}
+		//echo "<pre>";
+		//print_r($query);
+		//exit;
+		
+		
+
         $user_types = new User_typesModel;
         $this->data['user_types'] = $user_types->findall();
 
@@ -75,7 +123,7 @@ class Users extends BaseController{
 		$this->data['page_title'] = 'Users';
 		$this->render_template('users/add',$this->data);
 	}
-
+	
 	public function checkEmailExists(){
 		$request = service('request');
 		$email = $request->getPost('email');
@@ -122,7 +170,8 @@ class Users extends BaseController{
 
         // join table
         $joinTableArray = array();
-       	$joinTableArray = array(array("joinTable"=>$global_tbluser_type, "joinField"=>"id", "relatedJoinTable"=>$global_tblUsers, "relatedJoinField"=>"userTypeID","type"=>"left"),
+       	$joinTableArray = array(
+			array("joinTable"=>$global_tbluser_type, "joinField"=>"id", "relatedJoinTable"=>$global_tblUsers, "relatedJoinField"=>"userTypeID","type"=>"left"),
        		array("joinTable"=>$global_tblcompany, "joinField"=>"id", "relatedJoinTable"=>$global_tblUsers, "relatedJoinField"=>"companyId","type"=>"left")
        );
 
@@ -189,6 +238,7 @@ class Users extends BaseController{
 		public function edit($id=''){
 
 		$model_users = new UsersModel;
+		$userCompany = new UserCompanyModel;
 
 		if($_POST){
 
@@ -219,7 +269,7 @@ class Users extends BaseController{
 			$isActive = $request->getPost('isActive');
 			$userTypeID = $request->getPost('userTypeID');
 			$companyId = $request->getPost('companyId');
-
+			$flag = 0;
 			if(!empty($pwd)){
 				$passwordData = array(					
 					'pwd' => md5($pwd),
@@ -229,22 +279,67 @@ class Users extends BaseController{
 	        	$model_users->where('id', $id);
 	        	$result =  $model_users->update();
 			}
-
-			$data = array(
-				'firstName' => $firstName,
-				'lastName' => $lastName,
-				'email' => $email, 
-				'pwd' => md5($pwd),
-				'userTypeID' => $userTypeID,
-				'companyId' => $companyId,
-				'profilePic' => $profilePic,
-				'isActive' => isset($isActive) ? 1 : 0, 
-			);
-
-			$model_users->set($data);
-        	$model_users->where('id', $id);
-        	$result =  $model_users->update();
-        	
+			
+			foreach($companyId as $company){
+				//check weather the user has selected only a single company(for now but this will be modified)
+				if(count($companyId) == 1){
+					$data = array(
+							'firstName' =>$firstName,
+							'lastName' => $lastName,
+							'email' => $email, 
+							'userTypeID' => $userTypeID, 
+							'companyId' => $company, 
+							'profilePic' => $profilePic,
+							'pwd' => md5($pwd),
+							'isActive' => isset($isActive) ? 1 : 0, 
+					);
+					$model_users->set($data);
+					$model_users->where('id', $id);
+					$result =  $model_users->update();
+				}
+					//$user_id = $users->getUpdateID();
+					//$userCompany = new UserCompanyModel;
+					//$data = array(
+						//'user_id' => $user_id,
+						//'company_id' => $company,
+					//);
+					//$insertId = $userCompany->insert($data);
+					//$model_users->set($data);
+					//$model_users->where('id', $id);
+					//$result =  $model_users->update();
+				}
+				/*
+				else{
+					while($flag < 1){
+						$data = array(
+							'firstName' =>$firstName,
+							'lastName' => $lastName,
+							'email' => $email, 
+							'userTypeID' => $userTypeID, 
+							//~ 'companyId' => $value, 
+							'profilePic' => $profilePic,
+							'pwd' => md5($pwd),
+							'isActive' => isset($isActive) ? 1 : 0, 
+						);
+						$model_users->set($data);
+						$model_users->where('id', $id);
+						$result =  $model_users->update();
+						$flag = $flag  +1;
+					}
+					$user_id = $users->getInsertID();
+					$userCompany = new UserCompanyModel;
+					$data = array(
+						'user_id' => $user_id,
+						'company_id' => $company,
+					);
+					
+					$userCompany->set($data);
+					$userCompany->where('user_id', $id);
+					$result = $userCompany->update();
+				}
+			}
+*/
+			
         	if($result){ 
 	            $session->setFlashdata("success", "User updated Successfully.");
 	            return redirect()->to('users');

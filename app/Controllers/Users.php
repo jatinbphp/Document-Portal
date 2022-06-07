@@ -54,19 +54,20 @@ class Users extends BaseController{
 							'profilePic' => $profilePic,
 							'pwd' => md5($pwd),
 							'isActive' => isset($isActive) ? 1 : 0, 
-					);
-					$insertId = $users->insert($data);
-					
-					$user_id = $users->getInsertID();
-					$userCompany = new UserCompanyModel;
+						);
+							
+							$insertId = $users->insert($data);
+							$user_id = $users->getInsertID();
+							$userCompany = new UserCompanyModel;
 					$data = array(
-						'user_id' => $user_id,
-						'company_id' => $company,
-					);
-					$insertId = $userCompany->insert($data);
-				}
-				else{
+							'user_id' => $user_id,
+							'company_id' => $company,
+						);
+							
+							$insertId = $userCompany->insert($data);
+				} else {
 					while($flag < 1){
+						
 						$data = array(
 							'firstName' =>$firstName,
 							'lastName' => $lastName,
@@ -77,18 +78,20 @@ class Users extends BaseController{
 							'pwd' => md5($pwd),
 							'isActive' => isset($isActive) ? 1 : 0, 
 						);
-						$insertId = $users->insert($data);
-						$flag = $flag  +1;
+						
+							$insertId = $users->insert($data);
+							$flag = $flag  +1;
 					}
-					$user_id = $users->getInsertID();
-					$userCompany = new UserCompanyModel;
+							$user_id = $users->getInsertID();
+							$userCompany = new UserCompanyModel;
+					
 					$data = array(
 						'user_id' => $user_id,
 						'company_id' => $company,
 					);
-					$insertId = $userCompany->insert($data);
+						$insertId = $userCompany->insert($data);
+					}
 				}
-			}
 				
 			if($insertId > 0){
 				$session->setFlashdata('session', "Successfully added new User");
@@ -293,52 +296,12 @@ class Users extends BaseController{
 							'pwd' => md5($pwd),
 							'isActive' => isset($isActive) ? 1 : 0, 
 					);
-					$model_users->set($data);
-					$model_users->where('id', $id);
-					$result =  $model_users->update();
+							$model_users->set($data);
+							$model_users->where('id', $id);
+							$result =  $model_users->update();
+					} 
 				}
-					//$user_id = $users->getUpdateID();
-					//$userCompany = new UserCompanyModel;
-					//$data = array(
-						//'user_id' => $user_id,
-						//'company_id' => $company,
-					//);
-					//$insertId = $userCompany->insert($data);
-					//$model_users->set($data);
-					//$model_users->where('id', $id);
-					//$result =  $model_users->update();
-				}
-				/*
-				else{
-					while($flag < 1){
-						$data = array(
-							'firstName' =>$firstName,
-							'lastName' => $lastName,
-							'email' => $email, 
-							'userTypeID' => $userTypeID, 
-							//~ 'companyId' => $value, 
-							'profilePic' => $profilePic,
-							'pwd' => md5($pwd),
-							'isActive' => isset($isActive) ? 1 : 0, 
-						);
-						$model_users->set($data);
-						$model_users->where('id', $id);
-						$result =  $model_users->update();
-						$flag = $flag  +1;
-					}
-					$user_id = $users->getInsertID();
-					$userCompany = new UserCompanyModel;
-					$data = array(
-						'user_id' => $user_id,
-						'company_id' => $company,
-					);
-					
-					$userCompany->set($data);
-					$userCompany->where('user_id', $id);
-					$result = $userCompany->update();
-				}
-			}
-*/
+						
 			
         	if($result){ 
 	            $session->setFlashdata("success", "User updated Successfully.");

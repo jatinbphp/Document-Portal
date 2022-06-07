@@ -33,7 +33,7 @@
             </h3>
             <div class="item-wrap item-list-table">
                 <!--table id="" class="table table-bordered" cellspacing="0" width="100%"-->
-                    <iv id="accordion">
+                    <div id="accordion">
                     <?php foreach($category as $key=>$value){ ?>
                     <div class="card">
                         <div class="card-header" id="heading-1">
@@ -64,10 +64,8 @@
 															<td>Download File </td>
 															<td>Doc Name</td>
 															<td>Doc File </td>
-															
 															<td>Expire Date </td>
 															<td>Status </td>
-															 
 														</tr>
 													</thead>
 													<tbody>
@@ -75,14 +73,8 @@
                                                 <?php foreach ($Documentfiles as $key=>$docvalue) { 
                                                     if($docvalue['categoryID'] ==$value['id'] && $docvalue['subCategoryID'] == $subcatvalue['id']  ){?>
                                                 <div id="accordion-1-1">
-													
-																
-													
                                                     <div class="card">
-
-                                                           
-																
-																<?php $url = base_url('/uploads/documents/'.$docvalue['categoryID'].'/'.$subcatvalue['id'].'/'.$docvalue['docFile']);?>
+															<?php $url = base_url('/uploads/documents/'.$docvalue['categoryID'].'/'.$subcatvalue['id'].'/'.$docvalue['docFile']);?>
 																	<tr>
 																			<td><?php echo "<a href = '".$url ."'  target='_blank'><img src='assets/images/download1.png' style='width: 40px; height: 40px'></a>" ?></td>
 																			<td><?php echo $docvalue['docName'] ?></td>
@@ -90,26 +82,17 @@
 																			<td><?php echo $docvalue['expireDate'] ?></td>
 																			<td>
 																					<?php 
-																					if($docvalue['isActive'] == 1){
-																							echo "<span class='badge badge-success'>Active</span>";
-																						}
-																						else{
-																							echo "<span class='badge badge-danger'>InActive</span>";
-																							}
-																					
+																								if($docvalue['isActive'] == 1){
+																										echo "<span class='badge badge-success'>Active</span>";
+																								}
+																								else{
+																										echo "<span class='badge badge-danger'>InActive</span>";
+																								}
 																					?>
 																			</td>
 																	</tr>
-																
-																
-																
-                                                                
-                                                                
-                                                                
-                                                           
-
-                                                    </div>
-                                                </div>
+															</div>
+														</div>
                                                 <?php }}?>
                                                 </tbody>
                                                 </table>
@@ -123,9 +106,6 @@
                     </div>
                     <?php  }?>
             </div>
-            <!--tbody>
-            </tbody-->
-            <!--/table-->
         </div>
     </div>
 </div>

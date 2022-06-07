@@ -92,6 +92,11 @@ $routes->get('docs/(:any)', 'ManageDocuments::$1',['filter' => 'auth']);
 $routes->get('Docs', 'ManageDocuments::index',['filter' => 'auth']);
 $routes->get('Docs/(:any)', 'ManageDocuments::$1',['filter' => 'auth']);
 
+$routes->get('workflow', 'Workflow::index',['filter' => 'auth']);
+$routes->get('workflow/(:any)', 'Workflow::$1',['filter' => 'auth']);
+$routes->get('Workflow', 'Workflow::index',['filter' => 'auth']);
+$routes->get('Workflow/(:any)', 'Workflow::$1',['filter' => 'auth']);
+
 
 //$routes->get('reporting/documents', 'UploadedDocuments::index',['filter' => 'auth']);
 //$routes->post('reporting/getData', 'Reporting::getData',['filter' => 'auth']);

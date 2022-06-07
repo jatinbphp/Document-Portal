@@ -382,9 +382,9 @@ $(document).ready(function() {
     }
     //company filter in documentlist
     $('#companySearch').change(function(e) {
-			$companyId = $('#companySearch').val();
-            $("#documentsTable, #uploadedDocuments").dataTable().fnDestroy();
-            filterCompanyData();
+        $companyId = $('#companySearch').val();
+        $("#documentsTable, #uploadedDocuments").dataTable().fnDestroy();
+        filterCompanyData();
     });
     $('#userSearch').change(function(e) {
         $("#documentsTable, #uploadedDocuments").dataTable().fnDestroy();
@@ -517,7 +517,6 @@ $(document).ready(function() {
             }
         });
     });
-    
     //document edit log table
     $('#editedDocument').DataTable({
         "processing": true,
@@ -551,5 +550,58 @@ $(document).ready(function() {
             "targets": 3
         }, ]
     });
-    
+    //workflow table
+    $('#workflowTable').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "responsive": true,
+        "order": [],
+        "ajax": {
+            url: "workflow/fetch_workflow",
+            type: "POST",
+        },
+        "columnDefs": [{
+            "orderable": false,
+            "targets": -1
+        }, {
+            "orderable": false,
+            "targets": 0
+        }, {
+            "orderable": false,
+            "targets": 6
+        }, {
+            "width": "10%",
+            "targets": 0
+        }, {
+            "width": "15%",
+            "targets": 1
+        }, {
+            "width": "10%",
+            "targets": 2
+        }, {
+            "width": "10%",
+            "targets": 3
+        }, ]
+    });
+    $(document).on('click', '.workflowDelete', function(event) {
+        event.preventDefault();
+        var id = $(this).attr("data-id");
+        swal({
+            title: "Are you sure?",
+            text: "Delete workflow",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: '#DD6B55',
+            confirmButtonText: 'Yes, Delete',
+            cancelButtonText: "No, cancel",
+            closeOnConfirm: false,
+            closeOnCancel: false
+        }, function(isConfirm) {
+            if (isConfirm) {
+                window.location.href = baseurl + '/workflow/delete/' + id;
+            } else {
+                swal("Cancelled", "Your data safe!", "error");
+            }
+        });
+    });
 });

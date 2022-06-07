@@ -28,6 +28,7 @@ class Workflow extends BaseController{
 			$usertype_id = $request->getPost('usertype_id');
 			$category_id = $request->getPost('category_id'); 
 			$subcategory_id = $request->getPost('subcategory_id');
+			$company_id = $request->getPost('company_id');
 			$document_files = $request->getPost('document_files');
 			$comments = $request->getPost('comments');
 			// $document_files ='';
@@ -52,6 +53,7 @@ class Workflow extends BaseController{
 				'usertype_id' => $usertype_id, 
 				'category_id' => $category_id, 
 				'subcategory_id' => $subcategory_id,
+				'company_id' => $company_id,
 				//'document_files' => $document_files,
 				'comments' => $comments, 
 
@@ -106,12 +108,14 @@ class Workflow extends BaseController{
 
         $users_type = new User_typesModel;
         $this->data['users_type'] = $users_type->findall();
-
         $category = new CategoryModel;
         $this->data['category'] = $category->where('is_deleted',0)->findall();
 
         $subCategory = new SubCategoryModel;
         $this->data['subCategory'] = $subCategory->where('is_deleted',0)->findall();
+
+        $company = new CompanyModel;
+        $this->data['company'] = $company->findall();
 
 
 		$this->data['page_title'] = 'Workflow';
@@ -127,6 +131,7 @@ class Workflow extends BaseController{
  	  	$global_tblusers_types = 'UserTypes';
 	  	$global_tblcategory = 'category';
 	  	$global_tblsubcategory = 'SubCategory';
+	  	$global_tblcompany = 'Company';
 
         // equal condition
 	  	 $whereEqual=array();
@@ -140,12 +145,13 @@ class Workflow extends BaseController{
         $selectColumn[$global_tblusers_types.'.userTypeName'] =  $global_tblusers_types.'.userTypeName';
         $selectColumn[$global_tblcategory.'.categoryName'] =  $global_tblcategory.'.categoryName';
         $selectColumn[$global_tblsubcategory.'.SubCatName'] =  $global_tblsubcategory.'.SubCatName';
+        $selectColumn[$global_tblcompany.'.companyName'] =  $global_tblcompany.'.companyName';
       	
         // order column
-        $orderColumn = array('', $global_tblWorkflow.".document_name", $global_tblusers_types.".userTypeName", $global_tblcategory.".categoryName", $global_tblsubcategory.".SubCatName", $global_tblWorkflow.".document_files");
+        $orderColumn = array('', $global_tblWorkflow.".document_name", $global_tblusers_types.".userTypeName", $global_tblcategory.".categoryName", $global_tblsubcategory.".SubCatName", $global_tblcompany.".companyName",$global_tblWorkflow.".document_files");
 
         // search column
-        $searchColumn = array($global_tblWorkflow.".document_name",$global_tblusers_types.".userTypeName",$global_tblcategory.".categoryName",$global_tblsubcategory.".SubCatName",$global_tblWorkflow.".document_files");
+        $searchColumn = array($global_tblWorkflow.".document_name",$global_tblusers_types.".userTypeName",$global_tblcategory.".categoryName",$global_tblsubcategory.".SubCatName",$global_tblWorkflow.".document_files",$global_tblcompany.".companyName");
 
         // order by
         $orderBy = array($global_tblWorkflow.'.id' => "DESC");
@@ -155,7 +161,9 @@ class Workflow extends BaseController{
        	$joinTableArray = array(array("joinTable"=>$global_tblusers_types, "joinField"=>"id", "relatedJoinTable"=>$global_tblWorkflow, "relatedJoinField"=>"usertype_id","type"=>"left"),
        		array("joinTable"=>$global_tblcategory, "joinField"=>"id", "relatedJoinTable"=>$global_tblWorkflow, "relatedJoinField"=>"category_id","type"=>"left"),
 
-       		array("joinTable"=>$global_tblsubcategory, "joinField"=>"id", "relatedJoinTable"=>$global_tblWorkflow, "relatedJoinField"=>"subcategory_id","type"=>"left")
+       		array("joinTable"=>$global_tblsubcategory, "joinField"=>"id", "relatedJoinTable"=>$global_tblWorkflow, "relatedJoinField"=>"subcategory_id","type"=>"left"),
+       		
+       		array("joinTable"=>$global_tblcompany, "joinField"=>"id", "relatedJoinTable"=>$global_tblWorkflow, "relatedJoinField"=>"company_id","type"=>"left")
 
        );
 
@@ -170,11 +178,12 @@ class Workflow extends BaseController{
             $sub_array = array(); 
             
             $imgSrc = base_url('assets/images/download1.png');
-              $sub_array[] = '<a href = "' . base_url( '/uploads/workflow/'.$row['document_files']). '" target="_blank"><img src="'.$imgSrc.'"></a>';
+              $sub_array[] = '<a href = "' . base_url( '/workflow/view_documents/'.$row['id']). '" target="_blank"><button class = "btn btn-primary">View Documents</button></a>';
             $sub_array[] = $row['document_name'];
             $sub_array[] = $row['userTypeName']; 
             $sub_array[] = $row['categoryName']; 
 			$sub_array[] = $row['SubCatName']; 
+			$sub_array[] = $row['companyName'];
 			//$sub_array[] = $row['document_files'];
           
 
@@ -250,6 +259,7 @@ class Workflow extends BaseController{
 			$usertype_id = $request->getPost('usertype_id');
 			$category_id = $request->getPost('category_id'); 
 			$subcategory_id = $request->getPost('subcategory_id');
+			$company_id = $request->getPost('company_id');
 			//$document_files = $request->getPost('document_files');
 			$comments = $request->getPost('comments');
 
@@ -258,6 +268,7 @@ class Workflow extends BaseController{
 				'usertype_id' => $usertype_id, 
 				'category_id' => $category_id, 
 				'subcategory_id' => $subcategory_id,
+				'company_id' => $company_id,
 				//'document_files' => $document_files,
 				'comments' => $comments,
 				);
@@ -320,6 +331,9 @@ class Workflow extends BaseController{
 
         $subCategory = new SubCategoryModel;
         $this->data['subCategory'] = $subCategory->where('is_deleted',0)->findall();
+
+        $company = new CompanyModel;
+        $this->data['company'] = $company->findall();
 
         $db = \Config\Database::connect(); 
 
@@ -389,6 +403,24 @@ class Workflow extends BaseController{
         	$session->setFlashdata("error", "Additional Document not deleted Successfully.");
             return redirect()->to($_SERVER['HTTP_REFERER']);  
         }  	 
+	}
+
+	public function view_documents($id = ''){
+		$model_workflow = new WorkflowModel;
+        $name = $model_workflow->select('document_name')->where('id',$id)->first();
+        $this->data['name'] = $name['document_name'];
+        
+
+		$db = \Config\Database::connect(); 
+
+    	$builder = $db->table('workflow_documents');
+    	$builder1 = $builder->where('workflow_id',$id);
+    	$query = $builder1->get();
+    	$datadoc = $query->getResultArray();
+    	$this->data['documents'] = $datadoc;
+
+    	$this->render_template('workflow/views',$this->data);
+    	//return view('workflow/views',$this->data);
 	}
 }
 ?>

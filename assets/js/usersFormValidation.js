@@ -225,4 +225,50 @@ $(document).ready(function() {
             form.submit();
         }
     });
+    $('#workflowFormAddEdit').validate({
+        // errorClass : 'text-danger',
+        rules: {
+            document_name: {
+                required: true,
+            },
+            usertype_id: {
+                required: true,
+            },
+            category_id: {
+                required: true,
+            },
+            subcategory_id: {
+                required: true,
+            },
+            document_files: {
+                required: true,
+            },
+            comments: {
+                required: true,
+            },
+        },
+        messages: {
+            document_name: {
+                required: "Please enter Document Name",
+            },
+            usertype_id: {
+                required: "Please select User Type",
+            },
+            category_id: {
+                required: "Please select Category",
+            },
+            subcategory_id: {
+                required: "Please select Sub Category",
+            },
+            document_files: {
+                required: "Please select Document file",
+            },
+            comments: {
+                required: "Please add your comments",
+            },
+        },
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
 });

@@ -19,7 +19,7 @@ class WorkflowModel extends Model
 	protected $validationMessages   = [];
 	protected $skipValidation       = false;
 	protected $cleanValidationRules = true;
-	protected $allowedFields = ['document_name', 'usertype_id', 'category_id', 'subcategory_id','document_files', 'comments'];
+	protected $allowedFields = ['document_name', 'usertype_id', 'category_id', 'subcategory_id','document_files', 'comments','company_id'];
 
 
 	public function get_all_data($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn)

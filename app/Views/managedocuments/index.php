@@ -51,12 +51,12 @@
                                             if($value['id'] == $subcatvalue['CategoryId']){ ?>
                                         <div class="card-header" id="heading-1-1">
                                             <h5 class="mb-0">
-                                                <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-1-<?php echo $subcatvalue['id']; ?>" aria-expanded="false" aria-controls="collapse-1-<?php echo $subcatvalue['id']; ?>">
+                                                <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-<?php echo $value['id']; ?>-<?php echo $subcatvalue['id']; ?>" aria-expanded="false" aria-controls="collapse-1-<?php echo $subcatvalue['id']; ?>">
                                                 <?php  echo $subcatvalue['SubCatName']; ?>
                                                 </a>
                                             </h5>
                                         </div>
-                                        <div id="collapse-1-<?php echo $subcatvalue['id'] ?>" class="collapse" data-parent="#accordion-1" aria-labelledby="heading-1-1">
+                                        <div id="collapse-<?php echo $value['id']; ?>-<?php echo $subcatvalue['id'] ?>" class="collapse" data-parent="#accordion-1" aria-labelledby="heading-1-1">
                                             <div class="card-body">
 												<table id="" class="table table-bordered" cellspacing="0" width="100%">
 													<thead>
@@ -98,8 +98,9 @@
                                                 </table>
                                             </div>
                                         </div>
-                                    </div>
                                     <?php  }}?>
+
+                                    </div>
                                 </div>
                             </div>
                         </div>

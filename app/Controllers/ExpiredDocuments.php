@@ -1,25 +1,27 @@
 <?php 
 namespace App\Controllers;
 use App\Controllers\BaseController;
-use App\Models\WorkflowModel;
+//use App\Models\WorkflowModel;
+use App\Models\ExpiredDocumentsModel;
 use App\Models\UsersModel;
 use App\Models\SubCategoryModel;
 use App\Models\CategoryModel;
 use App\Models\CompanyModel;
 use App\Models\ReportingModel;
 use App\Models\User_typesModel;
-class OutstandingDocuments extends BaseController{
+use Datetime;
+class ExpiredDocuments extends BaseController{
 
 	public function index(){
 		
 		$company = new CompanyModel;
         $this->data['company'] = $company->findall();
 
-		$this->data['page_title'] = 'Outstanding Documents';
-		$this->render_template('reporting/outstanding_documents/index',$this->data);
+		$this->data['page_title'] = 'Expired Documents';
+        $this->render_template('reporting/expired_documents/index',$this->data);
 	}
 	
-	public function fetch_outstanding_documents(){
+	public function fetch_expired_documents(){
 		 //echo $_POST['company_id'];
 		 //exit;
 		$db = \Config\Database::connect();		
@@ -28,9 +30,14 @@ class OutstandingDocuments extends BaseController{
 	  	$global_tblcategory = 'category';
 	  	$global_tblsubcategory = 'SubCategory';
 	  	$global_tblcompany = 'Company';
-
+	  	
+	  	$currentDate = new DateTime();
+        $currentDate =  $currentDate->format('Y-m-d H:i:s');
+        
         // equal condition
 	  	 $whereEqual=array();
+	  	 
+	  	 //$whereEqual[$global_tblWorkflow.'.expire_date'] = trim($currentDate);
 	  	
 	  	  if(isset($_POST['company_id']) && $_POST['company_id'] != '' ){
 			
@@ -39,6 +46,8 @@ class OutstandingDocuments extends BaseController{
 	  	 
         // not equal condition
         $whereNotEqual = array();
+        
+        $whereNotEqual[$global_tblWorkflow.'.expire_date'] = trim($currentDate); //fetching expired documents based on current date
 
         $notIn = array();     
 
@@ -70,7 +79,7 @@ class OutstandingDocuments extends BaseController{
        );
 
 
-     	$model_user= new WorkflowModel;
+     	$model_user= new ExpiredDocumentsModel;
         $fetch_data = $model_user->make_datatables( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn);
       
      	
@@ -86,10 +95,8 @@ class OutstandingDocuments extends BaseController{
             $sub_array[] = $row['categoryName']; 
 			$sub_array[] = $row['SubCatName']; 
 			$sub_array[] = $row['companyName'];
-			//$sub_array[] = $row['document_files'];
-          
-
 			$sub_array[] = $row['comments']; 
+			$sub_array[] = $row['expire_date'];
 
 		 	
 
@@ -116,7 +123,6 @@ class OutstandingDocuments extends BaseController{
 
   	public function getSubCat(){
 	  	$id = $_POST['dataid'];
-
 	  	$model_subCat = new SubCategoryModel;
 		$subCat = $model_subCat->where('CategoryId',$id)->findall();
 		echo json_encode($subCat);

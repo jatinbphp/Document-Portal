@@ -1,0 +1,207 @@
+CRITICAL - 2022-06-08 15:00:07 --> Call to a member function getTimestamp() on string
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ExpiredDocuments->fetch_expired_documents()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-08 15:00:11 --> Call to a member function getTimestamp() on string
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ExpiredDocuments->fetch_expired_documents()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-08 15:00:18 --> Call to a member function getTimestamp() on string
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ExpiredDocuments->fetch_expired_documents()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-08 15:00:25 --> Call to a member function getTimestamp() on string
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ExpiredDocuments->fetch_expired_documents()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-08 15:00:46 --> Call to a member function getTimestamp() on string
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ExpiredDocuments->fetch_expired_documents()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-08 15:03:40 --> strtotime() expects parameter 1 to be string, object given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/app/Controllers/ExpiredDocuments.php(32): strtotime()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ExpiredDocuments->fetch_expired_documents()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#5 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-06-08 15:06:38 --> Argument 1 passed to CodeIgniter\BaseModel::findAll() must be of the type int, null given, called in /var/www/html/Document-Portal/app/Models/UploadedDocumentsModel.php on line 58
+#0 /var/www/html/Document-Portal/app/Models/UploadedDocumentsModel.php(58): CodeIgniter\BaseModel->findAll()
+#1 /var/www/html/Document-Portal/app/Controllers/ExpiredDocuments.php(98): App\Models\UploadedDocumentsModel->make_datatables()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ExpiredDocuments->fetch_expired_documents()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#5 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-06-08 15:06:38 --> Argument 1 passed to CodeIgniter\BaseModel::findAll() must be of the type int, null given, called in /var/www/html/Document-Portal/app/Models/UploadedDocumentsModel.php on line 58
+#0 /var/www/html/Document-Portal/app/Models/UploadedDocumentsModel.php(58): CodeIgniter\BaseModel->findAll()
+#1 /var/www/html/Document-Portal/app/Controllers/ExpiredDocuments.php(98): App\Models\UploadedDocumentsModel->make_datatables()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ExpiredDocuments->fetch_expired_documents()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#5 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-06-08 15:08:21 --> Argument 1 passed to CodeIgniter\BaseModel::findAll() must be of the type int, null given, called in /var/www/html/Document-Portal/app/Models/UploadedDocumentsModel.php on line 58
+#0 /var/www/html/Document-Portal/app/Models/UploadedDocumentsModel.php(58): CodeIgniter\BaseModel->findAll()
+#1 /var/www/html/Document-Portal/app/Controllers/ExpiredDocuments.php(99): App\Models\UploadedDocumentsModel->make_datatables()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ExpiredDocuments->fetch_expired_documents()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#5 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-06-08 15:08:22 --> Argument 1 passed to CodeIgniter\BaseModel::findAll() must be of the type int, null given, called in /var/www/html/Document-Portal/app/Models/UploadedDocumentsModel.php on line 58
+#0 /var/www/html/Document-Portal/app/Models/UploadedDocumentsModel.php(58): CodeIgniter\BaseModel->findAll()
+#1 /var/www/html/Document-Portal/app/Controllers/ExpiredDocuments.php(99): App\Models\UploadedDocumentsModel->make_datatables()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ExpiredDocuments->fetch_expired_documents()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#5 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-06-08 15:08:22 --> Argument 1 passed to CodeIgniter\BaseModel::findAll() must be of the type int, null given, called in /var/www/html/Document-Portal/app/Models/UploadedDocumentsModel.php on line 58
+#0 /var/www/html/Document-Portal/app/Models/UploadedDocumentsModel.php(58): CodeIgniter\BaseModel->findAll()
+#1 /var/www/html/Document-Portal/app/Controllers/ExpiredDocuments.php(99): App\Models\UploadedDocumentsModel->make_datatables()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ExpiredDocuments->fetch_expired_documents()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#5 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-06-08 15:08:22 --> Argument 1 passed to CodeIgniter\BaseModel::findAll() must be of the type int, null given, called in /var/www/html/Document-Portal/app/Models/UploadedDocumentsModel.php on line 58
+#0 /var/www/html/Document-Portal/app/Models/UploadedDocumentsModel.php(58): CodeIgniter\BaseModel->findAll()
+#1 /var/www/html/Document-Portal/app/Controllers/ExpiredDocuments.php(99): App\Models\UploadedDocumentsModel->make_datatables()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ExpiredDocuments->fetch_expired_documents()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#5 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-06-08 15:33:44 --> syntax error, unexpected '$whereEqual' (T_VARIABLE)
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 [internal function]: spl_autoload_call()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-06-08 15:42:04 --> Invalid argument supplied for foreach()
+#0 /var/www/html/Document-Portal/app/Models/UploadedDocumentsModel.php(106): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/app/Models/UploadedDocumentsModel.php(56): App\Models\UploadedDocumentsModel->make_query()
+#2 /var/www/html/Document-Portal/app/Controllers/ExpiredDocuments.php(103): App\Models\UploadedDocumentsModel->make_datatables()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ExpiredDocuments->fetch_expired_documents()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-06-08 16:46:09 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`expireDate` = '2022-06-08 16:46:09'
+ORDER BY `document_workfolw`.`id` DESC
+ LI' at line 7
+CRITICAL - 2022-06-08 16:46:09 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/BaseModel.php(603): CodeIgniter\Model->doFindAll()
+#1 /var/www/html/Document-Portal/app/Models/ExpiredDocumentsModel.php(58): CodeIgniter\BaseModel->findAll()
+#2 /var/www/html/Document-Portal/app/Controllers/ExpiredDocuments.php(81): App\Models\ExpiredDocumentsModel->make_datatables()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ExpiredDocuments->fetch_expired_documents()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-06-08 16:46:15 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`expireDate` = '2022-06-08 16:46:15'
+ORDER BY `document_workfolw`.`id` DESC
+ LI' at line 7
+CRITICAL - 2022-06-08 16:46:15 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/BaseModel.php(603): CodeIgniter\Model->doFindAll()
+#1 /var/www/html/Document-Portal/app/Models/ExpiredDocumentsModel.php(58): CodeIgniter\BaseModel->findAll()
+#2 /var/www/html/Document-Portal/app/Controllers/ExpiredDocuments.php(81): App\Models\ExpiredDocumentsModel->make_datatables()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ExpiredDocuments->fetch_expired_documents()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-06-08 16:46:16 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`expireDate` = '2022-06-08 16:46:16'
+ORDER BY `document_workfolw`.`id` DESC
+ LI' at line 7
+CRITICAL - 2022-06-08 16:46:16 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/BaseModel.php(603): CodeIgniter\Model->doFindAll()
+#1 /var/www/html/Document-Portal/app/Models/ExpiredDocumentsModel.php(58): CodeIgniter\BaseModel->findAll()
+#2 /var/www/html/Document-Portal/app/Controllers/ExpiredDocuments.php(81): App\Models\ExpiredDocumentsModel->make_datatables()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ExpiredDocuments->fetch_expired_documents()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-06-08 16:46:49 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`expireDate` = '2022-06-08 16:46:49'
+ORDER BY `document_workfolw`.`id` DESC
+ LI' at line 7
+CRITICAL - 2022-06-08 16:46:49 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/BaseModel.php(603): CodeIgniter\Model->doFindAll()
+#1 /var/www/html/Document-Portal/app/Models/ExpiredDocumentsModel.php(58): CodeIgniter\BaseModel->findAll()
+#2 /var/www/html/Document-Portal/app/Controllers/ExpiredDocuments.php(81): App\Models\ExpiredDocumentsModel->make_datatables()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ExpiredDocuments->fetch_expired_documents()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-06-08 16:46:51 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`expireDate` = '2022-06-08 16:46:51'
+ORDER BY `document_workfolw`.`id` DESC
+ LI' at line 7
+CRITICAL - 2022-06-08 16:46:51 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/BaseModel.php(603): CodeIgniter\Model->doFindAll()
+#1 /var/www/html/Document-Portal/app/Models/ExpiredDocumentsModel.php(58): CodeIgniter\BaseModel->findAll()
+#2 /var/www/html/Document-Portal/app/Controllers/ExpiredDocuments.php(81): App\Models\ExpiredDocumentsModel->make_datatables()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ExpiredDocuments->fetch_expired_documents()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-06-08 16:46:57 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`expireDate` = '2022-06-08 16:46:57'
+ORDER BY `document_workfolw`.`id` DESC
+ LI' at line 7
+CRITICAL - 2022-06-08 16:46:57 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/BaseModel.php(603): CodeIgniter\Model->doFindAll()
+#1 /var/www/html/Document-Portal/app/Models/ExpiredDocumentsModel.php(58): CodeIgniter\BaseModel->findAll()
+#2 /var/www/html/Document-Portal/app/Controllers/ExpiredDocuments.php(81): App\Models\ExpiredDocumentsModel->make_datatables()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ExpiredDocuments->fetch_expired_documents()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-06-08 19:00:08 --> Unknown column 'DocumentsManage.firstName' in 'order clause'
+CRITICAL - 2022-06-08 19:00:08 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/BaseModel.php(603): CodeIgniter\Model->doFindAll()
+#1 /var/www/html/Document-Portal/app/Models/DocumentsModel.php(58): CodeIgniter\BaseModel->findAll()
+#2 /var/www/html/Document-Portal/app/Controllers/Documents.php(152): App\Models\DocumentsModel->make_datatables()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Documents->fetch_documents()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-06-08 19:00:13 --> Unknown column 'DocumentsManage.email' in 'order clause'
+CRITICAL - 2022-06-08 19:00:13 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/BaseModel.php(603): CodeIgniter\Model->doFindAll()
+#1 /var/www/html/Document-Portal/app/Models/DocumentsModel.php(58): CodeIgniter\BaseModel->findAll()
+#2 /var/www/html/Document-Portal/app/Controllers/Documents.php(152): App\Models\DocumentsModel->make_datatables()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Documents->fetch_documents()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-06-08 19:00:20 --> Argument 1 passed to CodeIgniter\Database\BaseBuilder::orderBy() must be of the type string, null given, called in /var/www/html/Document-Portal/system/Model.php on line 800
+#0 /var/www/html/Document-Portal/system/Model.php(800): CodeIgniter\Database\BaseBuilder->orderBy()
+#1 /var/www/html/Document-Portal/app/Models/DocumentsModel.php(135): CodeIgniter\Model->__call()
+#2 /var/www/html/Document-Portal/app/Models/DocumentsModel.php(56): App\Models\DocumentsModel->make_query()
+#3 /var/www/html/Document-Portal/app/Controllers/Documents.php(152): App\Models\DocumentsModel->make_datatables()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Documents->fetch_documents()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}

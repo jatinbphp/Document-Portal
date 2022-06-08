@@ -28,7 +28,9 @@
 					
 					<li class="SubMenu" id="editReport" style="display: none;"><a class="" href="<?php echo base_url('editedDocuments'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-4.png'); ?>" alt="">Document Edit Log</a></li>
 					
-					<li class="SubMenu" id="" style="display: none;"><a class="" href="<?php echo base_url('outstandingDocuments'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-4.png'); ?>" alt="">Outstanding Documents</a></li>
+					<li class="SubMenu" id="outstandingDocumentsReport" style="display: none;"><a class="" href="<?php echo base_url('outstandingDocuments'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-4.png'); ?>" alt="">Outstanding Documents</a></li>
+					
+					<li class="SubMenu" id="" style="display: none;"><a class="" href="<?php echo base_url('Expired-Documents'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-4.png'); ?>" alt="">Expired Documents</a></li>
 
                     <li class="Workflow-Menu"><a class="" href="<?php echo base_url('workflow'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-9.png'); ?>" alt=""> Manage Workflow</a></li>
 

@@ -605,7 +605,7 @@ $(document).ready(function() {
         });
     });
     
-     //Outstanding Documents
+     //Outstanding Documents table
     $('#outstandingDocumentsTable').DataTable({
         "processing": true,
         "serverSide": true,
@@ -640,17 +640,14 @@ $(document).ready(function() {
     });
     
     
-     //company filter in documentlist
+     //company filter in Outstanding Documents
     $('#companySearch').change(function(e) {
         //$companyId = $('#companySearch').val();
         $("#outstandingDocumentsTable").dataTable().fnDestroy();
         filter();
     });
     
-   
-    //filterCompanyData();
     function filter() {
-        //reporting table
          //Outstanding Documents
 		$('#outstandingDocumentsTable').DataTable({
 			"processing": true,
@@ -690,5 +687,83 @@ $(document).ready(function() {
 		});
     }
     
+    // Report Expired Documents Table
+     $('#expiredDocumentsTable').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "responsive": true,
+        "order": [],
+        "ajax": {
+            url: "ExpiredDocuments/fetch_expired_documents",
+            type: "POST",
+        },
+        "columnDefs": [{
+            "orderable": false,
+            "targets": -1
+        }, {
+            "orderable": false,
+            "targets": 0
+        }, {
+            "orderable": false,
+            "targets": 6
+        }, {
+            "width": "10%",
+            "targets": 0
+        }, {
+            "width": "15%",
+            "targets": 1
+        }, {
+            "width": "10%",
+            "targets": 2
+        }, {
+            "width": "10%",
+            "targets": 3
+        }, ]
+    });
+    
+    //Expired Documents Filter
+    $('#companySearch').change(function(e) {
+        $("#expiredDocumentsTable").dataTable().fnDestroy();
+        filterExpiredDocuments();
+    });
+    
+    function filterExpiredDocuments() {
+		 // Report Expired Documents Table
+		$('#expiredDocumentsTable').DataTable({
+			"processing": true,
+			"serverSide": true,
+			"responsive": true,
+			"order": [],
+			"ajax": {
+				url: "ExpiredDocuments/fetch_expired_documents",
+				type: "POST",
+				data: {
+                    'company_id': $('#companySearch').val()
+                }
+			},
+			"columnDefs": [{
+				"orderable": false,
+				"targets": -1
+			}, {
+				"orderable": false,
+				"targets": 0
+			}, {
+				"orderable": false,
+				"targets": 6
+			}, {
+				"width": "10%",
+				"targets": 0
+			}, {
+				"width": "15%",
+				"targets": 1
+			}, {
+				"width": "10%",
+				"targets": 2
+			}, {
+				"width": "10%",
+				"targets": 3
+			}, ]
+		});
+    }
     
 });

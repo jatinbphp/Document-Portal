@@ -86,6 +86,7 @@ $routes->get('reporting/category', 'ReportingCategory::index',['filter' => 'auth
 $routes->get('uploadedDocuments', 'UploadedDocuments::index',['filter' => 'auth']);
 $routes->get('editedDocuments', 'DocumentEdit::index',['filter' => 'auth']);
 $routes->get('outstandingDocuments', 'OutstandingDocuments::index',['filter' => 'auth']);
+$routes->get('Expired-Documents', 'ExpiredDocuments::index',['filter' => 'auth']);
 
 
 $routes->get('docs', 'ManageDocuments::index',['filter' => 'auth']);

@@ -43,6 +43,9 @@ class Users extends BaseController{
 			$companyId = $request->getPost('companyId');
 			$flag = 0;
 			foreach($companyId as $company){
+				$model_company = new CompanyModel;
+				$comData = $model_company->select('companyName')->where('id',$company)->first();
+				 $comName = $comData['companyName'];
 				//check weather the user has selected only a single company(for now but this will be modified)
 				if(count($companyId) == 1){
 					$data = array(
@@ -62,6 +65,7 @@ class Users extends BaseController{
 					$data = array(
 							'user_id' => $user_id,
 							'company_id' => $company,
+							'comName' =>$comName,
 						);
 							
 							$insertId = $userCompany->insert($data);
@@ -88,6 +92,7 @@ class Users extends BaseController{
 					$data = array(
 						'user_id' => $user_id,
 						'company_id' => $company,
+						'comName' =>$comName,
 					);
 						$insertId = $userCompany->insert($data);
 					}
@@ -149,6 +154,7 @@ class Users extends BaseController{
   	 	$global_tblUsers = 'Users';
  	  	$global_tbluser_type = 'UserTypes';
 	  	$global_tblcompany = 'Company';
+	  	$global_tblcompanyuser = 'user_company';
         // equal condition
         $whereEqual = array(); 
  		
@@ -156,11 +162,13 @@ class Users extends BaseController{
         $whereNotEqual = array();
 
         $notIn = array();     
+        $group_by = array();
 
         // select data
         $selectColumn[$global_tblUsers.'.*'] = $global_tblUsers.'.*';
         $selectColumn[$global_tbluser_type.'.userTypeName'] =  $global_tbluser_type.'.userTypeName';
         $selectColumn[$global_tblcompany.'.companyName'] =  $global_tblcompany.'.companyName';
+        $selectColumn[$global_tblcompanyuser.'.comName']= 'GROUP_CONCAT( user_company.comName) as pro_company_id';
       	
         // order column
         $orderColumn = array('', $global_tblUsers.".firstName", $global_tblUsers.".email", $global_tblUsers.".isActive", $global_tbluser_type.".userTypeName", $global_tblUsers.".dateAdded");
@@ -169,22 +177,38 @@ class Users extends BaseController{
         $searchColumn = array($global_tblUsers.".firstName", $global_tblUsers.".lastName", $global_tblUsers.".email");
 
         // order by
+        
         $orderBy = array($global_tblUsers.'.id' => "DESC");
+         $group_by = array($global_tblcompanyuser.".user_id"=>$global_tblcompanyuser.".user_id");
+        
 
         // join table
         $joinTableArray = array();
        	$joinTableArray = array(
 			array("joinTable"=>$global_tbluser_type, "joinField"=>"id", "relatedJoinTable"=>$global_tblUsers, "relatedJoinField"=>"userTypeID","type"=>"left"),
-       		array("joinTable"=>$global_tblcompany, "joinField"=>"id", "relatedJoinTable"=>$global_tblUsers, "relatedJoinField"=>"companyId","type"=>"left")
+       		array("joinTable"=>$global_tblcompany, "joinField"=>"id", "relatedJoinTable"=>$global_tblUsers, "relatedJoinField"=>"companyId","type"=>"left"),
+       		array("joinTable"=>$global_tblcompanyuser, "joinField"=>"user_id", "relatedJoinTable"=>$global_tblUsers, "relatedJoinField"=>"id","type"=>"left")
        );
 
 
      	$model_user= new UsersModel;
-        $fetch_data = $model_user->make_datatables( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn);
-       
+        $fetch_data = $model_user->make_datatables( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$group_by);
+        // foreach($fetch_data as $rowval ){
+        // 	echo $rowval['pro_company_id'];
+
+        // 	$data1 = explode(",",$rowval['pro_company_id']);
+        // 	$company_model = new CompanyModel;
+        // 	foreach($data1  as $val){
+        // 		$company_name = $company_model->where('id',$val)->findAll();
+        // 		echo "<pre>";print_r($company_name);
+        // 	}
+        	
+        // }
+      
      	
         $data = array();
         foreach ($fetch_data as $key => $row) {
+
             $sub_array = array(); 
 
             $imgSrc = '';
@@ -203,7 +227,7 @@ class Users extends BaseController{
                 $sub_array[] = '<span class="badge badge-danger">InActive</span>';
             }  
 
-		    $sub_array[] = $row['companyName'];
+		    $sub_array[] = $row['pro_company_id'];
         	$sub_array[] = $row['dateAdded'];
          	//$actionLink = $model_user->getActionLink('',$row['id'],'Users','',$row['userTypeID']); 
             $actionLink = $model_user->getActionLink('',$row['id'],$row['userTypeID'],'Users','');
@@ -213,8 +237,8 @@ class Users extends BaseController{
 
         $output = array(
             "draw" =>  $_POST["draw"] ,
-            "recordsTotal" => $model_user->get_all_data( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn),
-            "recordsFiltered" => $model_user->get_filtered_data( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn),
+            "recordsTotal" => $model_user->get_all_data( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$group_by),
+            "recordsFiltered" => $model_user->get_filtered_data( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$group_by),
             "data" => $data,
         );
 
@@ -238,10 +262,10 @@ class Users extends BaseController{
         	 
 	}
 
-		public function edit($id=''){
+	public function edit($id=''){
 
-		$model_users = new UsersModel;
-		$userCompany = new UserCompanyModel;
+	$model_users = new UsersModel;
+	$userCompany = new UserCompanyModel;
 
 		if($_POST){
 
@@ -282,8 +306,13 @@ class Users extends BaseController{
 	        	$model_users->where('id', $id);
 	        	$result =  $model_users->update();
 			}
-			
+			 $userCompany = new UserCompanyModel;
+			$userCompany->where('user_id', $id);
+			$temp =  $userCompany->delete();
 			foreach($companyId as $company){
+				$model_company = new CompanyModel;
+				$comData = $model_company->select('companyName')->where('id',$company)->first();
+				 $comName = $comData['companyName'];
 				//check weather the user has selected only a single company(for now but this will be modified)
 				if(count($companyId) == 1){
 					$data = array(
@@ -291,19 +320,81 @@ class Users extends BaseController{
 							'lastName' => $lastName,
 							'email' => $email, 
 							'userTypeID' => $userTypeID, 
-							'companyId' => $company, 
+							//~ 'companyId' => $value, 
 							'profilePic' => $profilePic,
 							'pwd' => md5($pwd),
 							'isActive' => isset($isActive) ? 1 : 0, 
-					);
+						);
+							
 							$model_users->set($data);
 							$model_users->where('id', $id);
 							$result =  $model_users->update();
-					} 
+
+							$user_id = $id;
+							
+							$temp =  $userCompany->delete();
+							$data = array(
+								'user_id' => $user_id,
+								'company_id' => $company,
+								'comName' =>$comName,
+							);
+							
+							$insertId = $userCompany->insert($data);
+				} else {
+					while($flag < 1){
+						
+						$data = array(
+							'firstName' =>$firstName,
+							'lastName' => $lastName,
+							'email' => $email, 
+							'userTypeID' => $userTypeID, 
+							//~ 'companyId' => $value, 
+							'profilePic' => $profilePic,
+							'pwd' => md5($pwd),
+							'isActive' => isset($isActive) ? 1 : 0, 
+						);
+						
+							$model_users->set($data);
+							$model_users->where('id', $id);
+							$result =  $model_users->update();
+							$flag = $flag  +1;
+					}
+							$user_id = $id;
+							$userCompany = new UserCompanyModel;
+						
+					
+					$data = array(
+						'user_id' => $user_id,
+						'company_id' => $company,
+						'comName' =>$comName,
+					);
+						$insertId = $userCompany->insert($data);
+					}
 				}
+			
+			// foreach($companyId as $company){
+			// 	//check weather the user has selected only a single company(for now but this will be modified)
+			// 	if(count($companyId) == 1){
+			// 		$data = array(
+			// 				'firstName' =>$firstName,
+			// 				'lastName' => $lastName,
+			// 				'email' => $email, 
+			// 				'userTypeID' => $userTypeID, 
+			// 				'companyId' => $company, 
+			// 				'profilePic' => $profilePic,
+			// 				'pwd' => md5($pwd),
+			// 				'isActive' => isset($isActive) ? 1 : 0, 
+			// 		);
+			// 				$model_users->set($data);
+			// 				$model_users->where('id', $id);
+			// 				$result =  $model_users->update();
+			// 		} 
+			// 	}
 						
 			
-        	if($result){ 
+        	if($result ){ 
+
+        		
 	            $session->setFlashdata("success", "User updated Successfully.");
 	            return redirect()->to('users');
            	} else {
@@ -323,6 +414,14 @@ class Users extends BaseController{
 
 		$company_model = new CompanyModel;
         $this->data['company'] = $company_model->findall();
+
+        $db = \Config\Database::connect(); 
+
+    	$builder = $db->table('user_company');
+    	$builder1 = $builder->where('user_id',$id);
+    	$query = $builder1->get();
+    	$datadoc = $query->getResultArray();
+    	$this->data['multiCompany'] = $datadoc;
 
 		$this->render_template('users/edit',$this->data);
 	}

@@ -72,7 +72,13 @@
                                             <?php 
                                             if(count($company)>0){
                                                 foreach ($company as $key => $value) { ?>
-                                                    <option value="<?php echo $value['id']; ?>" <?php if($user_info['companyId']==$value['id']){ echo "selected";} ?>><?php echo $value['companyName']; ?></option>
+                                                    <option value="<?php echo $value['id']; ?>"
+
+                                                     <?php 
+                                                     foreach($multiCompany as $comdata ){
+
+
+                                                     if($comdata['company_id']==$value['id']){ echo "selected";} }?>><?php echo $value['companyName']; ?></option>
                                                 <?php
                                                 }
                                             } ?>

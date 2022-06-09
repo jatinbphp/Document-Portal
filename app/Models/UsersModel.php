@@ -22,9 +22,9 @@ class UsersModel extends Model
 	protected $allowedFields = [  'email', 'pwd', 'userTypeID', 'companyId','firstName', 'isActive', 'lastName', 'profilePic',  'lastLogin',  'dateAdded'];
 
 
-	public function get_all_data($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn)
+	public function get_all_data($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$group_by)
     {   
-        $this->make_query($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn);
+        $this->make_query($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$group_by);
 
         return $this->countAllResults();
     }
@@ -44,23 +44,23 @@ class UsersModel extends Model
 
     }
 
- 	public function get_filtered_data($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn)
+ 	public function get_filtered_data($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$group_by)
     {
-        $this->make_query($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn);
+        $this->make_query($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$group_by);
         return $this->countAllResults();
         //return $query->countResultAll();
     }
 
-    public function make_datatables($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$orwhere=null)
+    public function make_datatables($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$group_by=null,$orwhere=null)
     {
-         $this->make_query($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$orwhere);
+         $this->make_query($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$group_by,$orwhere);
 
         $result = $this->findAll($_POST['length'], $_POST['start']);
         return  $result ;
         
     }
 
-    public function make_query($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$orwhere=null)
+    public function make_query($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$group_by=null,$orwhere=null)
     {   
        
         //table 
@@ -130,6 +130,11 @@ class UsersModel extends Model
             }
         }
 
+          if(!empty($group_by)){            
+            foreach ($group_by as $fieldName => $fieldValue) {
+                $this->groupBy($fieldName,$fieldValue);             
+            } 
+        }
         //order by
         if (isset($_POST['order'][0]['column'])) {
             $this->orderBy($orderColumn[$_POST['order'][0]['column']], $_POST['order']['0']['dir']);

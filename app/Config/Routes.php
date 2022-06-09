@@ -99,6 +99,11 @@ $routes->get('workflow/(:any)', 'Workflow::$1',['filter' => 'auth']);
 $routes->get('Workflow', 'Workflow::index',['filter' => 'auth']);
 $routes->get('Workflow/(:any)', 'Workflow::$1',['filter' => 'auth']);
 
+$routes->get('subadminworkflow', 'SubadminWorkflow::index',['filter' => 'auth']);
+$routes->get('subadminworkflow/(:any)', 'SubadminWorkflow::$1',['filter' => 'auth']);
+$routes->get('SubadminWorkflow', 'SubadminWorkflow::index',['filter' => 'auth']);
+$routes->get('SubadminWorkflow/(:any)', 'SubadminWorkflow::$1',['filter' => 'auth']);
+
 
 //$routes->get('reporting/documents', 'UploadedDocuments::index',['filter' => 'auth']);
 //$routes->post('reporting/getData', 'Reporting::getData',['filter' => 'auth']);

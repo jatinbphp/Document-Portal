@@ -16,6 +16,6 @@ class UserCompanyModel extends Model{
 	protected $validationMessages   = [];
 	protected $skipValidation       = false;
 	protected $cleanValidationRules = true;
-	protected $allowedFields = [ 'user_id','company_id'];
+	protected $allowedFields = [ 'user_id','company_id','comName'];
 }
 

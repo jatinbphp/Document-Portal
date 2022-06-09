@@ -63,6 +63,9 @@
             <h3>Edit Workflow</h3>
             <div class="item-wrap item-list-table form-boxes-design">
                 <form id="workflowFormAddEdit" method="post" action="<?php echo base_url('workflow/edit/'.$docData['id']); ?>" enctype="multipart/form-data">
+
+    <?php   if($_SESSION['logged_in'] == 1){ 
+                if($_SESSION['user_type'] == 0|| $_SESSION['user_type'] == 2){ ?>
                     <div class="card mb-3">
                         <div class="card-body">
                             <div class="row">
@@ -140,9 +143,38 @@
                                         <textarea name="comments" id ="comments" ><?php echo $docData['comments'];?></textarea>
                                     </div>
                                 </div>
+
+                                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                        <label class="lableTitle"for="start_date">Start Date:<span class="asterisk-sign">*</span></label>
+                                       <input type="date" name="start_date" class="form-control" id="start_date" placeholder="Start Date" value ="<?php echo date('Y-m-d',strtotime($docData['start_date'])); ?>">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                        <label class="lableTitle"for="expire_date">Expire Date:<span class="asterisk-sign">*</span></label>
+                                       <input type="date" name="expire_date" class="form-control" id="expire_date" placeholder="Expire Date" value="<?php echo date('Y-m-d',strtotime($docData['expire_date'])); ?>" >
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                        <label class="lableTitle"for="is_active">Active/InActive :<span class="asterisk-sign">*</span></label>
+                                      <div class="form-group form-check">
+                                        <input type="checkbox" name="is_active" class="form-check-input" id="is_active" <?php echo ($docData['is_active'] == 1)?"checked":""; ?>>
+                                        <label class="form-check-label" for="is_active">is Active</label>
+                                    </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+          <?php }
+            } ?>   
+
+                <?php if($_SESSION['user_type'] == 3){?>
+                    Document Name: <input type="text" name="document_name" class="form-control" id="document_name" placeholder="Name" value="<?php echo $docData['document_name'];?>" readonly= "readonly">
+                                 <br> 
                     <div class="card mb-3">
                         <div class="card-body">
                             <div class="row additionalImageClass">
@@ -151,6 +183,7 @@
                                         <h5>Add Additional Documents</h5>
                                     </u>
                                 </div>
+
                                 <?php 
                                     if (!empty($documents)) {
                                         foreach ($documents as $key => $value) { ?>
@@ -183,6 +216,7 @@
                             </div>
                         </div>
                     </div>
+                <?php } ?>
                     <hr>
                     <div class="d-flex justify-content-end mt-4">
                         <button type="submit" class="btn btn-info mr-2">Submit</button>

@@ -13,25 +13,47 @@
                 <?php echo session()->getFlashdata('error'); ?>
             </div>
             <?php endif; ?>
-
-            <h3>Manage Workflow <a class="btn btn-info" style="float: right;" href="<?php echo base_url('workflow/add'); ?>">Add Workflow</a></h3>
+            <?php if($_SESSION['user_type'] ==0){ ?>
+                <h3>Manage Workflow <a class="btn btn-info" style="float: right;" href="<?php echo base_url('workflow/add'); ?>">Add Workflow</a></h3>
+         <?php   } ?>
+            
 
             <div class="item-wrap item-list-table">
                 <table id="workflowTable" class="table table-bordered" cellspacing="0" width="100%" >
 
-                   
+                   <?php if($_SESSION['user_type'] == 3) { ?>
                     <thead class="thead-dark">
                         <tr>
-                             <th>Document file</th>
+                             
                             <th>Document Name</th>
                             <th>User Type</th>
                             <th>Category</th>
                             <th>Sub Category</th>
                             <th>Company</th>
                             <th>Comments</th>
+                            <th>Start Date</th>
+                            <th>Expire Date</th>
                             <th style="width: 15%">Action</th>
                         </tr>
                     </thead>
+                  <?php  }else{ ?>
+                     <thead class="thead-dark">
+                        <tr>
+                            <!--  <th>Document file</th> -->
+                            <th>Document Name</th>
+                            <th>User Type</th>
+                            <th>Category</th>
+                            <th>Sub Category</th>
+                            <th>Company</th>
+                            <th>Comments</th>
+                            <th>Start Date</th>
+                            <th>Expire Date</th>
+                            <th>Active/InActive</th>
+                            <th style="width: 15%">Action</th>
+                        </tr>
+                    </thead>
+                 <?php }?>
+                   
                     <tbody>
                     </tbody>
                 </table>

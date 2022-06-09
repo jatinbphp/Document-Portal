@@ -139,49 +139,66 @@
                                         <textarea name="comments" id ="comments" ></textarea>
                                     </div>
                                 </div>
+                                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                        <label class="lableTitle"for="start_date">Start Date:<span class="asterisk-sign">*</span></label>
+                                       <input type="date" name="start_date" class="form-control" id="start_date" placeholder="Name">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                        <label class="lableTitle"for="expire_date">Expire Date:<span class="asterisk-sign">*</span></label>
+                                       <input type="date" name="expire_date" class="form-control" id="expire_date" placeholder="Name">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                        <label class="lableTitle"for="is_active">Active/InActive ::<span class="asterisk-sign">*</span></label>
+                                      <div class="form-group form-check">
+                                        <input type="checkbox" name="is_active" class="form-check-input" id="is_active">
+                                        <label class="form-check-label" for="is_active">is Active</label>
+                                    </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <!-- <div class="col-sm-6">
-                            <div class="form-group">
-                                <label class="lableTitle"for="document_files">Documents : </label>
-                                
-                                <div class="kv-avatar">
-                                    <div class="file-loading">
-                                        <input id="document_files" name="document_files" type="file">
-                                    </div>
-                                    </br>
-                                   
-                                </div>
-                                <label class="lableTitle"id="image-error" class="error" for="Document"></label>
-                        </div> -->
-                        <div class="col-12">
-                            <div class="card mb-4">
-                                <div class="card-body">
-                                    <div class="row additionalImageClass">
-                                        <div class="col-lg-12 mb-2">
-                                            <h5><u>Add Additional Documents</u></h5>
-                                        </div>
-                                        <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
-                                            <div class="boxImage imgUp">
-                                                <div class="loader-contetn loader1">
-                                                    <div class="loader-01"> </div>
+                <?php   if($_SESSION['logged_in'] == 1){ 
+                            if($_SESSION['user_type'] == 1 || $_SESSION['user_type'] == 2){ ?>
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card mb-4">
+                                            <div class="card-body">
+                                                <div class="row additionalImageClass">
+                                                    <div class="col-lg-12 mb-2">
+                                                        <h5><u>Add Additional Documents</u></h5>
+                                                    </div>
+                                                    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+                                                        <div class="boxImage imgUp">
+                                                            <div class="loader-contetn loader1">
+                                                                <div class="loader-01"> </div>
+                                                            </div>
+                                                            <div class="imagePreview"></div>
+                                                            <label class="w-100 btn btn-primary">
+                                                            Upload<input type="file" name="file[]" class="uploadFile img" id="file-1" value="Upload" style="width: 0px;height: 0px;overflow: hidden;" data-overwrite-initial="false" data-min-file-count="1">
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12 imgAdd">
+                                                        <div class="imagePreviewPlus imgUp"><i class="fa fa-plus fa-3x"></i></div>
+                                                    </div>
                                                 </div>
-                                                <div class="imagePreview"></div>
-                                                <label class="w-100 btn btn-primary">
-                                                Upload<input type="file" name="file[]" class="uploadFile img" id="file-1" value="Upload" style="width: 0px;height: 0px;overflow: hidden;" data-overwrite-initial="false" data-min-file-count="1">
-                                                </label>
                                             </div>
                                         </div>
-                                        <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12 imgAdd">
-                                            <div class="imagePreviewPlus imgUp"><i class="fa fa-plus fa-3x"></i></div>
-                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
+                                <?php
+                           }
+                         }?>
+
+                    
                     <hr>
                     <div class="d-flex justify-content-end mt-4">
                         <button type="submit" class="btn btn-info mr-2">Submit</button>

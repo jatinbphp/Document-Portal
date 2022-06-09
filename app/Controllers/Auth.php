@@ -38,9 +38,16 @@ class Auth extends BaseController
             $pwd = $this->request->getVar('pwd');
            
             $login = $model_auth->where('email', $email)->where('pwd', md5($pwd))->first(); 
-             
             if(!empty($login)) {
-                $loginUserType = $model_auth->getUserType($login['userTypeID']);
+                if($login['userTypeID'] == 0){
+                   $loginUserType = 0 ;
+                }
+                else{
+                   $loginUserType = $model_auth->getUserType($login['userTypeID']); 
+                }
+                
+
+              
                 if(!empty($login) && $login['isActive'] == 0){
                     $session = session();
                     $session->setFlashdata("error", "Your account has been disabled. Please contact your administrator.");
@@ -67,17 +74,20 @@ class Auth extends BaseController
                 // $model_users->set($data);
                 // $model_users->where('id', $login['id']);
                 // $result =  $model_users->update();
-                if($login['userTypeID'] == 1){
+                
+                if($login['userTypeID'] == 1 ||$login['userTypeID'] == 2 || $login['userTypeID'] == 3){
                     $this->session->set($logged_in_sess); 
                 $session = session();
                 $session->setFlashdata("success", "Login successful!");
-                return redirect()->to('dashboard');  
+                 return redirect()->to('userdashboard'); 
+               
                 }
                 else{
-                    $this->session->set($logged_in_sess); 
+                $this->session->set($logged_in_sess); 
                 $session = session();
                 $session->setFlashdata("success", "Login successful!");
-                return redirect()->to('userdashboard');  
+                 return redirect()->to('dashboard');  
+                
                 }
               
             }else {

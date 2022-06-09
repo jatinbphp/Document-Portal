@@ -19,7 +19,7 @@ class WorkflowModel extends Model
 	protected $validationMessages   = [];
 	protected $skipValidation       = false;
 	protected $cleanValidationRules = true;
-	protected $allowedFields = ['document_name', 'usertype_id', 'category_id', 'subcategory_id','document_files', 'comments','company_id'];
+	protected $allowedFields = ['document_name', 'usertype_id', 'category_id', 'subcategory_id','document_files', 'comments','company_id','start_date','expire_date'];
 
 
 	public function get_all_data($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn)
@@ -43,6 +43,33 @@ class WorkflowModel extends Model
         return $actionLinkVar;
 
     }
+     public function getActionLinkData($path,$id,$type,$view=null,$userdelete=null){
+
+         $actionLinkVar = '';  
+
+        $actionLinkVar .= '<a title="Edit Workflow" href="' . base_url( 'workflow/edit/'.$id). '" class="btn btn-warning" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;"><i class="fa fa-edit"></i></a>';
+
+        if($userdelete!=1){
+            $actionLinkVar .= '<a href = "' . base_url( '/workflow/view_documents/'.$id). '" class="btn btn-primary" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;" target="_blank"><i class="fa fa-file"></i></a>';
+        }
+ 
+        return $actionLinkVar;
+
+    }
+
+    // public function getActionLinkComapany($path,$id,$type,$view=null,$userdelete=null){
+
+    //      $actionLinkVar = '';  
+
+    //     $actionLinkVar .= '<a title="Edit Workflow" href="' . base_url( 'workflow/edit/'.$id). '" class="btn btn-warning22" "><i class="far fa-edit" style="font-size:14px"></i></a>';
+
+    //     if($userdelete!=1){
+    //         $actionLinkVar .= '<a href="' . base_url( 'workflow/delete/'.$id). '" title="Delete Document" class="btn btn-warning22" " data-id="' . $id . '"><i class="fa fa-user" style="font-size:12px"></i></a>';
+    //     }
+ 
+    //     return $actionLinkVar;
+
+    // }
 
  	public function get_filtered_data($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn)
     {

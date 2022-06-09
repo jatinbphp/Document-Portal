@@ -1,0 +1,92 @@
+
+     // Category Table    
+    $('#categoryTable').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "responsive": true,
+        "order": [],
+        "ajax": {
+            url: "category/fetch_category",
+            type: "POST",
+        },
+        "columnDefs": [{
+            "orderable": false,
+            "targets": -1
+        }, {
+            "width": "85%",
+            "targets": 0
+        }, {
+            "width": "15%",
+            "targets": 1
+        }, ]
+    });
+    // Category delete Event    
+    $(document).on('click', '.deleteCategory', function(event) {
+        event.preventDefault();
+        var id = $(this).attr("data-id");
+        swal({
+            title: "Are you sure?",
+            text: "Delete Category",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: '#DD6B55',
+            confirmButtonText: 'Yes, Delete',
+            cancelButtonText: "No, cancel",
+            closeOnConfirm: false,
+            closeOnCancel: false
+        }, function(isConfirm) {
+            if (isConfirm) {
+                window.location.href = baseurl + '/category/delete/' + id;
+            } else {
+                swal("Cancelled", "Your data safe!", "error");
+            }
+        });
+    });
+    
+    
+    // SubCategory Table    
+    $('#subCategoryTable').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "responsive": true,
+        "order": [],
+        "ajax": {
+            url: "subCategory/fetch_category",
+            type: "POST",
+        },
+        "columnDefs": [{
+            "orderable": false,
+            "targets": -1
+        }, {
+            "width": "85%",
+            "targets": 0
+        }, {
+            "width": "15%",
+            "targets": 1
+        }, ]
+    });
+    
+    // SubCategory delete Event    
+    $(document).on('click', '.deleteSubCategory', function(event) {
+        event.preventDefault();
+        var id = $(this).attr("data-id");
+        swal({
+            title: "Are you sure?",
+            text: "Delete SubCategory",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: '#DD6B55',
+            confirmButtonText: 'Yes, Delete',
+            cancelButtonText: "No, cancel",
+            closeOnConfirm: false,
+            closeOnCancel: false
+        }, function(isConfirm) {
+            if (isConfirm) {
+                window.location.href = baseurl + '/subcategory/delete/' + id;
+            } else {
+                swal("Cancelled", "Your data safe!", "error");
+            }
+        });
+	 
+	});
+});

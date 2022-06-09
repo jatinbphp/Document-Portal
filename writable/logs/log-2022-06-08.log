@@ -1,0 +1,650 @@
+ERROR - 2022-06-08 12:48:52 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as pro_company_id)
+FROM `Users`
+LEFT JOIN `UserTypes` ON `UserTypes`.`id` = `Use' at line 1
+CRITICAL - 2022-06-08 12:48:52 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/BaseModel.php(603): CodeIgniter\Model->doFindAll()
+#1 /var/www/html/Document-Portal/app/Models/UsersModel.php(58): CodeIgniter\BaseModel->findAll()
+#2 /var/www/html/Document-Portal/app/Controllers/Users.php(191): App\Models\UsersModel->make_datatables()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->fetch_users()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-06-08 12:49:14 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as pro_company_id)
+FROM `Users`
+LEFT JOIN `UserTypes` ON `UserTypes`.`id` = `Use' at line 1
+CRITICAL - 2022-06-08 12:49:14 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/BaseModel.php(603): CodeIgniter\Model->doFindAll()
+#1 /var/www/html/Document-Portal/app/Models/UsersModel.php(58): CodeIgniter\BaseModel->findAll()
+#2 /var/www/html/Document-Portal/app/Controllers/Users.php(191): App\Models\UsersModel->make_datatables()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->fetch_users()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-06-08 12:50:34 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as pro_company_id)
+FROM `Users`
+LEFT JOIN `UserTypes` ON `UserTypes`.`id` = `Use' at line 1
+CRITICAL - 2022-06-08 12:50:34 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/BaseModel.php(603): CodeIgniter\Model->doFindAll()
+#1 /var/www/html/Document-Portal/app/Models/UsersModel.php(58): CodeIgniter\BaseModel->findAll()
+#2 /var/www/html/Document-Portal/app/Controllers/Users.php(191): App\Models\UsersModel->make_datatables()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->fetch_users()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-06-08 12:50:57 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as pro_company_id)
+FROM `Users`
+LEFT JOIN `UserTypes` ON `UserTypes`.`id` = `Use' at line 1
+CRITICAL - 2022-06-08 12:50:57 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/BaseModel.php(603): CodeIgniter\Model->doFindAll()
+#1 /var/www/html/Document-Portal/app/Models/UsersModel.php(58): CodeIgniter\BaseModel->findAll()
+#2 /var/www/html/Document-Portal/app/Controllers/Users.php(191): App\Models\UsersModel->make_datatables()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->fetch_users()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-06-08 12:51:08 --> Undefined array key "length"
+#0 /var/www/html/Document-Portal/app/Models/UsersModel.php(58): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/app/Controllers/Users.php(191): App\Models\UsersModel->make_datatables()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->fetch_users()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#5 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-06-08 12:51:41 --> Undefined array key "length"
+#0 /var/www/html/Document-Portal/app/Models/UsersModel.php(58): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/app/Controllers/Users.php(191): App\Models\UsersModel->make_datatables()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->fetch_users()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#5 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-06-08 12:51:44 --> Undefined array key "length"
+#0 /var/www/html/Document-Portal/app/Models/UsersModel.php(58): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/app/Controllers/Users.php(191): App\Models\UsersModel->make_datatables()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->fetch_users()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#5 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-06-08 12:52:02 --> Undefined array key "length"
+#0 /var/www/html/Document-Portal/app/Models/UsersModel.php(58): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/app/Controllers/Users.php(191): App\Models\UsersModel->make_datatables()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->fetch_users()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#5 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-06-08 12:52:38 --> Undefined array key "length"
+#0 /var/www/html/Document-Portal/app/Models/UsersModel.php(58): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/app/Controllers/Users.php(188): App\Models\UsersModel->make_datatables()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->fetch_users()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#5 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#6 {main}
+ERROR - 2022-06-08 12:52:49 --> Unknown column 'user_company.company_id' in 'field list'
+CRITICAL - 2022-06-08 12:52:49 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/BaseModel.php(603): CodeIgniter\Model->doFindAll()
+#1 /var/www/html/Document-Portal/app/Models/UsersModel.php(58): CodeIgniter\BaseModel->findAll()
+#2 /var/www/html/Document-Portal/app/Controllers/Users.php(188): App\Models\UsersModel->make_datatables()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->fetch_users()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-06-08 13:04:11 --> syntax error, unexpected token "<"
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-06-08 13:04:45 --> syntax error, unexpected token "."
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-06-08 13:21:34 --> syntax error, unexpected variable "$orderColumn"
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-06-08 13:21:36 --> syntax error, unexpected variable "$orderColumn"
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-06-08 13:22:03 --> syntax error, unexpected variable "$orderColumn"
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-06-08 13:22:05 --> syntax error, unexpected variable "$orderColumn"
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-06-08 13:22:06 --> syntax error, unexpected variable "$orderColumn"
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-06-08 13:22:16 --> syntax error, unexpected token "array", expecting ")"
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-06-08 13:24:44 --> Too few arguments to function App\Models\UsersModel::make_datatables(), 9 passed in /var/www/html/Document-Portal/app/Controllers/Users.php on line 188 and exactly 10 expected
+#0 /var/www/html/Document-Portal/app/Controllers/Users.php(188): App\Models\UsersModel->make_datatables()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->fetch_users()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 13:30:37 --> Too few arguments to function App\Models\UsersModel::make_datatables(), 9 passed in /var/www/html/Document-Portal/app/Controllers/Users.php on line 188 and exactly 10 expected
+#0 /var/www/html/Document-Portal/app/Controllers/Users.php(188): App\Models\UsersModel->make_datatables()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->fetch_users()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 13:30:39 --> Too few arguments to function App\Models\UsersModel::make_datatables(), 9 passed in /var/www/html/Document-Portal/app/Controllers/Users.php on line 188 and exactly 10 expected
+#0 /var/www/html/Document-Portal/app/Controllers/Users.php(188): App\Models\UsersModel->make_datatables()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->fetch_users()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 13:31:33 --> Too few arguments to function App\Models\UsersModel::make_datatables(), 9 passed in /var/www/html/Document-Portal/app/Controllers/Users.php on line 188 and exactly 10 expected
+#0 /var/www/html/Document-Portal/app/Controllers/Users.php(188): App\Models\UsersModel->make_datatables()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->fetch_users()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 13:33:00 --> Too few arguments to function App\Models\UsersModel::make_datatables(), 9 passed in /var/www/html/Document-Portal/app/Controllers/Users.php on line 188 and exactly 10 expected
+#0 /var/www/html/Document-Portal/app/Controllers/Users.php(188): App\Models\UsersModel->make_datatables()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->fetch_users()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 13:36:07 --> Too few arguments to function App\Models\UsersModel::make_datatables(), 9 passed in /var/www/html/Document-Portal/app/Controllers/Users.php on line 188 and exactly 10 expected
+#0 /var/www/html/Document-Portal/app/Controllers/Users.php(188): App\Models\UsersModel->make_datatables()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->fetch_users()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 13:36:25 --> Too few arguments to function App\Models\UsersModel::make_datatables(), 9 passed in /var/www/html/Document-Portal/app/Controllers/Users.php on line 188 and exactly 10 expected
+#0 /var/www/html/Document-Portal/app/Controllers/Users.php(188): App\Models\UsersModel->make_datatables()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->fetch_users()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 13:47:49 --> Too few arguments to function App\Models\UsersModel::get_all_data(), 8 passed in /var/www/html/Document-Portal/app/Controllers/Users.php on line 225 and exactly 9 expected
+#0 /var/www/html/Document-Portal/app/Controllers/Users.php(225): App\Models\UsersModel->get_all_data()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->fetch_users()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 13:48:07 --> Too few arguments to function App\Models\UsersModel::get_all_data(), 8 passed in /var/www/html/Document-Portal/app/Controllers/Users.php on line 225 and exactly 9 expected
+#0 /var/www/html/Document-Portal/app/Controllers/Users.php(225): App\Models\UsersModel->get_all_data()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->fetch_users()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 13:48:49 --> Too few arguments to function App\Models\UsersModel::get_all_data(), 8 passed in /var/www/html/Document-Portal/app/Controllers/Users.php on line 230 and exactly 9 expected
+#0 /var/www/html/Document-Portal/app/Controllers/Users.php(230): App\Models\UsersModel->get_all_data()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->fetch_users()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 13:49:01 --> Too few arguments to function App\Models\UsersModel::get_all_data(), 8 passed in /var/www/html/Document-Portal/app/Controllers/Users.php on line 242 and exactly 9 expected
+#0 /var/www/html/Document-Portal/app/Controllers/Users.php(242): App\Models\UsersModel->get_all_data()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->fetch_users()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 13:49:20 --> Too few arguments to function App\Models\UsersModel::get_all_data(), 8 passed in /var/www/html/Document-Portal/app/Controllers/Users.php on line 232 and exactly 9 expected
+#0 /var/www/html/Document-Portal/app/Controllers/Users.php(232): App\Models\UsersModel->get_all_data()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->fetch_users()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 13:51:15 --> Too few arguments to function App\Models\UsersModel::get_all_data(), 8 passed in /var/www/html/Document-Portal/app/Controllers/Users.php on line 224 and exactly 9 expected
+#0 /var/www/html/Document-Portal/app/Controllers/Users.php(224): App\Models\UsersModel->get_all_data()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->fetch_users()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 13:56:32 --> Call to undefined method App\Models\CompanyModel::finaAll
+#0 /var/www/html/Document-Portal/app/Controllers/Users.php(197): CodeIgniter\Model->__call()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->fetch_users()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 13:56:42 --> Call to undefined method App\Models\CompanyModel::finaAll
+#0 /var/www/html/Document-Portal/app/Controllers/Users.php(197): CodeIgniter\Model->__call()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->fetch_users()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2022-06-08 14:02:08 --> Unknown column 'user_company.pro_company_id' in 'on clause'
+CRITICAL - 2022-06-08 14:02:08 --> Call to a member function getResult() on bool
+#0 /var/www/html/Document-Portal/system/BaseModel.php(603): CodeIgniter\Model->doFindAll()
+#1 /var/www/html/Document-Portal/app/Models/UsersModel.php(58): CodeIgniter\BaseModel->findAll()
+#2 /var/www/html/Document-Portal/app/Controllers/Users.php(191): App\Models\UsersModel->make_datatables()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->fetch_users()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-06-08 14:27:34 --> syntax error, unexpected variable "$data", expecting "function" or "const"
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-06-08 14:27:43 --> syntax error, unexpected variable "$data", expecting "function" or "const"
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-06-08 14:27:53 --> syntax error, unexpected variable "$data", expecting "function" or "const"
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-06-08 14:27:54 --> syntax error, unexpected variable "$data", expecting "function" or "const"
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-06-08 14:27:54 --> syntax error, unexpected variable "$data", expecting "function" or "const"
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-06-08 14:28:08 --> syntax error, unexpected variable "$data", expecting "function" or "const"
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-06-08 14:28:18 --> syntax error, unexpected variable "$data", expecting "function" or "const"
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-06-08 14:29:25 --> foreach() argument must be of type array|object, null given
+#0 /var/www/html/Document-Portal/app/Controllers/Users.php(307): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->edit()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 14:32:52 --> Array to string conversion
+#0 /var/www/html/Document-Portal/app/Controllers/Users.php(48): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Users->add()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 15:18:37 --> Undefined array key "usertype_id"
+#0 /var/www/html/Document-Portal/app/Views/workflow/add.php(158): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/View/View.php(230): include('...')
+#2 /var/www/html/Document-Portal/system/View/View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#4 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#5 /var/www/html/Document-Portal/app/Controllers/Workflow.php(126): App\Controllers\BaseController->render_template()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->add()
+#7 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#8 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#9 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-06-08 15:19:22 --> Undefined array key "usertype_id"
+#0 /var/www/html/Document-Portal/app/Views/workflow/add.php(158): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/View/View.php(230): include('...')
+#2 /var/www/html/Document-Portal/system/View/View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#4 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#5 /var/www/html/Document-Portal/app/Controllers/Workflow.php(126): App\Controllers\BaseController->render_template()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->add()
+#7 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#8 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#9 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-06-08 15:21:53 --> Undefined array key "users_type"
+#0 /var/www/html/Document-Portal/app/Views/workflow/add.php(158): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/View/View.php(230): include('...')
+#2 /var/www/html/Document-Portal/system/View/View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#4 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#5 /var/www/html/Document-Portal/app/Controllers/Workflow.php(126): App\Controllers\BaseController->render_template()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->add()
+#7 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#8 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#9 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-06-08 15:22:42 --> Undefined array key "users_type"
+#0 /var/www/html/Document-Portal/app/Views/workflow/add.php(159): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/View/View.php(230): include('...')
+#2 /var/www/html/Document-Portal/system/View/View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#4 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#5 /var/www/html/Document-Portal/app/Controllers/Workflow.php(126): App\Controllers\BaseController->render_template()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->add()
+#7 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#8 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#9 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-06-08 15:48:44 --> Attempt to read property "userTypeName" on null
+#0 /var/www/html/Document-Portal/app/Models/AuthModel.php(37): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/app/Controllers/Auth.php(43): App\Models\AuthModel->getUserType()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Auth->login()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#5 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-06-08 15:48:58 --> Attempt to read property "userTypeName" on null
+#0 /var/www/html/Document-Portal/app/Models/AuthModel.php(37): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/app/Controllers/Auth.php(43): App\Models\AuthModel->getUserType()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Auth->login()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#5 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-06-08 16:09:31 --> Call to undefined method App\Controllers\Workflow::render_new_template()
+#0 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->index()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-08 16:18:11 --> Undefined array key "file"
+#0 /var/www/html/Document-Portal/app/Controllers/Workflow.php(73): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->add()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 16:38:24 --> Undefined variable $session
+#0 /var/www/html/Document-Portal/app/Controllers/Workflow.php(296): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->edit()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 16:39:14 --> Undefined array key "file"
+#0 /var/www/html/Document-Portal/app/Controllers/Workflow.php(264): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->edit()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 16:39:54 --> Undefined array key "file"
+#0 /var/www/html/Document-Portal/app/Controllers/Workflow.php(264): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->edit()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 16:40:50 --> Undefined array key "file"
+#0 /var/www/html/Document-Portal/app/Controllers/Workflow.php(265): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->edit()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 16:42:05 --> Undefined array key "file"
+#0 /var/www/html/Document-Portal/app/Controllers/Workflow.php(265): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->edit()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 16:42:12 --> Undefined array key "file"
+#0 /var/www/html/Document-Portal/app/Controllers/Workflow.php(265): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->edit()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 16:57:51 --> syntax error, unexpected token "if"
+#0 /var/www/html/Document-Portal/system/Router/Router.php(169): CodeIgniter\Router\Router->autoRoute()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(810): CodeIgniter\Router\Router->handle()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(390): CodeIgniter\CodeIgniter->tryToRouteIt()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 16:58:40 --> syntax error, unexpected token "if"
+#0 /var/www/html/Document-Portal/system/Router/Router.php(169): CodeIgniter\Router\Router->autoRoute()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(810): CodeIgniter\Router\Router->handle()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(390): CodeIgniter\CodeIgniter->tryToRouteIt()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 17:01:57 --> Undefined array key "file"
+#0 /var/www/html/Document-Portal/app/Controllers/Workflow.php(306): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->edit()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 17:02:02 --> Undefined array key "file"
+#0 /var/www/html/Document-Portal/app/Controllers/Workflow.php(306): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->edit()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 17:02:28 --> Undefined array key "file"
+#0 /var/www/html/Document-Portal/app/Controllers/Workflow.php(306): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->edit()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 17:03:43 --> Undefined array key "file"
+#0 /var/www/html/Document-Portal/app/Controllers/Workflow.php(306): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->edit()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 17:03:51 --> Undefined array key "file"
+#0 /var/www/html/Document-Portal/app/Controllers/Workflow.php(306): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->edit()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 17:04:01 --> Undefined array key "file"
+#0 /var/www/html/Document-Portal/app/Controllers/Workflow.php(306): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->edit()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 17:04:15 --> Undefined array key "file"
+#0 /var/www/html/Document-Portal/app/Controllers/Workflow.php(306): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->edit()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 17:04:26 --> Undefined array key "file"
+#0 /var/www/html/Document-Portal/app/Controllers/Workflow.php(306): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->edit()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 17:05:07 --> Undefined array key "file"
+#0 /var/www/html/Document-Portal/app/Controllers/Workflow.php(306): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->edit()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 17:24:02 --> Undefined array key "file"
+#0 /var/www/html/Document-Portal/app/Controllers/Workflow.php(296): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->edit()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 17:25:38 --> Undefined array key "file"
+#0 /var/www/html/Document-Portal/app/Controllers/Workflow.php(296): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->edit()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 17:25:40 --> Undefined array key "file"
+#0 /var/www/html/Document-Portal/app/Controllers/Workflow.php(296): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->edit()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 17:25:58 --> Undefined array key "file"
+#0 /var/www/html/Document-Portal/app/Controllers/Workflow.php(296): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->edit()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 17:26:15 --> Undefined array key "file"
+#0 /var/www/html/Document-Portal/app/Controllers/Workflow.php(296): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->edit()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 17:26:19 --> Undefined array key "file"
+#0 /var/www/html/Document-Portal/app/Controllers/Workflow.php(296): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->edit()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 17:26:32 --> Undefined array key "file"
+#0 /var/www/html/Document-Portal/app/Controllers/Workflow.php(296): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->edit()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 17:26:50 --> Undefined array key "file"
+#0 /var/www/html/Document-Portal/app/Controllers/Workflow.php(296): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->edit()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 17:28:39 --> Undefined array key "file"
+#0 /var/www/html/Document-Portal/app/Controllers/Workflow.php(296): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->edit()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 17:45:32 --> Array to string conversion
+#0 /var/www/html/Document-Portal/app/Controllers/Workflow.php(287): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->edit()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 17:49:24 --> Array to string conversion
+#0 /var/www/html/Document-Portal/app/Controllers/Workflow.php(287): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->edit()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 17:50:31 --> Array to string conversion
+#0 /var/www/html/Document-Portal/app/Controllers/Workflow.php(287): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->edit()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 18:17:51 --> Undefined variable $row
+#0 /var/www/html/Document-Portal/app/Models/WorkflowModel.php(53): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/app/Controllers/Workflow.php(224): App\Models\WorkflowModel->getActionLinkData()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->fetch_workflow()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#5 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#6 {main}

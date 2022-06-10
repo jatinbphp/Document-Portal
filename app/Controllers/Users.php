@@ -310,7 +310,7 @@ class Users extends BaseController{
 							'userTypeID' => $userTypeID, 
 							//~ 'companyId' => $value, 
 							'profilePic' => $profilePic,
-							'pwd' => md5($pwd),
+							//'pwd' => md5($pwd),
 							'isActive' => isset($isActive) ? 1 : 0, 
 						);
 							
@@ -338,7 +338,7 @@ class Users extends BaseController{
 							'userTypeID' => $userTypeID, 
 							//~ 'companyId' => $value, 
 							'profilePic' => $profilePic,
-							'pwd' => md5($pwd),
+							//'pwd' => md5($pwd),
 							'isActive' => isset($isActive) ? 1 : 0, 
 						);
 						

@@ -20,17 +20,19 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <form id="documentFormAddEdit" method="post" action="<?php echo base_url('userDocuments/edit/'.$docData['id']); ?>" enctype="multipart/form-data">
+                        <!--form id="documentFormAddEdit" method="post" action="<?php echo base_url('userDocuments/edit/'.$docData['id']); ?>" enctype="multipart/form-data"-->
+                         <form id="documentFormAddEdit" method="post" action="<?php echo base_url('userDocuments/edit/'.$docData['id']); ?>" enctype="multipart/form-data">
                             
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                          <label class="lableTitle"for="docName">Name :<span class="asterisk-sign">*</span></label>
                                          <input type="text" name="docName" class="form-control" id="docName" placeholder="Name" value="<?php echo $docData['docName'];?>">
                                         
                                     </div>
                                 </div>
-                               <!--  <div class="col-md-4">
+                                
+                                <!--div class="col-md-4">
                                     <div class="form-group">
                                         <label class="lableTitle"for="email">Users:<span class="asterisk-sign">*</span></label>
                                         <select name="userID" id="userID" class="form-control" REQUIRED>
@@ -44,24 +46,53 @@
                                             } ?>
                                         </select>
                                     </div>
-                                </div> -->
-                                <!-- <div class="col-md-4">
+                                </div-->
+                                
+                                <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="lableTitle"for="email">Company:<span class="asterisk-sign">*</span></label>
-                                        <select name="userID" id="userID" class="form-control" REQUIRED>
+                                       <label class="lableTitle"for="email">Company:<span class="asterisk-sign">*</span></label>
+											<select name="companyID" id="companyID" class="form-control" REQUIRED>
+                                        <!--select id="companyId" class="js-states form-control" name="companyId[]" multiple-->
+												<option value="">-- Select Company --</option>
+													<?php if(count($company)>0): ?>
+														<?php foreach($company as $key => $value): ?>
+															<option value="<?php echo $value['id'] ?>"<?php if($docData['companyID'] == $value['id']){echo "selected";} ?>><?php echo $value['companyName'] ?></option>
+															<!--option value="<?php echo $value['id']; ?>"<?php if($docData['companyID']==$value['id']){ echo "selected";} ?>><?php echo $value['companyName'] ; ?></option-->
+														<?php endforeach; ?>
+													<?php endif; ?>
+												</select>
+											</div>
+										</div>
+                                
+                                <!--div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="lableTitle"for="companyId ">Company :<span class="asterisk-sign">*</span></label>
+                                         
+                                         <select id="companyId" class="js-states form-control" name="companyId[]" multiple>
                                             <option value="">-- Select Company --</option>
-                                            <?php 
+                                            <?php /*
                                             if(count($company)>0){
-                                                foreach ($company as $key => $value) { ?>
-                                                    <option value="<?php echo $value['id']; ?>"<?php if($docData['companyID']==$value['id']){ echo "selected";} ?>><?php echo $value['companyName'] ; ?></option>
-                                                <?php
+                                                foreach ($company as $key => $value) { */?>
+                                                    <option value="<?//php echo $value['id']; ?>"
+
+                                                     <?php /*
+                                                     foreach($multiCompany as $comdata ){
+
+
+                                                     if($comdata['company_id']==$value['id']){ echo "selected";} }?>><?php echo $value['companyName']; ?></option>
+                                                <?php /*
                                                 }
-                                            } ?>
+                                            } */?>
                                         </select>
                                     </div>
-                                </div> -->
-                            
-                                <div class="col-md-4">
+                                </div-->
+                                
+                                
+                                
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="lableTitle"for="firstName">Category :<span class="asterisk-sign">*</span></label>
                                         <select name="categoryID" id="categoryID" class="form-control" REQUIRED>
@@ -76,7 +107,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="lableTitle"for="lastName">Sub Category :<span class="asterisk-sign">*</span></label>
                                         <select name="subCategoryID" id="subCategoryID" class="form-control" REQUIRED>
@@ -116,23 +147,21 @@
                                 <div class="col-md-3">
                                     <label class="lableTitle"for="expireDate">Expire Date :</label>
                                     <div class="form-group form-check">
-                                        <input type="date" name="expireDate" class="form-check-input" id="expireDate" value="<?php echo date('Y-m-d',strtotime($docData['expireDate'])); ?>">
+                                       <input type="date" name="expireDate" class="form-check-input" id="expireDate" value="<?php echo date('Y-m-d',strtotime($docData['expireDate'])); ?>">
                                         
                                     </div>
                                 </div> 
                                 <div class="col-md-3">
                                     <label class="lableTitle"for="isActive">Active/InActive :</label>
                                     <div class="form-group form-check">
-                                        <input type="checkbox" name="isActive" class="form-check-input" id="isActive" <?php echo ($docData['isActive'] == 1)?"checked":""; ?>>
+                                         <input type="checkbox" name="isActive" class="form-check-input" id="isActive" <?php echo ($docData['isActive'] == 1)?"checked":""; ?>>
                                         <label class="form-check-label" for="isActive">is Active</label>
-
-                                        
                                     </div>
                                 </div>                     
                             </div>                                
                             
                             <button type="submit" class="btn btn-info">Submit</button>
-                            <a href="<?php echo base_url('documents'); ?>" type="button" class="btn btn-warning">Back</a>
+                            <a href="<?php echo base_url('userDocuments'); ?>" type="button" class="btn btn-warning">Back</a>
                         </form>
                     </div>
                 </div>
@@ -148,9 +177,20 @@
     $('.Document-Menu').addClass('active');
 </script>
 <script src="<?php echo base_url('assets/js/usersFormValidation.js') ?>"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!--script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script-->
+<!--script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+<script>
+	
+		$("#companyId").select2({
+			  placeholder: "-- Select Company --",
+			  allowClear: true
+		  });
+	
+		  
+</script>
 <script type="text/javascript">
-     $(document).ready(function() {
+     $(document).ready(function()
         $('#categoryID').on("change",function(){
         var dataid = $("#categoryID").val();
         var url = '<?php echo base_url('/documents/getSubCat');?>';
@@ -169,3 +209,4 @@
     });
 });
 </script>
+

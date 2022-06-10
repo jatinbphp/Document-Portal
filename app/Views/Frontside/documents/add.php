@@ -114,6 +114,25 @@
                                         <label class="lableTitle"id="image-error" class="error" for="Document"></label>
                                     </div>
                                 </div>
+                                
+                                
+                               <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="lableTitle"for="companyId ">Company :<span class="asterisk-sign">*</span></label>
+											<select name="companyID" id="companyID" class="form-control" REQUIRED>
+                                         <!--select name="companyId" id="companyId" class="form-control" REQUIRED-->
+                                         <!--select id="companyId" class="js-states form-control" name="companyId[]" multiple-->
+													<option value="">-- Select Company --</option>
+														<?php if(count($company ) > 0): ?>
+															<?php foreach($company as $key => $value): ?>
+																<option value="<?php echo $value['id'] ?>"><?php echo $value['companyName'] ?></option>
+															<?php endforeach; ?>
+														<?php endif; ?>
+												</select>
+											</div>
+										</div>
+                            
+                                
 
                                 <!--  <div class="col-md-3">
                                     <label class="lableTitle"for="expireDate">Expire Date :</label>
@@ -169,3 +188,12 @@
     });
 });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+<script>
+	$("#companyId").select2({
+			  placeholder: "-- Select Company --",
+			  allowClear: true		  
+	});	  
+</script>
+

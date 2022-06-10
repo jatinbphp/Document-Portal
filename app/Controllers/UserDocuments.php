@@ -8,6 +8,8 @@ use App\Models\CategoryModel;
 use App\Models\CompanyModel;
 use App\Models\ReportingModel;
 use App\Models\User_typesModel;
+use App\Models\UserCompanyModel;
+use CodeIgniter\Files\File;
 class UserDocuments extends BaseController{
 
 	public function index(){
@@ -24,22 +26,33 @@ class UserDocuments extends BaseController{
 	public function add(){
 		$documents = new UserDocumentsModel;
 
-		$company_get = new UsersModel;
-		$companyId = $company_get->where('id',$_SESSION['id'])->first();
-		$comId = $companyId['companyId'];
+		//$company_get = new UsersModel;
+		//$companyId = $company_get->where('id',$_SESSION['id'])->first();
+		//$comId = $companyId['companyId'];
+		
 		
 
 		if($_POST){
 			
+			
 			$request = service('request');
 			$session = session();
+			
+			//$companyId = $request->getPost('companyId');
+			//$companyId =  (int) implode($companyId);
+			//echo getType($companyId);
+			//exit;
+			//echo $companyId;
+			//print_r($companyId);
+			//exit;
 
 			$docName = $request->getPost('docName');
 			$categoryID = $request->getPost('categoryID');
 			$subCategoryID = $request->getPost('subCategoryID'); 
 			$isActive = $request->getPost('isActive');
 			$userID = $_SESSION['id'];
-			$companyID = $comId;
+			//$companyID = $comId;
+			$companyID = $request->getPost('companyID');
 			$expireDate = $request->getPost('expireDate');
 
 			$docFile ='';
@@ -56,8 +69,6 @@ class UserDocuments extends BaseController{
 
 			}
 
-			
-			
 			$data1 = array(
 
 				'docName' =>$docName,
@@ -65,16 +76,21 @@ class UserDocuments extends BaseController{
 				'subCategoryID' => $subCategoryID, 
 				'userID' => $userID, 
 				'companyID' => $companyID,
+				//'companyID' => 0,
+				'companyID' => $companyID,
 				'docFile' => $docFile,
-				'expireDate' => $expireDate,
+				//'expireDate' => $expireDate,
+				'expireDate' => '0000-00-00 00:00:00',
 				'is_user' => isset($userID) ? 1 : 0,
 				'isActive' => 0, 
 				);
 				
+				//echo "<pre>";
+				//print_r($data1);
+				//exit;
 				
-
 			$insertId = $documents->insert($data1);
-
+			
 			$firstName = $companyId['firstName'];
 			$lastName = $companyId['lastName'];
 
@@ -157,17 +173,30 @@ class UserDocuments extends BaseController{
 	  	$global_tblcategory = 'category';
 	  	$global_tblsubcategory = 'SubCategory';
 	  	$global_tblcompany = 'Company';
+	  	$global_tblcompanyuser = 'user_company';
 
+	  	
 	  	$company_get = new UsersModel;
 		$companyId = $company_get->where('id',$_SESSION['id'])->first();
 		$comId = $companyId['companyId'];
+		
+		//echo $_SESSION['id'];
+		//exit;
+		
+		//$company_get = new UserCompanyModel;
+		//$companyId = $company_get->where('id',$_SESSION['id'])->first();
+		//$comId = $companyId['companyId'];
+		
+		
 
         // equal condition
 	  	 $whereEqual=array();
 
 	  	 
 	  	 $whereEqual[$global_tblDocuments.'.userID']= trim($_SESSION['id']); 
-	  	 $whereEqual[$global_tblDocuments.'.companyID']= trim($comId);
+	  	 //$whereEqual[$global_tblDocuments.'.companyID']= trim($comId);
+	  	 
+	  	 
 
 
         // not equal condition
@@ -182,6 +211,10 @@ class UserDocuments extends BaseController{
         $selectColumn[$global_tblcategory.'.categoryName'] =  $global_tblcategory.'.categoryName';
         $selectColumn[$global_tblsubcategory.'.SubCatName'] =  $global_tblsubcategory.'.SubCatName';
         $selectColumn[$global_tblcompany.'.companyName'] =  $global_tblcompany.'.companyName';
+        
+        //$selectColumn[$global_tblcompanyuser.'.comName']= 'GROUP_CONCAT( user_company.comName) as pro_company_id';
+        
+        
       	
         // order column
         $orderColumn = array('', $global_tblDocuments.".firstName", $global_tblDocuments.".email", $global_tblDocuments.".isActive", $global_tblusers.".firstName", $global_tblDocuments.".isActive");
@@ -191,6 +224,9 @@ class UserDocuments extends BaseController{
 
         // order by
         $orderBy = array($global_tblDocuments.'.id' => "DESC");
+        
+        
+        //$group_by = array($global_tblcompanyuser.".user_id"=>$global_tblcompanyuser.".user_id");
 
         // join table
         $joinTableArray = array();
@@ -199,7 +235,9 @@ class UserDocuments extends BaseController{
 
        		array("joinTable"=>$global_tblsubcategory, "joinField"=>"id", "relatedJoinTable"=>$global_tblDocuments, "relatedJoinField"=>"subCategoryID","type"=>"left"),
 
-       		array("joinTable"=>$global_tblcompany, "joinField"=>"id", "relatedJoinTable"=>$global_tblDocuments, "relatedJoinField"=>"companyID","type"=>"left")
+       		array("joinTable"=>$global_tblcompany, "joinField"=>"id", "relatedJoinTable"=>$global_tblDocuments, "relatedJoinField"=>"companyID","type"=>"left"),
+       		
+       		//array("joinTable"=>$global_tblcompanyuser, "joinField"=>"user_id", "relatedJoinTable"=>$global_tblDocuments, "relatedJoinField"=>"userID","type"=>"left")
 
        );
 
@@ -220,7 +258,8 @@ class UserDocuments extends BaseController{
 			$sub_array[] = $row['firstName']." ".$row['lastName'];  
 			$sub_array[] = $row['categoryName']; 
 			$sub_array[] = $row['SubCatName']; 
-			$sub_array[] = $row['companyName'];  
+			$sub_array[] = $row['companyName'];
+			//$sub_array[] = $row['pro_company_id'];  
 			$sub_array[] = $row['expireDate']; 
 
 		 	if($row['isActive'] == 1){
@@ -266,25 +305,56 @@ class UserDocuments extends BaseController{
 
 		public function edit($id=''){
 		$model_documents = new UserDocumentsModel;
+		$userCompany = new UserCompanyModel;
 
-		$company_get = new UsersModel;
-		$companyId = $company_get->where('id',$_SESSION['id'])->first();
-		$comId = $companyId['companyId'];
+		//$company_get = new UsersModel;
+		//$companyId = $company_get->where('id',$_SESSION['id'])->first();
+		//$comId = $companyId['companyId'];
 
 		if($_POST){
 
 			$request = service('request');
 			$session = session();
+			
+			//$companyId = $request->getPost('companyId');
+			//$companyId = (int) implode($companyId);
 
+			//print_r($companyId);
+			//exit;
+			
 			$docName = $request->getPost('docName');
 			$categoryID = $request->getPost('categoryID');
 			$subCategoryID = $request->getPost('subCategoryID'); 
 			$isActive = $request->getPost('isActive');
 			$userID = $_SESSION['id'];
-			$companyID = $comId;
+			//$companyID = $comId;
+			$companyID = $request->getPost('companyID');
 			$expireDate = $request->getPost('expireDate');
 
 			$docFile = '';
+			$file = $request->getFile('docFile');
+			//check weather the file is uploaded or not
+			if($file->isValid()){
+					 if ($_FILES['docFile']['size']>0) {
+
+					$uploaddir = 'uploads/documents/'.$categoryID.'/'.$subCategoryID;
+					$ext = pathinfo($_FILES['docFile']['name'], PATHINFO_EXTENSION);
+					$filenm = time().'_profile.'.$ext;
+					$docFile = str_replace(' ', '-', $filenm);
+					$uploadfile = $uploaddir .'/'. $docFile;
+
+					move_uploaded_file($_FILES['docFile']['tmp_name'], $uploadfile);
+
+				} else {
+					$docFile = $request->getPost('hidden_profilePic');
+				}
+				$data = array('docFile' => $docFile);
+				$model_documents->set($data);
+				$model_documents->where('id', $id);
+				$result =  $model_documents->update();
+			} 
+			
+			/*
             if ($_FILES['docFile']['size']>0) {
 
                 $uploaddir = 'uploads/documents/'.$categoryID.'/'.$subCategoryID;
@@ -299,7 +369,7 @@ class UserDocuments extends BaseController{
 
             } else {
             	$docFile = $request->getPost('hidden_profilePic');
-            }
+            }*/
 
 			
 			$data = array(
@@ -308,8 +378,9 @@ class UserDocuments extends BaseController{
 				'categoryID' => $categoryID,
 				'subCategoryID' => $subCategoryID, 
 				'userID' => $userID, 
-				'companyID' => $companyID, 
-				'docFile' => $docFile,
+				//'companyID' => $companyID,
+				'companyID' => $companyID,  
+				//'docFile' => $docFile,
 				'expireDate' => $expireDate,
 				'isActive' => isset($isActive) ? 1 : 0,
 				'is_user' => isset($userID) ? 1 : 0,  
@@ -340,6 +411,17 @@ class UserDocuments extends BaseController{
 
         $company = new CompanyModel;
 		$this->data['company'] = $company->findall();
+		
+		//$db = \Config\Database::connect(); 
+    	//$builder = $db->table('user_company');
+    	//$builder1 = $builder->where('user_id',$id);
+    	//$builder1 = $builder->where('user_id',$_SESSION['id']);
+    	//$query = $builder1->get();
+    	//$datadoc = $query->getResultArray();
+    	//print_r($datadoc);
+    	//exit;
+    	//$datadoc = $query->getResultArray();
+    	//$this->data['multiCompany'] = $datadoc;
 
         $this->data['docData'] = $model_documents->where('id',$id)->first();
 
@@ -370,7 +452,6 @@ class UserDocuments extends BaseController{
 
   	public function getSubCat(){
 	  	$id = $_POST['dataid'];
-
 	  	$model_subCat = new SubCategoryModel;
 		$subCat = $model_subCat->where('CategoryId',$id)->findall();
 		echo json_encode($subCat);

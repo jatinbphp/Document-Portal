@@ -139,7 +139,7 @@
                                         <textarea name="comments" id ="comments" ></textarea>
                                     </div>
                                 </div>
-                                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                                <!-- <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                                     <div class="form-group">
                                         <label class="lableTitle"for="start_date">Start Date:<span class="asterisk-sign">*</span></label>
                                        <input type="date" name="start_date" class="form-control" id="start_date" placeholder="Name">
@@ -160,7 +160,7 @@
                                         <label class="form-check-label" for="is_active">is Active</label>
                                     </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>

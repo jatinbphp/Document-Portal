@@ -168,7 +168,7 @@ class Users extends BaseController{
         $selectColumn[$global_tblUsers.'.*'] = $global_tblUsers.'.*';
         $selectColumn[$global_tbluser_type.'.userTypeName'] =  $global_tbluser_type.'.userTypeName';
         $selectColumn[$global_tblcompany.'.companyName'] =  $global_tblcompany.'.companyName';
-        $selectColumn[$global_tblcompanyuser.'.comName']= 'GROUP_CONCAT( user_company.comName) as pro_company_id';
+        $selectColumn[$global_tblcompanyuser.'.company_id']= 'GROUP_CONCAT( user_company.company_id) as pro_company_id';
       	
         // order column
         $orderColumn = array('', $global_tblUsers.".firstName", $global_tblUsers.".email", $global_tblUsers.".isActive", $global_tbluser_type.".userTypeName", $global_tblUsers.".dateAdded");
@@ -193,19 +193,7 @@ class Users extends BaseController{
 
      	$model_user= new UsersModel;
         $fetch_data = $model_user->make_datatables( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$group_by);
-        // foreach($fetch_data as $rowval ){
-        // 	echo $rowval['pro_company_id'];
-
-        // 	$data1 = explode(",",$rowval['pro_company_id']);
-        // 	$company_model = new CompanyModel;
-        // 	foreach($data1  as $val){
-        // 		$company_name = $company_model->where('id',$val)->findAll();
-        // 		echo "<pre>";print_r($company_name);
-        // 	}
-        	
-        // }
-      
-     	
+        
         $data = array();
         foreach ($fetch_data as $key => $row) {
 

@@ -143,6 +143,21 @@ $(document).ready(function() {
             }]
         });
     }
-   
-    
+    $('#subadminworkflowTable').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "responsive": true,
+        "order": [],
+        "ajax": {
+            url: "SubadminWorkflow/fetch_company_data",
+            type: "POST",
+        },
+        "columnDefs": [{
+            "orderable": false,
+            "targets": -1
+        }, {
+            "width": "85%",
+            "targets": 0
+        }, ]
+    });
 });

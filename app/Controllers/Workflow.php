@@ -38,6 +38,9 @@ class Workflow extends BaseController{
 			$start_date = $request->getPost('start_date');
 			$expire_date = $request->getPost('expire_date');
 			$is_active = $request->getPost('is_active');
+
+			$current_date = date('Y-m-d H:m:s');
+			$expire_date = date('0000-00-00 00:00:00');
 			// $document_files ='';
 
 			// if($_FILES['document_files']['size']>0){
@@ -63,8 +66,8 @@ class Workflow extends BaseController{
 				'company_id' => $company_id,
 				//'document_files' => $document_files,
 				'comments' => $comments, 
-				'start_date' => $start_date, 
-				'expire_date' => $expire_date, 
+				'start_date' => isset($start_date) ? $start_date : $current_date, 
+				'expire_date' => isset($expire_date) ? $expire_date : $expire_date, 
 				'is_active' => isset($is_active) ? 1 : 0,
 
 				);
@@ -235,8 +238,8 @@ class Workflow extends BaseController{
             }
             else{
             	
-            // $imgSrc = base_url('assets/images/download1.png');
-            //   $sub_array[] = '<a href = "' . base_url( '/workflow/view_documents/'.$row['id']). '" target="_blank"><button class = "btn btn-primary">View Documents</button></a>';
+             //$imgSrc = base_url('assets/images/download1.png');
+              // $sub_array[] = '<a href = "' . base_url( '/workflow/view_documents/'.$row['id']). '" target="_blank"><button class = "btn btn-primary">View</button></a>';
             $sub_array[] = $row['document_name'];
             $sub_array[] = $row['userTypeName']; 
             $sub_array[] = $row['categoryName']; 
@@ -251,19 +254,25 @@ class Workflow extends BaseController{
 			$sub_array[] = $row['start_date']; 
 			$sub_array[] = $row['expire_date']; 
 			if($row['is_active'] == 1){
-                $sub_array[] = '<span class="badge badge-success">Active</span>';
+                $sub_array[] = '<span class="badge badge-success">APPROVED</span>';
             }else{
-                $sub_array[] = '<span class="badge badge-danger">InActive</span>';
+                $sub_array[] = '<span class="badge badge-danger">PENDING</span>';
             } 
-		 	
-
-		    
-        	//$sub_array[] = $row['dateAdded'];
+		 
          	//$actionLink = $model_user->getActionLink('',$row['id'],'Workflow','',$row['userTypeID']); 
          	
             $actionLink = $model_user->getActionLink('',$row['id'],'','Workflow','');
             
             $sub_array[] = $actionLink;
+            $actionLinkFile = '-';
+            if($row['is_update'] == 1){
+            $actionLinkFile = $model_user->getActionLinkFile('',$row['id'],'','Workflow','');
+        	$sub_array[] = $actionLinkFile;	
+            }else{
+            	$sub_array[] = $actionLinkFile;
+            }
+            //$actionLinkFile = $model_user->getActionLinkFile('',$row['id'],'','Workflow','');
+        	
             $data[] = $sub_array;
         }
 
@@ -296,7 +305,7 @@ class Workflow extends BaseController{
 	}
 
 	public function edit($id=''){
-		
+	$redirect_url = $_SERVER['HTTP_REFERER'];
 	//$model_workflow = new WorkflowModel;
 	$model_workflow = new WorkflowModel;
 	$flowData = $model_workflow->Where('id',$id)->first();
@@ -383,17 +392,44 @@ class Workflow extends BaseController{
 			                    }            
 			                }
 			            }
-		            $session->setFlashdata("success", "Workflow Document updated Successfully.");
-		            return redirect()->to('workflow');
-		       	}
-	       	else{
-	       		$session->setFlashdata("success", "Workflow Document updated Successfully.");
-	            return redirect()->to('workflow');
-	       	}
-       	}
-	       	 else {
-	        	$session->setFlashdata("error", "Workflow Document not updated Successfully.");
-	            return redirect()->to('workflow');  
+		            	if($_SESSION['user_type'] == 3){
+
+		            		$model_workflow= new WorkflowModel;
+		            		$upData = array(
+		            			'is_update' => 1,
+	            			);
+		            		$model_workflow->set($upData);
+		    				$model_workflow->where('id', $id);
+		    				$result =  $model_workflow->update();
+
+		            		$session->setFlashdata("success", "Workflow Document updated Successfully.");
+	            			return redirect()->to('subadminworkflow');
+		            	}else{
+		            		$session->setFlashdata("success", "Workflow Document updated Successfully.");
+		            		return redirect()->to('workflow');
+		            	}
+
+			           		
+		            
+		       		}else{
+	       				if($_SESSION['user_type'] == 3){
+		            		$session->setFlashdata("success", "Workflow Document updated Successfully.");
+	            			return redirect()->to('SubadminWorkflowView');
+		            	}else{
+		            		$session->setFlashdata("success", "Workflow Document updated Successfully.");
+		            		return redirect()->to('workflow');
+		            	}
+	       			}
+
+       			}else {
+
+       				if($_SESSION['user_type'] == 3){
+		            		$session->setFlashdata("error", "Workflow Document not updated Successfully.");
+	            			return redirect()->to($_SERVER['HTTP_REFERER']);
+		            	}else{
+		            		$session->setFlashdata("error", "Workflow Document not updated Successfully.");
+		            		return redirect()->to('workflow');
+		            	}
 	        }     
 		}
 

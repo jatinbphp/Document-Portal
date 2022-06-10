@@ -35,7 +35,7 @@
                 <thead>
 			    <tr>
 			      <th scope="col">Download Documents</th>
-			      <th scope="col">Document Name</th>
+			      <!-- <th scope="col">Document Name</th> -->
 			      <th scope="col">Document File</th>
 			    </tr>
 			  </thead>
@@ -51,7 +51,7 @@
 					  		<?php $imgsrc = base_url('assets/images/download1.png');?>
 					  	<tr>
 					      <td><?php echo "<a href = '".$url ."'  target='_blank'><img src='".$imgsrc."' style='width: 40px; height: 40px'></a>" ?></td>
-					      <td><?php echo $name; ?></td>
+					      <!-- <td><?php echo $name; ?></td> -->
 					      <td><?php echo $value['documents']; ?></td>
 					    </tr><?php 
 

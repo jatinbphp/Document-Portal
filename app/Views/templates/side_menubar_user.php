@@ -24,7 +24,7 @@ if($_SESSION['user_type'] == 2){ ?>
 		<ul class="accordion">
 			<li class="Dashboard-Menu"><a href="<?php echo base_url('userdashboard'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-1.png'); ?>" alt="">Dashboard</a></li>
 
-			<li class="Document-Menu"><a href="<?php echo base_url('workflow'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-1.png'); ?>" alt="">workflow </a></li>
+			<li class="Document-Menu"><a href="<?php echo base_url('subadminworkflow'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-1.png'); ?>" alt="">workflow </a></li>
 			
 			
             

@@ -561,32 +561,26 @@ $(document).ready(function() {
             type: "POST",
         },
         "columnDefs": [{
-            "width": "4%",
+            "orderable": false,
+            "targets": -1
+        }, {
+            "orderable": false,
             "targets": 0
         }, {
-            "width": "8%",
-            "targets": 1
-        }, {
-            "width": "8%",
-            "targets": 2
-        }, {
-            "width": "8%",
-            "targets": 3
-        }, {
-            "width": "8%",
-            "targets": 4
-        }, {
-            "width": "8%",
-            "targets": 3
-        }, {
-            "width": "8%",
-            "targets": 5
-        }, {
-            "width": "8%",
+            "orderable": false,
             "targets": 6
         }, {
-            "width": "8%",
-            "targets": 7
+            "width": "10%",
+            "targets": 0
+        }, {
+            "width": "15%",
+            "targets": 1
+        }, {
+            "width": "10%",
+            "targets": 2
+        }, {
+            "width": "10%",
+            "targets": 3
         }, ]
     });
     $(document).on('click', '.workflowDelete', function(event) {
@@ -772,7 +766,7 @@ $(document).ready(function() {
         "responsive": true,
         "order": [],
         "ajax": {
-            url: baseurl + "/SubadminWorkflowView/fetch_workflow_view/" + $("#company_id_pass").val(),
+            url: "SubadminWorkflowView/fetch_workflow_view/$1",
             type: "POST",
         },
         "columnDefs": [{

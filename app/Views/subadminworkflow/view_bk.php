@@ -13,7 +13,6 @@
     content: "\f077"; /* fa-chevron-up */
     }
 </style>
-
 <div class="wrapper">
     <div class="row">
         <div class="col-sm-12">
@@ -31,13 +30,25 @@
             <h3>
                 Manage Workflow
             </h3>
-
              <div class="item-wrap item-list-table">
-                <table id="subadminworkflowTable" class="table table-bordered" cellspacing="0" width="100%" >
+                
+                <table id="subaddworkflowTable" class="table table-bordered" cellspacing="0" width="100%" >
+
+                  
                     <thead class="thead-dark">
                         <tr>
-                            <th style="width: 15%">Company</th>
+                             
+                            <th>Document Name</th>
+                            <th>User Type</th>
+                            <th>Category</th>
+                            <th>Sub Category</th>
+                            <th>Company</th>
+                            <th>Comments</th>
+                            <th>Start Date</th>
+                            <th>Expire Date</th>
+                            <th style="width: 15%">Action</th>
                         </tr>
+                    </thead>
                          
                     </thead>
                     <tbody>
@@ -54,5 +65,4 @@
       // $(".manageDocuments-Menu .inner").css("display", "block")
       $('.AllDocument-Menu').addClass('active');
 </script>
-<script src="<?php echo base_url('assets/js/usersDataTable.js') ?>"></script>
-
+<script src="<?php echo base_url('assets/js/usersTable.js') ?>"></script>

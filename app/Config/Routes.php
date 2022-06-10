@@ -104,6 +104,14 @@ $routes->get('subadminworkflow/(:any)', 'SubadminWorkflow::$1',['filter' => 'aut
 $routes->get('SubadminWorkflow', 'SubadminWorkflow::index',['filter' => 'auth']);
 $routes->get('SubadminWorkflow/(:any)', 'SubadminWorkflow::$1',['filter' => 'auth']);
 
+// $routes->get('SubadminWorkflowView', 'SubadminWorkflowView::index',['filter' => 'auth']);
+// $routes->get('SubadminWorkflowView/(:any)', 'SubadminWorkflowView::$1',['filter' => 'auth']);
+// $routes->get('SubadminWorkflowView', 'SubadminWorkflowView::index',['filter' => 'auth']);
+// $routes->get('SubadminWorkflowView/(:any)', 'SubadminWorkflowView::$1',['filter' => 'auth']);
+
+$routes->match(['get','post'],'SubadminWorkflowView', 'SubadminWorkflowView::index' );
+$routes->match(['get','post'],'SubadminWorkflowView/(:any)', 'SubadminWorkflowView::$1' );
+
 
 //$routes->get('reporting/documents', 'UploadedDocuments::index',['filter' => 'auth']);
 //$routes->post('reporting/getData', 'Reporting::getData',['filter' => 'auth']);

@@ -39,17 +39,19 @@
                   <?php  }else{ ?>
                      <thead class="thead-dark">
                         <tr>
+                            
+                            <th style = "width:10%">Document Name</th>
+                            <th style = "width:5%">User Type</th>
+                            <th style = "width:10%">Category</th>
+                            <th style = "width:10%">Sub Category</th>
+                            <th style = "width:10%">Company</th>
+                            <th style = "width:10%">Comments</th>
+                            <th style = "width:10%">Start Date</th>
+                            <th style = "width:10%">Expire Date</th>
+                            <th style = "width:10%">Status</th>
+                            <th style = "width:10%">Action</th>
+                             <th style = "width:5%">file</th>
                             <!--  <th>Document file</th> -->
-                            <th>Document Name</th>
-                            <th>User Type</th>
-                            <th>Category</th>
-                            <th>Sub Category</th>
-                            <th>Company</th>
-                            <th>Comments</th>
-                            <th>Start Date</th>
-                            <th>Expire Date</th>
-                            <th>Active/InActive</th>
-                            <th style="width: 15%">Action</th>
                         </tr>
                     </thead>
                  <?php }?>

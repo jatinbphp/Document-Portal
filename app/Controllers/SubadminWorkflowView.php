@@ -101,7 +101,13 @@ class SubadminWorkflowView extends BaseController
 			$sub_array[] = $row['expire_date']; 
             if($row['is_active'] == 1){
                 $sub_array[] = '<span class="badge badge-success">APPROVED</span>';
-            }else{
+            }else if($row['is_active'] == 2){
+                $sub_array[] = '<span class="badge badge-primary">SUBMITED</span>';
+            }
+            else if($row['is_active'] == 3){
+                $sub_array[] = '<span class="badge badge-danger">Expired</span>';
+            }
+            else{
                 $sub_array[] = '<span class="badge badge-danger">PENDING</span>';
             } 
 
@@ -117,11 +123,11 @@ class SubadminWorkflowView extends BaseController
             $currentDate = date('Y-m-d');
             //$currentDate = date('Y-m-d', strtotime('+1 days'));
             if($updateData['id'] == $row['id'] && $updateData['is_update'] == 1){
-               $dd = "<span class= 'btn-info'>SUBMITED</span>"; 
+               $dd = "-"; 
                $sub_array[] = $dd;
             } else if($expireDate == $currentDate){
                 $actionLink = $model_user->getActionLinkData('',$row['id'],'','Workflow','');
-                $dd = "<span class= 'btn-info'>Expired</span>"; 
+                $dd = "-"; 
                 $sub_array[] = $dd;
               //$dd = "<span class= 'btn-info'></span>"; 
                //$sub_array[] =$actionLink;

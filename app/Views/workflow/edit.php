@@ -160,7 +160,7 @@
                                     <div class="form-group">
                                         <label class="lableTitle"for="is_active">Active/InActive :<span class="asterisk-sign">*</span></label>
                                       <div class="form-group form-check">
-                                        <input type="checkbox" name="is_active" class="form-check-input" id="is_active" <?php echo ($docData['is_active'] == 1)?"checked":""; ?>>
+                                        <input type="checkbox" name="is_active" class="form-check-input" id="is_active">
                                         <label class="form-check-label" for="is_active">is Active</label>
                                     </div>
                                     </div>
@@ -279,7 +279,7 @@
      
        swal({
                title: "Are you sure?",
-               text: "Delete Addition Product Image",
+               text: "Delete Addition Documents",
                type: "warning",
                showCancelButton: true,
                confirmButtonColor: '#DD6B55',

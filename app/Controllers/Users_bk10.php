@@ -167,8 +167,8 @@ class Users extends BaseController{
         // select data
         $selectColumn[$global_tblUsers.'.*'] = $global_tblUsers.'.*';
         $selectColumn[$global_tbluser_type.'.userTypeName'] =  $global_tbluser_type.'.userTypeName';
-        //~ $selectColumn[$global_tblcompany.'.companyName'] =  $global_tblcompany.'.companyName';
-        $selectColumn[$global_tblcompanyuser.'.company_id']= 'GROUP_CONCAT( Company.companyName) as pro_company_id';
+        $selectColumn[$global_tblcompany.'.companyName'] =  $global_tblcompany.'.companyName';
+        $selectColumn[$global_tblcompanyuser.'.company_id']= 'GROUP_CONCAT( user_company.company_id) as pro_company_id';
       	
         // order column
         $orderColumn = array('', $global_tblUsers.".firstName", $global_tblUsers.".email", $global_tblUsers.".isActive", $global_tbluser_type.".userTypeName", $global_tblUsers.".dateAdded");
@@ -186,29 +186,48 @@ class Users extends BaseController{
         $joinTableArray = array();
        	$joinTableArray = array(
 			array("joinTable"=>$global_tbluser_type, "joinField"=>"id", "relatedJoinTable"=>$global_tblUsers, "relatedJoinField"=>"userTypeID","type"=>"left"),
-       		array("joinTable"=>$global_tblcompanyuser, "joinField"=>"user_id", "relatedJoinTable"=>$global_tblUsers, "relatedJoinField"=>"id","type"=>"left"),
-       		array("joinTable"=>$global_tblcompany, "joinField"=>"id", "relatedJoinTable"=>$global_tblcompanyuser, "relatedJoinField"=>"company_id","type"=>"left"),
+       		array("joinTable"=>$global_tblcompany, "joinField"=>"id", "relatedJoinTable"=>$global_tblUsers, "relatedJoinField"=>"companyId","type"=>"left"),
+       		array("joinTable"=>$global_tblcompanyuser, "joinField"=>"user_id", "relatedJoinTable"=>$global_tblUsers, "relatedJoinField"=>"id","type"=>"left")
        );
 
 
      	$model_user= new UsersModel;
         $fetch_data = $model_user->make_datatables( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$group_by);
-        // foreach($fetch_data as $rowval ){
-        // 	echo $rowval['pro_company_id'];
+	        $model_comp = new UserCompanyModel;
+	     	$com = $model_comp->findall();
+		     	foreach ($fetch_data as $key => $rowval) {
+			     	foreach($com as $comp){
+			    		if($comp['user_id'] == $rowval['id'] ){
+			    			$db = \Config\Database::connect(); 
 
-        // 	$data1 = explode(",",$rowval['pro_company_id']);
-        // 	$company_model = new CompanyModel;
-        // 	foreach($data1  as $val){
-        // 		$company_name = $company_model->where('id',$val)->findAll();
-        // 		echo "<pre>";print_r($company_name);
-        // 	}
-        	
-        // }
-      
+					    	$builder = $db->table(' Company');
+					    	$builder1 = $builder->where('id',$comp['company_id']);
+					    	$query = $builder1->get();
+					    	$datadoc = $query->getResultArray();
+					    	$ddd = $datadoc[0]['companyName'];
+					    	
+					    	$arr[$comp['user_id']][] = array(
+					    		'comName' =>$ddd,
+					    		'id' =>$comp['user_id'],
+					    	);
+					    }
+			    		
+				    }
+		    	}
+ 
+				foreach($arr as$key=> $comm){
+					 foreach($comm as $dd){
+						if($key == $dd['id'] ){
+							echo "hrer".$dd['id'];echo "<br>";
+							echo $dd['comName'].',';
+						}
+					 }
+				}
+					
      	
-        $data = array();
         foreach ($fetch_data as $key => $row) {
-
+        	
+    		
             $sub_array = array(); 
 
             $imgSrc = '';
@@ -227,6 +246,7 @@ class Users extends BaseController{
                 $sub_array[] = '<span class="badge badge-danger">InActive</span>';
             }  
 
+           
 		    $sub_array[] = $row['pro_company_id'];
         	$sub_array[] = $row['dateAdded'];
          	//$actionLink = $model_user->getActionLink('',$row['id'],'Users','',$row['userTypeID']); 
@@ -322,7 +342,7 @@ class Users extends BaseController{
 							'userTypeID' => $userTypeID, 
 							//~ 'companyId' => $value, 
 							'profilePic' => $profilePic,
-							//'pwd' => md5($pwd),
+							'pwd' => md5($pwd),
 							'isActive' => isset($isActive) ? 1 : 0, 
 						);
 							
@@ -350,7 +370,7 @@ class Users extends BaseController{
 							'userTypeID' => $userTypeID, 
 							//~ 'companyId' => $value, 
 							'profilePic' => $profilePic,
-							//'pwd' => md5($pwd),
+							'pwd' => md5($pwd),
 							'isActive' => isset($isActive) ? 1 : 0, 
 						);
 						

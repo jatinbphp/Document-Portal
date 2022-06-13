@@ -255,7 +255,13 @@ class Workflow extends BaseController{
 			$sub_array[] = $row['expire_date']; 
 			if($row['is_active'] == 1){
                 $sub_array[] = '<span class="badge badge-success">APPROVED</span>';
-            }else{
+            }elseif($row['is_active'] == 2){
+            	$sub_array[] = '<span class="badge badge-primary">SUBMITED</span>';
+            }elseif($row['is_active'] == 3){
+            	$sub_array[] = '<span class="badge badge-danger">EXPIRED</span>';
+            }
+            
+            else{
                 $sub_array[] = '<span class="badge badge-danger">PENDING</span>';
             } 
 		 
@@ -317,7 +323,7 @@ class Workflow extends BaseController{
 	$flowcomments = $flowData['comments'];
 	$flowstart_date = $flowData['start_date'];
 	$flowexpire_date = $flowData['expire_date'];
-	$is_active = $flowData['is_active'];
+	$flowis_active = $flowData['is_active'];
 		if($_POST){
 
 			$request = service('request');
@@ -335,7 +341,17 @@ class Workflow extends BaseController{
 				$comments = $request->getPost('comments');
 				$start_date = $request->getPost('start_date');
 				$expire_date = $request->getPost('expire_date');
-				$is_active = $request->getPost('is_active');
+				//$is_active = $request->getPost('is_active');
+
+				$currentDate = date('Y-m-d');
+				if($expire_date == $currentDate){
+
+					$flowis_active = 3;
+				}
+				else{
+
+					$flowis_active = 1;
+				}
 
 				$data = array(
 					'document_name' =>isset($document_name)?$document_name :$flowdocument_name,
@@ -347,12 +363,16 @@ class Workflow extends BaseController{
 					'comments' => isset($comments)?$comments:$flowcomments,
 					'start_date' => isset($start_date)?$start_date:$flowstart_date,
 					'expire_date' => isset($expire_date)?$expire_date:$flowexpire_date,
-					'is_active' => isset($is_active) ? 1 : 0, 
+					'is_active' => isset($is_active) ? $is_active : $flowis_active, 
 				);
+
+				
+
+				
 				$model_workflow->set($data);
 		    	$model_workflow->where('id', $id);
 		    	$result =  $model_workflow->update();
-		    
+		    	
 	    	
 	    	if($result){ 
 
@@ -397,6 +417,7 @@ class Workflow extends BaseController{
 		            		$model_workflow= new WorkflowModel;
 		            		$upData = array(
 		            			'is_update' => 1,
+		            			'is_active' => 2,
 	            			);
 		            		$model_workflow->set($upData);
 		    				$model_workflow->where('id', $id);

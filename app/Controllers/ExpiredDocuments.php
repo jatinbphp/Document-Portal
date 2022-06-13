@@ -89,7 +89,7 @@ class ExpiredDocuments extends BaseController{
             $sub_array = array(); 
             
             $imgSrc = base_url('assets/images/download1.png');
-            $sub_array[] = '<a href = "' . base_url( '/workflow/view_documents/'.$row['id']). '" target="_blank"><button class = "btn btn-primary">View Documents</button></a>';
+            
             $sub_array[] = $row['document_name'];
             $sub_array[] = $row['userTypeName']; 
             $sub_array[] = $row['categoryName']; 
@@ -97,8 +97,19 @@ class ExpiredDocuments extends BaseController{
 			$sub_array[] = $row['companyName'];
 			$sub_array[] = $row['comments']; 
 			$sub_array[] = $row['expire_date'];
+			if($row['is_active'] == 1){
+                $sub_array[] = '<span class="badge badge-success">APPROVED</span>';
+            }elseif($row['is_active'] == 2){
+            	$sub_array[] = '<span class="badge badge-primary">SUBMITED</span>';
+            }elseif($row['is_active'] == 3){
+            	$sub_array[] = '<span class="badge badge-danger">EXPIRED</span>';
+            }
+            
+            else{
+                $sub_array[] = '<span class="badge badge-danger">PENDING</span>';
+            } 
 
-		 	
+		 	 $sub_array[] = '<a href = "' . base_url( '/workflow/view_documents/'.$row['id']). '" target="_blank"><button class = "fa fa-file" style="font-size: 24px;"></button></a>';
 
 		    
         	//$sub_array[] = $row['dateAdded'];
@@ -107,6 +118,7 @@ class ExpiredDocuments extends BaseController{
             $actionLink = $model_user->getActionLink('',$row['id'],'','Workflow','');
             
             $sub_array[] = $actionLink;
+
             $data[] = $sub_array;
 
         } 

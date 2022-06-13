@@ -50,7 +50,7 @@
                             <th style = "width:10%">Expire Date</th>
                             <th style = "width:10%">Status</th>
                             <th style = "width:10%">Action</th>
-                             <th style = "width:5%">file</th>
+                             <th style = "width:5%">File</th>
                             <!--  <th>Document file</th> -->
                         </tr>
                     </thead>

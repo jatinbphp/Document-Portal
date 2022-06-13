@@ -79,7 +79,6 @@ class SubadminWorkflowView extends BaseController
       
      	
         $data = array();
-        
         foreach ($fetch_data as $key => $row) {
             $sub_array = array(); 
             
@@ -121,16 +120,29 @@ class SubadminWorkflowView extends BaseController
             $expireDate = date('Y-m-d',strtotime($updateData['expire_date']));
             $currentDate = date('Y-m-d');
             //$currentDate = date('Y-m-d', strtotime('+1 days'));
-            if($updateData['id'] == $row['id'] && $updateData['is_update'] == 1){
-               $dd = "-"; 
-               $sub_array[] = $dd;
-            } else if($expireDate == $currentDate){
+            if($row['is_active'] == 1){
+                $actionLink = $model_user->getActionLinkDataSubmit('',$row['id'],'','Workflow','');
+                
+                $sub_array[] = $actionLink;
+            }
+           else if($updateData['id'] == $row['id'] && $updateData['is_update'] == 1 && $row['is_active'] == 2 ){
+               $dd1 = "When Approved by Admin then will display file"; 
+               $sub_array[] = $dd1;
+            }
+            
+            else if($expireDate == $currentDate || $row['is_active'] == 3){
                 $actionLink = $model_user->getActionLinkData('',$row['id'],'','Workflow','');
                 $dd = "-"; 
                 $sub_array[] = $dd;
               //$dd = "<span class= 'btn-info'></span>"; 
                //$sub_array[] =$actionLink;
-            }else{
+            }
+            elseif($row['is_active'] == 0){
+               $actionLink = $model_user->getActionLinkDatapending('',$row['id'],'','Workflow','');
+                
+                $sub_array[] = $actionLink; 
+            }
+            else{
                 $actionLink = $model_user->getActionLinkData('',$row['id'],'','Workflow','');
                 
                 $sub_array[] = $actionLink;

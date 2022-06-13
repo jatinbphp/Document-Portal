@@ -5,7 +5,7 @@
 			<div class="box coleql_height">
 				<div class="media">
 					<div class="media-body">
-						<h3><?php echo $documentsData; ?></h3>
+						<h3><?php echo $tatalDoc; ?></h3>
 						Documents
 					</div>
 					<div class="icon"><a href="<?php echo base_url('/userDocuments');?>"><img src="<?php echo base_url('assets/images/document.png'); ?>" alt=""></a></div>

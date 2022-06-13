@@ -16,14 +16,13 @@ class SubadminWorkflowView extends BaseController
 {
     public function index($id)
     {  
-        $userId = $_SESSION['id'];
-
-      
-
-        $this->data['page_title'] = 'SubadminWorkflow';
-        
-        $this->data['company_id'] = $id;
-        $this->render_user_template('subadminworkflow/view', $this->data);
+       
+            $userId = $_SESSION['id'];
+            $this->data['page_title'] = 'SubadminWorkflow';
+            
+            $this->data['company_id'] = $id;
+            $this->render_user_template('subadminworkflow/view', $this->data);
+       
     }
 
    

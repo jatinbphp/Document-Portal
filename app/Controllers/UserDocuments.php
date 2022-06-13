@@ -13,14 +13,18 @@ use CodeIgniter\Files\File;
 class UserDocuments extends BaseController{
 
 	public function index(){
+		if($_SESSION['user_type'] == 2){
+			$company = new CompanyModel;
+			$this->data['company'] = $company->findall();
+			$users = new UsersModel;
+			$this->data['users'] = $users->where('userTypeID',2)->findall();
 
-		$company = new CompanyModel;
-		$this->data['company'] = $company->findall();
-		$users = new UsersModel;
-		$this->data['users'] = $users->where('userTypeID',2)->findall();
-
-		$this->data['page_title'] = 'Documents';
-		$this->render_user_template('Frontside/documents/index',$this->data);
+			$this->data['page_title'] = 'Documents';
+			$this->render_user_template('Frontside/documents/index',$this->data);
+		}
+		else{
+			return redirect()->to('appAdmin');
+		}
 	}
 
 	public function add(){

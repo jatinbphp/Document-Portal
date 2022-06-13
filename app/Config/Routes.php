@@ -39,78 +39,75 @@ $routes->get('/', 'Auth::login',['filter' => 'nouserauth']);
 $routes->get('appAdmin', 'Auth::login',['filter' => 'nouserauth']);
 $routes->get('auth/login', 'Auth::login',['filter' => 'nouserauth']);
 $routes->get('logout', 'Auth::logout'); 
-$routes->get('dashboard', 'Dashboard::index',['filter' => 'auth']);
+$routes->get('dashboard', 'Dashboard::index',['filter' => 'adminauth']);
 $routes->get('userdashboard', 'UserDashboard::index',['filter' => 'auth']);
 
 //useer
-$routes->get('users', 'Users::index',['filter' => 'auth']);
-$routes->get('users/(:any)', 'Users::$1',['filter' => 'auth']);
-$routes->get('Users', 'Users::index',['filter' => 'auth']);
-$routes->get('Users/(:any)', 'Users::$1',['filter' => 'auth']);
+$routes->get('users', 'Users::index',['filter' => 'adminauth']);
+$routes->get('users/(:any)', 'Users::$1',['filter' => 'adminauth']);
+$routes->get('Users', 'Users::index',['filter' => 'adminauth']);
+$routes->get('Users/(:any)', 'Users::$1',['filter' => 'adminauth']);
 
-$routes->get('user_types', 'User_types::index',['filter' => 'auth']);
-$routes->get('user_types/(:any)', 'User_types::$1',['filter' => 'auth']);
-$routes->get('User_types', 'User_types::index',['filter' => 'auth']);
-$routes->get('User_types/(:any)', 'User_types::$1',['filter' => 'auth']);
+$routes->get('user_types', 'User_types::index',['filter' => 'adminauth']);
+$routes->get('user_types/(:any)', 'User_types::$1',['filter' => 'adminauth']);
+$routes->get('User_types', 'User_types::index',['filter' => 'adminauth']);
+$routes->get('User_types/(:any)', 'User_types::$1',['filter' => 'adminauth']);
 
 //company
-$routes->get('company', 'Company::index',['filter' => 'auth']);
-$routes->get('company/(:any)', 'Company::$1',['filter' => 'auth']);
-$routes->get('Company', 'Company::index',['filter' => 'auth']);
-$routes->get('Company/(:any)', 'Company::$1',['filter' => 'auth']);
+$routes->get('company', 'Company::index',['filter' => 'adminauth']);
+$routes->get('company/(:any)', 'Company::$1',['filter' => 'adminauth']);
+$routes->get('Company', 'Company::index',['filter' => 'adminauth']);
+$routes->get('Company/(:any)', 'Company::$1',['filter' => 'adminauth']);
 
 //Document Managemant
-$routes->get('documents', 'Documents::index',['filter' => 'auth']);
-$routes->get('documents/(:any)', 'Documents::$1',['filter' => 'auth']);
-$routes->get('Documents', 'Documents::index',['filter' => 'auth']);
-$routes->get('Documents/(:any)', 'Documents::$1',['filter' => 'auth']);
+$routes->get('documents', 'Documents::index',['filter' => 'adminauth']);
+$routes->get('documents/(:any)', 'Documents::$1',['filter' => 'adminauth']);
+$routes->get('Documents', 'Documents::index',['filter' => 'adminauth']);
+$routes->get('Documents/(:any)', 'Documents::$1',['filter' => 'adminauth']);
 
 //category
-$routes->get('category', 'Category::index',['filter' => 'auth']);
-$routes->get('category/(:any)', 'Category::$1',['filter' => 'auth']);
-$routes->get('category/add', 'Category::add',['filter' => 'auth']);
-$routes->get('category/(:any)', 'Category::$1',['filter' => 'auth']);
+$routes->get('category', 'Category::index',['filter' => 'adminauth']);
+$routes->get('category/(:any)', 'Category::$1',['filter' => 'adminauth']);
+$routes->get('category/add', 'Category::add',['filter' => 'adminauth']);
+$routes->get('category/(:any)', 'Category::$1',['filter' => 'adminauth']);
 
 //sub-category
-$routes->get('subcategory', 'SubCategory::index',['filter' => 'auth']);
-$routes->get('subcategory/(:any)', 'SubCategory::$1',['filter' => 'auth']);
-$routes->get('subcategory/add', 'SubCategory::add',['filter' => 'auth']);
-$routes->post('subcategory/add', 'SubCategory::create',['filter' => 'auth']);
-$routes->put('subcategory/update/(:any)', 'SubCategory::update/$1',['filter' => 'auth']);
-$routes->get('subcategory/(:any)', 'SubCategory::$1',['filter' => 'auth']);
+$routes->get('subcategory', 'SubCategory::index',['filter' => 'adminauth']);
+$routes->get('subcategory/(:any)', 'SubCategory::$1',['filter' => 'adminauth']);
+$routes->get('subcategory/add', 'SubCategory::add',['filter' => 'adminauth']);
+$routes->post('subcategory/add', 'SubCategory::create',['filter' => 'adminauth']);
+$routes->put('subcategory/update/(:any)', 'SubCategory::update/$1',['filter' => 'adminauth']);
+$routes->get('subcategory/(:any)', 'SubCategory::$1',['filter' => 'adminauth']);
 
 //Reporting
-$routes->get('reporting', 'Reporting::index',['filter' => 'auth']);
-$routes->get('reporting/export', 'Reporting::export',['filter' => 'auth']);
-$routes->get('reporting/category', 'ReportingCategory::index',['filter' => 'auth']);
-$routes->get('uploadedDocuments', 'UploadedDocuments::index',['filter' => 'auth']);
-$routes->get('editedDocuments', 'DocumentEdit::index',['filter' => 'auth']);
-$routes->get('outstandingDocuments', 'OutstandingDocuments::index',['filter' => 'auth']);
-$routes->get('Expired-Documents', 'ExpiredDocuments::index',['filter' => 'auth']);
+$routes->get('reporting', 'Reporting::index',['filter' => 'adminauth']);
+$routes->get('reporting/export', 'Reporting::export',['filter' => 'adminauth']);
+$routes->get('reporting/category', 'ReportingCategory::index',['filter' => 'adminauth']);
+$routes->get('uploadedDocuments', 'UploadedDocuments::index',['filter' => 'adminauth']);
+$routes->get('editedDocuments', 'DocumentEdit::index',['filter' => 'adminauth']);
+$routes->get('outstandingDocuments', 'OutstandingDocuments::index',['filter' => 'adminauth']);
+$routes->get('Expired-Documents', 'ExpiredDocuments::index',['filter' => 'adminauth']);
 
 
-$routes->get('docs', 'ManageDocuments::index',['filter' => 'auth']);
-$routes->get('docs/(:any)', 'ManageDocuments::$1',['filter' => 'auth']);
-$routes->get('Docs', 'ManageDocuments::index',['filter' => 'auth']);
-$routes->get('Docs/(:any)', 'ManageDocuments::$1',['filter' => 'auth']);
+$routes->get('docs', 'ManageDocuments::index',['filter' => 'adminauth']);
+$routes->get('docs/(:any)', 'ManageDocuments::$1',['filter' => 'adminauth']);
+$routes->get('Docs', 'ManageDocuments::index',['filter' => 'adminauth']);
+$routes->get('Docs/(:any)', 'ManageDocuments::$1',['filter' => 'adminauth']);
 
-$routes->get('workflow', 'Workflow::index',['filter' => 'auth']);
-$routes->get('workflow/(:any)', 'Workflow::$1',['filter' => 'auth']);
-$routes->get('Workflow', 'Workflow::index',['filter' => 'auth']);
-$routes->get('Workflow/(:any)', 'Workflow::$1',['filter' => 'auth']);
+$routes->get('workflow', 'Workflow::index');
+$routes->get('workflow/(:any)', 'Workflow::$1');
+$routes->get('Workflow', 'Workflow::index');
+$routes->get('Workflow/(:any)', 'Workflow::$1');
 
 $routes->get('subadminworkflow', 'SubadminWorkflow::index',['filter' => 'auth']);
 $routes->get('subadminworkflow/(:any)', 'SubadminWorkflow::$1',['filter' => 'auth']);
 $routes->get('SubadminWorkflow', 'SubadminWorkflow::index',['filter' => 'auth']);
 $routes->get('SubadminWorkflow/(:any)', 'SubadminWorkflow::$1',['filter' => 'auth']);
 
-// $routes->get('SubadminWorkflowView', 'SubadminWorkflowView::index',['filter' => 'auth']);
-// $routes->get('SubadminWorkflowView/(:any)', 'SubadminWorkflowView::$1',['filter' => 'auth']);
-// $routes->get('SubadminWorkflowView', 'SubadminWorkflowView::index',['filter' => 'auth']);
-// $routes->get('SubadminWorkflowView/(:any)', 'SubadminWorkflowView::$1',['filter' => 'auth']);
-
-$routes->match(['get','post'],'SubadminWorkflowView', 'SubadminWorkflowView::index' );
-$routes->match(['get','post'],'SubadminWorkflowView/(:any)', 'SubadminWorkflowView::$1' );
+$routes->get('SubadminWorkflowView', 'SubadminWorkflowView::index',['filter' => 'auth']);
+$routes->get('SubadminWorkflowView/(:any)', 'SubadminWorkflowView::$1',['filter' => 'auth']);
+$routes->get('SubadminWorkflowView', 'SubadminWorkflowView::index',['filter' => 'auth']);
+$routes->get('SubadminWorkflowView/(:any)', 'SubadminWorkflowView::$1',['filter' => 'auth']);
 
 
 //$routes->get('reporting/documents', 'UploadedDocuments::index',['filter' => 'auth']);
@@ -126,10 +123,10 @@ $routes->match(['get','post'],'SubadminWorkflowView/(:any)', 'SubadminWorkflowVi
 
 // User Routes
 //Document Managemant
-$routes->get('userDocuments', 'UserDocuments::index',['filter' => 'auth']);
-$routes->get('userDocuments/(:any)', 'UserDocuments::$1',['filter' => 'auth']);
-$routes->get('UserDocuments', 'UserDocuments::index',['filter' => 'auth']);
-$routes->get('UserDocuments/(:any)', 'UserDocuments::$1',['filter' => 'auth']);
+$routes->get('userDocuments', 'UserDocuments::index',['filter' => 'artistauth']);
+$routes->get('userDocuments/(:any)', 'UserDocuments::$1',['filter' => 'artistauth']);
+$routes->get('UserDocuments', 'UserDocuments::index',['filter' => 'artistauth']);
+$routes->get('UserDocuments/(:any)', 'UserDocuments::$1',['filter' => 'artistauth']);
 
 
 

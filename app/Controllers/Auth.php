@@ -40,10 +40,13 @@ class Auth extends BaseController
             $login = $model_auth->where('email', $email)->where('pwd', md5($pwd))->first(); 
             if(!empty($login)) {
                 if($login['userTypeID'] == 0){
-                   $loginUserType = 0 ;
+                   $loginUserType = 'admin' ;
+                   $user_type = 0;
                 }
                 else{
-                   $loginUserType = $model_auth->getUserType($login['userTypeID']); 
+                   $loginUserType1 = $model_auth->getUserType($login['userTypeID']); 
+                   $loginUserType2 = strtolower($loginUserType1);
+                   $loginUserType = str_replace(' ', '', $loginUserType2);
                 }
                 
 

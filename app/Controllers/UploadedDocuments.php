@@ -103,7 +103,7 @@ class UploadedDocuments extends BaseController{
         	//$sub_array[] = $row['dateAdded'];
          	//$actionLink = $model_user->getActionLink('',$row['id'],'Documents','',$row['userTypeID']); 
             //$actionLink = $model_uploads->getActionLink('',$row['id'],'','Documents','');
-            $sub_array[] = $actionLink;
+           // $sub_array[] = $actionLink;
             $data[] = $sub_array;
 
         } 

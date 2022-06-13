@@ -24,6 +24,9 @@ class Filters extends BaseConfig
 		'nouserauth' => \App\Filters\NoUserAuth::class,
 		'apiauth' => \App\Filters\ApiAuth::class,
 		'cors'     => \App\Filters\Cors::class,
+		'adminauth'     => \App\Filters\AdminAuth::class,
+		'subadmin'     => \App\Filters\SubAdmin::class,
+		'nosubadminauth'     => \App\Filters\NoSubAuth::class,
 	];
 
 	/**

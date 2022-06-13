@@ -4,12 +4,18 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\Filters\FilterInterface;
 
-class UserAuth implements FilterInterface
+class AdminAuth implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
-        if(! session()->get('user')){
-          return redirect()->to('/');
+
+        if(!session()->get('logged_in')){
+            return redirect()->to('auth/login');
+        } else {
+
+            if (session()->get('loginUserType') != "admin") {
+               return redirect()->to('userdashboard');
+            }
         }
     }
 

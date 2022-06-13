@@ -4,19 +4,21 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\Filters\FilterInterface;
 
-class UserAuth implements FilterInterface
+class SubAdmin implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
-        if(! session()->get('user')){
-          return redirect()->to('/');
+        // Do something here
+        if(!session()->get('subadmin')){
+            return redirect()->to('auth/login');
         }
+
     }
 
     //--------------------------------------------------------------------
 
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
     {
-        
+        // Do something here
     }
 }

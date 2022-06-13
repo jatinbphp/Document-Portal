@@ -38,7 +38,6 @@ class Workflow extends BaseController{
 			$start_date = $request->getPost('start_date');
 			$expire_date = $request->getPost('expire_date');
 			$is_active = $request->getPost('is_active');
-
 			$current_date = date('Y-m-d H:m:s');
 			$expire_date = date('0000-00-00 00:00:00');
 			// $document_files ='';
@@ -250,9 +249,9 @@ class Workflow extends BaseController{
 			//$sub_array[] = $row['document_files'];
           
 
-			$sub_array[] = $row['comments']; 
-			$sub_array[] = $row['start_date']; 
-			$sub_array[] = $row['expire_date']; 
+			$sub_array[] = $row['comments'];
+			$sub_array[] = $row['start_date'];
+			$sub_array[] = $row['expire_date'];
 			if($row['is_active'] == 1){
                 $sub_array[] = '<span class="badge badge-success">APPROVED</span>';
             }elseif($row['is_active'] == 2){
@@ -339,12 +338,24 @@ class Workflow extends BaseController{
 				$company_id = $request->getPost('company_id');
 				//$document_files = $request->getPost('document_files');
 				$comments = $request->getPost('comments');
+				
+				if($_SESSION['user_type'] == 3){
 				$start_date = $request->getPost('start_date');
 				$expire_date = $request->getPost('expire_date');
+				}
+				else{
+				$start_date1 = $request->getPost('start_date');
+				$start_date =   date($start_date1.' H:m:s');
+				$expire_date1 = $request->getPost('expire_date');
+				$expire_date = date($expire_date1.' H:m:s');	
+				}
+				
 				//$is_active = $request->getPost('is_active');
 
 				$currentDate = date('Y-m-d');
-				if($expire_date == $currentDate){
+				//echo $expire_date;exit;
+				 $expiretime = date("Y-m-d",strtotime($expire_date));
+				if($expiretime == $currentDate){
 
 					$flowis_active = 3;
 				}
@@ -367,7 +378,7 @@ class Workflow extends BaseController{
 				);
 
 				
-
+				
 				
 				$model_workflow->set($data);
 		    	$model_workflow->where('id', $id);

@@ -9,21 +9,32 @@ use App\Models\CompanyModel;
 
 class Dashboard extends BaseController
 {
+
+	public function __construct()
+    {
+    	
+        /*if (session()->get('loginUserType') != "admin") {
+            echo 'Access denied';
+            exit;
+        }*/
+    }
 	public function index()
 	{  
-		$model_company = new CompanyModel;
-		$companyData = $model_company->findAll();
-		$this->data['companyData'] = count($companyData);
+		
+			$model_company = new CompanyModel;
+			$companyData = $model_company->findAll();
+			$this->data['companyData'] = count($companyData);
 
-		$model_users = new UsersModel;
-		$usersData = $model_users->where('isActive',1)->findAll();
-		$this->data['usersData'] = count($usersData);
+			$model_users = new UsersModel;
+			$usersData = $model_users->where('isActive',1)->findAll();
+			$this->data['usersData'] = count($usersData);
 
-		$model_documents = new DocumentsModel;
-		$documentsData = $model_documents->where('isActive',1)->findAll();
-		$this->data['documentsData'] = count($documentsData);
+			$model_documents = new DocumentsModel;
+			$documentsData = $model_documents->where('isActive',1)->findAll();
+			$this->data['documentsData'] = count($documentsData);
 
-     	$this->data['page_title'] = 'Dashboard';
-	   	$this->render_template('dashboard', $this->data);
+	     	$this->data['page_title'] = 'Dashboard';
+		   	$this->render_template('dashboard', $this->data);
+	    
 	}
 }

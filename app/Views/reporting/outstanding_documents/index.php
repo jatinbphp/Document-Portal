@@ -37,13 +37,15 @@
                    
                     <thead class="thead-dark">
                         <tr>
-                             <th>Document file</th>
+                             
                             <th>Document Name</th>
                             <th>User Type</th>
                             <th>Category</th>
                             <th>Sub Category</th>
                             <th>Company</th>
                             <th>Comments</th>
+                            <th>Status</th>
+                            <th>File</th>
                             <!--th style="width: 15%">Action</th-->
                         </tr>
                     </thead>

@@ -338,6 +338,7 @@ class Workflow extends BaseController{
 				$company_id = $request->getPost('company_id');
 				//$document_files = $request->getPost('document_files');
 				$comments = $request->getPost('comments');
+				$is_activedata = $request->getPost('is_active');
 				
 				if($_SESSION['user_type'] == 3){
 				$start_date = $request->getPost('start_date');
@@ -355,7 +356,7 @@ class Workflow extends BaseController{
 				$currentDate = date('Y-m-d');
 				//echo $expire_date;exit;
 				 $expiretime = date("Y-m-d",strtotime($expire_date));
-				if($expiretime == $currentDate){
+				if($expiretime == $currentDate || $expiretime <($currentDate) ){
 
 					$flowis_active = 3;
 				}
@@ -363,6 +364,11 @@ class Workflow extends BaseController{
 
 					$flowis_active = 1;
 				}
+
+				if($is_activedata == 'on'){
+					$flowis_active = 1;
+				}
+
 
 				$data = array(
 					'document_name' =>isset($document_name)?$document_name :$flowdocument_name,

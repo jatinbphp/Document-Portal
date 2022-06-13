@@ -366,3 +366,30 @@ CRITICAL - 2022-06-13 16:44:00 --> Undefined variable $_SESSION
 #3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
 #4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
 #5 {main}
+CRITICAL - 2022-06-13 17:36:22 --> Undefined array key "Status"
+#0 /var/www/html/Document-Portal/app/Controllers/ExpiredDocuments.php(100): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ExpiredDocuments->fetch_expired_documents()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-13 17:36:29 --> Undefined array key "status"
+#0 /var/www/html/Document-Portal/app/Controllers/ExpiredDocuments.php(100): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\ExpiredDocuments->fetch_expired_documents()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-13 18:14:19 --> Cannot redeclare App\Models\WorkflowModel::getActionLinkData()
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-06-13 18:14:27 --> Cannot redeclare App\Models\WorkflowModel::getActionLinkData()
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-06-13 18:27:13 --> Undefined array key "HTTP_REFERER"
+#0 /var/www/html/Document-Portal/app/Controllers/Workflow.php(313): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->edit()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}

@@ -148,3 +148,117 @@ CRITICAL - 2022-06-14 10:02:27 --> Call to a member function getResultArray() on
 #2 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
 #3 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
 #4 {main}
+CRITICAL - 2022-06-14 15:46:55 --> Undefined variable $getActionLinkNew
+#0 /var/www/html/Document-Portal/app/Controllers/SubadminWorkflowView.php(125): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\SubadminWorkflowView->fetch_workflow_view()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-14 15:47:01 --> Undefined variable $getActionLinkNew
+#0 /var/www/html/Document-Portal/app/Controllers/SubadminWorkflowView.php(125): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\SubadminWorkflowView->fetch_workflow_view()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-14 15:48:58 --> Call to undefined method App\Models\WorkflowModel::getActionLinkNew
+#0 /var/www/html/Document-Portal/app/Controllers/SubadminWorkflowView.php(114): CodeIgniter\Model->__call()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\SubadminWorkflowView->fetch_workflow_view()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-14 15:49:12 --> Call to undefined method App\Models\WorkflowModel::getActionLinkDatapending
+#0 /var/www/html/Document-Portal/app/Controllers/SubadminWorkflowView.php(141): CodeIgniter\Model->__call()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\SubadminWorkflowView->fetch_workflow_view()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-14 15:49:22 --> Call to undefined method App\Models\WorkflowModel::getActionLinkDatapending
+#0 /var/www/html/Document-Portal/app/Controllers/SubadminWorkflowView.php(141): CodeIgniter\Model->__call()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\SubadminWorkflowView->fetch_workflow_view()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-14 15:49:27 --> Call to undefined method App\Models\WorkflowModel::getActionLinkDatapending
+#0 /var/www/html/Document-Portal/app/Controllers/SubadminWorkflowView.php(141): CodeIgniter\Model->__call()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\SubadminWorkflowView->fetch_workflow_view()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-14 15:49:40 --> Call to undefined method App\Models\WorkflowModel::getActionLinkDatapending
+#0 /var/www/html/Document-Portal/app/Controllers/SubadminWorkflowView.php(141): CodeIgniter\Model->__call()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\SubadminWorkflowView->fetch_workflow_view()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-14 15:49:47 --> Call to undefined method App\Models\WorkflowModel::getActionLinkDatapending
+#0 /var/www/html/Document-Portal/app/Controllers/SubadminWorkflowView.php(141): CodeIgniter\Model->__call()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\SubadminWorkflowView->fetch_workflow_view()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-14 15:50:37 --> Call to undefined method App\Models\WorkflowModel::getActionLinkDatapending
+#0 /var/www/html/Document-Portal/app/Controllers/SubadminWorkflowView.php(141): CodeIgniter\Model->__call()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\SubadminWorkflowView->fetch_workflow_view()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-14 15:50:57 --> Call to undefined method App\Models\WorkflowModel::getActionLinkDatapending
+#0 /var/www/html/Document-Portal/app/Controllers/SubadminWorkflowView.php(141): CodeIgniter\Model->__call()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\SubadminWorkflowView->fetch_workflow_view()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-14 15:51:06 --> Call to undefined method App\Models\WorkflowModel::getActionLinkDatapending
+#0 /var/www/html/Document-Portal/app/Controllers/SubadminWorkflowView.php(141): CodeIgniter\Model->__call()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\SubadminWorkflowView->fetch_workflow_view()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-14 15:52:29 --> Call to undefined method App\Models\WorkflowModel::getActionLinkDatapending
+#0 /var/www/html/Document-Portal/app/Controllers/SubadminWorkflowView.php(141): CodeIgniter\Model->__call()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\SubadminWorkflowView->fetch_workflow_view()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-14 15:55:37 --> Undefined array key "userTypeID"
+#0 /var/www/html/Document-Portal/app/Controllers/SubadminWorkflowView.php(117): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\SubadminWorkflowView->fetch_workflow_view()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-14 15:56:28 --> Undefined array key "userTypeID"
+#0 /var/www/html/Document-Portal/app/Controllers/SubadminWorkflowView.php(117): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\SubadminWorkflowView->fetch_workflow_view()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-14 15:56:47 --> Undefined array key "userTypeID"
+#0 /var/www/html/Document-Portal/app/Controllers/SubadminWorkflowView.php(117): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\SubadminWorkflowView->fetch_workflow_view()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-14 16:40:25 --> syntax error, unexpected token "=", expecting ")"
+#0 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(273): CodeIgniter\Autoloader\Autoloader->includeFile()
+#1 /var/www/html/Document-Portal/system/Autoloader/Autoloader.php(247): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(886): class_exists()
+#4 /var/www/html/Document-Portal/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->startController()
+#5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#7 {main}

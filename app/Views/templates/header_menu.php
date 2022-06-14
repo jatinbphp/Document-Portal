@@ -3,7 +3,8 @@
 
     <div class="logo"><a href="<?php echo base_url('dashboard'); ?>"><img src="<?php echo base_url('assets/images/admin-logo.png'); ?>" alt=""></a></div>
 
-    <h5 class="align-self-center"><?php if($_SESSION['loginUserType'] == 0){echo "Admin";} else{echo $_SESSION['loginUserType'];} ?></h5>
+   <!--  <h5 class="align-self-center"><?php if($_SESSION['loginUserType'] == 0){echo "Admin";} else{echo $_SESSION['loginUserType'];} ?></h5> -->
+     <h5 class="align-self-center"><?php echo strtoupper($_SESSION['loginUserType']); ?></h5>
 
     <div class="user-info ml-auto d-none d-lg-block align-self-center mr-3">
         <h4>Welcome back <strong><strong><?php echo $_SESSION['firstName']; ?> <?php echo $_SESSION['lastName']; ?></strong></h4>

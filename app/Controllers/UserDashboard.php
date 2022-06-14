@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\DocumentsModel;
 use App\Models\UsersModel;
 use App\Models\CompanyModel;
+use App\Models\User_typesModel;
 
 class UserDashboard extends BaseController
 {
@@ -14,6 +15,7 @@ class UserDashboard extends BaseController
             $userId = $_SESSION['id'];
             $company_get = new UsersModel;
             $companyId = $company_get->where('id',$_SESSION['id'])->first();
+
             $comId = $companyId['companyId'];
 
             $model_documents = new DocumentsModel;
@@ -26,6 +28,17 @@ class UserDashboard extends BaseController
 				 $documentsData =  $val['docName'];
 			}
 			$this->data['tatalDoc'] = $documentsData;
+
+            
+            $db = \Config\Database::connect(); 
+            $id = $_SESSION['id'];
+            $builder = $db->table('user_company');
+            $builder1 = $builder->where('user_id',$id);
+            $query = $builder1->get();
+            $existData = count($query->getResult());
+            $this->data['compTotal'] = $existData;
+
+                
             $this->data['page_title'] = 'UserDashboard';
             $this->render_user_template('userDashboard', $this->data);
         }

@@ -7,6 +7,7 @@ use App\Models\DocumentsModel;
 use App\Models\UsersModel;
 use App\Models\CompanyModel;
 use App\Models\User_typesModel;
+use App\Models\WorkflowModel;
 
 class UserDashboard extends BaseController
 {
@@ -37,8 +38,15 @@ class UserDashboard extends BaseController
             $query = $builder1->get();
             $existData = count($query->getResult());
             $this->data['compTotal'] = $existData;
-
-                
+            
+            
+            $userType_id = $_SESSION['user_type'];
+            $workflow = $db->table('document_workfolw');
+            $workflow1= $workflow->where('usertype_id', $userType_id);
+            $query = $workflow1->get();
+            $queryResults = count($query->getResult());
+            $this->data['workflowTotal'] = $queryResults;
+                   
             $this->data['page_title'] = 'UserDashboard';
             $this->render_user_template('userDashboard', $this->data);
         }

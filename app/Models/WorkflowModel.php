@@ -19,7 +19,7 @@ class WorkflowModel extends Model
 	protected $validationMessages   = [];
 	protected $skipValidation       = false;
 	protected $cleanValidationRules = true;
-	protected $allowedFields = ['document_name', 'usertype_id', 'category_id', 'subcategory_id','document_files', 'comments','company_id','start_date','expire_date','is_update','is_active'];
+	protected $allowedFields = ['document_name', 'usertype_id', 'category_id', 'subcategory_id','document_files', 'comments','company_id','start_date','expire_date','is_update','is_active','is_deleted'];
 
 
 	public function get_all_data($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn)
@@ -56,32 +56,6 @@ class WorkflowModel extends Model
         return $actionLinkVar;
 
     }
-    public function getActionLinkDatapending($path,$id,$type,$view=null,$userdelete=null){
-
-         $actionLinkVar = '';  
-
-        $actionLinkVar .= '<a title="Edit Workflow" href="' . base_url( 'workflow/edit/'.$id). '" class="btn btn-warning" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;"><i class="fa fa-edit"></i></a>';
-
-        // if($userdelete!=1){
-        //     $actionLinkVar .= '<a href = "' . base_url( '/workflow/view_documents/'.$id). '" class="btn btn-primary" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;" target="_blank"><i class="fa fa-file"></i></a>';
-        // }
- 
-        return $actionLinkVar;
-
-    }
-     public function getActionLinkDataSubmit($path,$id,$type,$view=null,$userdelete=null){
-
-         $actionLinkVar = '';  
-
-        // $actionLinkVar .= '<a title="Edit Workflow" href="' . base_url( 'workflow/edit/'.$id). '" class="btn btn-warning" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;"><i class="fa fa-edit"></i></a>';
-
-        // if($userdelete!=1){
-            $actionLinkVar .= '<a href = "' . base_url( '/workflow/view_documents/'.$id). '" class="btn btn-primary" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;" target="_blank"><i class="fa fa-file"></i></a>';
-        // }
- 
-        return $actionLinkVar;
-
-    }
 
     public function getActionLinkFile($path,$id,$type,$view=null,$userdelete=null){
 
@@ -94,19 +68,22 @@ class WorkflowModel extends Model
 
     }
 
-    // public function getActionLinkComapany($path,$id,$type,$view=null,$userdelete=null){
+    public function getActionLinkNew($path,$id,$type,$view=null,$userdelete=null){
 
-    //      $actionLinkVar = '';  
+         $actionLinkVar = '';  
 
-    //     $actionLinkVar .= '<a title="Edit Workflow" href="' . base_url( 'workflow/edit/'.$id). '" class="btn btn-warning22" "><i class="far fa-edit" style="font-size:14px"></i></a>';
+        // $actionLinkVar .= '<a title="Edit Workflow" href="' . base_url( 'workflow/edit/'.$id). '" class="" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 12px;"><i class="fa-solid fa-upload"></i></a>';
+         $actionLinkVar .= '<a href = "' . base_url( 'workflow/edit/'.$id). '" class="btn btn-warning" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 10px;" target="_blank"><i class="fa fa-upload"></i></a>';
 
-    //     if($userdelete!=1){
-    //         $actionLinkVar .= '<a href="' . base_url( 'workflow/delete/'.$id). '" title="Delete Document" class="btn btn-warning22" " data-id="' . $id . '"><i class="fa fa-user" style="font-size:12px"></i></a>';
-    //     }
+       
+        $actionLinkVar .= '<a href = "' . base_url( '/workflow/view_documents/'.$id). '" class="btn btn-primary" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 10px;" target="_blank"><i class="fa fa-file"></i></a>';
+
+        $actionLinkVar .= '<a href="' . base_url( 'workflow/delete/'.$id). '" title="Delete Document" class="btn btn-danger deleteData workflowDelete" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 10px;" data-id="' . $id . '"><i class="fa fa-trash"></i></a>';
+        
  
-    //     return $actionLinkVar;
+        return $actionLinkVar;
 
-    // }
+    }
 
  	public function get_filtered_data($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn)
     {

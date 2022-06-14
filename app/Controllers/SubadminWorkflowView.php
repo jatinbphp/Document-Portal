@@ -37,7 +37,9 @@ class SubadminWorkflowView extends BaseController
 
         // equal condition
 	  	 $whereEqual=array();
+         $is_deleted = 0;
 	  	 $whereEqual=array($global_tblWorkflow.'.company_id'=>$id);
+         $whereEqual=array($global_tblWorkflow.'.is_deleted'=>$is_deleted);
         // not equal condition
         $whereNotEqual = array();
 
@@ -114,39 +116,40 @@ class SubadminWorkflowView extends BaseController
 
 		    
         	//$sub_array[] = $row['dateAdded'];
-         	//$actionLink = $model_user->getActionLink('',$row['id'],'Workflow','',$row['userTypeID']); 
+         	$actionLink = $model_user->getActionLinkNew('',$row['id'],'Workflow','',''); 
+            $sub_array[] = $actionLink;
               $model_user= new WorkflowModel;
             $updateData = $model_user->where('id',$row['id'])->first();
             $expireDate = date('Y-m-d',strtotime($updateData['expire_date']));
             $currentDate = date('Y-m-d');
             //$currentDate = date('Y-m-d', strtotime('+1 days'));
-            if($row['is_active'] == 1){
-                $actionLink = $model_user->getActionLinkDataSubmit('',$row['id'],'','Workflow','');
+           //  if($row['is_active'] == 1){
+           //      $actionLink = $model_user->getActionLinkDataSubmit('',$row['id'],'','Workflow','');
                 
-                $sub_array[] = $actionLink;
-            }
-           else if($updateData['id'] == $row['id'] && $updateData['is_update'] == 1 && $row['is_active'] == 2 ){
-               $dd1 = "When Approved by Admin then will display file"; 
-               $sub_array[] = $dd1;
-            }
+           //      $sub_array[] = $actionLink;
+           //  }
+           // else if($updateData['id'] == $row['id'] && $updateData['is_update'] == 1 && $row['is_active'] == 2 ){
+           //     $dd1 = "When Approved by Admin then will display file"; 
+           //     $sub_array[] = $dd1;
+           //  }
             
-            else if($expireDate == $currentDate || $row['is_active'] == 3){
-                $actionLink = $model_user->getActionLinkData('',$row['id'],'','Workflow','');
-                $dd = "-"; 
-                $sub_array[] = $dd;
-              //$dd = "<span class= 'btn-info'></span>"; 
-               //$sub_array[] =$actionLink;
-            }
-            elseif($row['is_active'] == 0){
-               $actionLink = $model_user->getActionLinkDatapending('',$row['id'],'','Workflow','');
+           //  else if($expireDate == $currentDate || $row['is_active'] == 3){
+           //      $actionLink = $model_user->getActionLinkData('',$row['id'],'','Workflow','');
+           //      $dd = "-"; 
+           //      $sub_array[] = $dd;
+           //    //$dd = "<span class= 'btn-info'></span>"; 
+           //     //$sub_array[] =$actionLink;
+           //  }
+           //  elseif($row['is_active'] == 0){
+           //     $actionLink = $model_user->getActionLinkDatapending('',$row['id'],'','Workflow','');
                 
-                $sub_array[] = $actionLink; 
-            }
-            else{
-                $actionLink = $model_user->getActionLinkData('',$row['id'],'','Workflow','');
+           //      $sub_array[] = $actionLink; 
+           //  }
+           //  else{
+           //      $actionLink = $model_user->getActionLinkData('',$row['id'],'','Workflow','');
                 
-                $sub_array[] = $actionLink;
-            }   
+           //      $sub_array[] = $actionLink;
+           //  }   
             $data[] = $sub_array;	
             }
             else{

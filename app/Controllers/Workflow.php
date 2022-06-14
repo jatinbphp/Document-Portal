@@ -162,6 +162,8 @@ class Workflow extends BaseController{
 
         // equal condition
 	  	 $whereEqual=array();
+	  	 $is_deleted = 0;
+         $whereEqual=array($global_tblWorkflow.'.is_deleted'=>$is_deleted);
         // not equal condition
         $whereNotEqual = array();
 
@@ -297,11 +299,29 @@ class Workflow extends BaseController{
 
 		$session = session();
 		$model_workflow= new WorkflowModel;
-    	$model_workflow->where('id', $id);
-		$temp =  $model_workflow->delete();
+		if($_SESSION['user_type'] == 3){
+			$data =array(
+				'is_deleted' => 1,
+			);
+			$model_workflow->set($data);
+			$model_workflow->where('id', $id);
+			$temp =  $model_workflow->update();
+
+		}else{
+			$model_workflow->where('id', $id);
+			$temp =  $model_workflow->delete();
+		}
+		
+    	
 		if($temp){ 
-       		$session->setFlashdata("success", "Workflow Document deleted Successfully.");
-        	return redirect()->to('workflow');
+			if($_SESSION['user_type'] == 3){
+				$session->setFlashdata("success", "Document deleted Successfully.");
+        		return redirect()->to($_SERVER['HTTP_REFERER']);
+			}else{
+				$session->setFlashdata("success", "Workflow Document deleted Successfully.");
+        		return redirect()->to('workflow');
+			}
+       		
        } else {
         	$session->setFlashdata("error", "Workflow Document not deleted Successfully.");
             return redirect()->to('workflow');  

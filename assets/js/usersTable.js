@@ -788,7 +788,7 @@ $(document).ready(function() {
             "width": "10%",
             "targets": 0
         }, {
-            "width": "15%",
+            "width": "10%",
             "targets": 1
         }, {
             "width": "10%",

@@ -57,11 +57,12 @@ class WorkflowModel extends Model
 
     }
 
-    public function getActionLinkFile($path,$id,$type,$view=null,$userdelete=null){
+    public function getActionLinkFile($path,$id,$type,$view=null,$userdelete=null,$file){
 
          $actionLinkVar = ''; 
         
             $actionLinkVar .= '<a href = "' . base_url( '/workflow/view_documents/'.$id). '" class="btn btn-primary" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;" target="_blank"><i class="fa fa-file"></i></a>';
+         
         
  
         return $actionLinkVar;
@@ -79,6 +80,16 @@ class WorkflowModel extends Model
         $actionLinkVar .= '<a href = "' . base_url( '/workflow/view_documents/'.$id). '" class="btn btn-primary" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 10px;" target="_blank"><i class="fa fa-file"></i></a>';
 
         $actionLinkVar .= '<a href="' . base_url( 'workflow/delete/'.$id). '" title="Delete Document" class="btn btn-danger deleteData workflowDelete" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 10px;" data-id="' . $id . '"><i class="fa fa-trash"></i></a>';
+        
+ 
+        return $actionLinkVar;
+
+    }
+
+     public function actionLinkComment($path,$id,$type,$view,$userdelete=null){
+         $actionLinkVar = '';  
+
+        $actionLinkVar .= '<span class="commentAdd tip" tabindex="0" data-toggle="tooltip" data-placement="top" title="'.$view.'">'.$view.'</span>';
         
  
         return $actionLinkVar;

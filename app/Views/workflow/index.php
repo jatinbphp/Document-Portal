@@ -1,3 +1,26 @@
+<style>
+    table.dataTable tbody td .commentAdd {
+        width: 100%;
+        max-width: 100px;
+        min-width: 100px;
+        display: block;
+        white-space: nowrap;
+        line-clamp: 3;
+        -webkit-line-clamp: 3;
+        -moz-line-clamp: 3;
+        -ms-line-clamp: 3;
+        -o-line-clamp: 3;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 0px;
+    }
+    table.dataTable tbody td, table.dataTable tbody td .commentAdd {
+        transition: all .4s ease-in-out;
+    }
+    /*table.dataTable tbody td.sorting_1:hover {
+        white-space: unset;
+    }*/
+</style>
 <div class="wrapper">
     <div class="row">
         <div class="col-sm-12">
@@ -20,6 +43,22 @@
 
             <div class="item-wrap item-list-table">
                 <table id="workflowTable" class="table table-bordered" cellspacing="0" width="100%" >
+
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4">
+                            <div class="category-filter">
+                                <select id="companySearchWorkflow" class="form-control" name="companySearch">
+                                    <option value="">Select Company</option>
+                                        <?php if(count($company) > 0): ?>
+                                            <?php foreach($company as $key => $value): ?>
+                                                <option value="<?php //echo $value['companyName'] ?> <?php echo $value['id'] ?>"><?php echo $value['companyName'] ?></option>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>                  
+                                 </select>
+                            </div>
+                        </div>
+                    
+                    </div>
 
                    <?php if($_SESSION['user_type'] == 3) { ?>
                     <thead class="thead-dark">
@@ -64,12 +103,21 @@
         </div>
     </div>
 </div>
+
 <script type="text/javascript">
   // $(".manageDocuments-Menu .inner").addClass("show");
     // $(".manageDocuments-Menu .toggle").addClass("activAcc");
     // $(".manageDocuments-Menu .inner").css("display", "block")
     $('.Workflow-Menu').addClass('active');
+
+     // Tooltips
+    $(document).ready(function () {
+        new bootstrap.Tooltip(document.body, {
+            selector: '.tip'
+        });
+    });
 </script>
 <script src="<?php echo base_url('assets/js/usersTable.js') ?>"></script>
+
 
 

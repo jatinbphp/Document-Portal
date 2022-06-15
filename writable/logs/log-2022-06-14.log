@@ -262,3 +262,50 @@ CRITICAL - 2022-06-14 16:40:25 --> syntax error, unexpected token "=", expecting
 #5 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
 #6 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
 #7 {main}
+CRITICAL - 2022-06-14 17:58:08 --> Undefined variable $user_info
+#0 /var/www/html/Document-Portal/app/Views/workflow/edit.php(163): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/View/View.php(230): include('...')
+#2 /var/www/html/Document-Portal/system/View/View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /var/www/html/Document-Portal/system/Common.php(1271): CodeIgniter\View\View->render()
+#4 /var/www/html/Document-Portal/app/Controllers/BaseController.php(80): view()
+#5 /var/www/html/Document-Portal/app/Controllers/Workflow.php(524): App\Controllers\BaseController->render_template()
+#6 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->edit()
+#7 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#8 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#9 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-06-14 18:16:29 --> Undefined array key "HTTP_REFERER"
+#0 /var/www/html/Document-Portal/app/Controllers/Workflow.php(333): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->edit()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-14 18:19:01 --> Undefined array key "HTTP_REFERER"
+#0 /var/www/html/Document-Portal/app/Controllers/Workflow.php(333): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->edit()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-14 18:19:08 --> Undefined array key "HTTP_REFERER"
+#0 /var/www/html/Document-Portal/app/Controllers/Workflow.php(333): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->edit()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-14 18:20:26 --> Undefined array key "HTTP_REFERER"
+#0 /var/www/html/Document-Portal/app/Controllers/Workflow.php(333): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->edit()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-14 18:21:17 --> Undefined array key "HTTP_REFERER"
+#0 /var/www/html/Document-Portal/app/Controllers/Workflow.php(333): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/Document-Portal/system/CodeIgniter.php(929): App\Controllers\Workflow->edit()
+#2 /var/www/html/Document-Portal/system/CodeIgniter.php(437): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/Document-Portal/system/CodeIgniter.php(337): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/Document-Portal/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}

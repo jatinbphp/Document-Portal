@@ -11,6 +11,11 @@ use App\Models\User_typesModel;
 class Workflow extends BaseController{
 
 	public function index(){
+
+		$company = new CompanyModel;
+		$this->data['company'] = $company->findall();
+		$model_comments = new WorkflowModel;
+		$this->data['comments'] = $model_comments->select('comments')->findAll();
 		if($_SESSION['user_type'] == 3){
 			$this->data['page_title'] = 'Workflow';
 			$this->render_user_template('workflow/index',$this->data);
@@ -164,6 +169,10 @@ class Workflow extends BaseController{
 	  	 $whereEqual=array();
 	  	 $is_deleted = 0;
          $whereEqual=array($global_tblWorkflow.'.is_deleted'=>$is_deleted);
+         if(isset($_POST['company_id']) && $_POST['company_id'] != '' ){
+			
+ 			  $whereEqual[$global_tblWorkflow.'.company_id']= trim($_POST['company_id']);
+ 		}
         // not equal condition
         $whereNotEqual = array();
 
@@ -250,8 +259,8 @@ class Workflow extends BaseController{
 
 			//$sub_array[] = $row['document_files'];
           
-
-			$sub_array[] = $row['comments'];
+			$actionLinkComment = $model_user->actionLinkComment('',$row['id'],'',$row['comments'],'');
+			$sub_array[] = $actionLinkComment;
 			$sub_array[] = $row['start_date'];
 			$sub_array[] = $row['expire_date'];
 			if($row['is_active'] == 1){
@@ -263,7 +272,7 @@ class Workflow extends BaseController{
             }
             
             else{
-                $sub_array[] = '<span class="badge badge-danger">PENDING</span>';
+                $sub_array[] = '<span class="badge badge-danger">OUTSTANDING</span>';
             } 
 		 
          	//$actionLink = $model_user->getActionLink('',$row['id'],'Workflow','',$row['userTypeID']); 
@@ -273,7 +282,7 @@ class Workflow extends BaseController{
             $sub_array[] = $actionLink;
             $actionLinkFile = '-';
             if($row['is_update'] == 1){
-            $actionLinkFile = $model_user->getActionLinkFile('',$row['id'],'','Workflow','');
+            $actionLinkFile = $model_user->getActionLinkFile('',$row['id'],'','Workflow','',$row['document_files']);
         	$sub_array[] = $actionLinkFile;	
             }else{
             	$sub_array[] = $actionLinkFile;
@@ -282,6 +291,7 @@ class Workflow extends BaseController{
         	
             $data[] = $sub_array;
         }
+
 
         } 
         $output = array(
@@ -342,9 +352,20 @@ class Workflow extends BaseController{
 	$flowcomments = $flowData['comments'];
 	$flowstart_date = $flowData['start_date'];
 	$flowexpire_date = $flowData['expire_date'];
-	$flowis_active = $flowData['is_active'];
+	//$flowis_active = $flowData['is_active'];
 		if($_POST){
+			
+			if(!isset($_POST['is_active'])){
+				$flowis_activeData = 0;
+			}
+			else if($_POST['is_active'] == 'on'){
 
+				$flowis_activeData = 1;
+			}
+			else{
+				$flowis_activeData = 1;
+			}
+			//echo "<pre>";print_r($_POST);exit;
 			$request = service('request');
 			$session = session();
 			
@@ -358,7 +379,7 @@ class Workflow extends BaseController{
 				$company_id = $request->getPost('company_id');
 				//$document_files = $request->getPost('document_files');
 				$comments = $request->getPost('comments');
-				$is_activedata = $request->getPost('is_active');
+				//$is_activedata = $request->getPost('is_active');
 				
 				if($_SESSION['user_type'] == 3){
 				$start_date = $request->getPost('start_date');
@@ -367,27 +388,49 @@ class Workflow extends BaseController{
 				else{
 				$start_date1 = $request->getPost('start_date');
 				$start_date =   date($start_date1.' H:m:s');
+
 				$expire_date1 = $request->getPost('expire_date');
-				$expire_date = date($expire_date1.' H:m:s');	
+					if($expire_date1 == ''){
+						$expire_date = $expire_date1;
+					}else{
+						$expire_date = date($expire_date1.' H:m:s');
+					}	
 				}
 				
 				//$is_active = $request->getPost('is_active');
 
-				$currentDate = date('Y-m-d');
+				 $currentDate = date('Y-m-d');
 				//echo $expire_date;exit;
-				 $expiretime = date("Y-m-d",strtotime($expire_date));
-				if($expiretime == $currentDate || $expiretime <($currentDate) ){
-
-					$flowis_active = 3;
+				if($expire_date == ''){
+					$expiretime = $expire_date;
 				}
 				else{
-
-					$flowis_active = 1;
+					 $expiretime = date("Y-m-d",strtotime($expire_date));
 				}
+				
+				
+				//$flowis_active1 = '';
+				if($expiretime == ''){
+					if($flowis_activeData == 1){
 
-				if($is_activedata == 'on'){
-					$flowis_active = 1;
-				}
+					 	$flowis_activeData= 1;
+					}
+					
+				}else{
+					if($expiretime == $currentDate || $expiretime <($currentDate) ){
+							
+							$flowis_activeData = 3;
+						}
+					elseif($flowis_activeData == 0 && $expiretime >($currentDate) ){
+						
+						$flowis_activeData= 1;
+						}	
+					elseif($flowis_activeData == 1){
+
+					 	$flowis_activeData= 1;
+					}
+			    }
+				
 
 
 				$data = array(
@@ -400,11 +443,8 @@ class Workflow extends BaseController{
 					'comments' => isset($comments)?$comments:$flowcomments,
 					'start_date' => isset($start_date)?$start_date:$flowstart_date,
 					'expire_date' => isset($expire_date)?$expire_date:$flowexpire_date,
-					'is_active' => isset($is_active) ? $is_active : $flowis_active, 
+					'is_active' => $flowis_activeData, 
 				);
-
-				
-				
 				
 				$model_workflow->set($data);
 		    	$model_workflow->where('id', $id);
@@ -445,17 +485,33 @@ class Workflow extends BaseController{
 									);
 									
 									$db = \Config\Database::connect(); 
-							    	$db->table('workflow_documents')->insert($dataImage);
+							    	$insertd = $db->table('workflow_documents')->insert($dataImage);
+
 			                    }            
 			                }
 			            }
 		            	if($_SESSION['user_type'] == 3){
 
 		            		$model_workflow= new WorkflowModel;
-		            		$upData = array(
-		            			'is_update' => 1,
-		            			'is_active' => 2,
-	            			);
+		            		$db = \Config\Database::connect(); 
+		            		$builder = $db->table('workflow_documents');
+					    	$builder1 = $builder->where('workflow_id',$id);
+					    	$query = $builder1->get();
+					    	$datadoc = $query->getResultArray();
+					    	if(count($datadoc)>0){
+						    	$upData = array(
+			            			'is_update' => 1,
+			            			'is_active' => 2,
+		            			);	
+					    	}
+					    	else{
+					    		$upData = array(
+			            			'is_update' => 0,
+			            			'is_active' => 0,
+		            			);
+					    	}
+		            		
+		            		
 		            		$model_workflow->set($upData);
 		    				$model_workflow->where('id', $id);
 		    				$result =  $model_workflow->update();

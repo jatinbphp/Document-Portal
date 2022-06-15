@@ -156,15 +156,15 @@
                                        <input type="date" name="expire_date" class="form-control" id="expire_date" placeholder="Expire Date" value="<?php echo date('Y-m-d',strtotime($docData['expire_date'])); ?>" >
                                     </div>
                                 </div>
-                                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                                <!-- <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                                     <div class="form-group">
                                         <label class="lableTitle"for="is_active">Active/InActive :<span class="asterisk-sign">*</span></label>
                                       <div class="form-group form-check">
-                                        <input type="checkbox" name="is_active" class="form-check-input" id="is_active">
+                                        <input type="checkbox" name="is_active" class="form-check-input" id="is_active" <?php echo ($docData['is_active'] == 1)?"checked":""; ?>>
                                         <label class="form-check-label" for="is_active">is Active</label>
                                     </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>

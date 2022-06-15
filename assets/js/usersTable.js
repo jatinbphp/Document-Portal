@@ -798,4 +798,45 @@ $(document).ready(function() {
             "targets": 3
         }, ]
     });
+    $('#companySearchWorkflow').change(function(e) {
+        $companyId = $('#companySearchWorkflow').val();
+        $("#workflowTable").dataTable().fnDestroy();
+        filterCompanyDataWorkflow();
+    });
+
+    function filterCompanyDataWorkflow() {
+        //reporting table
+        $('#workflowTable').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "responsive": true,
+            "order": [],
+            "ajax": {
+                url: "workflow/fetch_workflow",
+                type: "POST",
+                data: {
+                    'company_id': $('#companySearchWorkflow').val()
+                }
+            },
+            "columnDefs": [{
+                "orderable": false,
+                "targets": -1
+            }, {
+                "orderable": false,
+                "targets": 0
+            }, {
+                "orderable": false,
+                "targets": 5
+            }, {
+                "width": "10%",
+                "targets": 0
+            }, {
+                "width": "15%",
+                "targets": 1
+            }, {
+                "width": "10%",
+                "targets": 2
+            }]
+        });
+    }
 });

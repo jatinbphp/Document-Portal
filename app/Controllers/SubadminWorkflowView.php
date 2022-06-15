@@ -37,11 +37,13 @@ class SubadminWorkflowView extends BaseController
 
         // equal condition
 	  	 $whereEqual=array();
-         $is_deleted = 0;
+         
 	  	 $whereEqual=array($global_tblWorkflow.'.company_id'=>$id);
-         $whereEqual=array($global_tblWorkflow.'.is_deleted'=>$is_deleted);
+        
         // not equal condition
         $whereNotEqual = array();
+        $is_deleted = 1;
+        $whereNotEqual=array($global_tblWorkflow.'.is_deleted'=>$is_deleted);
 
         $notIn = array();     
 
@@ -95,8 +97,9 @@ class SubadminWorkflowView extends BaseController
 
 			//$sub_array[] = $row['document_files'];
           
-
-			$sub_array[] = $row['comments']; 
+            $actionLinkComment = $model_user->actionLinkComment('',$row['id'],'',$row['comments'],'');
+            $sub_array[] = $actionLinkComment;
+			//$sub_array[] = $row['comments']; 
 			$sub_array[] = $row['start_date']; 
 			$sub_array[] = $row['expire_date']; 
             if($row['is_active'] == 1){
@@ -108,7 +111,7 @@ class SubadminWorkflowView extends BaseController
                 $sub_array[] = '<span class="badge badge-danger">Expired</span>';
             }
             else{
-                $sub_array[] = '<span class="badge badge-danger">PENDING</span>';
+                $sub_array[] = '<span class="badge badge-danger">OUTSTANDING</span>';
             } 
 
 

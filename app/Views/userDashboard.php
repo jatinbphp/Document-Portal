@@ -35,7 +35,7 @@ if($_SESSION['user_type'] == 3){ ?>
 	<!--/div-->
 	
 	
-			<div class="col-md-6 col-lg-3 col-xl-3">
+			<!-- <div class="col-md-6 col-lg-3 col-xl-3">
 				<div class="box coleql_height">
 					<div class="media">
 						<div class="media-body">
@@ -45,7 +45,7 @@ if($_SESSION['user_type'] == 3){ ?>
 						<div class="icon"><a href="<?php echo base_url('/userDocuments');?>"><img src="<?php echo base_url('assets/images/document.png'); ?>" alt=""></a></div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 			
 		</div>
 	</div>

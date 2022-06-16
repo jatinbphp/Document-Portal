@@ -1,2 +1,4 @@
 /writable/session
 /app/Config/Database.php
+/writable/logs
+/uploads

@@ -356,7 +356,13 @@ class Workflow extends BaseController{
 		if($_POST){
 			
 			if(!isset($_POST['is_active'])){
-				$flowis_activeData = 0;
+				$is_update = $flowData['is_update'];
+				if($is_update == 0){
+				 $flowis_activeData = 0;	
+				}else{
+					$flowis_activeData = 2;
+				}
+				
 			}
 			else if($_POST['is_active'] == 'on'){
 

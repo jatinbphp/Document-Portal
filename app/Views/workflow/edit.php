@@ -154,17 +154,19 @@
                                     <div class="form-group">
                                         <label class="lableTitle"for="expire_date">Expire Date:<span class="asterisk-sign">*</span></label>
                                        <input type="date" name="expire_date" class="form-control" id="expire_date" placeholder="Expire Date" value="<?php echo date('Y-m-d',strtotime($docData['expire_date'])); ?>" >
+
+                                       <span class="error expire_date-error" style="display: none;">Please select expire date.</span>
                                     </div>
                                 </div>
-                                <!-- <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                                     <div class="form-group">
-                                        <label class="lableTitle"for="is_active">Active/InActive :<span class="asterisk-sign">*</span></label>
+                                        <label class="lableTitle"for="is_active">Approve/Disapprove :<span class="asterisk-sign">*</span></label>
                                       <div class="form-group form-check">
                                         <input type="checkbox" name="is_active" class="form-check-input" id="is_active" <?php echo ($docData['is_active'] == 1)?"checked":""; ?>>
-                                        <label class="form-check-label" for="is_active">is Active</label>
+                                        <label class="form-check-label" for="is_active">is Approve</label>
                                     </div>
                                     </div>
-                                </div> -->
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -297,4 +299,49 @@
        });
     }
     
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        
+        $('#is_active').click(function(){
+            var approve = $('input:checkbox[name=is_active]').is(':checked');
+            if(approve == true){
+               var expire_date = $("#expire_date").val();
+                if(expire_date == ''){
+                    $("#expire_date").focus();
+                    $(".expire_date-error").css("display", "");
+                    return false;
+                } else {
+                    $(".expire_date-error").css("display", "none");
+                   // $(".is_active-error").css("display", "none");
+                   // $('#is_active').is(":checked");
+                }
+            }
+            else{
+               $('#expire_date').val('');
+            }
+            
+
+        });   
+
+         $('#expire_date').on("change",function(){
+            var isapprove = $('input:checkbox[name=is_active]').is(':checked');
+            if(isapprove == false){
+                var expire_dateset = $("#expire_date").val();
+                if(expire_dateset != ''){
+                    $('#is_active').prop('checked', true);
+                }
+               
+                $(".expire_date-error").css("display", "none");
+            }
+         }); 
+
+        //  var expire_dateset1 = $("#expire_date").val();
+        // if(expire_dateset1 != ''){
+        //     $('#is_active').prop('checked', true);
+        // }
+        // else{
+        //    $('#is_active').prop('checked', false);  
+        // }
+    });  
 </script>

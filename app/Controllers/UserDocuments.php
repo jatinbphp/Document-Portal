@@ -144,10 +144,10 @@ class UserDocuments extends BaseController{
 				$url = base_url('documents/edit/'.$insertId);
 			    //$message = "Please activate the account ".$url;
 			    
-			    $message = 'Hello <br> <br>
+			    $message = 'Hello! <br> <br>
 				One document uploaded by '.$userFirstName.' '.$userLastName.'
-				<br><br>User Name: '.$userFirstName.''.$userLastName.'
-				<br>Company:'.$userCompanyName.'
+				<br><br>Document Name: '.$docName.'
+				<br>Company Name: '.$userCompanyName.'
 				<br><br>Please active this document by this link:<a href = "'.$url.'"> Click Here</a>';
 				
 				$email = \Config\Services::email();

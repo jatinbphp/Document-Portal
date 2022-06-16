@@ -145,15 +145,15 @@ class UserDocuments extends BaseController{
 			    //$message = "Please activate the account ".$url;
 			    
 			    $message = 'Hello! <br> <br>
-				One document uploaded by '.$userFirstName.' '.$userLastName.'
+				Document uploaded by '.$userFirstName.' '.$userLastName.'
 				<br><br>Document Name: '.$docName.'
 				<br>Company Name: '.$userCompanyName.'
 				<br><br>Please active this document by this link:<a href = "'.$url.'"> Click Here</a>';
 				
 				$email = \Config\Services::email();
-		        $email->setFrom('gert@gsdm.co.za', 'HSEQ Document');
-		        $email->setTo('emmanuel.k.php@gmail.com');
-		        $email->setSubject('Confirmation ');
+		        $email->setFrom('gert@gsdm.co.za', 'HSEQ User');
+		        $email->setTo('gert@gsdm.co.za');
+		        $email->setSubject('HSEQ Document');
 		        $email->setMessage($message);
 		        // $email->send();
 

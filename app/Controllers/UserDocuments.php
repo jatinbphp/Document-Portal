@@ -124,8 +124,8 @@ class UserDocuments extends BaseController{
 			$url = base_url('documents/edit/'.$insertId);
 			    $message = "Please activate the account ".$url;
 				$email = \Config\Services::email();
-		        $email->setFrom('dhaval.b.php@gmail.com', 'your Title Here');
-		        $email->setTo('jayashree.s.php@gmail.com');
+		        $email->setFrom('gert@gsdm.co.za', 'HSEQ Document');
+		        $email->setTo('amit.kk.php@gmail.com');
 		        $email->setSubject('Confirmation ');
 		        $email->setMessage($message);
 		        // $email->send();

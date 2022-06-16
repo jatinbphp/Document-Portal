@@ -125,7 +125,7 @@ class UserDocuments extends BaseController{
 			    $message = "Please activate the account ".$url;
 				$email = \Config\Services::email();
 		        $email->setFrom('gert@gsdm.co.za', 'HSEQ Document');
-		        $email->setTo('amit.kk.php@gmail.com');
+		        $email->setTo('emmanuel.k.php@gmail.com');
 		        $email->setSubject('Confirmation ');
 		        $email->setMessage($message);
 		        // $email->send();

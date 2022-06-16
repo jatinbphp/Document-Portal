@@ -38,9 +38,11 @@ class UserDocuments extends BaseController{
 
 		if($_POST){
 			
-			
 			$request = service('request');
 			$session = session();
+			
+			
+				
 			
 			//$companyId = $request->getPost('companyId');
 			//$companyId =  (int) implode($companyId);
@@ -120,15 +122,33 @@ class UserDocuments extends BaseController{
 			// $email->setSubject('Confirmation ');
 			// $email->setMessage($message);
 			// $email->send();
+			
+				$users = new UsersModel;
+				$users->select('firstName,lastName');
+				$users->where('id', $_SESSION['id']);
+				$queryResult = $users->get()->getResult();
+				foreach($queryResult as $value){
+					$userFirstName = $value->firstName;
+					$userLastName = $value->lastName;
+				}
+				
+				$company = new CompanyModel;
+				$company->select('companyName');
+				$company->where('id', $companyID);
+				$queryResult = $company->get()->getResult();
+				foreach($queryResult as $value){
+					$userCompanyName = $value->companyName;
+				}
+				
 
 				$url = base_url('documents/edit/'.$insertId);
 			    //$message = "Please activate the account ".$url;
 			    
 			    $message = 'Hello <br> <br>
-				One document uploaded by '.$firstName.' '.$lastName.'
-				<br><br>User Name: '.$firstName.''.$lastName.'
-				<br>Company:'.$firstName.'
-				<br><br>Please active this document by this link:<a href = "'.$url.'"> Click Here</a';
+				One document uploaded by '.$userFirstName.' '.$userLastName.'
+				<br><br>User Name: '.$userFirstName.''.$userLastName.'
+				<br>Company:'.$userCompanyName.'
+				<br><br>Please active this document by this link:<a href = "'.$url.'"> Click Here</a>';
 				
 				$email = \Config\Services::email();
 		        $email->setFrom('gert@gsdm.co.za', 'HSEQ Document');

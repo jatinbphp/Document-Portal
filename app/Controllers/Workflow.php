@@ -257,7 +257,8 @@ class Workflow extends BaseController{
         	//$sub_array[] = $row['dateAdded'];
          	//$actionLink = $model_user->getActionLink('',$row['id'],'Workflow','',$row['userTypeID']); 
          	
-            $actionLink = $model_user->getActionLinkData('',$row['id'],'','Workflow','');
+         	//link
+            //$actionLink = $model_user->getActionLinkData('',$row['id'],'','Workflow','');
             
             $sub_array[] = $actionLink;
             $data[] = $sub_array;	
@@ -670,8 +671,12 @@ class Workflow extends BaseController{
             return redirect()->to($_SERVER['HTTP_REFERER']);  
         }  	 
 	}
-		
+	
+	
 
+	
+		
+	
 	public function view_documents($id = ''){
 		$model_workflow = new WorkflowModel;
         $name = $model_workflow->select('document_name')->where('id',$id)->first();
@@ -696,7 +701,8 @@ class Workflow extends BaseController{
 
     	//$this->render_template('workflow/views',$this->data);
     	//return view('workflow/views',$this->data);
-	}
+	} 
+	
 	
 	/*
 	public function download_documents($id = ''){

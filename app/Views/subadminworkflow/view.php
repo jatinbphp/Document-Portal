@@ -51,7 +51,7 @@
             </h3>
              <div class="item-wrap item-list-table">
                 <input type="hidden" value="<?php echo $company_id; ?>" id="company_id_pass">
-                <table id="subaddworkflowTable" class="table table-bordered" cellspacing="0" width="100%" >
+                <table id="subaddworkflowTable" class="table table-bordered display responsive nowrap" cellspacing="0" width="100%" >
 
                   
                     <thead class="thead-dark">
@@ -91,4 +91,5 @@
         });
     });
 </script>
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.dataTables.min.css">
 <script src="<?php echo base_url('assets/js/usersTable.js?v='.time()) ?>"></script>

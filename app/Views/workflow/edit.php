@@ -143,7 +143,8 @@
                                         <textarea name="comments" id ="comments" ><?php echo $docData['comments'];?></textarea>
                                     </div>
                                 </div>
-
+                                <?php }
+                                     } ?>  
                                 <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                                     <div class="form-group">
                                         <label class="lableTitle"for="start_date">Start Date:<span class="asterisk-sign">*</span></label>
@@ -158,6 +159,9 @@
                                        <span class="error expire_date-error" style="display: none;">Please select expire date.</span>
                                     </div>
                                 </div>
+
+                                  <?php   if($_SESSION['logged_in'] == 1){ 
+                if($_SESSION['user_type'] == 0|| $_SESSION['user_type'] == 2){ ?>
                                 <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                                     <div class="form-group">
                                         <label class="lableTitle"for="is_active">Approve/Disapprove :<span class="asterisk-sign">*</span></label>

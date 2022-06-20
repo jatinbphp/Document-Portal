@@ -562,38 +562,32 @@ $(document).ready(function() {
         },
         "columnDefs": [{
             "width": "4%",
-            "targets": -1
-        }, {
-            "width": "4%",
             "targets": 0
         }, {
-            "width": "4%",
+            "width": "8%",
             "targets": 1
         }, {
-            "width": "4%",
+            "width": "8%",
             "targets": 2
         }, {
-            "width": "4%",
+            "width": "8%",
             "targets": 3
         }, {
-            "width": "4%",
+            "width": "8%",
             "targets": 4
         }, {
-            "width": "4%",
+            "width": "8%",
+            "targets": 3
+        }, {
+            "width": "8%",
             "targets": 5
         }, {
-            "width": "4%",
+            "width": "8%",
             "targets": 6
         }, {
-            "width": "4%",
+            "width": "8%",
             "targets": 7
-        }, {
-            "width": "4%",
-            "targets": 8
-        }, {
-            "width": "4%",
-            "targets": 9
-        }]
+        }, ]
     });
     $(document).on('click', '.workflowDelete', function(event) {
         event.preventDefault();

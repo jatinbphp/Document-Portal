@@ -85,7 +85,7 @@
                             <th style = "width:8%">Sub Category</th>
                             <th style = "width:8%">Company</th>
                             <th style = "width:4%">Comments</th>
-                            <th style = "width:8%">Start Date</th>
+                            <!-- <th style = "width:8%">Start Date</th> -->
                             <th style = "width:8%">Expire Date</th>
                             <th style = "width:8%">Status</th>
                             <th style = "width:8%">Action</th>
@@ -120,7 +120,6 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.dataTables.min.css">
 
 <script src="<?php echo base_url('assets/js/usersTable.js') ?>"></script>
-
 
 
 

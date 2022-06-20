@@ -8,6 +8,7 @@ use App\Models\CategoryModel;
 use App\Models\CompanyModel;
 use App\Models\ReportingModel;
 use App\Models\User_typesModel;
+use ZipArchive;
 class Workflow extends BaseController{
 
 	public function index(){
@@ -164,6 +165,9 @@ class Workflow extends BaseController{
 	  	$global_tblsubcategory = 'SubCategory';
 	  	$global_tblcompany = 'Company';
 	  	$global_tbluser_company = 'user_company';
+	  	
+	  	$global_tblworkflow_documents = 'workflow_documents';
+	  	
 
         // equal condition
 	  	 $whereEqual=array();
@@ -184,6 +188,9 @@ class Workflow extends BaseController{
         $selectColumn[$global_tblcategory.'.categoryName'] =  $global_tblcategory.'.categoryName';
         $selectColumn[$global_tblsubcategory.'.SubCatName'] =  $global_tblsubcategory.'.SubCatName';
         $selectColumn[$global_tblcompany.'.companyName'] =  $global_tblcompany.'.companyName';
+        
+        //$selectColumn[$global_tblworkflow_documents.'.documents'] =  $global_tblworkflow_documents.'.documents';
+        
        // $selectColumn[$global_tbluser_company.'.comName'] =  $global_tbluser_company.'.comName';
       	
         // order column
@@ -203,6 +210,8 @@ class Workflow extends BaseController{
        		array("joinTable"=>$global_tblsubcategory, "joinField"=>"id", "relatedJoinTable"=>$global_tblWorkflow, "relatedJoinField"=>"subcategory_id","type"=>"left"),
        		
        		array("joinTable"=>$global_tblcompany, "joinField"=>"id", "relatedJoinTable"=>$global_tblWorkflow, "relatedJoinField"=>"company_id","type"=>"left"),
+       		
+       		//array("joinTable"=>$global_tblworkflow_documents, "joinField"=>"workflow_id", "relatedJoinTable"=>$global_tblWorkflow, "relatedJoinField"=>"id","type"=>"right"),
 
        		//array("joinTable"=>$global_tbluser_company, "joinField"=>"id", "relatedJoinTable"=>$global_tblWorkflow, "relatedJoinField"=>"company_id","type"=>"left")
 
@@ -216,6 +225,13 @@ class Workflow extends BaseController{
         $data = array();
         
         foreach ($fetch_data as $key => $row) {
+			
+			//echo $row['documents'];
+			//echo $row['id'];
+			
+			//exit;
+			
+			
             $sub_array = array(); 
             
             if($_SESSION['user_type'] == 3){
@@ -282,8 +298,15 @@ class Workflow extends BaseController{
             $sub_array[] = $actionLink;
             $actionLinkFile = '-';
             if($row['is_update'] == 1){
-            $actionLinkFile = $model_user->getActionLinkFile('',$row['id'],'','Workflow','',$row['document_files']);
-        	$sub_array[] = $actionLinkFile;	
+            //$actionLinkFile = $model_user->getActionLinkFile('',$row['id'],'','Workflow','',$row['document_files']);
+        	//$sub_array[] = $actionLinkFile;
+        	
+        	//$sub_array[] = '<a href = "' . base_url( '/uploads/workflow/'.$row['documents']). '" class="btn btn-primary" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;" target="_blank"><i class="fa fa-file"></i></a>';  // for document name
+        	
+        	$sub_array[] = '<a href = "' . base_url( '/workflow/download_documents/'.$row['id']). '" class="btn btn-primary" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;" target="_blank"><i class="fa fa-file"></i></a>';	//for workflow id
+        	
+        	//$sub_array[] = '<a href = "' . base_url( '/workflow/download_documents/'.$row['id']). '" class="btn btn-primary" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;" target="_self"><i class="fa fa-file"></i></a>';	//for workflow id
+        		
             }else{
             	$sub_array[] = $actionLinkFile;
             }
@@ -645,6 +668,7 @@ class Workflow extends BaseController{
             return redirect()->to($_SERVER['HTTP_REFERER']);  
         }  	 
 	}
+		
 
 	public function view_documents($id = ''){
 		$model_workflow = new WorkflowModel;
@@ -671,5 +695,66 @@ class Workflow extends BaseController{
     	//$this->render_template('workflow/views',$this->data);
     	//return view('workflow/views',$this->data);
 	}
+	
+	/*
+	public function download_documents($id = ''){
+			$db      = \Config\Database::connect();
+			$builder = $db->table('workflow_documents');
+			$builder->select('documents');
+			$builder->where('workflow_id', $id);
+			$queryResult = $builder->get()->getResult('array');
+			//print_r($queryResult);
+			//exit;
+			//$dir_to_save = "Downloads/";
+			$dir_to_save = "/var/www/html/Document-Portal/writable/";
+			
+			//$dir_to_save = "/home/";
+			
+			//if (!is_dir($dir_to_save)) {
+			  //mkdir($dir_to_save);
+			//}
+			foreach($queryResult as $value){
+				$url = base_url('/uploads/workflow/'.$value['documents']);
+				set_time_limit(0); 
+				$file = file_get_contents($url);
+				file_put_contents($dir_to_save.$value['documents'], $file);
+		}
+	}*/
+
+
+	public function download_documents($id = ''){
+			$db      = \Config\Database::connect();
+			$builder = $db->table('workflow_documents');
+			$builder->select('documents');
+			$builder->where('workflow_id', $id);
+			$queryResult = $builder->get()->getResult('array');
+			
+			$model_workflow= new WorkflowModel;
+			$model_workflow->select('document_name');
+			$model_workflow->where('id', $id);
+			$query = $model_workflow->get();
+			$result = $query->getRow();
+			$workflow = $result->document_name;
+				
+			$zip = new ZipArchive;
+			$zipname = $workflow.'_'.time().'.zip';
+			//$zipname = 'workflow.zip';
+			$zip->open($zipname, ZipArchive::CREATE);
+			foreach($queryResult as $value){
+				$url = base_url('/uploads/workflow/'.$value['documents']);	
+				$zip->addFromString(basename($url),  file_get_contents($url));				
+			}
+			$zip->close();
+			header('Content-Type: application/zip');
+			header('Content-disposition: attachment; filename='.$zipname);
+			header('Content-Length: ' . filesize($zipname));
+			$downloadFile = readfile($zipname);
+			//delete the zipped file from server after download
+			if($downloadFile){
+				if(file_exists($zipname)){
+					unlink($zipname);
+				}
+			}		
+		}	
 }
 ?>

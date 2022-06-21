@@ -19,7 +19,7 @@
             <div class="item-wrap item-list-table">
                 <table id="documentsTable" class="table table-bordered" cellspacing="0" width="100%" >
 
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-sm-12 col-md-4">
                             <div class="category-filter">
                                 <select id="companySearch" class="form-control" name="companySearch">
@@ -47,7 +47,7 @@
                                  </select>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <thead class="thead-dark">
                         <tr>
                             <th>Download File</th>

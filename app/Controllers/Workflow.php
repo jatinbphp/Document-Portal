@@ -287,6 +287,9 @@ class Workflow extends BaseController{
             }elseif($row['is_active'] == 3){
             	$sub_array[] = '<span class="badge badge-danger">EXPIRED</span>';
             }
+            elseif($row['is_active'] == 4){
+            	$sub_array[] = '<span class="badge badge-danger">REJECTED</span>';
+            }
             
             else{
                 $sub_array[] = '<span class="badge badge-danger">OUTSTANDING</span>';
@@ -384,7 +387,7 @@ class Workflow extends BaseController{
 				if($is_update == 0){
 				 $flowis_activeData = 0;	
 				}else{
-					$flowis_activeData = 2;
+					$flowis_activeData = 4;
 				}
 				
 			}

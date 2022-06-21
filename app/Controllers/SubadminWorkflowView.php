@@ -110,6 +110,9 @@ class SubadminWorkflowView extends BaseController
             else if($row['is_active'] == 3){
                 $sub_array[] = '<span class="badge badge-danger">Expired</span>';
             }
+            else if($row['is_active'] == 4){
+                $sub_array[] = '<span class="badge badge-danger">REJECTED</span>';
+            }
             else{
                 $sub_array[] = '<span class="badge badge-danger">OUTSTANDING</span>';
             } 

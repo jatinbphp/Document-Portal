@@ -136,6 +136,8 @@
                                         </select>
                                     </div>
                                 </div>
+                                <?php }
+                                     } ?> 
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                     <div class="form-group">
                                         <label class="lableTitle"for="comments"> Comments :<span class="asterisk-sign">*</span></label>
@@ -143,8 +145,30 @@
                                         <textarea name="comments" id ="comments" ><?php echo $docData['comments'];?></textarea>
                                     </div>
                                 </div>
-                                <?php }
-                                     } ?>  
+                                 <?php if($_SESSION['user_type'] == 3){ ?>
+                                    <div class="row">
+                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                        <label class="lableTitle"for="start_date">Start Date:<span class="asterisk-sign">*</span></label>
+                                       <input type="date" name="start_date" class="form-control" id="start_date" placeholder="Start Date" value ="<?php echo date('Y-m-d',strtotime($docData['start_date'])); ?>">
+                                       <?php if($_SESSION['user_type'] == 3){ ?>
+                                        <span class="error substart_date-error" style="display: none;">Please select start date.</span>
+                                     <?php   }?>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                        <label class="lableTitle"for="expire_date">Expire Date:<span class="asterisk-sign">*</span></label>
+                                       <input type="date" name="expire_date" class="form-control" id="expire_date" placeholder="Expire Date" value="<?php echo date('Y-m-d',strtotime($docData['expire_date'])); ?>" >
+
+                                       <span class="error expire_date-error" style="display: none;">Please select expire date.</span>
+                                     <?php if($_SESSION['user_type'] == 3){ ?>
+                                        <span class="error subexpire_date-error" style="display: none;">Please select expire date.</span>
+                                      <?php   }?>  
+                                    </div>
+                                </div>
+                                    </div>
+                               <?php  }else{ ?>
                                 <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                                     <div class="form-group">
                                         <label class="lableTitle"for="start_date">Start Date:<span class="asterisk-sign">*</span></label>
@@ -165,7 +189,7 @@
                                       <?php   }?>  
                                     </div>
                                 </div>
-
+                                <?php }?>
                                   <?php   if($_SESSION['logged_in'] == 1){ 
                 if($_SESSION['user_type'] == 0|| $_SESSION['user_type'] == 2){ ?>
                                 <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
@@ -230,10 +254,18 @@
                     </div>
                 <?php } ?>
                     <hr>
-                    <div class="d-flex justify-content-end mt-4">
+                    <?php if($_SESSION['user_type'] == 3){ ?>
+                         <div class="d-flex justify-content-end mt-4">
                         <button type="submit" class="btn btn-info mr-2 savebtn">Submit</button>
                         <a href="<?php echo base_url('workflow'); ?>" type="button" class="btn btn-warning">Back</a>
                     </div>
+                  <?php  } else{ ?>
+                        <div class="d-flex justify-content-end mt-4">
+                        <button type="submit" class="btn btn-info mr-2">Submit</button>
+                        <a href="<?php echo base_url('workflow'); ?>" type="button" class="btn btn-warning">Back</a>
+                    </div>
+                <?php   }?>
+                   
                 </form>
             </div>
         </div>

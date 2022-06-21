@@ -149,6 +149,9 @@
                                     <div class="form-group">
                                         <label class="lableTitle"for="start_date">Start Date:<span class="asterisk-sign">*</span></label>
                                        <input type="date" name="start_date" class="form-control" id="start_date" placeholder="Start Date" value ="<?php echo date('Y-m-d',strtotime($docData['start_date'])); ?>">
+                                       <?php if($_SESSION['user_type'] == 3){ ?>
+                                        <span class="error substart_date-error" style="display: none;">Please select start date.</span>
+                                     <?php   }?>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
@@ -157,6 +160,9 @@
                                        <input type="date" name="expire_date" class="form-control" id="expire_date" placeholder="Expire Date" value="<?php echo date('Y-m-d',strtotime($docData['expire_date'])); ?>" >
 
                                        <span class="error expire_date-error" style="display: none;">Please select expire date.</span>
+                                     <?php if($_SESSION['user_type'] == 3){ ?>
+                                        <span class="error subexpire_date-error" style="display: none;">Please select expire date.</span>
+                                      <?php   }?>  
                                     </div>
                                 </div>
 
@@ -225,7 +231,7 @@
                 <?php } ?>
                     <hr>
                     <div class="d-flex justify-content-end mt-4">
-                        <button type="submit" class="btn btn-info mr-2">Submit</button>
+                        <button type="submit" class="btn btn-info mr-2 savebtn">Submit</button>
                         <a href="<?php echo base_url('workflow'); ?>" type="button" class="btn btn-warning">Back</a>
                     </div>
                 </form>
@@ -328,7 +334,7 @@
 
         });   
 
-         $('#expire_date').on("change",function(){
+        $('#expire_date').on("change",function(){
             var isapprove = $('input:checkbox[name=is_active]').is(':checked');
             if(isapprove == false){
                 var expire_dateset = $("#expire_date").val();
@@ -338,7 +344,16 @@
                
                 $(".expire_date-error").css("display", "none");
             }
-         }); 
+            var expire_date = $("#expire_date").val();
+            if(expire_date == ''){
+                $("#expire_date").focus();
+                $(".subexpire_date-error").css("display", "");
+                return false;
+            }
+            else{
+                 $(".subexpire_date-error").css("display", "none");
+            }
+        }); 
 
         //  var expire_dateset1 = $("#expire_date").val();
         // if(expire_dateset1 != ''){
@@ -348,4 +363,17 @@
         //    $('#is_active').prop('checked', false);  
         // }
     });  
+
+    $('#start_date').on("change",function(){
+       
+         var start_date = $("#start_date").val();
+        if(start_date == ''){
+            $("#start_date").focus();
+            $(".substart_date-error").css("display", "");
+            return false;
+        }
+        else{
+             $(".substart_date-error").css("display", "none");
+        }
+    });
 </script>

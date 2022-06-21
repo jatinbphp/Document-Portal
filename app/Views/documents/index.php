@@ -52,10 +52,10 @@
                         <tr>
                             <th>Download File</th>
                             <th>Document Name</th>
-                            <th>User Name</th>
+                            <!-- <th>User Name</th> -->
                             <th>Category</th>
                             <th>Sub Category</th>
-                            <th>Company</th>
+                            <!-- <th>Company</th> -->
                             <th>Expire Date</th>
                             <th>Status</th>
                             <th style="width: 15%">Action</th>

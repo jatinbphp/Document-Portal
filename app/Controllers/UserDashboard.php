@@ -46,6 +46,16 @@ class UserDashboard extends BaseController
             $query = $workflow1->get();
             $queryResults = count($query->getResult());
             $this->data['workflowTotal'] = $queryResults;
+
+            
+           // $buildersql = $this->db->table("user_company");
+            $buildersql = $db->table('user_company');
+            $buildersql1 =$buildersql->select('user_company.*, Company.companyName as companyName');
+            $buildersql2 = $buildersql1->join('Company', 'user_company.company_id = Company.id');
+            $buildersql3 =$buildersql2->where('user_id',$id);
+            $this->data['totalcompany'] = $buildersql3->get()->getResultArray();
+           
+           
                    
             $this->data['page_title'] = 'UserDashboard';
             $this->render_user_template('userDashboard', $this->data);

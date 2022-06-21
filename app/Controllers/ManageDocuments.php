@@ -25,7 +25,7 @@ class ManageDocuments extends BaseController{
 
 		$documents = new ManageDocumentsModel;
 		$this->data['Documentfiles'] = $documents->findAll();
-
+		
 		$this->data['page_title'] = 'Documents';
 		$this->render_template('managedocuments/index',$this->data);
 	}

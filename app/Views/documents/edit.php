@@ -23,14 +23,14 @@
                         <form id="documentFormAddEdit" method="post" action="<?php echo base_url('documents/edit/'.$docData['id']); ?>" enctype="multipart/form-data">
                             
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-12">
                                     <div class="form-group">
                                          <label class="lableTitle"for="docName">Name :<span class="asterisk-sign">*</span></label>
                                          <input type="text" name="docName" class="form-control" id="docName" placeholder="Name" value="<?php echo $docData['docName'];?>">
                                         
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                              <!--   <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="lableTitle"for="email">Users:<span class="asterisk-sign">*</span></label>
                                         <select name="userID" id="userID" class="form-control" REQUIRED>
@@ -44,8 +44,8 @@
                                             } ?>
                                         </select>
                                     </div>
-                                </div>
-                                <div class="col-md-4">
+                                </div> -->
+                               <!--  <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="lableTitle"for="email">Company:<span class="asterisk-sign">*</span></label>
                                         <select name="companyID" id="companyID" class="form-control" REQUIRED>
@@ -59,7 +59,7 @@
                                             } ?>
                                         </select>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
 
                             <div class="row">
@@ -105,6 +105,7 @@
                                             <div class="file-loading">
                                                 <input id="docFile" name="docFile" type="file" value="<?php if (!empty($docData['docFile'])){ echo $docData['docFile']; } ?>">
                                             </div>
+                                            <div><?php echo $docData['docFile']; ?></div>
                                             </br>
                                             <!-- <?php
                                             $img_thumnail = '';

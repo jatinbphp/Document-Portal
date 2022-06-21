@@ -33,8 +33,8 @@ class Documents extends BaseController{
 			$categoryID = $request->getPost('categoryID');
 			$subCategoryID = $request->getPost('subCategoryID'); 
 			$isActive = $request->getPost('isActive');
-			$userID = $request->getPost('userID');
-			$companyID = $request->getPost('companyID');
+			//$userID = $request->getPost('userID');
+			//$companyID = $request->getPost('companyID');
 			$expireDate = $request->getPost('expireDate');
 			$docFile ='';
 
@@ -57,8 +57,8 @@ class Documents extends BaseController{
 				'docName' =>$docName,
 				'categoryID' => $categoryID,
 				'subCategoryID' => $subCategoryID, 
-				'userID' => $userID, 
-				'companyID' => $companyID,
+				//'userID' => $userID, 
+				//'companyID' => $companyID,
 				'docFile' => $docFile,
 				'expireDate' => $expireDate,
 				'isActive' => isset($isActive) ? 1 : 0, 
@@ -161,10 +161,10 @@ class Documents extends BaseController{
             
             $sub_array[] = '<a href = "' . base_url( '/uploads/documents/'.$row['categoryID'].'/'.$row['subCategoryID'].'/'.$row['docFile']). '" target="_blank"><img src="'.$imgSrc.'"></a>';
             $sub_array[] = $row['docName'];  
-			$sub_array[] = $row['firstName']." ".$row['lastName'];  
+			//$sub_array[] = $row['firstName']." ".$row['lastName'];  
 			$sub_array[] = $row['categoryName']; 
 			$sub_array[] = $row['SubCatName']; 
-			$sub_array[] = $row['companyName'];  
+			//$sub_array[] = $row['companyName'];  
 			$sub_array[] = $row['expireDate']; 
 
 		 	if($row['isActive'] == 1){
@@ -211,6 +211,8 @@ class Documents extends BaseController{
 	public function edit($id=''){
 		
 	$model_documents = new DocumentsModel;
+	$docDAta = $model_documents->where('id',$id)->first();
+	$docfileData = $docDAta['docFile'];
 		if($_POST){
 
 			$request = service('request');
@@ -235,12 +237,13 @@ class Documents extends BaseController{
 	        	$docFile = $request->getPost('hidden_profilePic');
 	        }
 
+
 			$docName = $request->getPost('docName');
 			$categoryID = $request->getPost('categoryID');
 			$subCategoryID = $request->getPost('subCategoryID'); 
 			$isActive = $request->getPost('isActive');
-			$userID = $request->getPost('userID');
-			$companyID = $request->getPost('companyID');
+			//$userID = $request->getPost('userID');
+			//$companyID = $request->getPost('companyID');
 			$expireDate = $request->getPost('expireDate');
 			$edited_date = date('Y-d-m H:m:s');
 			$data = array(
@@ -248,14 +251,15 @@ class Documents extends BaseController{
 				'docName' =>$docName,
 				'categoryID' => $categoryID,
 				'subCategoryID' => $subCategoryID, 
-				'userID' => $userID, 
-				'companyID' => $companyID, 
-				'docFile' => $docFile,
+				//'userID' => $userID, 
+				//'companyID' => $companyID, 
+				'docFile' => isset($docFile)?$docFile:$docfileData,
 				'expireDate' => $expireDate,
 				'edited_date' => $edited_date,
 				'isActive' => isset($isActive) ? 1 : 0, 
 
 				);
+			
 			$model_documents->set($data);
 	    	$model_documents->where('id', $id);
 	    	$result =  $model_documents->update();

@@ -376,7 +376,7 @@ class Workflow extends BaseController{
 	$flowcomments = $flowData['comments'];
 	$flowstart_date = $flowData['start_date'];
 	$flowexpire_date = $flowData['expire_date'];
-	//$flowis_active = $flowData['is_active'];
+	$flowis_active = $flowData['is_active'];
 		if($_POST){
 			
 			if(!isset($_POST['is_active'])){
@@ -478,58 +478,7 @@ class Workflow extends BaseController{
 					'is_active' => $flowis_activeData, 
 				);
 				
-				
-				
-						$company_model = new CompanyModel;
-						$company_model->select('companyName');
-						$company_model->where('id', $flowcompany_id);
-						$query = $company_model->get();
-						$queryResult = $query->getRow();
-						$companyName = $queryResult->companyName;
-						
-						$userType_model = new User_typesModel;
-						$userType_model->select('userTypeName');
-						$userType_model->where('id', $flowusertype_id);
-						$query = $userType_model->get();
-						$queryResult = $query->getRow();
-						$UserType1 = $queryResult->userTypeName;
-						
-						if($request->getPost('is_active')){
-						 $status = "Active";
-						}
-						else{
-							$status = "Inactive";
-							}
-						
-						
-							
-						
-						$message = 'Client: '.$companyName.'<br>'.
-						'STATUS: '.$status.'<br>'.
-						$companyName.'-'.$flowdocument_name.'has been submitted by '.$UserType1.'<br>'.
-						'Comments: '.$comments.'<br>'.
-						'Kind regards';
-							
-						
-						$email = \Config\Services::email();
-						$email->setFrom('gert@gsdm.co.za', 'HSEQ User');
-						$email->setTo('gert@gsdm.co.za');
-						$email->setSubject($companyName);
-						$email->setMessage($message);
-						$email->send();
-						/*
-						 if ($email->send()) 
-						{
-							//echo 'Email successfully sent';
-						} 
-						else 
-						{
-							//$data = $email->printDebugger(['headers']);
-							//print_r($data);
-						}*/
-				
-				
-				
+				$this->send_mail($flowcomments, $flowdocument_name, $flowis_activeData, $flowcompany_id, $flowusertype_id);
 				
 				$model_workflow->set($data);
 		    	$model_workflow->where('id', $id);
@@ -611,59 +560,7 @@ class Workflow extends BaseController{
 			           		
 		            
 		       		}else{
-	       				if($_SESSION['user_type'] == 3){
-							/*
-						$company_model = new CompanyModel;
-						$company_model->select('companyName');
-						$company_model->where('id', $flowcompany_id);
-						$query = $company_model->get();
-						$queryResult = $query->getRow();
-						$companyName = $queryResult->companyName;
-						
-						$userType_model = new User_typesModel;
-						$userType_model = select('userTypeName');
-						$userType_model= where('id', $flowusertype_id);
-						$query = $userType_model->get();
-						$queryResult = $query->getRow();
-						$UserType1 = $queryResult->userTypeName;
-						
-						if($request->getPost('is_active')){
-						 $status = "Active";
-						}
-						else{
-							$status = "Inactive";
-							}
-						
-						
-							
-						
-						$message = 'Client: '.$companyName.'<br>'.
-						'STATUS: '.$status.'<br>'.
-						$companyName.'-'.$flowdocument_name.'has been submitted by '.$UserType1.'<br>'.
-						'Comments: '.$comments.'<br>'.
-						'Kind regards';
-							
-						
-						$email = \Config\Services::email();
-						$email->setFrom('gert@gsdm.co.za', 'HSEQ User');
-						$email->setTo('gert@gsdm.co.za');
-						$email->setSubject('HSEQ Document');
-						$email->setMessage($message);
-						// $email->send();
-
-						 if ($email->send()) 
-						{
-							echo 'Email successfully sent';
-						} 
-						else 
-						{
-							$data = $email->printDebugger(['headers']);
-							print_r($data);
-						}
-							
-							*/
-							
-							
+	       				if($_SESSION['user_type'] == 3){	
 		            		$session->setFlashdata("success", "Workflow Document updated Successfully.");
 	            			return redirect()->to('SubadminWorkflowView');
 		            	}else{
@@ -776,11 +673,6 @@ class Workflow extends BaseController{
         }  	 
 	}
 	
-	
-
-	
-		
-	
 	public function view_documents($id = ''){
 		$model_workflow = new WorkflowModel;
         $name = $model_workflow->select('document_name')->where('id',$id)->first();
@@ -867,6 +759,56 @@ class Workflow extends BaseController{
 					unlink($zipname);
 				}
 			}		
+		}
+		
+		public function send_mail($flowcomments, $flowdocument_name, $flowis_activeData, $flowcompany_id, $flowusertype_id){	
+				$company_model = new CompanyModel;
+				$company_model->select('companyName');
+				$company_model->where('id', $flowcompany_id);
+				$query = $company_model->get();
+				$queryResult = $query->getRow();
+				$companyName = $queryResult->companyName;
+				
+				$userType_model = new User_typesModel;
+				$userType_model->select('userTypeName');
+				$userType_model->where('id', $flowusertype_id);
+				$query = $userType_model->get();
+				$queryResult = $query->getRow();
+				$userType = $queryResult->userTypeName;
+				
+				if($flowis_activeData == 1){
+					$status = 'Approved';
+				}
+				elseif($flowis_activeData == 2){
+					$status = 'Submitted';
+				}
+				elseif($flowis_activeDate == 3){
+					$status = 'Expired';
+				}
+				else{
+					$status = 'outstanding';
+				}
+				
+				$message = 'Client: '.$companyName.'<br>'.
+				'STATUS: '.$status.'<br>'.
+				$companyName.'-'.$flowdocument_name.'has been '.$status.'by '.$userType.'<br>'.
+				'Comments: '.$flowcomments.'<br>'.
+				'Kind regards';
+					
+				$email = \Config\Services::email();
+				$email->setFrom('gert@gsdm.co.za', 'HSEQ User');
+				$email->setTo('emmanuel.k.php@gmail.com');
+				$email->setSubject($companyName);
+				$email->setMessage($message);
+				//$email->send();
+				
+				 if ($email->send()){
+					echo 'Email successfully sent';
+				} 
+				else {
+					$data = $email->printDebugger(['headers']);
+					print_r($data);
+				}
 		}	
 }
 ?>

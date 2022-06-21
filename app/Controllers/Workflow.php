@@ -791,7 +791,7 @@ class Workflow extends BaseController{
 				
 				$message = 'Client: '.$companyName.'<br>'.
 				'STATUS: '.$status.'<br>'.
-				$companyName.'-'.$flowdocument_name.'has been '.$status.'by '.$userType.'<br>'.
+				$companyName.' - '.$flowdocument_name.' has been '.$status.' by '.$userType.'<br>'.
 				'Comments: '.$flowcomments.'<br>'.
 				'Kind regards';
 					
@@ -800,8 +800,8 @@ class Workflow extends BaseController{
 				$email->setTo('emmanuel.k.php@gmail.com');
 				$email->setSubject($companyName);
 				$email->setMessage($message);
-				//$email->send();
-				
+				$email->send();
+				/*
 				 if ($email->send()){
 					echo 'Email successfully sent';
 				} 
@@ -809,6 +809,7 @@ class Workflow extends BaseController{
 					$data = $email->printDebugger(['headers']);
 					print_r($data);
 				}
+				*/
 		}	
 }
 ?>

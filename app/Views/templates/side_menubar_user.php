@@ -26,8 +26,8 @@ if($_SESSION['user_type'] == 2){ ?>
 
 			<li class="Document-Menu"><a href="<?php echo base_url('subadminworkflow'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-1.png'); ?>" alt="">workflow </a></li>
 			
-			
-            
+			<li class="All-Documents-Menu"><a href="<?php echo base_url('subadminDocuments'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-1.png'); ?>" alt="">All Documents</a></li>		
+  
 	</div>
 </div>
 <div class="body-overlay"></div>

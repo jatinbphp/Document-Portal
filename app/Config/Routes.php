@@ -109,6 +109,9 @@ $routes->get('SubadminWorkflowView/(:any)', 'SubadminWorkflowView::$1',['filter'
 $routes->get('SubadminWorkflowView', 'SubadminWorkflowView::index',['filter' => 'auth']);
 $routes->get('SubadminWorkflowView/(:any)', 'SubadminWorkflowView::$1',['filter' => 'auth']);
 
+//sub-admin documents
+$routes->get('subadminDocuments', 'SubadminDocument::index',['filter' => 'auth']);
+
 
 //$routes->get('reporting/documents', 'UploadedDocuments::index',['filter' => 'auth']);
 //$routes->post('reporting/getData', 'Reporting::getData',['filter' => 'auth']);

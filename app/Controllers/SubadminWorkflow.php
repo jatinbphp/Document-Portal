@@ -11,6 +11,7 @@ use App\Models\CategoryModel;
 use App\Models\CompanyModel;
 use App\Models\ReportingModel;
 use App\Models\User_typesModel;
+use App\Models\ManageDocumentsModel;
 
 class SubadminWorkflow extends BaseController
 {
@@ -86,5 +87,25 @@ class SubadminWorkflow extends BaseController
 
         echo json_encode($output);
     }
+    
+    public function allDocuments(){
+		$company = new CompanyModel;
+		$this->data['company'] = $company->findall();
+		$users = new UsersModel;
+		$this->data['users'] = $users->findall();
+
+		$category = new CategoryModel;
+		$this->data['category'] = $category->where('is_deleted',0)->findall();
+
+		$subCategory = new SubCategoryModel;
+		$this->data['subCategory'] = $subCategory->where('is_deleted',0)->findall();
+
+		$documents = new ManageDocumentsModel;
+		$this->data['Documentfiles'] = $documents->findAll();
+
+		$this->data['page_title'] = 'Documents';
+		//$this->render_template('managedocuments/index',$this->data);
+		$this->render_user_template('subadminworkflow/viewDoc',$this->data);
+	}
     
 }

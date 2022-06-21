@@ -44,8 +44,8 @@ class Workflow extends BaseController{
 			$start_date = $request->getPost('start_date');
 			$expire_date = $request->getPost('expire_date');
 			$is_active = $request->getPost('is_active');
-			$current_date = date('Y-m-d H:m:s');
-			$expire_date = date('0000-00-00 00:00:00');
+			$current_date = date('Y-m-d');
+			$expire_date = date('0000-00-00');
 			// $document_files ='';
 
 			// if($_FILES['document_files']['size']>0){
@@ -210,11 +210,6 @@ class Workflow extends BaseController{
        		array("joinTable"=>$global_tblsubcategory, "joinField"=>"id", "relatedJoinTable"=>$global_tblWorkflow, "relatedJoinField"=>"subcategory_id","type"=>"left"),
        		
        		array("joinTable"=>$global_tblcompany, "joinField"=>"id", "relatedJoinTable"=>$global_tblWorkflow, "relatedJoinField"=>"company_id","type"=>"left"),
-       		
-       		//array("joinTable"=>$global_tblworkflow_documents, "joinField"=>"workflow_id", "relatedJoinTable"=>$global_tblWorkflow, "relatedJoinField"=>"id","type"=>"right"),
-
-       		//array("joinTable"=>$global_tbluser_company, "joinField"=>"id", "relatedJoinTable"=>$global_tblWorkflow, "relatedJoinField"=>"company_id","type"=>"left")
-
        );
 
 
@@ -225,11 +220,6 @@ class Workflow extends BaseController{
         $data = array();
         
         foreach ($fetch_data as $key => $row) {
-			
-			//echo $row['documents'];
-			//echo $row['id'];
-			
-			//exit;
 			
 			
             $sub_array = array(); 
@@ -415,21 +405,21 @@ class Workflow extends BaseController{
 				//$is_activedata = $request->getPost('is_active');
 				
 				if($_SESSION['user_type'] == 3){
-				$start_date1 = $request->getPost('start_date');
-				$start_date =   date($start_date1.' H:m:s');
-				$expire_date1 = $request->getPost('expire_date');
-				$expire_date = date($expire_date1.' H:m:s');
+				$start_date = $request->getPost('start_date');
+				//$start_date =   date($start_date1.' H:m:s');
+				$expire_date = $request->getPost('expire_date');
+				//$expire_date = date($expire_date1.' H:m:s');
 				}
 				else{
-				$start_date1 = $request->getPost('start_date');
-				$start_date =   date($start_date1.' H:m:s');
+				$start_date = $request->getPost('start_date');
+				//$start_date =   date($start_date1.' H:m:s');
 
-				$expire_date1 = $request->getPost('expire_date');
-					if($expire_date1 == ''){
-						$expire_date = $expire_date1;
-					}else{
-						$expire_date = date($expire_date1.' H:m:s');
-					}	
+				$expire_date = $request->getPost('expire_date');
+					// if($expire_date1 == ''){
+					// 	$expire_date = $expire_date1;
+					// }else{
+					// 	$expire_date = date($expire_date1.' H:m:s');
+					// }	
 				}
 				
 				//$is_active = $request->getPost('is_active');
@@ -440,7 +430,8 @@ class Workflow extends BaseController{
 					$expiretime = $expire_date;
 				}
 				else{
-					 $expiretime = date("Y-m-d",strtotime($expire_date));
+					 //$expiretime = date("Y-m-d",strtotime($expire_date));
+					 $expiretime = $expire_date;
 				}
 				
 				

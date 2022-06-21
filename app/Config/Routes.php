@@ -94,7 +94,7 @@ $routes->get('docs/(:any)', 'ManageDocuments::$1',['filter' => 'adminauth']);
 $routes->get('Docs', 'ManageDocuments::index',['filter' => 'adminauth']);
 $routes->get('Docs/(:any)', 'ManageDocuments::$1',['filter' => 'adminauth']);
 
-$routes->get('workflow', 'Workflow::index');
+$routes->get('workflow', 'Workflow::index',['filter' => 'adminauth']);
 $routes->get('workflow/(:any)', 'Workflow::$1');
 $routes->get('Workflow', 'Workflow::index');
 $routes->get('Workflow/(:any)', 'Workflow::$1');

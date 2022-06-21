@@ -376,4 +376,27 @@
              $(".substart_date-error").css("display", "none");
         }
     });
+
+    $('.savebtn').click(function(){
+        var start_date = $("#start_date").val();
+        if(start_date == ''){
+            $("#start_date").focus();
+            $(".substart_date-error").css("display", "");
+            return false;
+        }
+        else{
+             $(".substart_date-error").css("display", "none");
+        }
+
+         var expire_date = $("#expire_date").val();
+            if(expire_date == ''){
+                $("#expire_date").focus();
+                $(".subexpire_date-error").css("display", "");
+                return false;
+            }
+            else{
+                 $(".subexpire_date-error").css("display", "none");
+            }
+    });
+
 </script>

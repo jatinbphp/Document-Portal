@@ -242,7 +242,7 @@
                                         </div>
                                         <div class="imagePreview"></div>
                                         <label class="w-100 btn btn-info">
-                                        Upload<input type="file" name="file[]" class="uploadFile img" id="file-1" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" data-overwrite-initial="false" data-min-file-count="1">
+                                        Upload<input type="file" name="file[]" multiple="multiple" class="uploadFile img" id="file-1" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" data-overwrite-initial="false" data-min-file-count="1">
                                         </label>
                                     </div>
                                 </div>
@@ -300,7 +300,7 @@
     
         var i = 2;
     $(".imgAdd").click(function(){
-     $(this).closest(".row").find('.imgAdd').before('<div class="col-lg-2 col-md-3 col-sm-6 col-xs-12"><div class="boxImage imgUp"><div class="loader-contetn loader'+i+'"><div class="loader-01"> </div></div><div class="imagePreview"></div><label class="w-100 btn btn-primary">Upload<input type="file" id="file-'+i+'" class="uploadFile img" name="file[]" value="Upload Photo" style="width:0px;height:0px;overflow:hidden;" data-overwrite-initial="false" data-min-file-count="1"></label></div></div>');
+     $(this).closest(".row").find('.imgAdd').before('<div class="col-lg-2 col-md-3 col-sm-6 col-xs-12"><div class="boxImage imgUp"><div class="loader-contetn loader'+i+'"><div class="loader-01"> </div></div><div class="imagePreview"></div><label class="w-100 btn btn-primary">Upload<input type="file" id="file-'+i+'" class="uploadFile img" name="file[]" multiple="multiple"  value="Upload Photo" style="width:0px;height:0px;overflow:hidden;" data-overwrite-initial="false" data-min-file-count="1"></label></div></div>');
     
      i++;
     });

@@ -480,7 +480,7 @@ class Workflow extends BaseController{
 		    	
 	    	
 	    	if($result){ 
-
+					
 		    		$additional_img_array = array();
 		    		if(count($_FILES)>0){
 			            foreach ($_FILES['file']['name'] as $num_key => $dummy) {
@@ -488,7 +488,7 @@ class Workflow extends BaseController{
 			                    $additional_img_array[$num_key][$txt_key] = $_FILES['file'][$txt_key][$num_key];
 			                }
 			            }
-
+						
 
 			            if(!empty($additional_img_array)){
 
@@ -501,7 +501,7 @@ class Workflow extends BaseController{
 
 					                $ext = pathinfo($value['name'], PATHINFO_EXTENSION);
 
-					                $filenm = time() .'_workflow.'.$ext;
+					                $filenm = time().rand(10,100).'_workflow.'.$ext;
 					                $documents = str_replace(' ', '-', $filenm);
 					                $uploadfile = $uploaddir .'/'. $documents;
 

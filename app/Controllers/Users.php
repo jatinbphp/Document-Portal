@@ -433,6 +433,11 @@ class Users extends BaseController{
 	}
 
   public function deleteImg(){
+
+  	$arr = explode('/', $_SERVER['REQUEST_URI']);
+    $user_id = $arr[count($arr) - 1];
+    $image_name = $arr[count($arr) - 2];
+
   	$session = session();
 		$model_users= new UsersModel;
     	

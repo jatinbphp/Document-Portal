@@ -22,9 +22,9 @@ class DocumentsModel extends Model
 	protected $allowedFields = [  'docName', 'categoryID', 'subCategoryID', 'userID','docFile', 'status','expireDate', 'dateAdded','companyID','edited_date','isActive'];
 
 
-	public function get_all_data($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn)
+	public function get_all_data($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$whereIn,$orwhere,$whereUser)
     {   
-        $this->make_query($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn);
+        $this->make_query($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$whereIn,$orwhere,$whereUser);
 
         return $this->countAllResults();
     }
@@ -44,23 +44,23 @@ class DocumentsModel extends Model
 
     }
 
- 	public function get_filtered_data($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$WhereIn)
+ 	public function get_filtered_data($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$whereIn,$orwhere,$whereUser)
     {
-        $this->make_query($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn);
+        $this->make_query($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$whereIn,$orwhere,$whereUser);
         return $this->countAllResults();
         //return $query->countResultAll();
     }
 
-    public function make_datatables($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$orwhere=null)
+    public function make_datatables($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$orwhere=null,$whereIn,$whereUser)
     {
-         $this->make_query($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$orwhere);
+         $this->make_query($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$orwhere,$whereIn,$whereUser);
 
         $result = $this->findAll($_POST['length'], $_POST['start']);
         return  $result ;
         
     }
 
-    public function make_query($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$orwhere=null)
+    public function make_query($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$orwhere=null,$whereIn,$whereUser)
     {   
        
         //table 
@@ -109,15 +109,59 @@ class DocumentsModel extends Model
                 }
             } 
         }
-        //  if(!empty($WhereIn)){            
-        //     foreach ($WhereIn as $notName => $notValue) {
+         if(!empty($whereIn)){            
+            foreach ($whereIn as $whereName => $whereValue1) {
 
-        //         foreach ($notValue as $notValue) {
+                foreach ($whereValue1 as $whereValue) {
+                 
+            if(!empty($whereValue)){
 
-        //             $this->where($notName.' =', $notValue);
-        //         }
-        //     } 
-        // }
+                $whereString = array();
+                $citizenshipStatusIDArr = explode(",", $whereValue);
+                
+                foreach ($citizenshipStatusIDArr as $keyC => $valueC) {
+                    
+                    $whereString[] = "DocumentsManage.companyID = ".$valueC;                   
+                }
+               
+                if(!empty($whereString)){
+                    $this->where("(".implode(" OR ", $whereString).")");
+                }
+
+            }
+
+                    //$this->where($whereName. " = ",$whereValue);
+                    
+                }
+            } 
+        }
+
+        if(!empty($whereUser)){            
+            foreach ($whereUser as $whereName => $whereValue1) {
+
+                foreach ($whereValue1 as $whereValue) {
+                 
+            if(!empty($whereValue)){
+
+                $whereString = array();
+                $citizenshipStatusIDArr = explode(",", $whereValue);
+                
+                foreach ($citizenshipStatusIDArr as $keyC => $valueC) {
+                    
+                    $whereString[] = "DocumentsManage.userID = ".$valueC;                   
+                }
+               
+                if(!empty($whereString)){
+                    $this->where("(".implode(" OR ", $whereString).")");
+                }
+
+            }
+
+                    //$this->where($whereName. " = ",$whereValue);
+                    
+                }
+            } 
+        }
 
         //search
         if((isset($_POST["search"]["value"])) && ($_POST["search"]["value"] != '')) {

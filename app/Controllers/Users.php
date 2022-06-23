@@ -161,6 +161,8 @@ class Users extends BaseController{
         // not equal condition
         $whereNotEqual = array();
 
+        $whereNotEqual[$global_tblUsers.'.userTypeID']= 0;
+
         $notIn = array();     
         $group_by = array();
 

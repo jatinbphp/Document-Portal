@@ -8,6 +8,7 @@ use App\Models\CategoryModel;
 use App\Models\CompanyModel;
 use App\Models\ReportingModel;
 use App\Models\User_typesModel;
+use App\Models\UserCompanyModel;
 class UserDocs extends BaseController{
 
 	public function index(){
@@ -31,12 +32,34 @@ class UserDocs extends BaseController{
         $doc_model = new DocumentsModel;
         $existuser = $doc_model->where('userID',$_SESSION['id'])->findall();
 
-         $orwhere=array();
+        $com_model = new UserCompanyModel;
+        $ComapanyId = $com_model->where('user_id',$_SESSION['id'])->findAll();
+
+        foreach($ComapanyId as $CompValue){
+            $CompArr[] = $CompValue['company_id'];
+        }
+
+        $ComID = implode(",",$CompArr );
+        $ComID1 = ''.$ComID.',0';
+       $CompArr1[] = $ComID1;
+
+       $IdArr = array($_SESSION['id'],0);
+       $userID = implode(",",$IdArr);
+       $userID1 = ''.$userID.'';
+       $userIDArr1[] = $userID1;
+       
+
+        
         // equal condition
 	  	 $whereEqual=array();
+          $whereIn = array(); 
+         $orwhere=array();
+         $whereUser = array();
          if(count($existuser)>0){
-           $whereEqual[$global_tblDocuments.'.userID']= trim($_SESSION['id']); 
-           $orwhere[$global_tblDocuments.'.userID']= 0;
+           $whereEqual =array();
+           $whereUser[$global_tblDocuments.'.userID'] = $userIDArr1;
+            
+           //$orwhere[$global_tblDocuments.'.userID']= 0;
          }
          else{
            $whereEqual[$global_tblDocuments.'.userID']= 0;
@@ -47,7 +70,9 @@ class UserDocs extends BaseController{
         // not equal condition
         $whereNotEqual = array();
 
-        $notIn = array();     
+        $notIn = array();   
+       
+        $whereIn[$global_tblDocuments.'.companyID'] = $CompArr1;   
 
         // select data
         $selectColumn[$global_tblDocuments.'.*'] = $global_tblDocuments.'.*';
@@ -79,7 +104,7 @@ class UserDocs extends BaseController{
 
 
      	$model_user= new DocumentsModel;
-        $fetch_data = $model_user->make_datatables( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$orwhere);
+        $fetch_data = $model_user->make_datatables( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$orwhere,$whereIn,$whereUser);
       
      	
         $data = array();
@@ -111,8 +136,8 @@ class UserDocs extends BaseController{
         } 
         $output = array(
             "draw" =>  $_POST["draw"] ,
-            "recordsTotal" => $model_user->get_all_data( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$orwhere),
-            "recordsFiltered" => $model_user->get_filtered_data( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$orwhere),
+            "recordsTotal" => $model_user->get_all_data( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$orwhere,$whereIn,$whereUser),
+            "recordsFiltered" => $model_user->get_filtered_data( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$orwhere,$whereIn,$whereUser),
             "data" => $data,
         );
 

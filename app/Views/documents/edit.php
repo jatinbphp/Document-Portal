@@ -30,6 +30,22 @@
                                         
                                     </div>
                                 </div>
+
+                                 <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="lableTitle"for="email">Company:<span class="asterisk-sign">*</span></label>
+                                        <select name="companyID" id="companyID" class="form-control" REQUIRED>
+                                            <option value="">-- Select Company --</option>
+                                            <?php 
+                                            if(count($company)>0){
+                                                foreach ($company as $key => $value) { ?>
+                                                    <option value="<?php echo $value['id']; ?>"<?php if($docData['companyID']==$value['id']){ echo "selected";} ?>><?php echo $value['companyName'] ; ?></option>
+                                                <?php
+                                                }
+                                            } ?>
+                                        </select>
+                                    </div>
+                                </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="lableTitle"for="email">Users:<span class="asterisk-sign">*</span></label>
@@ -45,21 +61,7 @@
                                         </select>
                                     </div>
                                 </div> 
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="lableTitle"for="email">Company:<span class="asterisk-sign">*</span></label>
-                                        <select name="companyID" id="companyID" class="form-control" REQUIRED>
-                                            <option value="">-- Select Company --</option>
-                                            <?php 
-                                            if(count($company)>0){
-                                                foreach ($company as $key => $value) { ?>
-                                                    <option value="<?php echo $value['id']; ?>"<?php if($docData['companyID']==$value['id']){ echo "selected";} ?>><?php echo $value['companyName'] ; ?></option>
-                                                <?php
-                                                }
-                                            } ?>
-                                        </select>
-                                    </div>
-                                </div>
+                               
                             </div>
 
                             <div class="row">
@@ -167,6 +169,28 @@
                         });
                 }
             });
+    });
+
+    $('#companyID').on("change",function(){
+        var compid = $('#companyID').val();
+        var url = '<?php echo base_url('/documents/getUser');?>';
+
+        $.ajax({ 
+            type: "POST",
+            url: url,
+            data: { compid: compid},
+            success: function(data){
+
+            const user = JSON.parse(data);
+             $('select[name="userID"]').empty();
+              $('select[name="userID"]').prepend("<option value=' '>-- Select Users --</option>");
+            $.each(user, function(key, value){
+
+                    $('select[name="userID"]').append('<option  value="'+ value.id +'">'+ value.firstName + ' '+value.lastName+ '</option>');
+                    });
+                
+            }
+        });
     });
 });
 </script>

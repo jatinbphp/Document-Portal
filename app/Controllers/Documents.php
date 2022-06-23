@@ -8,6 +8,7 @@ use App\Models\CategoryModel;
 use App\Models\CompanyModel;
 use App\Models\ReportingModel;
 use App\Models\User_typesModel;
+use App\Models\UserCompanyModel;
 class Documents extends BaseController{
 
 	public function index(){
@@ -113,12 +114,13 @@ class Documents extends BaseController{
  			  $whereEqual[$global_tblDocuments.'.userID']= trim($_POST['user_id']);
  		}
 
-
+ 		$whereIn = array(); 
         // not equal condition
         $whereNotEqual = array();
 
         $notIn = array();  
-        $orwhere=array();   
+        $orwhere=array();  
+        $whereUser = array(); 
 
         // select data
         $selectColumn[$global_tblDocuments.'.*'] = $global_tblDocuments.'.*';
@@ -150,7 +152,7 @@ class Documents extends BaseController{
 
 
      	$model_user= new DocumentsModel;
-        $fetch_data = $model_user->make_datatables( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$orwhere);
+        $fetch_data = $model_user->make_datatables( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$orwhere,$whereIn,$whereUser);
       
      	
         $data = array();
@@ -184,8 +186,8 @@ class Documents extends BaseController{
         } 
         $output = array(
             "draw" =>  $_POST["draw"] ,
-            "recordsTotal" => $model_user->get_all_data( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$orwhere),
-            "recordsFiltered" => $model_user->get_filtered_data( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$orwhere),
+            "recordsTotal" => $model_user->get_all_data( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$orwhere,$whereIn,$whereUser),
+            "recordsFiltered" => $model_user->get_filtered_data( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$orwhere,$whereIn,$whereUser),
             "data" => $data,
         );
 
@@ -322,6 +324,24 @@ class Documents extends BaseController{
 		$subCat = $model_subCat->where('CategoryId',$id)->findall();
 		echo json_encode($subCat);
   	}
+
+  	public function getUser(){
+  		$id = $_POST['compid'];
+
+  		//$model_comp = new UserCompanyModel;
+  		//$comid = $model_comp->where('company_id',$id)->findall();
+  		$db = \Config\Database::connect();
+  		$builder = $db->table('user_company');
+		$builder->select('*','Users.firstName as firstName','Users.lastName as lastName');
+		$builder->join('Users','Users.id = user_company.user_id','left');
+		$builder->where('company_id',$id);
+		$query = $builder->get();
+		$result = $query->getResultArray();
+		echo json_encode($result);
+
+        
+  		
+	  	}
 
 	// public function fetch_company_data(){
 	// 	$db = \Config\Database::connect();		

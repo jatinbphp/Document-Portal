@@ -30,21 +30,6 @@
                                         
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="lableTitle"for="userID">Users:<span class="asterisk-sign"></span></label>
-                                        <select name="userID" id="userID" class="form-control" >
-                                            <option value="">-- Select Users --</option>
-                                            <?php 
-                                            if(count($users)>0){
-                                                foreach ($users as $key => $value) { ?>
-                                                    <option value="<?php echo $value['id']; ?>"><?php echo $value['firstName'].' ' .$value['lastName'] ; ?></option>
-                                                <?php
-                                                }
-                                            } ?>
-                                        </select>
-                                    </div>
-                                </div>
 
                                  <div class="col-md-4">
                                     <div class="form-group">
@@ -61,6 +46,23 @@
                                         </select>
                                     </div>
                                 </div> 
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="lableTitle"for="userID">Users:<span class="asterisk-sign"></span></label>
+                                        <select name="userID" id="userID" class="form-control" >
+                                            <option value="">-- Select Users --</option>
+                                            <?php 
+                                            if(count($users)>0){
+                                                foreach ($users as $key => $value) { ?>
+                                                    <option value="<?php echo $value['id']; ?>"><?php echo $value['firstName'].' ' .$value['lastName'] ; ?></option>
+                                                <?php
+                                                }
+                                            } ?>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                
                             </div>
 
                             <div class="row">
@@ -152,10 +154,10 @@
 <script src="<?php echo base_url('assets/js/usersFormValidation.js') ?>"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
-     $(document).ready(function() {
+    $(document).ready(function() {
         $('#categoryID').on("change",function(){
-        var dataid = $("#categoryID").val();
-        var url = '<?php echo base_url('/documents/getSubCat');?>';
+            var dataid = $("#categoryID").val();
+            var url = '<?php echo base_url('/documents/getSubCat');?>';
             $.ajax({ 
                 type: "POST",
                 url: url,
@@ -168,6 +170,28 @@
                         });
                 }
             });
-    });
+        });
+
+        $('#companyID').on("change",function(){
+            var compid = $('#companyID').val();
+            var url = '<?php echo base_url('/documents/getUser');?>';
+
+            $.ajax({ 
+                type: "POST",
+                url: url,
+                data: { compid: compid},
+                success: function(data){
+
+                const user = JSON.parse(data);
+                 $('select[name="userID"]').empty();
+                  $('select[name="userID"]').prepend("<option value=' '>-- Select Users --</option>");
+                $.each(user, function(key, value){
+
+                        $('select[name="userID"]').append('<option  value="'+ value.id +'">'+ value.firstName + ' '+value.lastName+ '</option>');
+                        });
+                    
+                }
+            });
+        });
 });
 </script>

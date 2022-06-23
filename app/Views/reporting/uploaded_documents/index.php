@@ -52,7 +52,7 @@
                     <thead class="thead-dark">
                         <tr>
                             <th>Download File</th>
-                            <th>Document Name</th>
+                            <th style="width: 10%" >Document Name</th>
                             <th>User Name</th>
                             <th>Category</th>
                             <th>Sub Category</th>

@@ -153,9 +153,9 @@ $(document).ready(function() {
             docName: {
                 required: true,
             },
-            userID: {
-                required: true,
-            },
+            // userID: {
+            //     required: true,
+            // },
             categoryID: {
                 required: true,
             },
@@ -170,9 +170,9 @@ $(document).ready(function() {
             docName: {
                 required: "Please enter Document Name",
             },
-            userID: {
-                required: "Please select User Name",
-            },
+            // userID: {
+            //     required: "Please select User Name",
+            // },
             categoryID: {
                 required: "Please select Category",
             },

@@ -23,17 +23,17 @@
                         <form id="documentFormAddEdit" method="post" action="<?php echo base_url('documents/add'); ?>" enctype="multipart/form-data">
                             
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                          <label class="lableTitle"for="docName">Name :<span class="asterisk-sign">*</span></label>
                                          <input type="text" name="docName" class="form-control" id="docName" placeholder="Name">
                                         
                                     </div>
                                 </div>
-                               <!--  <div class="col-md-4">
+                                <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="lableTitle"for="userID">Users:<span class="asterisk-sign">*</span></label>
-                                        <select name="userID" id="userID" class="form-control" REQUIRED>
+                                        <label class="lableTitle"for="userID">Users:<span class="asterisk-sign"></span></label>
+                                        <select name="userID" id="userID" class="form-control" >
                                             <option value="">-- Select Users --</option>
                                             <?php 
                                             if(count($users)>0){
@@ -44,12 +44,12 @@
                                             } ?>
                                         </select>
                                     </div>
-                                </div> -->
+                                </div>
 
-                                <!-- <div class="col-md-4">
+                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="lableTitle"for="companyID">Company:<span class="asterisk-sign">*</span></label>
-                                        <select name="companyID" id="companyID" class="form-control" REQUIRED>
+                                        <label class="lableTitle"for="companyID">Company:<span class="asterisk-sign"></span></label>
+                                        <select name="companyID" id="companyID" class="form-control">
                                             <option value="">-- Select Company --</option>
                                             <?php 
                                             if(count($company)>0){
@@ -60,7 +60,7 @@
                                             } ?>
                                         </select>
                                     </div>
-                                </div> -->
+                                </div> 
                             </div>
 
                             <div class="row">

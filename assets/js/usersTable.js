@@ -205,26 +205,24 @@ $(document).ready(function() {
             type: "POST",
         },
         "columnDefs": [{
+            "width": "10%",
             "orderable": false,
             "targets": -1
         }, {
-            "orderable": false,
-            "targets": 0
-        }, {
-            "orderable": false,
-            "targets": 6
-        }, {
             "width": "10%",
             "targets": 0
-        }, {
-            "width": "15%",
-            "targets": 1
         }, {
             "width": "10%",
             "targets": 2
         }, {
+            "width": "15%",
+            "targets": 2
+        }, {
             "width": "10%",
             "targets": 3
+        }, {
+            "width": "10%",
+            "targets": 4
         }, ]
     });
     //category Table
@@ -785,12 +783,6 @@ $(document).ready(function() {
             "orderable": false,
             "targets": -1
         }, {
-            "orderable": false,
-            "targets": 0
-        }, {
-            "orderable": false,
-            "targets": 6
-        }, {
             "width": "10%",
             "targets": 0
         }, {
@@ -802,6 +794,21 @@ $(document).ready(function() {
         }, {
             "width": "10%",
             "targets": 3
+        }, {
+            "width": "10%",
+            "targets": 4
+        }, {
+            "width": "10%",
+            "targets": 5
+        }, {
+            "width": "10%",
+            "targets": 6
+        }, {
+            "width": "10%",
+            "targets": 7
+        }, {
+            "width": "10%",
+            "targets": 8
         }, ]
     });
     $('#companySearchWorkflow').change(function(e) {

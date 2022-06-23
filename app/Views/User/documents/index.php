@@ -14,15 +14,15 @@
             </div>
             <?php endif; ?>
 
-            <h3>Manage Documments <a class="btn btn-info" style="float: right;" href="<?php echo base_url('documents/add'); ?>">Upload Documents</a></h3>
+            <h3>Documents</h3>
 
             <div class="item-wrap item-list-table">
-                <table id="documentsTable" class="table table-bordered" cellspacing="0" width="100%" >
+                <table id="UserdocumentsTable" class="table table-bordered" cellspacing="0" width="100%" >
 
-                    <div class="row">
+                  <!--   <div class="row">
                         <div class="col-sm-12 col-md-4">
                             <div class="category-filter">
-                                <select id="companySearch" class="form-control" name="companySearch">
+                                <select id="companySearchuser" class="form-control" name="companySearch">
                                     <option value="">Select Company</option>
 										<?php if(count($company) > 0): ?>
 											<?php foreach($company as $key => $value): ?>
@@ -31,11 +31,11 @@
 										<?php endif; ?>                  
                                  </select>
                             </div>
-                        </div>
+                        </div> -->
                     
-                        <div class="col-sm-12 col-md-4">
+                       <!--  <div class="col-sm-12 col-md-4">
                             <div class="category-filter">
-                                <select id="userSearch" class="form-control" name="userSearch">
+                                <select id="userSearchuser" class="form-control" name="userSearch">
                                     <option value="">Select User</option>
                                    
                                     <?php if(count($users) > 0): ?>
@@ -46,8 +46,8 @@
                                     
                                  </select>
                             </div>
-                        </div>
-                    </div> 
+                        </div> -->
+                    </div>
                     <thead class="thead-dark">
                         <tr>
                             <th>Download File</th>
@@ -58,7 +58,7 @@
                             <th>Company</th>
                             <th>Expire Date</th>
                             <th>Status</th>
-                            <th style="width: 15%">Action</th>
+                            <!-- <th style="width: 15%">Action</th> -->
                         </tr>
                     </thead>
                     <tbody>
@@ -73,8 +73,8 @@
   // $(".manageDocuments-Menu .inner").addClass("show");
     // $(".manageDocuments-Menu .toggle").addClass("activAcc");
     // $(".manageDocuments-Menu .inner").css("display", "block")
-    $('.Document-Menu').addClass('active');
+    $('.UserDocument-Menu').addClass('active');
 </script>
-<script src="<?php echo base_url('assets/js/usersTable.js') ?>"></script>
+<script src="<?php echo base_url('assets/js/usersDataTable.js') ?>"></script>
 
 

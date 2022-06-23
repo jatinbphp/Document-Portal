@@ -248,7 +248,7 @@ class UserDocuments extends BaseController{
         
       	
         // order column
-        $orderColumn = array('', $global_tblDocuments.".firstName", $global_tblDocuments.".email", $global_tblDocuments.".isActive", $global_tblusers.".firstName", $global_tblDocuments.".isActive");
+        $orderColumn = array('', $global_tblDocuments.".docName",$global_tblusers.".firstName",$global_tblcategory.".categoryName",$global_tblsubcategory.".SubCatName",$global_tblcompany.'.companyName',$global_tblDocuments.".expireDate",'');
 
         // search column
         $searchColumn = array($global_tblDocuments.".docName",$global_tblusers.".firstName",$global_tblusers.".lastName",$global_tblcategory.".categoryName",$global_tblsubcategory.".SubCatName",$global_tblcompany.'.companyName');

@@ -33,8 +33,8 @@ class Documents extends BaseController{
 			$categoryID = $request->getPost('categoryID');
 			$subCategoryID = $request->getPost('subCategoryID'); 
 			$isActive = $request->getPost('isActive');
-			//$userID = $request->getPost('userID');
-			//$companyID = $request->getPost('companyID');
+			$userID = $request->getPost('userID');
+			$companyID = $request->getPost('companyID');
 			$expireDate = $request->getPost('expireDate');
 			$docFile ='';
 
@@ -57,8 +57,8 @@ class Documents extends BaseController{
 				'docName' =>$docName,
 				'categoryID' => $categoryID,
 				'subCategoryID' => $subCategoryID, 
-				//'userID' => $userID, 
-				//'companyID' => $companyID,
+				'userID' => $userID, 
+				'companyID' => $companyID,
 				'docFile' => $docFile,
 				'expireDate' => $expireDate,
 				'isActive' => isset($isActive) ? 1 : 0, 
@@ -117,7 +117,8 @@ class Documents extends BaseController{
         // not equal condition
         $whereNotEqual = array();
 
-        $notIn = array();     
+        $notIn = array();  
+        $orwhere=array();   
 
         // select data
         $selectColumn[$global_tblDocuments.'.*'] = $global_tblDocuments.'.*';
@@ -128,7 +129,7 @@ class Documents extends BaseController{
         $selectColumn[$global_tblcompany.'.companyName'] =  $global_tblcompany.'.companyName';
       	
         // order column
-        $orderColumn = array('', $global_tblDocuments.".firstName", $global_tblDocuments.".email", $global_tblDocuments.".isActive", $global_tblusers.".firstName", $global_tblDocuments.".isActive");
+       $orderColumn = array('',$global_tblDocuments.".docName", $global_tblcategory.'.categoryName',$global_tblsubcategory.'.SubCatName', $global_tblDocuments.".expireDate",'');
 
         // search column
         $searchColumn = array($global_tblDocuments.".docName",$global_tblusers.".firstName",$global_tblusers.".lastName",$global_tblcompany.".companyName",$global_tblDocuments.".isActive");
@@ -149,22 +150,22 @@ class Documents extends BaseController{
 
 
      	$model_user= new DocumentsModel;
-        $fetch_data = $model_user->make_datatables( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn);
+        $fetch_data = $model_user->make_datatables( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$orwhere);
       
      	
         $data = array();
         foreach ($fetch_data as $key => $row) {
             $sub_array = array(); 
             
-            $imgSrc = base_url('assets/images/download1.png');
+            //$imgSrc = base_url('assets/images/download1.png');
             $id = $row['id'];
             
-            $sub_array[] = '<a href = "' . base_url( '/uploads/documents/'.$row['categoryID'].'/'.$row['subCategoryID'].'/'.$row['docFile']). '" target="_blank"><img src="'.$imgSrc.'"></a>';
+            $sub_array[] = '<a href = "' . base_url( '/uploads/documents/'.$row['categoryID'].'/'.$row['subCategoryID'].'/'.$row['docFile']). '" target="_blank"><i class="fa fa-file" style="font-size:36px;"></i></a>';
             $sub_array[] = $row['docName'];  
-			//$sub_array[] = $row['firstName']." ".$row['lastName'];  
+			$sub_array[] = $row['firstName']." ".$row['lastName'];  
 			$sub_array[] = $row['categoryName']; 
 			$sub_array[] = $row['SubCatName']; 
-			//$sub_array[] = $row['companyName'];  
+			$sub_array[] = $row['companyName'];  
 			$sub_array[] = $row['expireDate']; 
 
 		 	if($row['isActive'] == 1){
@@ -183,8 +184,8 @@ class Documents extends BaseController{
         } 
         $output = array(
             "draw" =>  $_POST["draw"] ,
-            "recordsTotal" => $model_user->get_all_data( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn),
-            "recordsFiltered" => $model_user->get_filtered_data( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn),
+            "recordsTotal" => $model_user->get_all_data( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$orwhere),
+            "recordsFiltered" => $model_user->get_filtered_data( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$orwhere),
             "data" => $data,
         );
 
@@ -242,8 +243,8 @@ class Documents extends BaseController{
 			$categoryID = $request->getPost('categoryID');
 			$subCategoryID = $request->getPost('subCategoryID'); 
 			$isActive = $request->getPost('isActive');
-			//$userID = $request->getPost('userID');
-			//$companyID = $request->getPost('companyID');
+			$userID = $request->getPost('userID');
+			$companyID = $request->getPost('companyID');
 			$expireDate = $request->getPost('expireDate');
 			$edited_date = date('Y-d-m H:m:s');
 			$data = array(
@@ -251,8 +252,8 @@ class Documents extends BaseController{
 				'docName' =>$docName,
 				'categoryID' => $categoryID,
 				'subCategoryID' => $subCategoryID, 
-				//'userID' => $userID, 
-				//'companyID' => $companyID, 
+				'userID' => $userID, 
+				'companyID' => $companyID, 
 				'docFile' => isset($docFile)?$docFile:$docfileData,
 				'expireDate' => $expireDate,
 				'edited_date' => $edited_date,

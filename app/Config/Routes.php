@@ -109,6 +109,11 @@ $routes->get('SubadminWorkflowView/(:any)', 'SubadminWorkflowView::$1',['filter'
 $routes->get('SubadminWorkflowView', 'SubadminWorkflowView::index',['filter' => 'auth']);
 $routes->get('SubadminWorkflowView/(:any)', 'SubadminWorkflowView::$1',['filter' => 'auth']);
 
+
+
+$routes->match(['get','post'],'subdocuments', 'SubDocuments::index',['filter' => 'auth']);
+$routes->match(['get','post'],'subdocuments/(:any)', 'SubDocuments::$1',['filter' => 'auth']);
+
 //sub-admin documents
 $routes->get('subadminDocuments', 'SubadminDocument::index',['filter' => 'auth']);
 
@@ -119,17 +124,15 @@ $routes->get('subadminDocuments', 'SubadminDocument::index',['filter' => 'auth']
 
 
 
-
-
-
-
-
 // User Routes
 //Document Managemant
 $routes->get('userDocuments', 'UserDocuments::index',['filter' => 'artistauth']);
 $routes->get('userDocuments/(:any)', 'UserDocuments::$1',['filter' => 'artistauth']);
 $routes->get('UserDocuments', 'UserDocuments::index',['filter' => 'artistauth']);
 $routes->get('UserDocuments/(:any)', 'UserDocuments::$1',['filter' => 'artistauth']);
+
+$routes->match(['get','post'],'userdocs', 'UserDocs::index',['filter' => 'artistauth']);
+$routes->match(['get','post'],'userdocs/(:any)', 'UserDocs::$1',['filter' => 'artistauth']);
 
 
 

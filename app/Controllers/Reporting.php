@@ -141,6 +141,7 @@ class Reporting extends BaseController{
   	 	$global_tblUsers = 'Users';
  	  	$global_tbluser_type = 'UserTypes';
 	  	$global_tblcompany = 'Company';
+	  	$global_tblcompanyuser = 'user_company';
         // equal condition
         
         
@@ -161,7 +162,8 @@ class Reporting extends BaseController{
         // select data
         $selectColumn[$global_tblUsers.'.*'] = $global_tblUsers.'.*';
         $selectColumn[$global_tbluser_type.'.userTypeName'] =  $global_tbluser_type.'.userTypeName';
-        $selectColumn[$global_tblcompany.'.companyName'] =  $global_tblcompany.'.companyName';
+        //$selectColumn[$global_tblcompany.'.companyName'] =  $global_tblcompany.'.companyName';
+        $selectColumn[$global_tblcompanyuser.'.company_id']= 'GROUP_CONCAT( Company.companyName) as pro_company_id';
       	
         // order column
         $orderColumn = array('', $global_tblUsers.".firstName", $global_tblUsers.".email", $global_tblUsers.".isActive", $global_tbluser_type.".userTypeName", $global_tblUsers.".dateAdded");
@@ -171,16 +173,19 @@ class Reporting extends BaseController{
 
         // order by
         $orderBy = array($global_tblUsers.'.id' => "DESC");
+        $group_by = array($global_tblcompanyuser.".user_id"=>$global_tblcompanyuser.".user_id");
+        
 
         // join table
         $joinTableArray = array();
        	$joinTableArray = array(array("joinTable"=>$global_tbluser_type, "joinField"=>"id", "relatedJoinTable"=>$global_tblUsers, "relatedJoinField"=>"userTypeID","type"=>"left"),
-       		array("joinTable"=>$global_tblcompany, "joinField"=>"id", "relatedJoinTable"=>$global_tblUsers, "relatedJoinField"=>"companyId","type"=>"left")
+       		array("joinTable"=>$global_tblcompanyuser, "joinField"=>"user_id", "relatedJoinTable"=>$global_tblUsers, "relatedJoinField"=>"id","type"=>"left"),
+       		array("joinTable"=>$global_tblcompany, "joinField"=>"id", "relatedJoinTable"=>$global_tblcompanyuser, "relatedJoinField"=>"company_id","type"=>"left"),
        );
 
 			
      	$model_user= new ReportingModel;
-        $fetch_data = $model_user->make_datatables( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn);
+        $fetch_data = $model_user->make_datatables( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$group_by);
        
      	
         $data = array();
@@ -203,7 +208,7 @@ class Reporting extends BaseController{
                 $sub_array[] = '<span class="badge badge-danger">InActive</span>';
             }  
 
-		    $sub_array[] = $row['companyName'];
+		    $sub_array[] = $row['pro_company_id'];
         	$sub_array[] = $row['dateAdded'];
          	//$actionLink = $model_user->getActionLink('',$row['id'],'Users','',$row['userTypeID']); 
             $actionLink = $model_user->getActionLink('',$row['id'],$row['userTypeID'],'Users','');
@@ -213,8 +218,8 @@ class Reporting extends BaseController{
 
         $output = array(
             "draw" =>  $_POST["draw"] ,
-            "recordsTotal" => $model_user->get_all_data( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn),
-            "recordsFiltered" => $model_user->get_filtered_data( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn),
+            "recordsTotal" => $model_user->get_all_data( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$group_by),
+            "recordsFiltered" => $model_user->get_filtered_data( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$group_by),
             "data" => $data,
         );
 

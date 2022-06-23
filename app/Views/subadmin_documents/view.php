@@ -115,7 +115,7 @@
     // $(".manageDocuments-Menu .inner").addClass("show");
       // $(".manageDocuments-Menu .toggle").addClass("activAcc");
       // $(".manageDocuments-Menu .inner").css("display", "block")
-      $('.AllDocument-Menu').addClass('active');
+      $('.All-Documents-Menu').addClass('active');
 </script>
 <script src="<?php echo base_url('assets/js/usersTable.js') ?>"></script>
 

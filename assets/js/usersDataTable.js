@@ -160,4 +160,227 @@ $(document).ready(function() {
             "targets": 0
         }, ]
     });
+    $('#subdocumentsTable').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "responsive": true,
+        "order": [],
+        "ajax": {
+            url: "subdocuments/fetch_subdocuments",
+            type: "POST",
+        },
+        "columnDefs": [{
+            "orderable": false,
+            "targets": -1
+        }, {
+            "orderable": false,
+            "targets": 0
+        }, {
+            "orderable": false,
+            "targets": 6
+        }, {
+            "width": "10%",
+            "targets": 0
+        }, {
+            "width": "15%",
+            "targets": 1
+        }, {
+            "width": "10%",
+            "targets": 2
+        }, {
+            "width": "10%",
+            "targets": 3
+        }, ]
+    });
+    //company filter in documentlist
+    // $('#companySearch').change(function(e) {
+    //     // $companyId = $('#companySearch').val();
+    //     $("#subdocumentsTable").dataTable().fnDestroy();
+    //     filterCompanyfilterData();
+    // });
+    // $('#userSearch').change(function(e) {
+    //     $("#subdocumentsTable").dataTable().fnDestroy();
+    //     filterUserfilterData();
+    // });
+    // //filterCompanyData();
+    // function filterCompanyfilterData() {
+    //     //reporting table
+    //     $('#subdocumentsTable').DataTable({
+    //         "processing": true,
+    //         "serverSide": true,
+    //         "responsive": true,
+    //         "order": [],
+    //         "ajax": {
+    //             url: "subdocuments/fetch_subdocuments",
+    //             type: "POST",
+    //             data: {
+    //                 'company_id': $('#companySearch').val()
+    //             }
+    //         },
+    //         "columnDefs": [{
+    //             "orderable": false,
+    //             "targets": -1
+    //         }, {
+    //             "orderable": false,
+    //             "targets": 0
+    //         }, {
+    //             "orderable": false,
+    //             "targets": 5
+    //         }, {
+    //             "width": "10%",
+    //             "targets": 0
+    //         }, {
+    //             "width": "15%",
+    //             "targets": 1
+    //         }, {
+    //             "width": "10%",
+    //             "targets": 2
+    //         }]
+    //     });
+    // }
+    // function filterUserfilterData() {
+    //     $('#subdocumentsTable').DataTable({
+    //         "processing": true,
+    //         "serverSide": true,
+    //         "responsive": true,
+    //         "order": [],
+    //         "ajax": {
+    //             url: "subdocuments/fetch_subdocuments",
+    //             type: "POST",
+    //             data: {
+    //                 'user_id': $('#userSearch').val()
+    //             }
+    //         },
+    //         "columnDefs": [{
+    //             "orderable": false,
+    //             "targets": -1
+    //         }, {
+    //             "orderable": false,
+    //             "targets": 0
+    //         }, {
+    //             "orderable": false,
+    //             "targets": 5
+    //         }, {
+    //             "width": "10%",
+    //             "targets": 0
+    //         }, {
+    //             "width": "15%",
+    //             "targets": 1
+    //         }, {
+    //             "width": "10%",
+    //             "targets": 2
+    //         }]
+    //     });
+    // }
+    $('#UserdocumentsTable').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "responsive": true,
+        "order": [],
+        "ajax": {
+            url: "userdocs/fetch_documents",
+            type: "POST",
+        },
+        "columnDefs": [{
+            "orderable": false,
+            "targets": -1
+        }, {
+            "orderable": false,
+            "targets": 0
+        }, {
+            "orderable": false,
+            "targets": 6
+        }, {
+            "width": "10%",
+            "targets": 0
+        }, {
+            "width": "15%",
+            "targets": 1
+        }, {
+            "width": "10%",
+            "targets": 2
+        }, {
+            "width": "10%",
+            "targets": 3
+        }, ]
+    });
+    $('#companySearchuser').change(function(e) {
+        // $companyId = $('#companySearch').val();
+        $("#UserdocumentsTable").dataTable().fnDestroy();
+        filterCompanyfilterData1();
+    });
+    $('#userSearchuser').change(function(e) {
+        $("#UserdocumentsTable").dataTable().fnDestroy();
+        filterUserfilterData1();
+    });
+    //filterCompanyData();
+    function filterCompanyfilterData1() {
+        //reporting table
+        $('#UserdocumentsTable').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "responsive": true,
+            "order": [],
+            "ajax": {
+                url: "userdocs/fetch_documents",
+                type: "POST",
+                data: {
+                    'company_id': $('#companySearchuser').val()
+                }
+            },
+            "columnDefs": [{
+                "orderable": false,
+                "targets": -1
+            }, {
+                "orderable": false,
+                "targets": 0
+            }, {
+                "orderable": false,
+                "targets": 5
+            }, {
+                "width": "10%",
+                "targets": 0
+            }, {
+                "width": "15%",
+                "targets": 1
+            }, {
+                "width": "10%",
+                "targets": 2
+            }]
+        });
+    }
+    // function filterUserfilterData1() {
+    //     $('#UserdocumentsTable').DataTable({
+    //         "processing": true,
+    //         "serverSide": true,
+    //         "responsive": true,
+    //         "order": [],
+    //         "ajax": {
+    //             url: "userdocs/fetch_documents",
+    //             type: "POST",
+    //             data: {
+    //                 'user_id': $('#userSearchuser').val()
+    //             }
+    //         },
+    //         "columnDefs": [{
+    //             "orderable": false,
+    //             "targets": -1
+    //         }, {
+    //             "orderable": false,
+    //             "targets": 0
+    //         }, {
+    //             "orderable": false,
+    //             "targets": 5
+    //         }, {
+    //             "width": "10%",
+    //             "targets": 0
+    //         }, {
+    //             "width": "15%",
+    //             "targets": 1
+    //         }, {
+    //             "width": "10%",
+    //             "targets": 2
+    //         }]
+    //     });
+    // }
 });

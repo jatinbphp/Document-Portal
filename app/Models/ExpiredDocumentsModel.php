@@ -44,6 +44,16 @@ class ExpiredDocumentsModel extends Model
 
     }
 
+     public function actionLinkComment($path,$id,$type,$view,$userdelete=null){
+         $actionLinkVar = '';  
+
+        $actionLinkVar .= '<span class="commentAdd tip" tabindex="0" data-toggle="tooltip" data-placement="top" title="'.$view.'">'.$view.'</span>';
+        
+ 
+        return $actionLinkVar;
+
+    }
+
  	public function get_filtered_data($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn)
     {
         $this->make_query($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn);

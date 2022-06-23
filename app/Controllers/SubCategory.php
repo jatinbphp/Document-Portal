@@ -146,10 +146,10 @@ class SubCategory extends BaseController
         $selectColumn['category.categoryName'] = 'category.categoryName';
       	
         // order column
-        $orderColumn = array($global_tblSubCategory.".SubCatName" );
+        $orderColumn = array($global_tblCategory.".categoryName",$global_tblSubCategory.".SubCatName",'');
 
         // search column
-        $searchColumn = array($global_tblSubCategory.".SubCatName");
+        $searchColumn = array($global_tblCategory.".categoryName",$global_tblSubCategory.".SubCatName");
 
         // order by
         $orderBy = array($global_tblCategory.'.categoryName' => "ASC");

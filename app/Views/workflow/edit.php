@@ -171,7 +171,7 @@
                                <?php  }else{ ?>
                                 <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                                     <div class="form-group">
-                                        <label class="lableTitle"for="start_date">Start Date:<span class="asterisk-sign">*</span></label>
+                                        <label class="lableTitle"for="start_date">Start Date:<span class="asterisk-sign11"></span></label>
                                        <input type="date" name="start_date" class="form-control" id="start_date" placeholder="Start Date" value ="<?php echo date('Y-m-d',strtotime($docData['start_date'])); ?>">
                                        <?php if($_SESSION['user_type'] == 3){ ?>
                                         <span class="error substart_date-error" style="display: none;">Please select start date.</span>
@@ -180,7 +180,7 @@
                                 </div>
                                 <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                                     <div class="form-group">
-                                        <label class="lableTitle"for="expire_date">Expire Date:<span class="asterisk-sign">*</span></label>
+                                        <label class="lableTitle"for="expire_date">Expire Date:<span class="asterisk-sign11"></span></label>
                                        <input type="date" name="expire_date" class="form-control" id="expire_date" placeholder="Expire Date" value="<?php echo date('Y-m-d',strtotime($docData['expire_date'])); ?>" >
 
                                        <span class="error expire_date-error" style="display: none;">Please select expire date.</span>
@@ -194,7 +194,7 @@
                 if($_SESSION['user_type'] == 0|| $_SESSION['user_type'] == 2){ ?>
                                 <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                                     <div class="form-group">
-                                        <label class="lableTitle"for="is_active">Approve/Disapprove :<span class="asterisk-sign">*</span></label>
+                                        <label class="lableTitle"for="is_active">Approve/Disapprove :<span class="asterisk-sign11"></span></label>
                                       <div class="form-group form-check">
                                         <input type="checkbox" name="is_active" class="form-check-input" id="is_active" <?php echo ($docData['is_active'] == 1)?"checked":""; ?>>
                                         <label class="form-check-label" for="is_active">is Approve</label>

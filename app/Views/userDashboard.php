@@ -180,7 +180,7 @@ if($_SESSION['user_type'] == 3){ ?>
 
 <script src="<?php echo base_url('assets/js/usersDataTable.js') ?>"></script>
 <script>
-	
+	$('.Dashboard-Menu').addClass('active');
 	 $(document).ready(function () {
         new bootstrap.Tooltip(document.body, {
             selector: '.tip'

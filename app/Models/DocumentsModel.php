@@ -44,7 +44,7 @@ class DocumentsModel extends Model
 
     }
 
- 	public function get_filtered_data($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn)
+ 	public function get_filtered_data($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$WhereIn)
     {
         $this->make_query($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn);
         return $this->countAllResults();
@@ -109,6 +109,15 @@ class DocumentsModel extends Model
                 }
             } 
         }
+        //  if(!empty($WhereIn)){            
+        //     foreach ($WhereIn as $notName => $notValue) {
+
+        //         foreach ($notValue as $notValue) {
+
+        //             $this->where($notName.' =', $notValue);
+        //         }
+        //     } 
+        // }
 
         //search
         if((isset($_POST["search"]["value"])) && ($_POST["search"]["value"] != '')) {

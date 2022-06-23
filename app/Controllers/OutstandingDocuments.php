@@ -34,8 +34,12 @@ class OutstandingDocuments extends BaseController{
 	  	
 	  	  if(isset($_POST['company_id']) && $_POST['company_id'] != '' ){
 			
- 			  $whereEqual[$global_tblWorkflow.'.company_id']= trim($_POST['company_id']);
+ 			  //$whereEqual[$global_tblWorkflow.'.company_id']= trim($_POST['company_id']);
+              $whereEqual=array($global_tblWorkflow.'.is_active'=>0,$global_tblWorkflow.'.company_id'=>trim($_POST['company_id']));
  		}
+        else{
+             $whereEqual=array($global_tblWorkflow.'.is_active'=>0);
+        }
 	  	 
         // not equal condition
         $whereNotEqual = array();
@@ -50,7 +54,7 @@ class OutstandingDocuments extends BaseController{
         $selectColumn[$global_tblcompany.'.companyName'] =  $global_tblcompany.'.companyName';
       	
         // order column
-        $orderColumn = array('', $global_tblWorkflow.".document_name", $global_tblusers_types.".userTypeName", $global_tblcategory.".categoryName", $global_tblsubcategory.".SubCatName", $global_tblcompany.".companyName",$global_tblWorkflow.".document_files");
+        $orderColumn = array('', $global_tblWorkflow.".document_name", $global_tblusers_types.".userTypeName", $global_tblcategory.".categoryName", $global_tblsubcategory.".SubCatName", $global_tblcompany.".companyName",$global_tblWorkflow.".comments",$global_tblWorkflow.".expire_date",'','');
 
         // search column
         $searchColumn = array($global_tblWorkflow.".document_name",$global_tblusers_types.".userTypeName",$global_tblcategory.".categoryName",$global_tblsubcategory.".SubCatName",$global_tblWorkflow.".document_files",$global_tblcompany.".companyName");
@@ -88,8 +92,9 @@ class OutstandingDocuments extends BaseController{
 			$sub_array[] = $row['companyName'];
 			//$sub_array[] = $row['document_files'];
           
-
-			$sub_array[] = $row['comments']; 
+            $actionLinkComment = $model_user->actionLinkComment('',$row['id'],'',$row['comments'],'');
+            $sub_array[] = $actionLinkComment;
+			//$sub_array[] = $row['comments']; 
 
             if($row['is_active'] == 1){
                 $sub_array[] = '<span class="badge badge-success">APPROVED</span>';
@@ -97,12 +102,14 @@ class OutstandingDocuments extends BaseController{
                 $sub_array[] = '<span class="badge badge-primary">SUBMITED</span>';
             }elseif($row['is_active'] == 3){
                 $sub_array[] = '<span class="badge badge-danger">EXPIRED</span>';
+            }elseif($row['is_active'] == 4){
+                $sub_array[] = '<span class="badge badge-danger">REJECTED</span>';
             }
             
             else{
-                $sub_array[] = '<span class="badge badge-danger">PENDING</span>';
+                $sub_array[] = '<span class="badge badge-danger">Outstanding</span>';
             } 
-              $sub_array[] = '<a href = "' . base_url( '/workflow/view_documents/'.$row['id']). '" target="_blank"><button class = "fa fa-file" style="font-size: 24px;"></button></a>';
+             // $sub_array[] = '<a href = "' . base_url( '/workflow/view_documents/'.$row['id']). '" target="_blank"><button class = "fa fa-file" style="font-size: 24px;"></button></a>';
 		    
         	//$sub_array[] = $row['dateAdded'];
          	//$actionLink = $model_user->getActionLink('',$row['id'],'Workflow','',$row['userTypeID']); 

@@ -1,3 +1,23 @@
+<style type="text/css">
+     table.dataTable tbody td .commentAdd {
+        width: 100%;
+        max-width: 100px;
+        min-width: 100px;
+        display: block;
+        white-space: nowrap;
+        line-clamp: 3;
+        -webkit-line-clamp: 3;
+        -moz-line-clamp: 3;
+        -ms-line-clamp: 3;
+        -o-line-clamp: 3;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 0px;
+    }
+    table.dataTable tbody td, table.dataTable tbody td .commentAdd {
+        transition: all .4s ease-in-out;
+    }
+</style>
 <div class="wrapper">
     <div class="row">
         <div class="col-sm-12">
@@ -45,7 +65,7 @@
                             <th>Company</th>
                             <th>Comments</th>
                             <th>Status</th>
-                            <th>File</th>
+                           <!--  <th>File</th> -->
                             <!--th style="width: 15%">Action</th-->
                         </tr>
                     </thead>
@@ -62,6 +82,11 @@
     // $(".manageDocuments-Menu .toggle").addClass("activAcc");
     // $(".manageDocuments-Menu .inner").css("display", "block")
     $('.Reporting-Menu').addClass('active');
+     $(document).ready(function () {
+        new bootstrap.Tooltip(document.body, {
+            selector: '.tip'
+        });
+    });
 </script>
 <script src="<?php echo base_url('assets/js/usersTable.js') ?>"></script>
 

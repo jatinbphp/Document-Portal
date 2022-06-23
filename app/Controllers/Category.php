@@ -119,7 +119,7 @@ class Category extends BaseController
         $selectColumn[$global_tblCategory.'.*'] = $global_tblCategory.'.*';
       	
         // order column
-        $orderColumn = array($global_tblCategory.".categoryName" );
+        $orderColumn = array($global_tblCategory.".categoryName",'');
 
         // search column
         $searchColumn = array($global_tblCategory.".categoryName");

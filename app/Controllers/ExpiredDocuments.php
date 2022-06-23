@@ -32,7 +32,7 @@ class ExpiredDocuments extends BaseController{
 	  	$global_tblcompany = 'Company';
 	  	
 	  	$currentDate = new DateTime();
-        $currentDate =  $currentDate->format('Y-m-d H:i:s');
+        $currentDate =  $currentDate->format('Y-m-d');
         
         // equal condition
 	  	 $whereEqual=array();
@@ -41,8 +41,13 @@ class ExpiredDocuments extends BaseController{
 	  	
 	  	  if(isset($_POST['company_id']) && $_POST['company_id'] != '' ){
 			
- 			  $whereEqual[$global_tblWorkflow.'.company_id']= trim($_POST['company_id']);
+ 			  //$whereEqual[$global_tblWorkflow.'.company_id']= trim($_POST['company_id']);
+              $whereEqual=array($global_tblWorkflow.'.is_active'=>3,$global_tblWorkflow.'.company_id'=>trim($_POST['company_id']));
+              
  		}
+        else{
+            $whereEqual=array($global_tblWorkflow.'.is_active'=>3);
+        }
 	  	 
         // not equal condition
         $whereNotEqual = array();
@@ -59,7 +64,7 @@ class ExpiredDocuments extends BaseController{
         $selectColumn[$global_tblcompany.'.companyName'] =  $global_tblcompany.'.companyName';
       	
         // order column
-        $orderColumn = array('', $global_tblWorkflow.".document_name", $global_tblusers_types.".userTypeName", $global_tblcategory.".categoryName", $global_tblsubcategory.".SubCatName", $global_tblcompany.".companyName",$global_tblWorkflow.".document_files");
+        $orderColumn = array('', $global_tblWorkflow.".document_name", $global_tblusers_types.".userTypeName", $global_tblcategory.".categoryName", $global_tblsubcategory.".SubCatName", $global_tblcompany.".companyName",$global_tblWorkflow.".comments",$global_tblWorkflow.".expire_date",'','');
 
         // search column
         $searchColumn = array($global_tblWorkflow.".document_name",$global_tblusers_types.".userTypeName",$global_tblcategory.".categoryName",$global_tblsubcategory.".SubCatName",$global_tblWorkflow.".document_files",$global_tblcompany.".companyName");
@@ -95,7 +100,9 @@ class ExpiredDocuments extends BaseController{
             $sub_array[] = $row['categoryName']; 
 			$sub_array[] = $row['SubCatName']; 
 			$sub_array[] = $row['companyName'];
-			$sub_array[] = $row['comments']; 
+            $actionLinkComment = $model_user->actionLinkComment('',$row['id'],'',$row['comments'],'');
+            $sub_array[] = $actionLinkComment;
+			//$sub_array[] = $row['comments']; 
 			$sub_array[] = $row['expire_date'];
 			if($row['is_active'] == 1){
                 $sub_array[] = '<span class="badge badge-success">APPROVED</span>';
@@ -104,20 +111,24 @@ class ExpiredDocuments extends BaseController{
             }elseif($row['is_active'] == 3){
             	$sub_array[] = '<span class="badge badge-danger">EXPIRED</span>';
             }
+            elseif($row['is_active'] == 4){
+                $sub_array[] = '<span class="badge badge-danger">REJECTED</span>';
+            }
             
             else{
-                $sub_array[] = '<span class="badge badge-danger">PENDING</span>';
+                $sub_array[] = '<span class="badge badge-danger">OUTSTANDING</span>';
             } 
 
-		 	 $sub_array[] = '<a href = "' . base_url( '/workflow/view_documents/'.$row['id']). '" target="_blank"><button class = "fa fa-file" style="font-size: 24px;"></button></a>';
+		 	// $sub_array[] = '<a href = "' . base_url( '/workflow/view_documents/'.$row['id']). '" target="_blank"><button class = "fa fa-file" style="font-size: 24px;"></button></a>';
 
 		    
         	//$sub_array[] = $row['dateAdded'];
          	//$actionLink = $model_user->getActionLink('',$row['id'],'Workflow','',$row['userTypeID']); 
          	
-            $actionLink = $model_user->getActionLink('',$row['id'],'','Workflow','');
+            // $actionLink = $model_user->getActionLink('',$row['id'],'','Workflow','');
             
-            $sub_array[] = $actionLink;
+            // $sub_array[] = $actionLink;
+            $sub_array[] = '<a href = "' . base_url( '/workflow/download_documents/'.$row['id']). '" class="btn btn-primary" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;" target="_blank"><i class="fa fa-file"></i></a>';
 
             $data[] = $sub_array;
 
@@ -158,5 +169,7 @@ class ExpiredDocuments extends BaseController{
     	$this->render_template('workflow/views',$this->data);
     	//return view('workflow/views',$this->data);
 	}
+
+   
 }
 ?>

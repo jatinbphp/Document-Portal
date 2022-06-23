@@ -254,6 +254,10 @@ class Users extends BaseController{
 		$model_users= new UsersModel;
     	$model_users->where('id', $id);
 		$temp =  $model_users->delete();
+
+		$model_company = new UserCompanyModel;
+		$model_company->where('user_id', $id);
+		$result =  $model_company->delete();
 		if($temp){ 
        		$session->setFlashdata("success", "User deleted Successfully.");
         	return redirect()->to('users');

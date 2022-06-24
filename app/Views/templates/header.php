@@ -23,6 +23,7 @@
             var baseurl = "<?php echo base_url(); ?>";
         </script>
         
+        <link href="https://cdn.datatables.net/rowreorder/1.2.8/css/rowReorder.dataTables.min.css" />
         <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
         
     </head>

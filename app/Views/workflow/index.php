@@ -78,7 +78,7 @@
                   <?php  }else{ ?>
                      <thead class="thead-dark">
                         <tr>
-                            
+                            <th style = "width:8%">Seq.</th>
                             <th style = "width:8%">Document Name</th>
                             <th style = "width:5%">User Type</th>
                             <th style = "width:8%">Category</th>

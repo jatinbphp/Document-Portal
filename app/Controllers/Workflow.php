@@ -29,6 +29,10 @@ class Workflow extends BaseController{
 	public function add(){
 		$workflow = new WorkflowModel;
 
+
+		$data = $workflow->orderBy('id','DESC')->first();
+		$seq_id = $data['update_seq']+1;
+
 		if($_POST){
 			
 			$request = service('request');
@@ -63,7 +67,7 @@ class Workflow extends BaseController{
 			
 			
 			$data = array(
-
+				'update_seq'=>$seq_id,
 				'document_name' =>$document_name,
 				'usertype_id' => $usertype_id, 
 				'category_id' => $category_id, 
@@ -157,6 +161,23 @@ class Workflow extends BaseController{
 	
 
 	public function fetch_workflow(){
+		if(isset($_GET['sort'])){
+			$IdArr= $_GET['sort'];
+
+    		$str = $IdArr;
+			$array = explode(",",$str);
+			$firstarr = $array;
+			arsort($array, SORT_NUMERIC);
+			$latest_array = array_count_values($array);
+
+			$array_combine = array_combine($array, $firstarr);
+			
+			print_r($array_combine);
+			foreach($array_combine as $key=>$value){
+				echo $key."(".$value.")";
+				echo "</br>"; 
+			}
+    	}
 
 		$db = \Config\Database::connect();		
   	 	$global_tblWorkflow = 'document_workfolw';
@@ -200,6 +221,7 @@ class Workflow extends BaseController{
         $searchColumn = array($global_tblWorkflow.".document_name",$global_tblusers_types.".userTypeName",$global_tblcategory.".categoryName",$global_tblsubcategory.".SubCatName",$global_tblWorkflow.".document_files",$global_tblcompany.".companyName");
 
         // order by
+        // $orderBy = array();
         $orderBy = array($global_tblWorkflow.'.id' => "DESC");
 
         // join table
@@ -225,7 +247,7 @@ class Workflow extends BaseController{
             $sub_array = array(); 
             
             if($_SESSION['user_type'] == 3){
-             
+            
             $sub_array[] = $row['document_name'];
             $sub_array[] = $row['userTypeName']; 
             $sub_array[] = $row['categoryName']; 
@@ -257,7 +279,10 @@ class Workflow extends BaseController{
             	
              //$imgSrc = base_url('assets/images/download1.png');
               // $sub_array[] = '<a href = "' . base_url( '/workflow/view_documents/'.$row['id']). '" target="_blank"><button class = "btn btn-primary">View</button></a>';
-            $sub_array[] = $row['document_name'];
+              
+            $sub_array[] = $row['update_seq'];
+             $sub_array[] = $row['document_name'];
+            
             $sub_array[] = $row['userTypeName']; 
             $sub_array[] = $row['categoryName']; 
 			$sub_array[] = $row['SubCatName']; 
@@ -322,6 +347,10 @@ class Workflow extends BaseController{
         
     }
 
+    public function fetch_workflow_id($id = ''){
+    	$IdArr[] = $_GET['sort'];
+    		echo "<pre>";print_r($IdArr);
+    }
     public function delete($id) {		
 
 		$session = session();
@@ -472,7 +501,7 @@ class Workflow extends BaseController{
 					'is_active' => $flowis_activeData, 
 				);
 				
-				$this->send_mail($flowcomments, $flowdocument_name, $flowis_activeData, $flowcompany_id, $flowusertype_id);
+				//$this->send_mail($flowcomments, $flowdocument_name, $flowis_activeData, $flowcompany_id, $flowusertype_id);
 				
 				$model_workflow->set($data);
 		    	$model_workflow->where('id', $id);

@@ -549,11 +549,21 @@ $(document).ready(function() {
         }, ]
     });
     //workflow table
-    $('#workflowTable').DataTable({
+    //
+    $.extend($.fn.dataTable.RowReorder.defaults, {
+        selector: 'tr'
+    });
+    // Enable RowReorder by default
+    $.fn.dataTable.defaults.rowReorder = true;
+    $.fn.dataTable.ext.errMode = 'none';
+    var my_sortable = $('#workflowTable').DataTable({
         "processing": true,
         "serverSide": true,
         "responsive": true,
         "order": [],
+        "rowReorder": {
+            "update": false,
+        },
         "ajax": {
             url: "workflow/fetch_workflow",
             type: "POST",
@@ -592,6 +602,15 @@ $(document).ready(function() {
             "width": "4%",
             "targets": 9
         }]
+    });
+    my_sortable.on('row-reorder', function(e, diff, edit) {
+        var ids = new Array();
+        for (var i = 1; i < e.target.rows.length; i++) {
+            var b = e.target.rows[i].cells[0].innerHTML.split('dtr-control="');
+            //var b2 = b[1].split('"></div>');
+            ids.push(b);
+        }
+        my_sortable.ajax.url("workflow/fetch_workflow?sort=" + (ids)).load();
     });
     $(document).on('click', '.workflowDelete', function(event) {
         event.preventDefault();

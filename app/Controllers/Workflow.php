@@ -161,6 +161,7 @@ class Workflow extends BaseController{
 	
 
 	public function fetch_workflow(){
+		$model_user= new WorkflowModel;
 		if(isset($_GET['sort'])){
 			$IdArr= $_GET['sort'];
 
@@ -169,14 +170,42 @@ class Workflow extends BaseController{
 			$firstarr = $array;
 			arsort($array, SORT_NUMERIC);
 			$latest_array = array_count_values($array);
-
 			$array_combine = array_combine($array, $firstarr);
-			
-			print_r($array_combine);
+			$db = \Config\Database::connect();
+
+			$newidarr = array();
 			foreach($array_combine as $key=>$value){
-				echo $key."(".$value.")";
-				echo "</br>"; 
+				
+				$data = $model_user->select('id')->where('update_seq',$key)->first();
+			 	$ids = $data['id'];
+			 	$newidarr[$ids] = $value;
+				
 			}
+
+			//print_r($newidarr);
+			foreach($newidarr as $key=>$value){
+				// $data = $model_user->select('id')->where('update_seq',$key)->first();
+				// 	$id= $data['id'];
+					//echo $key."(".$value.")";
+					//echo "</br>"; 
+
+				$builder = $db->table('document_workfolw');
+				$builder->set('update_seq', $value);
+				$builder->where('id',$key);
+		     	$result1 =  $builder->update();
+		     	//echo $result1;
+		     	if($result1){
+		     	$page = $_SERVER['PHP_SELF'];
+				 $sec = "10";
+				 header("Refresh: $sec; url=$page");	
+		     	}
+		     	
+		        
+				
+			
+			}
+			
+			
     	}
 
 		$db = \Config\Database::connect();		
@@ -222,7 +251,7 @@ class Workflow extends BaseController{
 
         // order by
         // $orderBy = array();
-        $orderBy = array($global_tblWorkflow.'.id' => "DESC");
+        $orderBy = array($global_tblWorkflow.'.update_seq' => "DESC");
 
         // join table
         $joinTableArray = array();
@@ -347,10 +376,10 @@ class Workflow extends BaseController{
         
     }
 
-    public function fetch_workflow_id($id = ''){
-    	$IdArr[] = $_GET['sort'];
-    		echo "<pre>";print_r($IdArr);
-    }
+    // public function fetch_workflow_id($id = ''){
+    // 	$IdArr[] = $_GET['sort'];
+    // 		echo "<pre>";print_r($IdArr);
+    // }
     public function delete($id) {		
 
 		$session = session();

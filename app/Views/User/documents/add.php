@@ -14,58 +14,55 @@
             </div>
             <?php endif; ?>
 
-            <h3>Edit Documents</h3>
+            <h3>Add Documents</h3>
 
             <div class="item-wrap item-list-table">
 
                 <div class="card">
                     <div class="card-body">
-                        <form id="documentFormAddEdit" method="post" action="<?php echo base_url('documents/edit/'.$docData['id']); ?>" enctype="multipart/form-data">
+                        <form id="documentFormAddEdit" method="post" action="<?php echo base_url('userdocs/add'); ?>" enctype="multipart/form-data">
                             
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
                                          <label class="lableTitle"for="docName">Name :<span class="asterisk-sign">*</span></label>
-                                         <input type="text" name="docName" class="form-control" id="docName" placeholder="Name" value="<?php echo $docData['docName'];?>">
+                                         <input type="text" name="docName" class="form-control" id="docName" placeholder="Name">
                                         
                                     </div>
                                 </div>
-
-                                 <div class="col-md-4">
+                                <!-- <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="lableTitle"for="email">Company:<span class="asterisk-sign"></span></label>
-                                        <select name="companyID" id="companyID" class="form-control">
-                                            <option value="">-- Select Company --</option>
-                                            <?php 
-                                            if(count($company)>0){
-                                                foreach ($company as $key => $value) { ?>
-                                                    <option value="<?php echo $value['id']; ?>"<?php if($docData['companyID']==$value['id']){ echo "selected";} ?>><?php echo $value['companyName'] ; ?></option>
-                                                <?php
-                                                }
-                                            } ?>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="lableTitle"for="email">Users:<span class="asterisk-sign"></span></label>
-                                        <select name="userID" id="userID" class="form-control">
+                                        <label class="lableTitle"for="userID">Users:<span class="asterisk-sign">*</span></label>
+                                        <select name="userID" id="userID" class="form-control" REQUIRED>
                                             <option value="">-- Select Users --</option>
                                             <?php 
                                             if(count($users)>0){
                                                 foreach ($users as $key => $value) { ?>
-                                                    <option value="<?php echo $value['id']; ?>"<?php if($docData['userID']==$value['id']){ echo "selected";} ?>><?php echo $value['firstName'].' ' .$value['lastName'] ; ?></option>
+                                                    <option value="<?php echo $value['id']; ?>"><?php echo $value['firstName'].' ' .$value['lastName'] ; ?></option>
                                                 <?php
                                                 }
                                             } ?>
                                         </select>
                                     </div>
-                                </div> 
-                               
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6">
+                                </div> -->
+<!-- 
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="lableTitle"for="companyID">Company:<span class="asterisk-sign">*</span></label>
+                                        <select name="companyID" id="companyID" class="form-control" REQUIRED>
+                                            <option value="">-- Select Company --</option>
+                                            <?php 
+                                            if(count($company)>0){
+                                                foreach ($company as $key => $value) { ?>
+                                                    <option value="<?php echo $value['id']; ?>"><?php echo $value['companyName']; ?></option>
+                                                <?php
+                                                }
+                                            } ?>
+                                        </select>
+                                    </div>
+                                </div> -->
+                            
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="lableTitle"for="firstName">Category :<span class="asterisk-sign">*</span></label>
                                         <select name="categoryID" id="categoryID" class="form-control" REQUIRED>
@@ -73,14 +70,14 @@
                                             <?php 
                                             if(count($category)>0){
                                                 foreach ($category as $key => $value) { ?>
-                                                    <option value="<?php echo $value['id']; ?>" <?php if($docData['categoryID']==$value['id']){ echo "selected";} ?>><?php echo $value['categoryName']; ?></option>
+                                                    <option value="<?php echo $value['id']; ?>"><?php echo $value['categoryName']; ?></option>
                                                 <?php
                                                 }
                                             } ?>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="lableTitle"for="lastName">Sub Category :<span class="asterisk-sign">*</span></label>
                                         <select name="subCategoryID" id="subCategoryID" class="form-control" REQUIRED>
@@ -88,7 +85,7 @@
                                             <?php 
                                             if(count($subCategory)>0){
                                                 foreach ($subCategory as $key => $value) { ?>
-                                                    <option value="<?php echo $value['id']; ?>"  <?php if($docData['subCategoryID']==$value['id']){ echo "selected";} ?>><?php echo $value['SubCatName']; ?></option>
+                                                    <option value="<?php echo $value['id']; ?>"><?php echo $value['SubCatName']; ?></option>
                                                 <?php
                                                 }
                                             } ?>
@@ -105,11 +102,10 @@
                                        <!--  <span>(We accept .JPG / .PNG / .GIF / .JPEG)</span> -->
                                         <div class="kv-avatar">
                                             <div class="file-loading">
-                                                <input id="docFile" name="docFile" type="file" value="<?php if (!empty($docData['docFile'])){ echo $docData['docFile']; } ?>">
+                                                <input id="docFile" name="docFile" type="file">
                                             </div>
-                                            <div><?php echo $docData['docFile']; ?></div>
                                             </br>
-                                            <!-- <?php
+                                           <!--  <?php
                                             $img_thumnail = '';
                                             $img_thumnail = base_url('assets/images/default.png'); ?>
 
@@ -118,24 +114,44 @@
                                         <label class="lableTitle"id="image-error" class="error" for="Document"></label>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                
+                                
+                               <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="lableTitle"for="companyId ">Company :<span class="asterisk-sign">*</span></label>
+											<select name="companyID" id="companyID" class="form-control" REQUIRED>
+                                         <!--select name="companyId" id="companyId" class="form-control" REQUIRED-->
+                                         <!--select id="companyId" class="js-states form-control" name="companyId[]" multiple-->
+													<option value="">-- Select Company --</option>
+														<?php if(count($company ) > 0): ?>
+															<?php foreach($company as $key => $value): ?>
+																<option value="<?php echo $value['id'] ?>"><?php echo $value['companyName'] ?></option>
+															<?php endforeach; ?>
+														<?php endif; ?>
+												</select>
+											</div>
+										</div>
+                            
+                                
+
+                                <!--  <div class="col-md-3">
                                     <label class="lableTitle"for="expireDate">Expire Date :</label>
                                     <div class="form-group form-check">
-                                       <input type="date" name="expireDate" class="form-check-input" id="expireDate" value="<?php echo date('Y-m-d',strtotime($docData['expireDate'])); ?>">
+                                        <input type="date" name="expireDate" class="form-check-input" id="expireDate">
                                         
                                     </div>
-                                </div> 
-                                <div class="col-md-3">
+                                </div> -->    
+                                <!-- <div class="col-md-3">
                                     <label class="lableTitle"for="isActive">Active/InActive :</label>
                                     <div class="form-group form-check">
-                                         <input type="checkbox" name="isActive" class="form-check-input" id="isActive" <?php echo ($docData['isActive'] == 1)?"checked":""; ?>>
+                                        <input type="checkbox" name="isActive" class="form-check-input" id="isActive">
                                         <label class="form-check-label" for="isActive">is Active</label>
                                     </div>
-                                </div>                     
+                                </div> -->                     
                             </div>                                
                             
                             <button type="submit" class="btn btn-info">Submit</button>
-                            <a href="<?php echo base_url('documents'); ?>" type="button" class="btn btn-warning">Back</a>
+                            <a href="<?php echo base_url('userDocuments'); ?>" type="button" class="btn btn-warning">Back</a>
                         </form>
                     </div>
                 </div>
@@ -148,15 +164,41 @@
     // $(".manageDocuments-Menu .inner").addClass("show");
     // $(".manageDocuments-Menu .toggle").addClass("activAcc");
     // $(".manageDocuments-Menu .inner").css("display", "block")
-    $('.Document-Menu').addClass('active');
+    $('.UserDocument-Menu').addClass('active');
 </script>
 <script src="<?php echo base_url('assets/js/usersFormValidation.js') ?>"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        var id =  '<?php echo $_SESSION['id'];?>';
+        if(id != ''){
+        var url = '<?php echo base_url('/userdocs/getCompany');?>';
+
+        $.ajax({ 
+            type: "POST",
+            url: url,
+            data: { id: id},
+            success: function(data){
+
+            const user = JSON.parse(data);
+             $('select[name="companyID"]').empty();
+              $('select[name="companyID"]').prepend("<option value=' '>-- Select Company --</option>");
+            $.each(user, function(key, value){
+
+                    $('select[name="companyID"]').append('<option  value="'+ value.id +'">'+ value.companyName + '</option>');
+                    });
+                
+            }
+        });
+        }
+    });
+</script>
 <script type="text/javascript">
      $(document).ready(function() {
         $('#categoryID').on("change",function(){
         var dataid = $("#categoryID").val();
-        var url = '<?php echo base_url('/documents/getSubCat');?>';
+        var url = '<?php echo base_url('/userDocuments/getSubCat');?>';
             $.ajax({ 
                 type: "POST",
                 url: url,
@@ -170,27 +212,15 @@
                 }
             });
     });
-
-    $('#companyID').on("change",function(){
-        var compid = $('#companyID').val();
-        var url = '<?php echo base_url('/documents/getUser');?>';
-
-        $.ajax({ 
-            type: "POST",
-            url: url,
-            data: { compid: compid},
-            success: function(data){
-
-            const user = JSON.parse(data);
-             $('select[name="userID"]').empty();
-              $('select[name="userID"]').prepend("<option value=' '>-- Select Users --</option>");
-            $.each(user, function(key, value){
-
-                    $('select[name="userID"]').append('<option  value="'+ value.id +'">'+ value.firstName + ' '+value.lastName+ '</option>');
-                    });
-                
-            }
-        });
-    });
 });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+<script>
+	$("#companyId").select2({
+			  placeholder: "-- Select Company --",
+			  allowClear: true		  
+	});	  
+</script>
+
+

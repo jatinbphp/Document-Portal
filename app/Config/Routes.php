@@ -61,9 +61,9 @@ $routes->get('Company/(:any)', 'Company::$1',['filter' => 'adminauth']);
 
 //Document Managemant
 $routes->get('documents', 'Documents::index',['filter' => 'adminauth']);
-$routes->get('documents/(:any)', 'Documents::$1',['filter' => 'adminauth']);
+$routes->get('documents/(:any)', 'Documents::$1');
 $routes->get('Documents', 'Documents::index',['filter' => 'adminauth']);
-$routes->get('Documents/(:any)', 'Documents::$1',['filter' => 'adminauth']);
+$routes->get('Documents/(:any)', 'Documents::$1');
 
 //category
 $routes->get('category', 'Category::index',['filter' => 'adminauth']);

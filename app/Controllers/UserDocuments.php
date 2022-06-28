@@ -97,21 +97,21 @@ class UserDocuments extends BaseController{
 				
 			$insertId = $documents->insert($data1);
 			
-			$firstName = $companyId['firstName'];
-			$lastName = $companyId['lastName'];
+			// $firstName = $companyId['firstName'];
+			// $lastName = $companyId['lastName'];
 
-			$company_model = new CompanyModel;
-			$companyName = $company_model->where('id',$comId)->first();
-			$company =$companyName['companyName'];
-			$url = base_url('userDocuments/edit/'.$insertId);
-			$message = 'Hello <br> <br>
+			// $company_model = new CompanyModel;
+			// $companyName = $company_model->where('id',$comId)->first();
+			// $company =$companyName['companyName'];
+			// $url = base_url('userDocuments/edit/'.$insertId);
+			// $message = 'Hello <br> <br>
 
-			One document uploaded by '.$firstName.' '.$lastName.'
+			// One document uploaded by '.$firstName.' '.$lastName.'
 
-			<br><br>User Name: '.$firstName.''.$lastName.'
-			<br>Compony:'.$firstName.'
+			// <br><br>User Name: '.$firstName.''.$lastName.'
+			// <br>Compony:'.$firstName.'
 
-			<br><br>Please active this document by this link:<a href = "'.$url.'"> Click Here</a';
+			// <br><br>Please active this document by this link:<a href = "'.$url.'"> Click Here</a';
 			
 			//send mail code here
 			
@@ -144,15 +144,16 @@ class UserDocuments extends BaseController{
 				$url = base_url('documents/edit/'.$insertId);
 			    //$message = "Please activate the account ".$url;
 			    
-			    $message = 'Hello! <br> <br>
+			  echo   $message = 'Hello! <br> <br>
 				Document uploaded by '.$userFirstName.' '.$userLastName.'
 				<br><br>Document Name: '.$docName.'
 				<br>Company Name: '.$userCompanyName.'
-				<br><br>Please active this document by this link:<a href = "'.$url.'"> Click Here</a>';
+				<br><br>Please active this document by this link:<a href = "'.$url.'"> Click Here</a>';exit;
 				
 				$email = \Config\Services::email();
 		        $email->setFrom('gert@gsdm.co.za', 'HSEQ User');
-		        $email->setTo('gert@gsdm.co.za');
+		        // $email->setTo('gert@gsdm.co.za');
+		         $email->setTo('jayashree.s.php@gmail.com');
 		        $email->setSubject('HSEQ Document');
 		        $email->setMessage($message);
 		        // $email->send();

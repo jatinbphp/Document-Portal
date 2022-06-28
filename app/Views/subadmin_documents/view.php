@@ -43,7 +43,7 @@
                                 </a>
                             </h5>
                         </div>
-                        <div id="collapse-<?php echo $value['id']; ?>" class="collapse show" data-parent="#accordion" aria-labelledby="heading-1">
+                        <div id="collapse-<?php echo $value['id']; ?>" class="collapse" data-parent="#accordion" aria-labelledby="heading-1">
                             <div class="card-body">
                                 <div id="accordion-1">
                                     <div class="card">

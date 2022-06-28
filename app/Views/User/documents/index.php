@@ -14,7 +14,7 @@
             </div>
             <?php endif; ?>
 
-            <h3>Documents</h3>
+            <h3>Documents <a class="btn btn-info" style="float: right;" href="<?php echo base_url('userdocs/add'); ?>">Upload Documents</a></h3>
 
             <div class="item-wrap item-list-table">
                 <table id="UserdocumentsTable" class="table table-bordered" cellspacing="0" width="100%" >
@@ -76,5 +76,8 @@
     $('.UserDocument-Menu').addClass('active');
 </script>
 <script src="<?php echo base_url('assets/js/usersDataTable.js') ?>"></script>
+
+
+
 
 

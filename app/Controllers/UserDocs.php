@@ -9,6 +9,8 @@ use App\Models\CompanyModel;
 use App\Models\ReportingModel;
 use App\Models\User_typesModel;
 use App\Models\UserCompanyModel;
+use CodeIgniter\Files\File;
+use App\Models\UserDocumentsModel;
 class UserDocs extends BaseController{
 
 	public function index(){
@@ -69,7 +71,7 @@ class UserDocs extends BaseController{
 
         // not equal condition
         $whereNotEqual = array();
-
+        $whereNotEqual[$global_tblDocuments.'.isActive']= 0;
         $notIn = array();   
        
         $whereIn[$global_tblDocuments.'.companyID'] = $CompArr1;   
@@ -142,6 +144,190 @@ class UserDocs extends BaseController{
         );
 
         echo json_encode($output);
+    }
+
+    public function add(){
+        $documents = new UserDocumentsModel;
+
+        //$company_get = new UsersModel;
+        //$companyId = $company_get->where('id',$_SESSION['id'])->first();
+        //$comId = $companyId['companyId'];
+        
+        
+
+        if($_POST){
+            
+            $request = service('request');
+            $session = session();
+            
+            
+                
+            
+            //$companyId = $request->getPost('companyId');
+            //$companyId =  (int) implode($companyId);
+            //echo getType($companyId);
+            //exit;
+            //echo $companyId;
+            //print_r($companyId);
+            //exit;
+
+            $docName = $request->getPost('docName');
+            $categoryID = $request->getPost('categoryID');
+            $subCategoryID = $request->getPost('subCategoryID'); 
+            $isActive = $request->getPost('isActive');
+            $userID = $_SESSION['id'];
+            //$companyID = $comId;
+            $companyID = $request->getPost('companyID');
+            $expireDate = $request->getPost('expireDate');
+
+            $docFile ='';
+
+            if($_FILES['docFile']['size']>0){
+
+                $uploadDir = 'uploads/documents/'.$categoryID.'/'.$subCategoryID;
+                $ext = pathinfo($_FILES['docFile']['name'],PATHINFO_EXTENSION);
+                $filenm =time().'_profile.'.$ext;
+                $docFile = str_replace(' ', '-', $filenm);
+                $uploadedFile = $uploadDir.'/'.$docFile;
+
+                move_uploaded_file($_FILES['docFile']['tmp_name'],$uploadedFile);
+
+            }
+
+            $data1 = array(
+
+                'docName' =>$docName,
+                'categoryID' => $categoryID,
+                'subCategoryID' => $subCategoryID, 
+                'userID' => $userID, 
+                'companyID' => $companyID,
+                //'companyID' => 0,
+                'companyID' => $companyID,
+                'docFile' => $docFile,
+                //'expireDate' => $expireDate,
+                'expireDate' => '0000-00-00',
+                'is_user' => isset($userID) ? 1 : 0,
+                'isActive' => 0, 
+                );
+                
+                //echo "<pre>";
+                //print_r($data1);
+                //exit;
+                
+            $insertId = $documents->insert($data1);
+            
+            // $firstName = $companyId['firstName'];
+            // $lastName = $companyId['lastName'];
+
+            // $company_model = new CompanyModel;
+            // $companyName = $company_model->where('id',$comId)->first();
+            // $company =$companyName['companyName'];
+            // $url = base_url('userDocuments/edit/'.$insertId);
+            // $message = 'Hello <br> <br>
+
+            // One document uploaded by '.$firstName.' '.$lastName.'
+
+            // <br><br>User Name: '.$firstName.''.$lastName.'
+            // <br>Compony:'.$firstName.'
+
+            // <br><br>Please active this document by this link:<a href = "'.$url.'"> Click Here</a';
+            
+            //send mail code here
+            
+            
+            // $email = \Config\Services::email();
+            // $email->setFrom('jayashree.s.php@gmail.com', 'your Title Here');
+            // $email->setTo('amit.kk.php@gmail.com');
+            // $email->setSubject('Confirmation ');
+            // $email->setMessage($message);
+            // $email->send();
+            
+                $users = new UsersModel;
+                $users->select('firstName,lastName');
+                $users->where('id', $_SESSION['id']);
+                $queryResult = $users->get()->getResult();
+                foreach($queryResult as $value){
+                    $userFirstName = $value->firstName;
+                    $userLastName = $value->lastName;
+                }
+                
+                $company = new CompanyModel;
+                $company->select('companyName');
+                $company->where('id', $companyID);
+                $queryResult = $company->get()->getResult();
+                foreach($queryResult as $value){
+                    $userCompanyName = $value->companyName;
+                }
+                
+
+                $url = base_url('documents/edit/'.$insertId);
+                //$message = "Please activate the account ".$url;
+                
+                $message = 'Hello! <br> <br>
+                Document uploaded by '.$userFirstName.' '.$userLastName.'
+                <br><br>Document Name: '.$docName.'
+                <br>Company Name: '.$userCompanyName.'
+                <br><br>Please active this document by this link:<a href = "'.$url.'"> Click Here</a>';
+                
+                $email = \Config\Services::email();
+                $email->setFrom('gert@gsdm.co.za', 'HSEQ User');
+                // $email->setTo('gert@gsdm.co.za');
+                 $email->setTo('gert@gsdm.co.za.com');
+                $email->setSubject('HSEQ Document');
+                $email->setMessage($message);
+                // $email->send();
+
+                 if ($email->send()) 
+                {
+                    echo 'Email successfully sent';
+                    //return redirect()->to('userdocs');
+                } 
+                else 
+                {
+                    $data = $email->printDebugger(['headers']);
+                    print_r($data);
+                }
+
+            
+            if($insertId > 0){
+                $session->setFlashdata('session', "Successfully added new Document");
+                return redirect()->to('userdocs');
+            }
+            else{
+                $session->setFlashdata('session',"document not added Successfully");
+                return redirect()->to('userdocs');
+            }
+        }
+
+        $users = new UsersModel;
+        $this->data['users'] = $users->findall();
+
+        $category = new CategoryModel;
+        $this->data['category'] = $category->where('is_deleted',0)->findall();
+
+        $subCategory = new SubCategoryModel;
+        $this->data['subCategory'] = $subCategory->where('is_deleted',0)->findall();
+
+        $company = new CompanyModel;
+        $this->data['company'] = $company->findall();
+
+        $this->data['page_title'] = 'Documents';
+        $this->render_user_template('User/documents/add',$this->data);
+    }
+
+    public function getCompany(){
+        $id = $_POST['id'];
+
+        //$model_comp = new UserCompanyModel;
+        //$comid = $model_comp->where('company_id',$id)->findall();
+        $db = \Config\Database::connect();
+        $builder = $db->table('user_company');
+        $builder->select('*','Company. companyName as companyName');
+        $builder->join('Company','Company.id = user_company.company_id','left');
+        $builder->where('user_id',$id);
+        $query = $builder->get();
+        $result = $query->getResultArray();
+        echo json_encode($result);
     }
 }
 ?>

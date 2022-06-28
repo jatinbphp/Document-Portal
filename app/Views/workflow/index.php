@@ -20,7 +20,17 @@
     /*table.dataTable tbody td.sorting_1:hover {
         white-space: unset;
     }*/
+
+    tr.dt-rowReorder-moving {
+    outline: 2px solid #555;
+    outline-offset: -2px;
+    }
 </style>
+<!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css" />
+       <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.4.0/css/select.dataTables.min.css" />
+       <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/datetime/1.1.2/css/dataTables.dateTime.min.css" />
+       <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/rowreorder/1.2.8/css/rowReorder.dataTables.min.css" />
+       <link rel="stylesheet" type="text/css" href="../../extensions/Editor/css/editor.dataTables.min.css"> -->
 <div class="wrapper">
     <div class="row">
         <div class="col-sm-12">
@@ -78,8 +88,9 @@
                   <?php  }else{ ?>
                      <thead class="thead-dark">
                         <tr>
-                            <th style = "width:8%">Seq.</th>
+                            <th style = "width:8%">seq.</th>
                             <th style = "width:8%">Document Name</th>
+
                             <th style = "width:5%">User Type</th>
                             <th style = "width:8%">Category</th>
                             <th style = "width:8%">Sub Category</th>
@@ -117,9 +128,14 @@
         });
     });
 </script>
+
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.dataTables.min.css">
 
+ <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/rowreorder/1.2.8/css/rowReorder.dataTables.min.css" />
+        <link rel="stylesheet" type="text/css" href="https://editor.datatables.net/extensions/Editor/css/editor.dataTables.min.css">
+
 <script src="<?php echo base_url('assets/js/usersTable.js') ?>"></script>
+
 
 
 

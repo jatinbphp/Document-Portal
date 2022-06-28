@@ -209,7 +209,7 @@ class Reporting extends BaseController{
             }  
 
 		    $sub_array[] = $row['pro_company_id'];
-        	$sub_array[] = $row['dateAdded'];
+        	$sub_array[] = date("Y-m-d",strtotime($row['dateAdded']));
          	//$actionLink = $model_user->getActionLink('',$row['id'],'Users','',$row['userTypeID']); 
             $actionLink = $model_user->getActionLink('',$row['id'],$row['userTypeID'],'Users','');
             //$sub_array[] = $actionLink;

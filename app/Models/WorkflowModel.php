@@ -96,6 +96,14 @@ class WorkflowModel extends Model
         return $actionLinkVar;
 
     }
+    public function actionLinkSeq($path,$id,$type,$view,$userdelete=null){
+        $actionLinkVar = '';  
+
+        $actionLinkVar .= '<span style= "display:none;">'.$view.'</span>';
+        
+ 
+        return $actionLinkVar;
+    }
 
  	public function get_filtered_data($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn)
     {

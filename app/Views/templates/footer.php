@@ -18,8 +18,11 @@
         <script src="<?php echo base_url('assets/js/jquery.validate.js') ?>"></script>
         <script src="<?php echo base_url('assets/js/dataTables.responsive.min.js'); ?>"></script> 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
-        <script src="https://cdn.datatables.net/rowreorder/1.2.8/js/dataTables.rowReorder.min.js"></script>
-        <script src="https://editor.datatables.net/extensions/Editor/js/dataTables.editor.min.js"></script>
+        <?php if($_SESSION['user_type']== 0){ ?>
+           <script src="https://cdn.datatables.net/rowreorder/1.2.8/js/dataTables.rowReorder.min.js"></script>
+        <script src="https://editor.datatables.net/extensions/Editor/js/dataTables.editor.min.js"></script> 
+        <?php }?>
+        
       
         <script type="text/javascript">
             $('.coleql_height').matchHeight();

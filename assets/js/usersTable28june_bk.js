@@ -604,7 +604,6 @@ $(document).ready(function() {
         "rowReorder": {
             "update": false,
         },
-        "stateSave": true,
         "ajax": {
             url: "workflow/fetch_workflow",
             type: "POST",
@@ -651,10 +650,7 @@ $(document).ready(function() {
             //var b2 = b[1].split('"></div>');
             ids.push(b);
         }
-        my_sortable.ajax.url("workflow/fetch_workflow?sort=" + (ids));
-        
-        
-        my_sortable.ajax.reload( null, false );
+        my_sortable.ajax.url("workflow/fetch_workflow_id?sort=" + (ids)).load();
     });
     $(document).on('click', '.workflowDelete', function(event) {
         event.preventDefault();

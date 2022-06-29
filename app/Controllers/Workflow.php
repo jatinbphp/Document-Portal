@@ -312,7 +312,7 @@ class Workflow extends BaseController{
              //$imgSrc = base_url('assets/images/download1.png');
               // $sub_array[] = '<a href = "' . base_url( '/workflow/view_documents/'.$row['id']). '" target="_blank"><button class = "btn btn-primary">View</button></a>';
              $actionLinkSeq = $model_user->actionLinkSeq('',$row['id'],'',$row['update_seq'],''); 
-            $sub_array[] = $row['update_seq'];
+            
              $sub_array[] = $row['document_name'];
             
             $sub_array[] = $row['userTypeName']; 
@@ -361,6 +361,7 @@ class Workflow extends BaseController{
             }else{
             	$sub_array[] = $actionLinkFile;
             }
+            $sub_array[] = $row['update_seq'];
             //$actionLinkFile = $model_user->getActionLinkFile('',$row['id'],'','Workflow','');
         	
             $data[] = $sub_array;
@@ -581,8 +582,11 @@ class Workflow extends BaseController{
 					'expire_date' => isset($expire_date)?$expire_date:$flowexpire_date,
 					'is_active' => $flowis_activeData, 
 				);
-				$status = $data['is_active'];
+				if($_SESSION['user_type'] != 3){
+					$status = $data['is_active'];
 				$this->send_mail($flowcomments, $flowdocument_name, $status, $flowcompany_id, $flowusertype_id);
+				}
+				
 				
 				$model_workflow->set($data);
 		    	$model_workflow->where('id', $id);
@@ -649,7 +653,8 @@ class Workflow extends BaseController{
 		            			);
 					    	}
 		            		
-		            		
+		            		$status = $upData['is_active'];
+							$this->send_mail($flowcomments, $flowdocument_name, $status, $flowcompany_id, $flowusertype_id);
 		            		$model_workflow->set($upData);
 		    				$model_workflow->where('id', $id);
 		    				$result =  $model_workflow->update();
@@ -866,6 +871,7 @@ class Workflow extends BaseController{
 		}
 		
 		public function send_mail($flowcomments, $flowdocument_name, $flowis_activeData, $flowcompany_id, $flowusertype_id){
+				
 				$company_model = new CompanyModel;
 				$company_model->select('companyName');
 				$company_model->where('id', $flowcompany_id);
@@ -885,12 +891,15 @@ class Workflow extends BaseController{
             $buildersql1 =$buildersql->select('user_company.*, Users.email as email');
             $buildersql2 = $buildersql1->join('Users', 'user_company.user_id = Users.id');
             $buildersql3 =$buildersql2->where('company_id',$flowcompany_id);
+            $buildersql3 =$buildersql2->where('Users.userTypeID',3);
             $result = $buildersql3->get()->getResultArray();
+
             foreach($result as $emailval){
             	$emailval1[] = $emailval['email'];
             }
             $to = implode(",",$emailval1);
-           
+            
+          
 				
 				if($flowis_activeData == 1){
 					$status = 'APPROVED';

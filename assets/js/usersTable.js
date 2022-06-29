@@ -603,6 +603,7 @@ $(document).ready(function() {
         "order": [],
         "rowReorder": {
             "update": false,
+            "selector": 'td:first-child'
         },
         "stateSave": true,
         "ajax": {
@@ -647,7 +648,7 @@ $(document).ready(function() {
     my_sortable.on('row-reorder', function(e, diff, edit) {
         var ids = new Array();
         for (var i = 1; i < e.target.rows.length; i++) {
-            var b = e.target.rows[i].cells[0].innerHTML.split('span dtr-control="');
+            var b = e.target.rows[i].cells[11].innerHTML.split('span dtr-control="');
             //var b2 = b[1].split('"></div>');
             ids.push(b);
         }

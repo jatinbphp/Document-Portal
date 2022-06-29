@@ -88,7 +88,6 @@
                   <?php  }else{ ?>
                      <thead class="thead-dark">
                         <tr>
-                            <th style = "width:8%">seq.</th>
                             <th style = "width:8%">Document Name</th>
 
                             <th style = "width:5%">User Type</th>
@@ -101,6 +100,8 @@
                             <th style = "width:8%">Status</th>
                             <th style = "width:8%">Action</th>
                              <th style = "width:5%">File</th>
+                             
+                            <th style = "width:8%">Order(Desc)</th>
                             <!--  <th>Document file</th> -->
                         </tr>
                     </thead>

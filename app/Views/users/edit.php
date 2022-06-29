@@ -105,9 +105,9 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label class="lableTitle"for="profilePic">User Photo : <span class="asterisk-sign">*</span></label>
+                                        <label class="lableTitle"for="profilePic">User Photo : <span class="asterisk-sign"></span></label>
                                         <span>(We accept .JPG / .PNG / .GIF / .JPEG)</span>
-                                        <input type="file" class="form-control" name="profilePic" id="profilePic" placeholder="please Select Event Flyers" autocomplete="off">
+                                        <input type="file" class="form-control" name="profilePic" id="profilePic" placeholder="please Select Event Flyers" autocomplete="off" accept="image/*">
                                         <input type="hidden" class="form-control" name="hidden_profilePic" id="hidden_profilePic" placeholder="please Select Event Flyers" autocomplete="off" value="<?php if (!empty($user_info['profilePic'])){ echo $user_info['profilePic']; } ?>">
                                         </br>
 

@@ -74,6 +74,7 @@
                                                 }
                                             } ?>
                                         </select>
+                                        <span id="errorToShow"></span>
                                     </div>
                                 </div>
                             </div>
@@ -100,7 +101,7 @@
                                         <span>(We accept .JPG / .PNG / .GIF / .JPEG)</span>
                                         <div class="kv-avatar">
                                             <div class="file-loading">
-                                                <input id="profilePic" name="profilePic" type="file">
+                                                <input id="profilePic" name="profilePic" type="file" accept="image/*">
                                             </div>
                                             </br>
                                             <?php

@@ -26,12 +26,18 @@ class Users extends BaseController{
 
 				$uploadDir = 'uploads/users';
 				$ext = pathinfo($_FILES['profilePic']['name'],PATHINFO_EXTENSION);
-				$filenm =time().'_profile'.$ext;
-				$profilePic = str_replace(' ', '-', $filenm);
-				$uploadedFile = $uploadDir.'/'.$profilePic;
+				$convertext = strtolower($ext);
+				if(($convertext == 'jpg')|| ($convertext == 'png') || ($convertext == 'gif') || ($convertext == 'gif')){
+					$filenm =time().'_profile'.$ext;
+					$profilePic = str_replace(' ', '-', $filenm);
+					$uploadedFile = $uploadDir.'/'.$profilePic;
 
-				move_uploaded_file($_FILES['profilePic']['tmp_name'],$uploadedFile);
-
+					move_uploaded_file($_FILES['profilePic']['tmp_name'],$uploadedFile);
+				}
+				else{
+					$session->setFlashdata("error", "we accept only .JPG / .PNG /.JPEG /.GIF image");
+	            	return redirect()->to($_SERVER['HTTP_REFERER']);	
+				}
 			}
 
 			$firstName = $request->getPost('firstName');
@@ -279,17 +285,24 @@ class Users extends BaseController{
 			$session = session();
 
 			$profilePic = '';
-            if ($_FILES['profilePic']['size']>0) {
+            if ($_FILES['profilePic']['size']>0) {	
 
                 $uploaddir = 'uploads/users/';
 
                 $ext = pathinfo($_FILES['profilePic']['name'], PATHINFO_EXTENSION);
+                $convertext1 = strtolower($ext);
+
+                if(($convertext1 == 'jpg')|| ($convertext1 == 'png') || ($convertext1 == 'gif') || ($convertext1 == 'gif')){
 
                 $filenm = time().'_profile.'.$ext;
                 $profilePic = str_replace(' ', '-', $filenm);
                 $uploadfile = $uploaddir .'/'. $profilePic;
 
                 move_uploaded_file($_FILES['profilePic']['tmp_name'], $uploadfile);
+            }else{
+            	$session->setFlashdata("error", "we accept only .JPG / .PNG /.JPEG /.GIF image");
+	            	return redirect()->to($_SERVER['HTTP_REFERER']);	
+            }
 
             } else {
             	$profilePic = $request->getPost('hidden_profilePic');

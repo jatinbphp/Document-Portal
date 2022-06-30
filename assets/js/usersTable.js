@@ -653,9 +653,7 @@ $(document).ready(function() {
             ids.push(b);
         }
         my_sortable.ajax.url("workflow/fetch_workflow?sort=" + (ids));
-        
-        
-        my_sortable.ajax.reload( null, false );
+        my_sortable.ajax.reload(null, false);
     });
     $(document).on('click', '.workflowDelete', function(event) {
         event.preventDefault();
@@ -835,18 +833,23 @@ $(document).ready(function() {
         });
     }
     $('#companySearchWorkflow').change(function(e) {
-        $companyId = $('#companySearchWorkflow').val();
+        var companyId = $('#companySearchWorkflow').val();
         $("#workflowTable").dataTable().fnDestroy();
         filterCompanyDataWorkflow();
     });
 
     function filterCompanyDataWorkflow() {
         //reporting table
-        var my_sortable = $('#workflowTable').DataTable({
+        var my_sortable1 = $('#workflowTable').DataTable({
             "processing": true,
             "serverSide": true,
             "responsive": true,
             "order": [],
+            "rowReorder": {
+                "update": false,
+                "selector": 'td:first-child'
+            },
+            "stateSave": true,
             "ajax": {
                 url: "workflow/fetch_workflow",
                 type: "POST",
@@ -873,6 +876,16 @@ $(document).ready(function() {
                 "width": "10%",
                 "targets": 2
             }]
+        });
+        my_sortable1.on('row-reorder', function(e, diff, edit) {
+            var ids1 = new Array();
+            for (var i = 1; i < e.target.rows.length; i++) {
+                var b1 = e.target.rows[i].cells[11].innerHTML.split('dtr-control="');
+                //var b2 = b[1].split('"></div>');
+                ids1.push(b1);
+            }
+            my_sortable1.ajax.url("workflow/fetch_workflow?sort=" + (ids1));
+            my_sortable1.ajax.reload(null, false);
         });
     }
 });

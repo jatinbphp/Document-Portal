@@ -161,54 +161,82 @@ class Workflow extends BaseController{
 	
 
 	public function fetch_workflow(){
+
 		$model_user= new WorkflowModel;
 		if(isset($_GET['sort'])){
-			$IdArr= $_GET['sort'];
 
-    		$str = $IdArr;
-			$array = explode(",",$str);
-			$firstarr = $array;
-			arsort($array, SORT_NUMERIC);
-			$latest_array = array_count_values($array);
-			$array_combine = array_combine($array, $firstarr);
-			$db = \Config\Database::connect();
-			
-			//~ print_r($array_combine);
-			
-			$newidarr = array();
-			foreach($array_combine as $key=>$value){
+			 if(isset($_POST['company_id']) && $_POST['company_id'] != '' ){
+
+			 	$IdArr= $_GET['sort'];
+
+	    		$str = $IdArr;
+				$array = explode(",",$str);
+				$firstarr = $array;
+				arsort($array, SORT_NUMERIC);
+				$latest_array = array_count_values($array);
+				$array_combine = array_combine($array, $firstarr);
+				$db = \Config\Database::connect();
 				
-				$data = $model_user->select('id')->where('update_seq',$value)->first();
-			 	$ids = $data['id'];
-			 	$newidarr[$ids] = $key;
+				//~ print_r($array_combine);
 				
+				$newidarr = array();
+				foreach($array_combine as $key=>$value){
+					
+					$data = $model_user->select('id')->where('company_update_seq',$value)->where('company_id',$_POST['company_id'])->first();
+				 	$ids = $data['id'];
+				 	$newidarr[$ids] = $key;
+					
+				}
+
+				print_r($newidarr);
+				foreach($newidarr as $key11=>$value11){
+					// $data = $model_user->select('id')->where('update_seq',$key)->first();
+					// 	$id= $data['id'];
+						 echo "<br>".$key11."(".$value11.")";
+						echo "</br>"; 
+
+					$builder = $db->table('document_workfolw');
+					$builder->set('company_update_seq', $value11);
+					$builder->where('id',$key11);
+			     	$result1 =  $builder->update();
+				}
+			
+
+			}else{
+			 	$IdArr= $_GET['sort'];
+
+	    		$str = $IdArr;
+				$array = explode(",",$str);
+				$firstarr = $array;
+				arsort($array, SORT_NUMERIC);
+				$latest_array = array_count_values($array);
+				$array_combine = array_combine($array, $firstarr);
+				$db = \Config\Database::connect();
+				
+				//~ print_r($array_combine);
+				
+				$newidarr = array();
+				foreach($array_combine as $key=>$value){
+					
+					$data = $model_user->select('id')->where('update_seq',$value)->first();
+				 	$ids = $data['id'];
+				 	$newidarr[$ids] = $key;
+					
+				}
+
+				//print_r($newidarr);
+				foreach($newidarr as $key11=>$value11){
+					// $data = $model_user->select('id')->where('update_seq',$key)->first();
+					// 	$id= $data['id'];
+						//~ echo "<br>".$key11."(".$value11.")";
+						//echo "</br>"; 
+
+					$builder = $db->table('document_workfolw');
+					$builder->set('update_seq', $value11);
+					$builder->where('id',$key11);
+			     	$result1 =  $builder->update();
+				}
 			}
-
-			//print_r($newidarr);
-			foreach($newidarr as $key11=>$value11){
-				// $data = $model_user->select('id')->where('update_seq',$key)->first();
-				// 	$id= $data['id'];
-					//~ echo "<br>".$key11."(".$value11.")";
-					//echo "</br>"; 
-
-				$builder = $db->table('document_workfolw');
-				$builder->set('update_seq', $value11);
-				$builder->where('id',$key11);
-		     	$result1 =  $builder->update();
-		     	
-		     	
-		     	//~ if($result1){
-		     	//~ $page = $_SERVER['PHP_SELF'];
-				 //~ $sec = "10";
-				 //~ header("Refresh: $sec; url=$page");	
-		     	//~ }
-		     	
-		        
-				
-			
-			}
-			
-			
     	}
 
 		$db = \Config\Database::connect();		
@@ -254,7 +282,12 @@ class Workflow extends BaseController{
 
         // order by
          $orderBy = array();
-        $orderBy = array($global_tblWorkflow.'.update_seq' => "DESC");
+          if(isset($_POST['company_id']) && $_POST['company_id'] != '' ){
+          	$orderBy = array($global_tblWorkflow.'.company_update_seq' => "DESC");
+          }else{
+          	 $orderBy = array($global_tblWorkflow.'.update_seq' => "DESC");
+          }
+       
 
         // join table
         $joinTableArray = array();
@@ -361,7 +394,11 @@ class Workflow extends BaseController{
             }else{
             	$sub_array[] = $actionLinkFile;
             }
-            $sub_array[] = $row['update_seq'];
+            if(isset($_POST['company_id']) && $_POST['company_id'] != '' ){
+            	$sub_array[] = $row['company_update_seq'];
+            }else{
+            	$sub_array[] = $row['update_seq'];	
+            }
             //$actionLinkFile = $model_user->getActionLinkFile('',$row['id'],'','Workflow','');
         	
             $data[] = $sub_array;
@@ -380,59 +417,59 @@ class Workflow extends BaseController{
         
     }
 
-    public function fetch_workflow_id(){
-    		$model_user= new WorkflowModel;
-    	if(isset($_GET['sort'])){
-			$IdArr= $_GET['sort'];
+   //  public function fetch_workflow_id(){
+   //  		$model_user= new WorkflowModel;
+   //  	if(isset($_GET['sort'])){
+			// $IdArr= $_GET['sort'];
 
-    		$str = $IdArr;
-			$array = explode(",",$str);
-			$firstarr = $array;
-			arsort($array, SORT_NUMERIC);
-			$latest_array = array_count_values($array);
-			$array_combine = array_combine($array, $firstarr);
-			$db = \Config\Database::connect();
+   //  		$str = $IdArr;
+			// $array = explode(",",$str);
+			// $firstarr = $array;
+			// arsort($array, SORT_NUMERIC);
+			// $latest_array = array_count_values($array);
+			// $array_combine = array_combine($array, $firstarr);
+			// $db = \Config\Database::connect();
 
-			$newidarr = array();
-			foreach($array_combine as $key=>$value){
+			// $newidarr = array();
+			// foreach($array_combine as $key=>$value){
 				
-				$data = $model_user->select('id')->where('update_seq',$key)->first();
-			 	$ids = $data['id'];
-			 	$newidarr[$ids] = $value;
-				
-			}
-
-			//print_r($newidarr);
-			foreach($newidarr as $key=>$value){
-				// $data = $model_user->select('id')->where('update_seq',$key)->first();
-				// 	$id= $data['id'];
-					echo $key."(".$value.")";
-					echo "</br>"; 
-
-				$builder = $db->table('document_workfolw');
-				$builder->set('update_seq', $value);
-				$builder->where('id',$key);
-		     	$result1 =  $builder->update();
-		     	
-
-				
-		    }
-		     	
-		        
-			// 	if($result1){
-		 //     	//echo $page = $_SERVER['HTTP_REFERER'];
-
-			// 	 //$sec = "10";
-			// 	$url1=$_SERVER['REQUEST_URI'];
-   //  			$data = header("Refresh: 5; URL=$url1");
-   //  			//echo $data;exit;
-			// 	 //header("Refresh: $sec; url='".$page."'");
+			// 	$data = $model_user->select('id')->where('update_seq',$key)->first();
+			//  	$ids = $data['id'];
+			//  	$newidarr[$ids] = $value;
 				
 			// }
+
+			// //print_r($newidarr);
+			// foreach($newidarr as $key=>$value){
+			// 	// $data = $model_user->select('id')->where('update_seq',$key)->first();
+			// 	// 	$id= $data['id'];
+			// 		echo $key."(".$value.")";
+			// 		echo "</br>"; 
+
+			// 	$builder = $db->table('document_workfolw');
+			// 	$builder->set('update_seq', $value);
+			// 	$builder->where('id',$key);
+		 //     	$result1 =  $builder->update();
+		     	
+
+				
+		 //    }
+		     	
+		        
+			// // 	if($result1){
+		 // //     	//echo $page = $_SERVER['HTTP_REFERER'];
+
+			// // 	 //$sec = "10";
+			// // 	$url1=$_SERVER['REQUEST_URI'];
+   // //  			$data = header("Refresh: 5; URL=$url1");
+   // //  			//echo $data;exit;
+			// // 	 //header("Refresh: $sec; url='".$page."'");
+				
+			// // }
 			
 			
-    	}
-    }
+   //  	}
+   //  }
     public function delete($id) {		
 
 		$session = session();

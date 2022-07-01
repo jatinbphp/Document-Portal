@@ -606,9 +606,24 @@ $(document).ready(function() {
             "selector": 'td:first-child'
         },
         "stateSave": true,
-        "ajax": {
-            url: "workflow/fetch_workflow",
-            type: "POST",
+        "initComplete": function() {
+            var column = this.api().column(4);
+            var values = [];
+            column.data().each(function(d, j) {
+                d.split(",").forEach(function(data) {
+                    data = data.trim();
+                    if (values.indexOf(data) === -1) {
+                        values.push(data);
+                    }
+                });
+            });
+            $('<select class="filter" id= "companyData" name="companySearch"><option value=""></option></select>').append(values.sort().map(function(o) {
+                return '<option value="' + o + '">' + o + '</option>';
+            })).on('change', function() {
+                //~ alert(this.value);
+                $('#companySearchWorkflow').val(this.value);
+                //~ column.search(this.value ? '\\b' + this.value + '\\b' : "", true, false).draw();
+            }).appendTo('#selectTriggerFilter');
         },
         "columnDefs": [{
             "width": "4%",
@@ -643,7 +658,14 @@ $(document).ready(function() {
         }, {
             "width": "4%",
             "targets": 9
-        }]
+        }],
+        "ajax": {
+            url: "workflow/fetch_workflow",
+            type: "POST",
+            data: {
+                'company_id': $('#companyData').val()
+            }
+        },
     });
     my_sortable.on('row-reorder', function(e, diff, edit) {
         var ids = new Array();
@@ -655,6 +677,24 @@ $(document).ready(function() {
         my_sortable.ajax.url("workflow/fetch_workflow?sort=" + (ids));
         my_sortable.ajax.reload(null, false);
     });
+    $("#selectTriggerFilter").on('change', function() {
+        var company1 = $("#companyData").val();
+    });
+
+    function filterCompanyDataWorkflow() {
+        //reporting table
+        console.log(1);
+        //~ my_sortables.on('row-reorder', function(e, diff, edit) {
+        //~ var ids = new Array();
+        //~ for (var i = 1; i < e.target.rows.length; i++) {
+        //~ var b = e.target.rows[i].cells[11].innerHTML.split('span dtr-control="');
+        //~ //var b2 = b[1].split('"></div>');
+        //~ ids.push(b);
+        //~ }
+        //~ my_sortables.ajax.url("workflow/fetch_workflow?sort=" + (ids));
+        //~ my_sortables.ajax.reload( null, false );
+        //~ });
+    }
     $(document).on('click', '.workflowDelete', function(event) {
         event.preventDefault();
         var id = $(this).attr("data-id");
@@ -830,62 +870,6 @@ $(document).ready(function() {
                 "width": "10%",
                 "targets": 3
             }, ]
-        });
-    }
-    $('#companySearchWorkflow').change(function(e) {
-        var companyId = $('#companySearchWorkflow').val();
-        $("#workflowTable").dataTable().fnDestroy();
-        filterCompanyDataWorkflow();
-    });
-
-    function filterCompanyDataWorkflow() {
-        //reporting table
-        var my_sortable1 = $('#workflowTable').DataTable({
-            "processing": true,
-            "serverSide": true,
-            "responsive": true,
-            "order": [],
-            "rowReorder": {
-                "update": false,
-                "selector": 'td:first-child'
-            },
-            "stateSave": true,
-            "ajax": {
-                url: "workflow/fetch_workflow",
-                type: "POST",
-                data: {
-                    'company_id': $('#companySearchWorkflow').val()
-                }
-            },
-            "columnDefs": [{
-                "orderable": false,
-                "targets": -1
-            }, {
-                "orderable": false,
-                "targets": 0
-            }, {
-                "orderable": false,
-                "targets": 5
-            }, {
-                "width": "10%",
-                "targets": 0
-            }, {
-                "width": "15%",
-                "targets": 1
-            }, {
-                "width": "10%",
-                "targets": 2
-            }]
-        });
-        my_sortable1.on('row-reorder', function(e, diff, edit) {
-            var ids1 = new Array();
-            for (var i = 1; i < e.target.rows.length; i++) {
-                var b1 = e.target.rows[i].cells[11].innerHTML.split('dtr-control="');
-                //var b2 = b[1].split('"></div>');
-                ids1.push(b1);
-            }
-            my_sortable1.ajax.url("workflow/fetch_workflow?sort=" + (ids1));
-            my_sortable1.ajax.reload(null, false);
         });
     }
 });

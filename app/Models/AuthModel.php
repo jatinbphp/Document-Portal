@@ -20,7 +20,7 @@ class AuthModel extends Model
 	protected $validationMessages   = [];
 	protected $skipValidation       = false;
 	protected $cleanValidationRules = true;
-	protected $allowedFields = ['email', 'pwd', 'userTypeID', 'firstName', 'lastName', 'profilePic',  'isActive'];
+	protected $allowedFields = ['email', 'pwd', 'userTypeID', 'firstName', 'lastName', 'profilePic',  'isActive','lastLogin'];
   	protected $beforeInsert = ['beforeInsert'];
   	protected $beforeUpdate = ['beforeUpdate'];
 	 

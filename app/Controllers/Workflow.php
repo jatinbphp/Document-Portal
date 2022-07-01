@@ -161,7 +161,6 @@ class Workflow extends BaseController{
 	
 
 	public function fetch_workflow(){
-
 		$model_user= new WorkflowModel;
 		if(isset($_GET['sort'])){
 
@@ -188,12 +187,12 @@ class Workflow extends BaseController{
 					
 				}
 
-				print_r($newidarr);
+				// print_r($newidarr);
 				foreach($newidarr as $key11=>$value11){
 					// $data = $model_user->select('id')->where('update_seq',$key)->first();
 					// 	$id= $data['id'];
-						 echo "<br>".$key11."(".$value11.")";
-						echo "</br>"; 
+						//  echo "<br>".$key11."(".$value11.")";
+						// echo "</br>"; 
 
 					$builder = $db->table('document_workfolw');
 					$builder->set('company_update_seq', $value11);
@@ -224,7 +223,7 @@ class Workflow extends BaseController{
 					
 				}
 
-				//print_r($newidarr);
+				// print_r($newidarr);
 				foreach($newidarr as $key11=>$value11){
 					// $data = $model_user->select('id')->where('update_seq',$key)->first();
 					// 	$id= $data['id'];

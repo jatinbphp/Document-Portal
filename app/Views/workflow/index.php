@@ -52,6 +52,10 @@
             
 
             <div class="item-wrap item-list-table table-responsive">
+				
+				<p id="selectTriggerFilter"><label><b>Filter:</b></label><br></p>
+
+				
                 <table id="workflowTable" class="table table-bordered display responsive nowrap" cellspacing="0" width="100%" >
 
                     <div class="row">
@@ -61,7 +65,7 @@
                                     <option value="">Select Company</option>
                                         <?php if(count($company) > 0): ?>
                                             <?php foreach($company as $key => $value): ?>
-                                                <option value="<?php //echo $value['companyName'] ?> <?php echo $value['id'] ?>"><?php echo $value['companyName'] ?></option>
+                                                <option value="<?php echo $value['companyName'] ?>"><?php echo $value['companyName'] ?></option>
                                             <?php endforeach; ?>
                                         <?php endif; ?>                  
                                  </select>
@@ -129,6 +133,75 @@
             selector: '.tip'
         });
     });
+    
+    //~ $('#companySearchWorkflow').change(function(e) {
+        //~ $companyId = $('#companySearchWorkflow').val();
+        //~ $("#workflowTable").dataTable().fnDestroy();
+        //~ // filterCompanyDataWorkflow();
+        
+        
+		//~ //workflow table
+		//~ $.extend($.fn.dataTable.RowReorder.defaults, {
+			//~ selector: 'tr'
+		//~ });
+		//~ // Enable RowReorder by default
+		//~ $.fn.dataTable.defaults.rowReorder = true;
+		//~ $.fn.dataTable.ext.errMode = 'none';
+        
+        //~ var my_sortable = $('#workflowTable').DataTable({
+            //~ "processing": true,
+            //~ "serverSide": true,
+            //~ "responsive": true,
+            //~ "order": [],
+			//~ "rowReorder": {
+				//~ "update": false,
+				//~ "selector": 'td:first-child'
+			//~ },
+			//~ "stateSave": true,
+            //~ "ajax": {
+                //~ url: "workflow/fetch_workflow",
+                //~ type: "POST",
+                //~ data: {
+                    //~ 'company_id': $('#companySearchWorkflow').val()
+                //~ }
+            //~ },
+            
+            //~ "columnDefs": [{
+                //~ "orderable": false,
+                //~ "targets": -1
+            //~ }, {
+                //~ "orderable": false,
+                //~ "targets": 0
+            //~ }, {
+                //~ "orderable": false,
+                //~ "targets": 5
+            //~ }, {
+                //~ "width": "10%",
+                //~ "targets": 0
+            //~ }, {
+                //~ "width": "15%",
+                //~ "targets": 1
+            //~ }, {
+                //~ "width": "10%",
+                //~ "targets": 2
+            //~ }]
+        //~ });
+        
+        //~ my_sortable.on('row-reorder', function(e, diff, edit) {
+			//~ var ids = new Array();
+			//~ for (var i = 1; i < e.target.rows.length; i++) {
+				//~ var b = e.target.rows[i].cells[11].innerHTML.split('span dtr-control="');
+				//~ //var b2 = b[1].split('"></div>');
+				//~ ids.push(b);
+			//~ }
+			//~ my_sortable.ajax.url("workflow/fetch_workflow?sort=" + (ids));
+			
+			
+			//~ my_sortable.ajax.reload( null, false );
+		//~ });
+    //~ });
+    
+    
 </script>
 
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.dataTables.min.css">

@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 
 use App\Models\AuthModel;
+use App\Models\UsersModel;
 
 class Auth extends BaseController
 {
@@ -69,14 +70,14 @@ class Auth extends BaseController
                 ];             
                 
 
-                // $data = array(
-                //     'lastLogin' => date("Y-m-d h:i:s")
-                // );
+                $data = array(
+                    'lastLogin' => date("Y-m-d h:i:s")
+                );
 
-                // $model_users = new UsersModel;
-                // $model_users->set($data);
-                // $model_users->where('id', $login['id']);
-                // $result =  $model_users->update();
+                $model_users = new UsersModel;
+                $model_users->set($data);
+                $model_users->where('id', $login['id']);
+                $result =  $model_users->update();
                 
                 if($login['userTypeID'] == 1 ||$login['userTypeID'] == 2 || $login['userTypeID'] == 3){
                     $this->session->set($logged_in_sess); 

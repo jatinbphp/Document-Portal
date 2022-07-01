@@ -13,8 +13,22 @@
             <p>Last Logged In:<?php echo $_SESSION['lastLogin']; ?></p>
         <?php 
         } ?>
+
+        <?php 
+        if($_SESSION['user_type'] == 0){ ?>
+             <a class="btn btn-secondary" style="float: right;" href="<?php echo base_url('edit_profile'); ?>">Edit Profile</a>
+      <?php  } else{ ?>
+             <a class="btn btn-secondary" style="float: right;" href="<?php echo base_url('change_password'); ?>">Change Password</a>
+    <?php   }
+        ?>
+       
     </div>
+  
     <div class="h-100 d-flex align-items-center mr-3">
         <a href="<?php echo base_url('logout'); ?>" class="logout align-self-center"><i class="fas fa-power-off"></i></a>
+
     </div>
+
+
+
 </header>

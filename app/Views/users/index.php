@@ -24,9 +24,9 @@
                             <th>Photo</th>
                             <th>Full Name</th>
                             <th>Email</th>
-                            <th>Status</th>
                             <th>Company</th>
                             <th>Date</th>
+                             <th>Status</th>
                             <th style="width: 15%">Action</th>
                         </tr>
                     </thead>

@@ -229,14 +229,16 @@ class Users extends BaseController{
             $sub_array[] = '<div class="user-img"><img src="'.$imgSrc.'"></div>';
 			$sub_array[] = $row['firstName']." ".$row['lastName'];  
 			$sub_array[] = $row['email'];  
-		 	if($row['isActive'] == 1){
-                $sub_array[] = '<span class="badge badge-success">Active</span>';
-            }else{
-                $sub_array[] = '<span class="badge badge-danger">InActive</span>';
-            }  
+		 	 
 
 		    $sub_array[] = $row['pro_company_id'];
         	$sub_array[] = date("Y-m-d",strtotime($row['dateAdded']));
+
+        	if($row['isActive'] == 1){
+                $sub_array[] = '<span class="badge badge-success">Active</span>';
+            }else{
+                $sub_array[] = '<span class="badge badge-danger">InActive</span>';
+            } 
          	//$actionLink = $model_user->getActionLink('',$row['id'],'Users','',$row['userTypeID']); 
             $actionLink = $model_user->getActionLink('',$row['id'],$row['userTypeID'],'Users','');
             $sub_array[] = $actionLink;
@@ -471,6 +473,37 @@ class Users extends BaseController{
             return redirect()->to('users/edit/'.$user_id);  
         }  	 
   }
+
+  public function checkEditEmailExists()
+	{
+
+		$request = service('request');
+		
+		$email = $request->getPost('email');
+		$old_email = $request->getPost('old_email');
+
+		if($email != '' && $old_email != ''){  
+			$model_user = new UsersModel;
+
+			$emailExist = $model_user->where('Email',$email)->first();
+
+			$exist = '';
+            if(!empty($emailExist) || $old_email == $email){
+            	if($old_email == $email){
+            		$exist = true;
+            	}else{
+           	 		$exist = false;
+            	}
+            }elseif($old_email == $email){
+            	$exist = true;
+            } else {
+                $exist = true;
+            }
+
+			echo json_encode($exist);
+		}
+	}
+
 
 }
 ?>

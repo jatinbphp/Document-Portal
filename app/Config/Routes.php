@@ -120,7 +120,13 @@ $routes->get('subadminDocuments', 'SubadminDocument::index',['filter' => 'auth']
 
 //$routes->get('reporting/documents', 'UploadedDocuments::index',['filter' => 'auth']);
 //$routes->post('reporting/getData', 'Reporting::getData',['filter' => 'auth']);
+//
+//edit profile
+$routes->match(['get','post'],'edit_profile', 'EditProfile::index',['filter' => 'adminauth']);
+$routes->match(['get','post'],'edit_profile/(:any)', 'EditProfile::$1',['filter' => 'adminauth']);
 
+$routes->match(['get','post'],'change_password', 'EditProfile::updatePass',['filter' => 'auth']);
+$routes->match(['get','post'],'change_password/(:any)', 'EditProfile::$1',['filter' => 'auth']);
 
 
 

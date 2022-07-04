@@ -69,9 +69,11 @@ class Auth extends BaseController
                     'logged_in' => TRUE
                 ];             
                 
+                date_default_timezone_set('Africa/Johannesburg');
+                $afrdata =  date('Y-m-d H:i:s', time());
 
                 $data = array(
-                    'lastLogin' => date("Y-m-d h:i:s")
+                    'lastLogin' => $afrdata
                 );
 
                 $model_users = new UsersModel;

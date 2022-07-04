@@ -74,7 +74,6 @@
                                                 }
                                             } ?>
                                         </select>
-                                        <span id="errorToShow"></span>
                                     </div>
                                 </div>
                             </div>

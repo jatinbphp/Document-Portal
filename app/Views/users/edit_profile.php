@@ -55,13 +55,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="lableTitle"for="pwd">Password :<span class="asterisk-sign"></span></label>
-                                        <input type="password" name="pwd" class="form-control" id="pwd" placeholder="Password">
+                                        <input type="password" name="pwd" class="form-control" id="pwd" placeholder="Password" autocomplete="off" value="">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="lableTitle"for="conpassword">Confirm Password :<span class="asterisk-sign"></span></label>
-                                        <input type="password" name="conpassword" class="form-control" id="conpassword" placeholder="Confirm Password">
+                                        <input type="password" name="conpassword" class="form-control" id="conpassword" placeholder="Confirm Password" autocomplete="off" value = "">
                                     </div>
                                 </div>
                             </div>
@@ -79,5 +79,20 @@
 </div>
 
 <script src="<?php echo base_url('assets/js/usersFormValidation.js') ?>"></script>
+<script>
+    $(document).ready(function(){
+            
+            
+        const myTimeout = setTimeout(myGreeting, 1000);
+
+        function myGreeting() {
+
+                $('#pwd').val('');
+                $('#conpassword').val('');
+        }
+            
+    });
+</script>
+
 
 

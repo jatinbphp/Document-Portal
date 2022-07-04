@@ -29,10 +29,6 @@ class Workflow extends BaseController{
 	public function add(){
 		$workflow = new WorkflowModel;
 
-
-		$data = $workflow->orderBy('update_seq','DESC')->first();
-		$seq_id = $data['update_seq']+1;
-
 		if($_POST){
 			
 			$request = service('request');
@@ -48,8 +44,8 @@ class Workflow extends BaseController{
 			$start_date = $request->getPost('start_date');
 			$expire_date = $request->getPost('expire_date');
 			$is_active = $request->getPost('is_active');
-			$current_date = date('Y-m-d');
-			$expire_date = date('0000-00-00');
+			$current_date = date('Y-m-d H:m:s');
+			$expire_date = date('0000-00-00 00:00:00');
 			// $document_files ='';
 
 			// if($_FILES['document_files']['size']>0){
@@ -67,7 +63,7 @@ class Workflow extends BaseController{
 			
 			
 			$data = array(
-				'update_seq'=>$seq_id,
+
 				'document_name' =>$document_name,
 				'usertype_id' => $usertype_id, 
 				'category_id' => $category_id, 
@@ -161,55 +157,6 @@ class Workflow extends BaseController{
 	
 
 	public function fetch_workflow(){
-		$model_user= new WorkflowModel;
-		// if(isset($_GET['sort'])){
-		// 	$IdArr= $_GET['sort'];
-
-  //   		$str = $IdArr;
-		// 	$array = explode(",",$str);
-		// 	$firstarr = $array;
-		// 	arsort($array, SORT_NUMERIC);
-		// 	$latest_array = array_count_values($array);
-		// 	$array_combine = array_combine($array, $firstarr);
-		// 	$db = \Config\Database::connect();
-			
-		// 	//~ print_r($array_combine);
-			
-		// 	$newidarr = array();
-		// 	foreach($array_combine as $key=>$value){
-				
-		// 		$data = $model_user->select('id')->where('update_seq',$value)->first();
-		// 	 	$ids = $data['id'];
-		// 	 	$newidarr[$ids] = $key;
-				
-		// 	}
-
-		// 	//print_r($newidarr);
-		// 	foreach($newidarr as $key11=>$value11){
-		// 		// $data = $model_user->select('id')->where('update_seq',$key)->first();
-		// 		// 	$id= $data['id'];
-		// 			//~ echo "<br>".$key11."(".$value11.")";
-		// 			//echo "</br>"; 
-
-		// 		$builder = $db->table('document_workfolw');
-		// 		$builder->set('update_seq', $value11);
-		// 		$builder->where('id',$key11);
-		//      	$result1 =  $builder->update();
-		     	
-		     	
-		//      	//~ if($result1){
-		//      	//~ $page = $_SERVER['PHP_SELF'];
-		// 		 //~ $sec = "10";
-		// 		 //~ header("Refresh: $sec; url=$page");	
-		//      	//~ }
-		     	
-		        
-				
-			
-		// 	}
-			
-			
-  //   	}
 
 		$db = \Config\Database::connect();		
   	 	$global_tblWorkflow = 'document_workfolw';
@@ -247,13 +194,12 @@ class Workflow extends BaseController{
        // $selectColumn[$global_tbluser_company.'.comName'] =  $global_tbluser_company.'.comName';
       	
         // order column
-        $orderColumn = array('', $global_tblWorkflow.".document_name", $global_tblusers_types.".userTypeName", $global_tblcategory.".categoryName", $global_tblsubcategory.".SubCatName", $global_tblcompany.".companyName",$global_tblWorkflow.".comments",$global_tblWorkflow.".start_date",$global_tblWorkflow.".expire_date",$global_tblWorkflow.".is_active",'','');
+        $orderColumn = array('', $global_tblWorkflow.".document_name", $global_tblusers_types.".userTypeName", $global_tblcategory.".categoryName", $global_tblsubcategory.".SubCatName", $global_tblcompany.".companyName",$global_tblWorkflow.".document_files");
 
         // search column
         $searchColumn = array($global_tblWorkflow.".document_name",$global_tblusers_types.".userTypeName",$global_tblcategory.".categoryName",$global_tblsubcategory.".SubCatName",$global_tblWorkflow.".document_files",$global_tblcompany.".companyName");
 
         // order by
-         $orderBy = array();
         $orderBy = array($global_tblWorkflow.'.id' => "DESC");
 
         // join table
@@ -264,6 +210,11 @@ class Workflow extends BaseController{
        		array("joinTable"=>$global_tblsubcategory, "joinField"=>"id", "relatedJoinTable"=>$global_tblWorkflow, "relatedJoinField"=>"subcategory_id","type"=>"left"),
        		
        		array("joinTable"=>$global_tblcompany, "joinField"=>"id", "relatedJoinTable"=>$global_tblWorkflow, "relatedJoinField"=>"company_id","type"=>"left"),
+       		
+       		//array("joinTable"=>$global_tblworkflow_documents, "joinField"=>"workflow_id", "relatedJoinTable"=>$global_tblWorkflow, "relatedJoinField"=>"id","type"=>"right"),
+
+       		//array("joinTable"=>$global_tbluser_company, "joinField"=>"id", "relatedJoinTable"=>$global_tblWorkflow, "relatedJoinField"=>"company_id","type"=>"left")
+
        );
 
 
@@ -275,11 +226,16 @@ class Workflow extends BaseController{
         
         foreach ($fetch_data as $key => $row) {
 			
+			//echo $row['documents'];
+			//echo $row['id'];
+			
+			//exit;
+			
 			
             $sub_array = array(); 
             
             if($_SESSION['user_type'] == 3){
-            
+             
             $sub_array[] = $row['document_name'];
             $sub_array[] = $row['userTypeName']; 
             $sub_array[] = $row['categoryName']; 
@@ -311,10 +267,7 @@ class Workflow extends BaseController{
             	
              //$imgSrc = base_url('assets/images/download1.png');
               // $sub_array[] = '<a href = "' . base_url( '/workflow/view_documents/'.$row['id']). '" target="_blank"><button class = "btn btn-primary">View</button></a>';
-             $actionLinkSeq = $model_user->actionLinkSeq('',$row['id'],'',$row['update_seq'],''); 
-            
-             $sub_array[] = $row['document_name'];
-            
+            $sub_array[] = $row['document_name'];
             $sub_array[] = $row['userTypeName']; 
             $sub_array[] = $row['categoryName']; 
 			$sub_array[] = $row['SubCatName']; 
@@ -333,9 +286,6 @@ class Workflow extends BaseController{
             	$sub_array[] = '<span class="badge badge-primary">SUBMITED</span>';
             }elseif($row['is_active'] == 3){
             	$sub_array[] = '<span class="badge badge-danger">EXPIRED</span>';
-            }
-            elseif($row['is_active'] == 4){
-            	$sub_array[] = '<span class="badge badge-danger">REJECTED</span>';
             }
             
             else{
@@ -361,7 +311,6 @@ class Workflow extends BaseController{
             }else{
             	$sub_array[] = $actionLinkFile;
             }
-            //$sub_array[] = $row['update_seq'];
             //$actionLinkFile = $model_user->getActionLinkFile('',$row['id'],'','Workflow','');
         	
             $data[] = $sub_array;
@@ -380,59 +329,6 @@ class Workflow extends BaseController{
         
     }
 
-    public function fetch_workflow_id(){
-    		$model_user= new WorkflowModel;
-    	if(isset($_GET['sort'])){
-			$IdArr= $_GET['sort'];
-
-    		$str = $IdArr;
-			$array = explode(",",$str);
-			$firstarr = $array;
-			arsort($array, SORT_NUMERIC);
-			$latest_array = array_count_values($array);
-			$array_combine = array_combine($array, $firstarr);
-			$db = \Config\Database::connect();
-
-			$newidarr = array();
-			foreach($array_combine as $key=>$value){
-				
-				$data = $model_user->select('id')->where('update_seq',$key)->first();
-			 	$ids = $data['id'];
-			 	$newidarr[$ids] = $value;
-				
-			}
-
-			//print_r($newidarr);
-			foreach($newidarr as $key=>$value){
-				// $data = $model_user->select('id')->where('update_seq',$key)->first();
-				// 	$id= $data['id'];
-					echo $key."(".$value.")";
-					echo "</br>"; 
-
-				$builder = $db->table('document_workfolw');
-				$builder->set('update_seq', $value);
-				$builder->where('id',$key);
-		     	$result1 =  $builder->update();
-		     	
-
-				
-		    }
-		     	
-		        
-			// 	if($result1){
-		 //     	//echo $page = $_SERVER['HTTP_REFERER'];
-
-			// 	 //$sec = "10";
-			// 	$url1=$_SERVER['REQUEST_URI'];
-   //  			$data = header("Refresh: 5; URL=$url1");
-   //  			//echo $data;exit;
-			// 	 //header("Refresh: $sec; url='".$page."'");
-				
-			// }
-			
-			
-    	}
-    }
     public function delete($id) {		
 
 		$session = session();
@@ -480,7 +376,7 @@ class Workflow extends BaseController{
 	$flowcomments = $flowData['comments'];
 	$flowstart_date = $flowData['start_date'];
 	$flowexpire_date = $flowData['expire_date'];
-	//$flowis_active = $flowData['is_active'];
+	$flowis_active = $flowData['is_active'];
 		if($_POST){
 			
 			if(!isset($_POST['is_active'])){
@@ -488,7 +384,7 @@ class Workflow extends BaseController{
 				if($is_update == 0){
 				 $flowis_activeData = 0;	
 				}else{
-					$flowis_activeData = 4;
+					$flowis_activeData = 2;
 				}
 				
 			}
@@ -516,21 +412,21 @@ class Workflow extends BaseController{
 				//$is_activedata = $request->getPost('is_active');
 				
 				if($_SESSION['user_type'] == 3){
-				$start_date = $request->getPost('start_date');
-				//$start_date =   date($start_date1.' H:m:s');
-				$expire_date = $request->getPost('expire_date');
-				//$expire_date = date($expire_date1.' H:m:s');
+				$start_date1 = $request->getPost('start_date');
+				$start_date =   date($start_date1.' H:m:s');
+				$expire_date1 = $request->getPost('expire_date');
+				$expire_date = date($expire_date1.' H:m:s');
 				}
 				else{
-				$start_date = $request->getPost('start_date');
-				//$start_date =   date($start_date1.' H:m:s');
+				$start_date1 = $request->getPost('start_date');
+				$start_date =   date($start_date1.' H:m:s');
 
-				$expire_date = $request->getPost('expire_date');
-					// if($expire_date1 == ''){
-					// 	$expire_date = $expire_date1;
-					// }else{
-					// 	$expire_date = date($expire_date1.' H:m:s');
-					// }	
+				$expire_date1 = $request->getPost('expire_date');
+					if($expire_date1 == ''){
+						$expire_date = $expire_date1;
+					}else{
+						$expire_date = date($expire_date1.' H:m:s');
+					}	
 				}
 				
 				//$is_active = $request->getPost('is_active');
@@ -541,8 +437,7 @@ class Workflow extends BaseController{
 					$expiretime = $expire_date;
 				}
 				else{
-					 //$expiretime = date("Y-m-d",strtotime($expire_date));
-					 $expiretime = $expire_date;
+					 $expiretime = date("Y-m-d",strtotime($expire_date));
 				}
 				
 				
@@ -582,11 +477,8 @@ class Workflow extends BaseController{
 					'expire_date' => isset($expire_date)?$expire_date:$flowexpire_date,
 					'is_active' => $flowis_activeData, 
 				);
-				if($_SESSION['user_type'] != 3){
-					$status = $data['is_active'];
-				$this->send_mail($flowcomments, $flowdocument_name, $status, $flowcompany_id, $flowusertype_id);
-				}
 				
+				$this->send_mail($flowcomments, $flowdocument_name, $flowis_activeData, $flowcompany_id, $flowusertype_id);
 				
 				$model_workflow->set($data);
 		    	$model_workflow->where('id', $id);
@@ -594,7 +486,7 @@ class Workflow extends BaseController{
 		    	
 	    	
 	    	if($result){ 
-					
+
 		    		$additional_img_array = array();
 		    		if(count($_FILES)>0){
 			            foreach ($_FILES['file']['name'] as $num_key => $dummy) {
@@ -602,7 +494,7 @@ class Workflow extends BaseController{
 			                    $additional_img_array[$num_key][$txt_key] = $_FILES['file'][$txt_key][$num_key];
 			                }
 			            }
-						
+
 
 			            if(!empty($additional_img_array)){
 
@@ -615,7 +507,7 @@ class Workflow extends BaseController{
 
 					                $ext = pathinfo($value['name'], PATHINFO_EXTENSION);
 
-					                $filenm = time().rand(10,100).'_workflow.'.$ext;
+					                $filenm = time() .'_workflow.'.$ext;
 					                $documents = str_replace(' ', '-', $filenm);
 					                $uploadfile = $uploaddir .'/'. $documents;
 
@@ -653,8 +545,7 @@ class Workflow extends BaseController{
 		            			);
 					    	}
 		            		
-		            		$status = $upData['is_active'];
-							$this->send_mail($flowcomments, $flowdocument_name, $status, $flowcompany_id, $flowusertype_id);
+		            		
 		            		$model_workflow->set($upData);
 		    				$model_workflow->where('id', $id);
 		    				$result =  $model_workflow->update();
@@ -870,8 +761,7 @@ class Workflow extends BaseController{
 			}		
 		}
 		
-		public function send_mail($flowcomments, $flowdocument_name, $flowis_activeData, $flowcompany_id, $flowusertype_id){
-				
+		public function send_mail($flowcomments, $flowdocument_name, $flowis_activeData, $flowcompany_id, $flowusertype_id){	
 				$company_model = new CompanyModel;
 				$company_model->select('companyName');
 				$company_model->where('id', $flowcompany_id);
@@ -885,43 +775,29 @@ class Workflow extends BaseController{
 				$query = $userType_model->get();
 				$queryResult = $query->getRow();
 				$userType = $queryResult->userTypeName;
-			$db = \Config\Database::connect(); 
-
-			$buildersql = $db->table('user_company');
-            $buildersql1 =$buildersql->select('user_company.*, Users.email as email');
-            $buildersql2 = $buildersql1->join('Users', 'user_company.user_id = Users.id');
-            $buildersql3 =$buildersql2->where('company_id',$flowcompany_id);
-            $buildersql3 =$buildersql2->where('Users.userTypeID',3);
-            $result = $buildersql3->get()->getResultArray();
-
-            foreach($result as $emailval){
-            	$emailval1[] = $emailval['email'];
-            }
-            $to = implode(",",$emailval1);
-            
-          
 				
 				if($flowis_activeData == 1){
-					$status = 'APPROVED';
-				}elseif($flowis_activeData == 2){
-					$status = 'SUBMITED';
-				}elseif($flowis_activeData == 3){
-					$status = 'EXPIRED';
-				}elseif($flowis_activeData == 4){
-					$status = 'REJECTED';
-				}else{
-					$status = 'OUTSTANDING';
+					$status = 'Approved';
+				}
+				elseif($flowis_activeData == 2){
+					$status = 'Submitted';
+				}
+				elseif($flowis_activeDate == 3){
+					$status = 'Expired';
+				}
+				else{
+					$status = 'outstanding';
 				}
 				
-				$message = '<b>Client:</b> '.$companyName.'<br>'.
-				'<b>STATUS:</b> '.$status.'<br>'.
-				'<b>'.$companyName.' - </b>'.$flowdocument_name.' has been '.$status.' by '.$userType.'<br>'.
-				'<b>Comments:</b> '.$flowcomments.'<br>'.
+				$message = 'Client: '.$companyName.'<br>'.
+				'STATUS: '.$status.'<br>'.
+				$companyName.' - '.$flowdocument_name.' has been '.$status.' by '.$userType.'<br>'.
+				'Comments: '.$flowcomments.'<br>'.
 				'Kind regards';
 					
 				$email = \Config\Services::email();
 				$email->setFrom('gert@gsdm.co.za', 'HSEQ User');
-				$email->setTo($to);
+				$email->setTo('emmanuel.k.php@gmail.com');
 				$email->setSubject($companyName);
 				$email->setMessage($message);
 				$email->send();

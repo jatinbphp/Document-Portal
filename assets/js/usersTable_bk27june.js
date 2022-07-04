@@ -548,64 +548,22 @@ $(document).ready(function() {
             "targets": 3
         }, ]
     });
-    $('#subaddworkflowTable').DataTable({
-        "processing": true,
-        "serverSide": true,
-        "responsive": true,
-        "order": [],
-        "ajax": {
-            url: baseurl + "/SubadminWorkflowView/fetch_workflow_view/" + $("#company_id_pass").val(),
-            type: "POST",
-        },
-        "columnDefs": [{
-            "orderable": false,
-            "targets": -1
-        }, {
-            "width": "10%",
-            "targets": 0
-        }, {
-            "width": "10%",
-            "targets": 1
-        }, {
-            "width": "10%",
-            "targets": 2
-        }, {
-            "width": "10%",
-            "targets": 3
-        }, {
-            "width": "10%",
-            "targets": 4
-        }, {
-            "width": "10%",
-            "targets": 5
-        }, {
-            "width": "10%",
-            "targets": 6
-        }, {
-            "width": "10%",
-            "targets": 7
-        }, {
-            "width": "10%",
-            "targets": 8
-        }, ]
-    });
     //workflow table
-    // $.extend($.fn.dataTable.RowReorder.defaults, {
-    //     selector: 'tr'
-    // });
-    // // Enable RowReorder by default
-    // $.fn.dataTable.defaults.rowReorder = true;
-    // $.fn.dataTable.ext.errMode = 'none';
+    //
+    $.extend($.fn.dataTable.RowReorder.defaults, {
+        selector: 'tr'
+    });
+    // Enable RowReorder by default
+    $.fn.dataTable.defaults.rowReorder = true;
+    $.fn.dataTable.ext.errMode = 'none';
     var my_sortable = $('#workflowTable').DataTable({
         "processing": true,
         "serverSide": true,
         "responsive": true,
         "order": [],
-        // "rowReorder": {
-        //     "update": false,
-        //     "selector": 'td:first-child'
-        // },
-        // "stateSave": true,
+        "rowReorder": {
+            "update": false,
+        },
         "ajax": {
             url: "workflow/fetch_workflow",
             type: "POST",
@@ -645,16 +603,15 @@ $(document).ready(function() {
             "targets": 9
         }]
     });
-    // my_sortable.on('row-reorder', function(e, diff, edit) {
-    //     var ids = new Array();
-    //     for (var i = 1; i < e.target.rows.length; i++) {
-    //         var b = e.target.rows[i].cells[11].innerHTML.split('span dtr-control="');
-    //         //var b2 = b[1].split('"></div>');
-    //         ids.push(b);
-    //     }
-    //     my_sortable.ajax.url("workflow/fetch_workflow?sort=" + (ids));
-    //     my_sortable.ajax.reload(null, false);
-    // });
+    my_sortable.on('row-reorder', function(e, diff, edit) {
+        var ids = new Array();
+        for (var i = 1; i < e.target.rows.length; i++) {
+            var b = e.target.rows[i].cells[0].innerHTML.split('dtr-control="');
+            //var b2 = b[1].split('"></div>');
+            ids.push(b);
+        }
+        my_sortable.ajax.url("workflow/fetch_workflow?sort=" + (ids)).load();
+    });
     $(document).on('click', '.workflowDelete', function(event) {
         event.preventDefault();
         var id = $(this).attr("data-id");
@@ -832,6 +789,47 @@ $(document).ready(function() {
             }, ]
         });
     }
+    $('#subaddworkflowTable').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "responsive": true,
+        "order": [],
+        "ajax": {
+            url: baseurl + "/SubadminWorkflowView/fetch_workflow_view/" + $("#company_id_pass").val(),
+            type: "POST",
+        },
+        "columnDefs": [{
+            "orderable": false,
+            "targets": -1
+        }, {
+            "width": "10%",
+            "targets": 0
+        }, {
+            "width": "10%",
+            "targets": 1
+        }, {
+            "width": "10%",
+            "targets": 2
+        }, {
+            "width": "10%",
+            "targets": 3
+        }, {
+            "width": "10%",
+            "targets": 4
+        }, {
+            "width": "10%",
+            "targets": 5
+        }, {
+            "width": "10%",
+            "targets": 6
+        }, {
+            "width": "10%",
+            "targets": 7
+        }, {
+            "width": "10%",
+            "targets": 8
+        }, ]
+    });
     $('#companySearchWorkflow').change(function(e) {
         $companyId = $('#companySearchWorkflow').val();
         $("#workflowTable").dataTable().fnDestroy();

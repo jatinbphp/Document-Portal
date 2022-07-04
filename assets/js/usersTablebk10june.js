@@ -205,24 +205,26 @@ $(document).ready(function() {
             type: "POST",
         },
         "columnDefs": [{
-            "width": "10%",
             "orderable": false,
             "targets": -1
+        }, {
+            "orderable": false,
+            "targets": 0
+        }, {
+            "orderable": false,
+            "targets": 6
         }, {
             "width": "10%",
             "targets": 0
         }, {
-            "width": "10%",
-            "targets": 2
-        }, {
             "width": "15%",
+            "targets": 1
+        }, {
+            "width": "10%",
             "targets": 2
         }, {
             "width": "10%",
             "targets": 3
-        }, {
-            "width": "10%",
-            "targets": 4
         }, ]
     });
     //category Table
@@ -548,23 +550,30 @@ $(document).ready(function() {
             "targets": 3
         }, ]
     });
-    $('#subaddworkflowTable').DataTable({
+    //workflow table
+    $('#workflowTable').DataTable({
         "processing": true,
         "serverSide": true,
         "responsive": true,
         "order": [],
         "ajax": {
-            url: baseurl + "/SubadminWorkflowView/fetch_workflow_view/" + $("#company_id_pass").val(),
+            url: "workflow/fetch_workflow",
             type: "POST",
         },
         "columnDefs": [{
             "orderable": false,
             "targets": -1
         }, {
+            "orderable": false,
+            "targets": 0
+        }, {
+            "orderable": false,
+            "targets": 6
+        }, {
             "width": "10%",
             "targets": 0
         }, {
-            "width": "10%",
+            "width": "15%",
             "targets": 1
         }, {
             "width": "10%",
@@ -572,89 +581,8 @@ $(document).ready(function() {
         }, {
             "width": "10%",
             "targets": 3
-        }, {
-            "width": "10%",
-            "targets": 4
-        }, {
-            "width": "10%",
-            "targets": 5
-        }, {
-            "width": "10%",
-            "targets": 6
-        }, {
-            "width": "10%",
-            "targets": 7
-        }, {
-            "width": "10%",
-            "targets": 8
         }, ]
     });
-    //workflow table
-    // $.extend($.fn.dataTable.RowReorder.defaults, {
-    //     selector: 'tr'
-    // });
-    // // Enable RowReorder by default
-    // $.fn.dataTable.defaults.rowReorder = true;
-    // $.fn.dataTable.ext.errMode = 'none';
-    var my_sortable = $('#workflowTable').DataTable({
-        "processing": true,
-        "serverSide": true,
-        "responsive": true,
-        "order": [],
-        // "rowReorder": {
-        //     "update": false,
-        //     "selector": 'td:first-child'
-        // },
-        // "stateSave": true,
-        "ajax": {
-            url: "workflow/fetch_workflow",
-            type: "POST",
-        },
-        "columnDefs": [{
-            "width": "4%",
-            "targets": -1
-        }, {
-            "width": "4%",
-            "targets": 0
-        }, {
-            "width": "4%",
-            "targets": 1
-        }, {
-            "width": "4%",
-            "targets": 2
-        }, {
-            "width": "4%",
-            "targets": 3
-        }, {
-            "width": "4%",
-            "targets": 4
-        }, {
-            "width": "4%",
-            "targets": 5
-        }, {
-            "width": "4%",
-            "targets": 6
-        }, {
-            "width": "4%",
-            "targets": 7
-        }, {
-            "width": "4%",
-            "targets": 8
-        }, {
-            "width": "4%",
-            "targets": 9
-        }]
-    });
-    // my_sortable.on('row-reorder', function(e, diff, edit) {
-    //     var ids = new Array();
-    //     for (var i = 1; i < e.target.rows.length; i++) {
-    //         var b = e.target.rows[i].cells[11].innerHTML.split('span dtr-control="');
-    //         //var b2 = b[1].split('"></div>');
-    //         ids.push(b);
-    //     }
-    //     my_sortable.ajax.url("workflow/fetch_workflow?sort=" + (ids));
-    //     my_sortable.ajax.reload(null, false);
-    // });
     $(document).on('click', '.workflowDelete', function(event) {
         event.preventDefault();
         var id = $(this).attr("data-id");
@@ -832,45 +760,36 @@ $(document).ready(function() {
             }, ]
         });
     }
-    $('#companySearchWorkflow').change(function(e) {
-        $companyId = $('#companySearchWorkflow').val();
-        $("#workflowTable").dataTable().fnDestroy();
-        filterCompanyDataWorkflow();
+    $('#subaddworkflowTable').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "responsive": true,
+        "order": [],
+        "ajax": {
+            url: baseurl +"/SubadminWorkflowView/fetch_workflow_view/"+$("#company_id_pass").val(),
+            type: "POST",
+        },
+        "columnDefs": [{
+            "orderable": false,
+            "targets": -1
+        }, {
+            "orderable": false,
+            "targets": 0
+        }, {
+            "orderable": false,
+            "targets": 6
+        }, {
+            "width": "10%",
+            "targets": 0
+        }, {
+            "width": "15%",
+            "targets": 1
+        }, {
+            "width": "10%",
+            "targets": 2
+        }, {
+            "width": "10%",
+            "targets": 3
+        }, ]
     });
-
-    function filterCompanyDataWorkflow() {
-        //reporting table
-        var my_sortable = $('#workflowTable').DataTable({
-            "processing": true,
-            "serverSide": true,
-            "responsive": true,
-            "order": [],
-            "ajax": {
-                url: "workflow/fetch_workflow",
-                type: "POST",
-                data: {
-                    'company_id': $('#companySearchWorkflow').val()
-                }
-            },
-            "columnDefs": [{
-                "orderable": false,
-                "targets": -1
-            }, {
-                "orderable": false,
-                "targets": 0
-            }, {
-                "orderable": false,
-                "targets": 5
-            }, {
-                "width": "10%",
-                "targets": 0
-            }, {
-                "width": "15%",
-                "targets": 1
-            }, {
-                "width": "10%",
-                "targets": 2
-            }]
-        });
-    }
 });

@@ -83,7 +83,7 @@
             <li class="Reporting-Menu">
                 <a class="drpdwn" href="javascript:void(0)"><img src="<?php echo base_url('assets/images/dash-icon-4.png'); ?>" alt=""> Reporting</a>
                 <ul class="inner">
-                    <li class="userReport" id="userReport" ><a class="" href="<?php echo base_url('reporting'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-4.png'); ?>" alt=""> User Report</a></li>
+                    <li class="SubMenu" id="userReport" ><a class="" href="<?php echo base_url('reporting'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-4.png'); ?>" alt=""> User Report</a></li>
  
                     <li class="SubMenu" id="categoryReport" ><a class="" href="<?php echo base_url('reporting/category'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-4.png'); ?>" alt="">Category Report</a></li>
                     

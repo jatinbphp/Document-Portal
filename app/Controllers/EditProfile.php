@@ -31,6 +31,7 @@ class EditProfile extends BaseController{
 			$lastName = $request->getPost('lastName');
 			$email = $request->getPost('email');
 			$pwd = $request->getPost('pwd');
+			$receive_email = $request->getPost('receive_email');
 
 			if(!empty($pwd)){
 				$passwordData = array(					
@@ -56,6 +57,7 @@ class EditProfile extends BaseController{
 							'firstName' =>$firstName,
 							'lastName' => $lastName,
 							'email' => $email,
+							'receive_email'=>$receive_email,
 							
 						);
 

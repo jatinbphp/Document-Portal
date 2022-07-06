@@ -1,4 +1,42 @@
 <style>
+
+       .loader-main {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        display: none;
+    }
+    .loader-inner {
+        width: 5rem;
+        height: 5rem;
+        display: inline-block;
+        padding: 0px;
+        border-radius: 100%;
+        border: 10px solid;
+        border-top-color: rgba(15, 148, 245, 1);
+        border-bottom-color: #f3f3f7;
+        border-left-color: rgba(15, 148, 245, 1);
+        border-right-color: #f3f3f7;
+        -webkit-animation: loader 1s ease-in-out infinite;
+        animation: loader 1s ease-in-out infinite;
+    }
+    @keyframes loader {
+        from {transform: rotate(0deg);}
+        to {transform: rotate(360deg);}
+    }
+    @-webkit-keyframes loader {
+        from {-webkit-transform: rotate(0deg);}
+        to {-webkit-transform: rotate(360deg);}
+    }
     .imagePreview {
         width: 100%;
         /*height: 180px;*/
@@ -46,6 +84,10 @@
         .variationCounter .add_more_variation {margin: 15px 0px;}
     }
 </style>
+<div class="loader-main">
+    <div class="loader-inner"></div>
+</div>
+
 <div class="wrapper">
     <div class="row">
         <div class="col-sm-12">
@@ -143,6 +185,9 @@
                                         <label class="lableTitle"for="comments"> Comments :<span class="asterisk-sign">*</span></label>
                                         <!-- <input type="text" name="comments" class="form-control" id="comments" placeholder="Name" value="<?php echo $docData['comments'];?>"> -->
                                         <textarea name="comments" id ="comments" ><?php echo $docData['comments'];?></textarea>
+                                        <?php if($_SESSION['user_type'] == 3){ ?>
+                                        <span class="error comments-error" style="display: none;">Please Enter Comments.</span>
+                                      <?php   }?> 
                                     </div>
                                 </div>
                                  <?php if($_SESSION['user_type'] == 3){ ?>
@@ -211,12 +256,15 @@
                 <?php if($_SESSION['user_type'] == 3){?>
                     Document Name: <input type="text" name="document_name" class="form-control" id="document_name" placeholder="Name" value="<?php echo $docData['document_name'];?>" readonly= "readonly">
                                  <br> 
+
                     <div class="card mb-3">
                         <div class="card-body">
                             <div class="row additionalImageClass">
+
                                 <div class="col-lg-12 mb-2">
                                     <u>
                                         <h5>Add Additional Documents</h5>
+
                                     </u>
                                 </div>
 
@@ -240,10 +288,12 @@
                                         <div class="loader-contetn loader1">
                                             <div class="loader-01"> </div>
                                         </div>
-                                        <div class="imagePreview"></div>
+                                        <div class="imagePreview" id="imagePreview-1"></div>
                                         <label class="w-100 btn btn-info">
                                         Upload<input type="file" name="file[]" multiple="multiple" class="uploadFile img" id="file-1" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" data-overwrite-initial="false" data-min-file-count="1">
                                         </label>
+                                         <p class='error elements' id="element-1"></p>
+                                         <span class="error uploadImg-error" style="display: none;">Please select expire date.</span>
                                     </div>
                                 </div>
                                 <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12 imgAdd">
@@ -279,6 +329,14 @@
 </script>
 <script src="<?php echo base_url('assets/js/usersFormValidation.js') ?>"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+ <script>
+    $(document).ready(function() {
+        $('button.savebtn').on("click",function() {
+           // $('.loader-main').css('display','flex');
+        });
+    });
+</script> 
 <script type="text/javascript">
     $(document).ready(function() {
        $('#category_id').on("change",function(){
@@ -300,7 +358,7 @@
     
         var i = 2;
     $(".imgAdd").click(function(){
-     $(this).closest(".row").find('.imgAdd').before('<div class="col-lg-2 col-md-3 col-sm-6 col-xs-12"><div class="boxImage imgUp"><div class="loader-contetn loader'+i+'"><div class="loader-01"> </div></div><div class="imagePreview"></div><label class="w-100 btn btn-primary">Upload<input type="file" id="file-'+i+'" class="uploadFile img" name="file[]" multiple="multiple"  value="Upload Photo" style="width:0px;height:0px;overflow:hidden;" data-overwrite-initial="false" data-min-file-count="1"></label></div></div>');
+     $(this).closest(".row").find('.imgAdd').before('<div class="col-lg-2 col-md-3 col-sm-6 col-xs-12"><div class="boxImage imgUp"><div class="loader-contetn loader'+i+'"><div class="loader-01"> </div></div><div class="imagePreview" id="imagePreview-'+i+'"></div><label class="w-100 btn btn-primary">Upload<input type="file" id="file-'+i+'" class="uploadFile img" name="file[]" multiple="multiple"  value="Upload Photo" style="width:0px;height:0px;overflow:hidden;" data-overwrite-initial="false" data-min-file-count="1"></label><p class="error elements" id="element-'+i+'"></p></div></div>');
     
      i++;
     });
@@ -311,8 +369,39 @@
     $(function() {
        $(document).on("change",".uploadFile", function(e)
        {
-               var geekss = e.target.files[0].name;
-            $('.imagePreview').text(geekss);
+
+            $.each('.elements', function() { 
+               alert($(this).attr('id'))
+            });
+            //alert($(this).attr('id'));
+            var fileid = $(this).attr('id');
+            var items = fileid.split('-');
+
+            var geekss = e.target.files[0].name;
+            //alert(geekss);
+            $('#imagePreview-'+items[1]).text(geekss);
+
+            var imageSizeArr = 0;
+            var imageSize = document.getElementById(fileid);
+            var imageCount = imageSize.files.length;
+            for (var i = 0; i < imageSize.files.length; i++)
+            {
+                var imageSize = imageSize.files[i].size;
+                    if (imageSize > 20000000) {
+                        var imageSizeArr = 1;
+                    }
+                if (imageSizeArr == 1)
+                {
+                   $('#element-'+items[1]).text('Maximum file size to upload is 20MB');
+                   $(".savebtn").attr('disabled','disabled');
+                   
+                }
+                else if (imageSizeArr == 0)
+                {
+                     $('#element-'+items[1]).text('');
+                   $('.savebtn').removeAttr('disabled');
+                }
+            }
          
        });
     });
@@ -394,6 +483,44 @@
         // else{
         //    $('#is_active').prop('checked', false);  
         // }
+        // 
+        // 
+        
+
+
+
+      /*  $(document).on("change",".uploadFile", function(e)
+        {
+
+            var ids = $(this).attr('id');
+
+            var fileid = $(this).attr('id');
+            var items = fileid.split('-');
+
+            alert(items[1]);
+             
+            var imageSizeArr = 0;
+            var imageSize = document.getElementById(ids);
+            var imageCount = imageSize.files.length;
+            for (var i = 0; i < imageSize.files.length; i++)
+            {
+                var imageSize = imageSize.files[i].size;
+                    if (imageSize > 20000000) {
+                        var imageSizeArr = 1;
+                    }
+                if (imageSizeArr == 1)
+                {
+                   $('#element-'+items[1]).text('Maximum file size to upload is 20MB');
+                   $(".savebtn").attr('disabled','disabled');
+                   
+                }
+                else if (imageSizeArr == 0)
+                {
+                     $('#element-'+items[1]).text('');
+                   $('.savebtn').removeAttr('disabled');
+                }
+            }
+         }); */
     });  
 
     $('#start_date').on("change",function(){
@@ -414,21 +541,45 @@
         if(start_date == ''){
             $("#start_date").focus();
             $(".substart_date-error").css("display", "");
+            
             return false;
         }
         else{
              $(".substart_date-error").css("display", "none");
+             var dt1 = 1;
         }
 
          var expire_date = $("#expire_date").val();
             if(expire_date == ''){
                 $("#expire_date").focus();
                 $(".subexpire_date-error").css("display", "");
+               
                 return false;
             }
             else{
                  $(".subexpire_date-error").css("display", "none");
+                  var dt2 = 1;
             }
+
+            var comment = $("#comments").val();
+            if(comment == ''){
+                $("#comments").focus();
+                $(".comments-error").css("display", "");
+                
+                return false;
+            }
+            else{
+                 $(".comments-error").css("display", "none");
+                 var dt3 =1;
+            }
+            if(dt1 == 1 && dt2 == 1 && dt3 == 1){
+                $('.loader-main').css('display','flex');
+            }
+
+
+
     });
+
+ 
 
 </script>

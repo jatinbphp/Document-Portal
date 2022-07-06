@@ -87,6 +87,25 @@ class WorkflowModel extends Model
 
     }
 
+      public function getActionLinkOutstanding($path,$id,$type,$view=null,$userdelete=null){
+
+         $actionLinkVar = '';  
+
+        // $actionLinkVar .= '<a title="Edit Workflow" href="' . base_url( 'workflow/edit/'.$id). '" class="" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 12px;"><i class="fa-solid fa-upload"></i></a>';
+         $actionLinkVar .= '<a href = "' . base_url( 'workflow/edit/'.$id). '" class="btn btn-warning" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 10px;"><i class="fa fa-upload"></i></a>';
+
+       
+        //$actionLinkVar .= '<a href = "' . base_url( '/workflow/view_documents/'.$id). '" class="btn btn-primary" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 10px;" target="_blank"><i class="fa fa-file"></i></a>';      
+        $actionLinkVar .= '<a  class="" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 20px;"></a><i class="fa fa-file" style="color: grey;font-size: 20px; margin-left:8px"></i>';
+
+        // $actionLinkVar .= '<a href="' . base_url( 'workflow/delete/'.$id). '" title="Delete Document" class="btn btn-danger deleteData workflowDelete" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 10px;" data-id="' . $id . '"><i class="fa fa-trash"></i></a>';
+        
+ 
+        return $actionLinkVar;
+
+    }
+   
+
      public function actionLinkComment($path,$id,$type,$view,$userdelete=null){
          $actionLinkVar = '';  
 

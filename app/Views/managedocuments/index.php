@@ -74,9 +74,15 @@
                                                     if($docvalue['categoryID'] ==$value['id'] && $docvalue['subCategoryID'] == $subcatvalue['id']  ){?>
                                                 <div id="accordion-1-1">
                                                     <div class="card">
+
 															<?php $url = base_url('/uploads/documents/'.$docvalue['categoryID'].'/'.$subcatvalue['id'].'/'.$docvalue['docFile']);?>
 																	<tr>
-																			<td><?php echo "<a href = '".$url ."'  target='_blank'><img src='assets/images/download1.png' style='width: 40px; height: 40px'></a>" ?></td>
+                                                                        <?php if($docvalue['docFile'] == ''){  ?>
+                                                                              <td><div onclick="myFunction1()"> <i class="fa fa-file" style="color: grey;font-size:36px;"></i></div></td> 
+                                                                     <?php   }else{ ?>
+                                                                            <td><?php echo '<a href = "'.$url .'" target="_blank"><i class="fa fa-file" style="font-size:36px;"></i></a>' ?></td>
+                                                                     <?php }?>
+																			
 																			<td><?php echo $docvalue['docName'] ?></td>
 																			<td><?php echo $docvalue['docFile'] ?></td>
 																			<td><?php echo $docvalue['expireDate'] ?></td>
@@ -118,3 +124,8 @@
       $('.AllDocument-Menu').addClass('active');
 </script>
 <script src="<?php echo base_url('assets/js/usersTable.js') ?>"></script>
+<script>
+    function myFunction1(){
+        alert("Document Not uploaded");
+    }
+</script>

@@ -19,7 +19,7 @@ class UsersModel extends Model
 	protected $validationMessages   = [];
 	protected $skipValidation       = false;
 	protected $cleanValidationRules = true;
-	protected $allowedFields = [  'email', 'pwd', 'userTypeID', 'companyId','firstName', 'isActive', 'lastName', 'profilePic',  'lastLogin',  'dateAdded'];
+	protected $allowedFields = [  'email', 'pwd', 'userTypeID', 'companyId','firstName', 'isActive', 'lastName', 'profilePic',  'lastLogin',  'dateAdded','receive_email'];
 
 
 	public function get_all_data($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$group_by)

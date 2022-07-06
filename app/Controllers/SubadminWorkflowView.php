@@ -27,6 +27,7 @@ class SubadminWorkflowView extends BaseController
 
    
    public function fetch_workflow_view($id = null){
+    
         $db = \Config\Database::connect();		
   	 	$global_tblWorkflow = 'document_workfolw';
  	  	$global_tblusers_types = 'UserTypes';
@@ -120,10 +121,16 @@ class SubadminWorkflowView extends BaseController
 
 		 	
 
-		 
-        	//$sub_array[] = $row['dateAdded'];
-         	$actionLink = $model_user->getActionLinkNew('',$row['id'],'Workflow','',''); 
+		  if($row['is_active'] == 0){
+            $actionLink = $model_user->getActionLinkOutstanding('',$row['id'],'Workflow','',''); 
             $sub_array[] = $actionLink;
+          }else{
+            $actionLink = $model_user->getActionLinkNew('',$row['id'],'Workflow','',''); 
+            $sub_array[] = $actionLink;
+          }
+        	//$sub_array[] = $row['dateAdded'];
+         	// $actionLink = $model_user->getActionLinkNew('',$row['id'],'Workflow','',''); 
+          //   $sub_array[] = $actionLink;
               $model_user= new WorkflowModel;
             $updateData = $model_user->where('id',$row['id'])->first();
             $expireDate = date('Y-m-d',strtotime($updateData['expire_date']));

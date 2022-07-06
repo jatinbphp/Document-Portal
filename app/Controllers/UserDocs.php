@@ -148,12 +148,14 @@ class UserDocs extends BaseController{
 
     public function add(){
         $documents = new UserDocumentsModel;
+        $model_user = new UsersModel;
+        $email1 = $model_user->where('userTypeID',0)->where('super_admin',1)->first();
+        if(count($email1)>0){
+           $recieve_email = $email1['receive_email']; 
+        }else{
+           $recieve_email = 'amit.kk.php@gmail.com';
+        }
 
-        //$company_get = new UsersModel;
-        //$companyId = $company_get->where('id',$_SESSION['id'])->first();
-        //$comId = $companyId['companyId'];
-        
-        
 
         if($_POST){
             
@@ -161,22 +163,11 @@ class UserDocs extends BaseController{
             $session = session();
             
             
-                
-            
-            //$companyId = $request->getPost('companyId');
-            //$companyId =  (int) implode($companyId);
-            //echo getType($companyId);
-            //exit;
-            //echo $companyId;
-            //print_r($companyId);
-            //exit;
-
             $docName = $request->getPost('docName');
             $categoryID = $request->getPost('categoryID');
             $subCategoryID = $request->getPost('subCategoryID'); 
             $isActive = $request->getPost('isActive');
             $userID = $_SESSION['id'];
-            //$companyID = $comId;
             $companyID = $request->getPost('companyID');
             $expireDate = $request->getPost('expireDate');
 
@@ -201,46 +192,14 @@ class UserDocs extends BaseController{
                 'subCategoryID' => $subCategoryID, 
                 'userID' => $userID, 
                 'companyID' => $companyID,
-                //'companyID' => 0,
                 'companyID' => $companyID,
                 'docFile' => $docFile,
-                //'expireDate' => $expireDate,
                 'expireDate' => '0000-00-00',
                 'is_user' => isset($userID) ? 1 : 0,
                 'isActive' => 0, 
                 );
                 
-                //echo "<pre>";
-                //print_r($data1);
-                //exit;
-                
             $insertId = $documents->insert($data1);
-            
-            // $firstName = $companyId['firstName'];
-            // $lastName = $companyId['lastName'];
-
-            // $company_model = new CompanyModel;
-            // $companyName = $company_model->where('id',$comId)->first();
-            // $company =$companyName['companyName'];
-            // $url = base_url('userDocuments/edit/'.$insertId);
-            // $message = 'Hello <br> <br>
-
-            // One document uploaded by '.$firstName.' '.$lastName.'
-
-            // <br><br>User Name: '.$firstName.''.$lastName.'
-            // <br>Compony:'.$firstName.'
-
-            // <br><br>Please active this document by this link:<a href = "'.$url.'"> Click Here</a';
-            
-            //send mail code here
-            
-            
-            // $email = \Config\Services::email();
-            // $email->setFrom('jayashree.s.php@gmail.com', 'your Title Here');
-            // $email->setTo('amit.kk.php@gmail.com');
-            // $email->setSubject('Confirmation ');
-            // $email->setMessage($message);
-            // $email->send();
             
                 $users = new UsersModel;
                 $users->select('firstName,lastName');
@@ -261,7 +220,6 @@ class UserDocs extends BaseController{
                 
 
                 $url = base_url('documents/edit/'.$insertId);
-                //$message = "Please activate the account ".$url;
                 
                 $message = 'Hello! <br> <br>
                 Document uploaded by '.$userFirstName.' '.$userLastName.'
@@ -271,16 +229,12 @@ class UserDocs extends BaseController{
                 
                 $email = \Config\Services::email();
                 $email->setFrom('gert@gsdm.co.za', 'HSEQ User');
-                // $email->setTo('gert@gsdm.co.za');
-                 $email->setTo('gert@gsdm.co.za.com');
+                 $email->setTo($recieve_email);
                 $email->setSubject('HSEQ Document');
                 $email->setMessage($message);
-                // $email->send();
-
                  if ($email->send()) 
                 {
                     echo 'Email successfully sent';
-                    //return redirect()->to('userdocs');
                 } 
                 else 
                 {

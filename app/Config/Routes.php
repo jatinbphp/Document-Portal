@@ -99,6 +99,11 @@ $routes->get('workflow/(:any)', 'Workflow::$1');
 $routes->get('Workflow', 'Workflow::index');
 $routes->get('Workflow/(:any)', 'Workflow::$1');
 
+$routes->match(['get','post'],'orderdocuments', 'OrderDocuments::index',['filter' => 'adminauth']);
+$routes->get('orderdocuments/(:any)', 'OrderDocuments::$1',['filter' => 'adminauth']);
+$routes->get('OrderDocuments', 'OrderDocuments::index',['filter' => 'adminauth']);
+$routes->get('OrderDocuments/(:any)', 'OrderDocuments::$1',['filter' => 'adminauth']);
+
 $routes->get('subadminworkflow', 'SubadminWorkflow::index',['filter' => 'auth']);
 $routes->get('subadminworkflow/(:any)', 'SubadminWorkflow::$1',['filter' => 'auth']);
 $routes->get('SubadminWorkflow', 'SubadminWorkflow::index',['filter' => 'auth']);

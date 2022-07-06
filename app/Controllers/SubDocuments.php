@@ -22,6 +22,7 @@ class SubDocuments extends BaseController{
 		$this->render_user_template('SubAdmin/subdocuments/index',$this->data);
 	}
 	public function fetch_subdocuments(){
+
 		$db = \Config\Database::connect();		
   	 	$global_tblDocuments = 'DocumentsManage';
  	  	$global_tblusers = 'Users';
@@ -114,8 +115,12 @@ class SubDocuments extends BaseController{
             
             //$imgSrc = base_url('assets/images/download1.png');
             $id = $row['id'];
+            if($row['docFile'] == ''){
+                $sub_array[] = '<div onclick="myFunction()"> <i class="fa fa-file" style="color: grey;font-size:36px;"></i></div>';
+            }else{
+              $sub_array[] = '<a href = "' . base_url( '/uploads/documents/'.$row['categoryID'].'/'.$row['subCategoryID'].'/'.$row['docFile']). '" target="_blank"><i class="fa fa-file" style="font-size:36px;"></i></a>';  
+            }
             
-            $sub_array[] = '<a href = "' . base_url( '/uploads/documents/'.$row['categoryID'].'/'.$row['subCategoryID'].'/'.$row['docFile']). '" target="_blank"><i class="fa fa-file" style="font-size:36px;"></i></a>';
             $sub_array[] = $row['docName'];  
 			$sub_array[] = $row['firstName']." ".$row['lastName'];  
 			$sub_array[] = $row['categoryName']; 

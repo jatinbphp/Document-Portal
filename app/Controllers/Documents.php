@@ -38,42 +38,54 @@ class Documents extends BaseController{
 			$companyID = $request->getPost('companyID');
 			$expireDate = $request->getPost('expireDate');
 			$docFile ='';
+			if($_FILES['docFile']['size'] == 0 && $_FILES['docFile']['error'] == 1){
+				$session->setFlashdata("error", "Maximum file size to upload is 20MB");
+				return redirect()->to($_SERVER['HTTP_REFERER']);
 
-			if($_FILES['docFile']['size']>0){
+			}else{
 
-				$uploadDir = 'uploads/documents/'.$categoryID.'/'.$subCategoryID;
-				$ext = pathinfo($_FILES['docFile']['name'],PATHINFO_EXTENSION);
-				$filenm =time().'_profile.'.$ext;
-				$docFile = str_replace(' ', '-', $filenm);
-				$uploadedFile = $uploadDir.'/'.$docFile;
+					if($_FILES['docFile']['size']>0){
 
-				move_uploaded_file($_FILES['docFile']['tmp_name'],$uploadedFile);
+						$uploadDir = 'uploads/documents/'.$categoryID.'/'.$subCategoryID;
+						$ext = pathinfo($_FILES['docFile']['name'],PATHINFO_EXTENSION);
+						$ext1 = strtolower($ext);
+						if(($ext1 == 'xlsx') || ($ext1 == 'pdf') || ($ext1 == 'docx') || ($ext1 == 'csv') || ($ext1 == 'xls') || ($ext1 == 'doc')){
+							$filenm =time().'_profile.'.$ext;
+								$docFile = str_replace(' ', '-', $filenm);
+								$uploadedFile = $uploadDir.'/'.$docFile;
 
-			}
+								move_uploaded_file($_FILES['docFile']['tmp_name'],$uploadedFile);
+							
 
-			
-			
-			$data = array(
+							
+							
+							$data = array(
 
-				'docName' =>$docName,
-				'categoryID' => $categoryID,
-				'subCategoryID' => $subCategoryID, 
-				'userID' => $userID, 
-				'companyID' => $companyID,
-				'docFile' => $docFile,
-				'expireDate' => $expireDate,
-				'isActive' => isset($isActive) ? 1 : 0, 
+								'docName' =>$docName,
+								'categoryID' => $categoryID,
+								'subCategoryID' => $subCategoryID, 
+								'userID' => $userID, 
+								'companyID' => $companyID,
+								'docFile' => $docFile,
+								'expireDate' => $expireDate,
+								'isActive' => isset($isActive) ? 1 : 0, 
 
-				);
-				$insertId = $documents->insert($data);
-				if($insertId > 0){
-					$session->setFlashdata('session', "Successfully added new Document");
-					return redirect()->to('documents');
-				}
-				else{
-					$session->setFlashdata('session',"document not added Successfully");
-					return redirect()->to('documents');
+								);
+								$insertId = $documents->insert($data);
+								if($insertId > 0){
+									$session->setFlashdata('session', "Successfully added new Document");
+									return redirect()->to('documents');
+								}else{
+									$session->setFlashdata('session',"document not added Successfully");
+									return redirect()->to('documents');
+									}
+
+						}else{
+							$session->setFlashdata("error", "Document accept only .xlsx /.csv /.pdf /.csv /.xls /.doc files");
+							return redirect()->to($_SERVER['HTTP_REFERER']);
+						}
 					}
+				}	
 		}
 
         $users = new UsersModel;
@@ -94,7 +106,7 @@ class Documents extends BaseController{
 
 	
 
-		public function fetch_documents(){
+	public function fetch_documents(){
 
 		$db = \Config\Database::connect();		
   	 	$global_tblDocuments = 'DocumentsManage';
@@ -162,7 +174,14 @@ class Documents extends BaseController{
             //$imgSrc = base_url('assets/images/download1.png');
             $id = $row['id'];
             
-            $sub_array[] = '<a href = "' . base_url( '/uploads/documents/'.$row['categoryID'].'/'.$row['subCategoryID'].'/'.$row['docFile']). '" target="_blank"><i class="fa fa-file" style="font-size:36px;"></i></a>';
+            if($row['docFile'] == ''){
+            	$sub_array[] = '<div onclick="myFunction()"> <i class="fa fa-file" style="color: grey;font-size:36px;"></i></div>';
+
+            }else{
+            	 $sub_array[] = '<a href = "' . base_url( '/uploads/documents/'.$row['categoryID'].'/'.$row['subCategoryID'].'/'.$row['docFile']). '" target="_blank"><i class="fa fa-file" style="font-size:36px;"></i></a>';
+            }
+
+           
             $sub_array[] = $row['docName'];  
 			$sub_array[] = $row['firstName']." ".$row['lastName'];  
 			$sub_array[] = $row['categoryName']; 
@@ -224,56 +243,76 @@ class Documents extends BaseController{
 			$categoryID = $_POST['categoryID'];
 			$subCategoryID = $_POST['subCategoryID'];
 			$docFile = '';
-	        if ($_FILES['docFile']['size']>0) {
+			$ext1 = pathinfo($_FILES['docFile']['name'], PATHINFO_EXTENSION);
+			$extconvert = strtolower($ext1);
+			//echo $extconvert;exit;
+			if($_FILES['docFile']['size'] == 0 && $_FILES['docFile']['error'] == 1){
+				$session->setFlashdata("error", "Maximum file size to upload is 20MB");
+				return redirect()->to($_SERVER['HTTP_REFERER']);
 
-	            $uploaddir = 'uploads/documents/'.$categoryID.'/'.$subCategoryID;
+			}
+			else{
+		        if ($_FILES['docFile']['size']>0) {
 
-	            $ext = pathinfo($_FILES['docFile']['name'], PATHINFO_EXTENSION);
+		            $uploaddir = 'uploads/documents/'.$categoryID.'/'.$subCategoryID;
 
-	            $filenm = time().'_profile.'.$ext;
-	            $docFile = str_replace(' ', '-', $filenm);
-	            $uploadfile = $uploaddir .'/'. $docFile;
-
-	            move_uploaded_file($_FILES['docFile']['tmp_name'], $uploadfile);
-
-	        } else {
-	        	$docFile = $request->getPost('hidden_profilePic');
-	        }
+		            $ext = pathinfo($_FILES['docFile']['name'], PATHINFO_EXTENSION);
+		            $extconvert = strtolower($ext);
+		            if(($extconvert == 'xlsx') || ($extconvert == 'pdf') || ($extconvert == 'docx') || ($extconvert == 'csv') || ($extconvert == 'xls') || ($extconvert == 'doc')){
 
 
-			$docName = $request->getPost('docName');
-			$categoryID = $request->getPost('categoryID');
-			$subCategoryID = $request->getPost('subCategoryID'); 
-			$isActive = $request->getPost('isActive');
-			$userID = $request->getPost('userID');
-			$companyID = $request->getPost('companyID');
-			$expireDate = $request->getPost('expireDate');
-			$edited_date = date('Y-d-m H:m:s');
-			$data = array(
+		            $filenm = time().'_profile.'.$ext;
+		            $docFile = str_replace(' ', '-', $filenm);
+		            $uploadfile = $uploaddir .'/'. $docFile;
 
-				'docName' =>$docName,
-				'categoryID' => $categoryID,
-				'subCategoryID' => $subCategoryID, 
-				'userID' => $userID, 
-				'companyID' => $companyID, 
-				'docFile' => isset($docFile)?$docFile:$docfileData,
-				'expireDate' => $expireDate,
-				'edited_date' => $edited_date,
-				'isActive' => isset($isActive) ? 1 : 0, 
+		            move_uploaded_file($_FILES['docFile']['tmp_name'], $uploadfile);
+		        }
+		        else{
+		        	$session->setFlashdata("error", "Document accept only .xlsx /.csv /.pdf /.csv /.xls /.doc files");
+					return redirect()->to($_SERVER['HTTP_REFERER']);
 
-				);
-			
-			$model_documents->set($data);
-	    	$model_documents->where('id', $id);
-	    	$result =  $model_documents->update();
-	    	
-	    	if($result){ 
-	            $session->setFlashdata("success", "Document updated Successfully.");
-	            return redirect()->to('documents');
-	       	} else {
-	        	$session->setFlashdata("error", "Document not updated Successfully.");
-	            return redirect()->to('documents');  
-	        }     
+		        }
+
+		        } else {
+		        	$docFile = $request->getPost('hidden_profilePic');
+		        }
+
+
+				$docName = $request->getPost('docName');
+				$categoryID = $request->getPost('categoryID');
+				$subCategoryID = $request->getPost('subCategoryID'); 
+				$isActive = $request->getPost('isActive');
+				$userID = $request->getPost('userID');
+				$companyID = $request->getPost('companyID');
+				$expireDate = $request->getPost('expireDate');
+				$edited_date = date('Y-d-m H:m:s');
+				$data = array(
+
+					'docName' =>$docName,
+					'categoryID' => $categoryID,
+					'subCategoryID' => $subCategoryID, 
+					'userID' => $userID, 
+					'companyID' => $companyID, 
+					'docFile' => isset($docFile)?$docFile:$docfileData,
+					'expireDate' => $expireDate,
+					'edited_date' => $edited_date,
+					'isActive' => isset($isActive) ? 1 : 0, 
+
+					);
+				
+				$model_documents->set($data);
+		    	$model_documents->where('id', $id);
+		    	$result =  $model_documents->update();
+		    	
+		    	if($result){ 
+		            $session->setFlashdata("success", "Document updated Successfully.");
+		            return redirect()->to('documents');
+		       	} else {
+		        	$session->setFlashdata("error", "Document not updated Successfully.");
+		            return redirect()->to('documents');  
+		        } 
+	        
+	        }    
 		}
 
 		$this->data['page_title'] = "Document Edit";

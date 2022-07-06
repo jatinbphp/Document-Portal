@@ -39,6 +39,9 @@ class Auth extends BaseController
             $pwd = $this->request->getVar('pwd');
            
             $login = $model_auth->where('email', $email)->where('pwd', md5($pwd))->first(); 
+            $password = $login['pwd'];
+            
+
             if(!empty($login)) {
                 if($login['userTypeID'] == 0){
                    $loginUserType = 'admin' ;

@@ -76,5 +76,10 @@
     $('.Document-Menu').addClass('active');
 </script>
 <script src="<?php echo base_url('assets/js/usersTable.js') ?>"></script>
+<script>
+    function myFunction(){
+        alert("Your Document Not added.Please update your document")
+    }
+</script>
 
 

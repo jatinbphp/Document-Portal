@@ -24,11 +24,18 @@
                             <div class="row">
                                 
                                 
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="lableTitle"for="email">Email Address:<span class="asterisk-sign">*</span></label>
                                         <input type="email" name="email" class="form-control" id="email" placeholder="Email" autocomplete="off" value="<?php echo $user_info['email']; ?>">
                                         <input type="hidden" name="old_email" id="old_email" value="<?php echo $user_info['email']; ?>">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="lableTitle"for="receive_email">Email address for Email Receive:<span class="asterisk-sign">*</span></label>
+                                        <input type="receive_email" name="receive_email" class="form-control" id="receive_email" placeholder="Email address for Email Receive" autocomplete="off" value="<?php echo $user_info['receive_email']; ?>">
+                                       
                                     </div>
                                 </div>
                             </div>

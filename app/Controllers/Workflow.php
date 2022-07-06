@@ -274,6 +274,11 @@ class Workflow extends BaseController{
         $data = array();
         
         foreach ($fetch_data as $key => $row) {
+			$db      = \Config\Database::connect();
+			$builder = $db->table('workflow_documents');
+			$builder->select('documents');
+			$builder->where('workflow_id', $row['id']);
+			$queryResult = $builder->get()->getResult('array');
 			
 			
             $sub_array = array(); 
@@ -348,7 +353,9 @@ class Workflow extends BaseController{
             
             $sub_array[] = $actionLink;
             $actionLinkFile = '-';
-            if($row['is_update'] == 1){
+
+
+            if(($row['is_update'] == 1) && (count($queryResult)) > 0){
             //$actionLinkFile = $model_user->getActionLinkFile('',$row['id'],'','Workflow','',$row['document_files']);
         	//$sub_array[] = $actionLinkFile;
         	
@@ -358,6 +365,8 @@ class Workflow extends BaseController{
         	
         	//$sub_array[] = '<a href = "' . base_url( '/workflow/download_documents/'.$row['id']). '" class="btn btn-primary" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;" target="_self"><i class="fa fa-file"></i></a>';	//for workflow id
         		
+            }elseif(($row['is_active'] == 1) && (empty($queryResult))){
+            	$sub_array[] = '<div> <i class="fa fa-file" style="color: grey;font-size:28px;"></i></div>';
             }else{
             	$sub_array[] = $actionLinkFile;
             }
@@ -597,25 +606,36 @@ class Workflow extends BaseController{
 					
 		    		$additional_img_array = array();
 		    		if(count($_FILES)>0){
+
 			            foreach ($_FILES['file']['name'] as $num_key => $dummy) {
 			                foreach ($_FILES['file'] as $txt_key => $dummy) {
 			                    $additional_img_array[$num_key][$txt_key] = $_FILES['file'][$txt_key][$num_key];
 			                }
 			            }
 						
+			           	$i = 0;
 
 			            if(!empty($additional_img_array)){
 
 			                foreach ($additional_img_array as $key => $value) {
 
-			                    $filename = "";
+			                	$i++;
+			                	if($value['size'] > 20000000){
+			                		$session->setFlashdata("error", "Maximum file size to upload is 20MB");
+	            					return redirect()->to($_SERVER['HTTP_REFERER']);
+			                	}else{
+			                	$filename = "";
+			                	
 			                    if(!empty($value['name'])) {
 			                           
 			                       	$uploaddir = 'uploads/workflow/';
 
 					                $ext = pathinfo($value['name'], PATHINFO_EXTENSION);
-
-					                $filenm = time().rand(10,100).'_workflow.'.$ext;
+					                $ext1 =strtolower($ext);
+					                //echo $ext1;exit;
+					                if(($ext1 == 'xlsx') || ($ext1 == 'pdf') || ($ext1 == 'docx') || ($ext1 == 'csv') || ($ext1 == 'xls') || ($ext1 == 'doc')){
+					                	
+					                $filenm = time().rand(10,100).'_workflow_'.$i.'.'.$ext;
 					                $documents = str_replace(' ', '-', $filenm);
 					                $uploadfile = $uploaddir .'/'. $documents;
 
@@ -625,13 +645,22 @@ class Workflow extends BaseController{
 										'workflow_id' => $id,
 										'documents' => $documents,	 
 									);
-									
 									$db = \Config\Database::connect(); 
 							    	$insertd = $db->table('workflow_documents')->insert($dataImage);
+					                }
+					                else{
+					                	$session->setFlashdata("error", "Document accept only .xlsx /.csv /.pdf /.csv /.xls /.doc files");
+	            					return redirect()->to($_SERVER['HTTP_REFERER']);
+					                }
+					                
 
-			                    }            
+
+			                    } 	
+			                	}
+			                               
 			                }
 			            }
+
 		            	if($_SESSION['user_type'] == 3){
 
 		            		$model_workflow= new WorkflowModel;
@@ -841,6 +870,7 @@ class Workflow extends BaseController{
 			$builder->select('documents');
 			$builder->where('workflow_id', $id);
 			$queryResult = $builder->get()->getResult('array');
+
 			
 			$model_workflow= new WorkflowModel;
 			$model_workflow->select('document_name');
@@ -935,5 +965,7 @@ class Workflow extends BaseController{
 				}
 				*/
 		}	
+
+		
 }
 ?>

@@ -159,6 +159,46 @@ $(document).ready(function() {
             categoryID: {
                 required: true,
             },
+            docFile: {
+                required: true,
+            },
+            expireDate: {
+                required: true,
+            },
+        },
+        messages: {
+            docName: {
+                required: "Please enter Document Name",
+            },
+            // userID: {
+            //     required: "Please select User Name",
+            // },
+            categoryID: {
+                required: "Please select Category",
+            },
+            docFile: {
+                required: "Please select Document file",
+            },
+            expireDate: {
+                required: "Please select Expire Date",
+            },
+        },
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
+    $('#documentFormEdit').validate({
+        // errorClass : 'text-danger',
+        rules: {
+            docName: {
+                required: true,
+            },
+            // userID: {
+            //     required: true,
+            // },
+            categoryID: {
+                required: true,
+            },
             // docFile: {
             //     required: true,
             // },
@@ -401,9 +441,10 @@ $(document).ready(function() {
                 required: false,
                 equalTo: "#pwd"
             },
-            // userTypeID: {
-            //     required: true,
-            // },
+            receive_email: {
+                required: true,
+                email: true
+            },
         },
         messages: {
             firstName: {
@@ -424,9 +465,10 @@ $(document).ready(function() {
                 required: "Please enter Confirm Password",
                 equalTo: "Password not Match"
             },
-            // userTypeID: {
-            //     required: "Please select User Type",
-            // },
+            receive_email: {
+                required: "Please enter Email address for Email Receive",
+                email: "Please enter Valid Email Address"
+            },
         },
         submitHandler: function(form) {
             form.submit();

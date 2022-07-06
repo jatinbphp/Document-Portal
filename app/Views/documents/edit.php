@@ -20,7 +20,7 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <form id="documentFormAddEdit" method="post" action="<?php echo base_url('documents/edit/'.$docData['id']); ?>" enctype="multipart/form-data">
+                        <form id="documentFormEdit" method="post" action="<?php echo base_url('documents/edit/'.$docData['id']); ?>" enctype="multipart/form-data">
                             
                             <div class="row">
                                 <div class="col-md-4">

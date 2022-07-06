@@ -100,6 +100,9 @@
             <li class="Workflow-Menu">
                 <a class="" href="<?php echo base_url('workflow'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-9.png'); ?>" alt=""> Manage Workflow</a>
             </li>
+            <li class="OrderWorkflow-Menu">
+                <a class="" href="<?php echo base_url('orderdocuments'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-9.png'); ?>" alt=""> Order Documents</a>
+            </li>
 
 			<!-- <li class="Dashboard-Menu"><a href="<?php echo base_url('dashboard'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-1.png'); ?>" alt="">Dashboard</a></li> -->
 				

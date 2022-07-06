@@ -85,6 +85,12 @@ class SubadminWorkflowView extends BaseController
      	
         $data = array();
         foreach ($fetch_data as $key => $row) {
+
+            $db      = \Config\Database::connect();
+            $builder = $db->table('workflow_documents');
+            $builder->select('documents');
+            $builder->where('workflow_id', $row['id']);
+            $queryResult = $builder->get()->getResult('array');
             $sub_array = array(); 
             
             if($_SESSION['user_type'] == 3){
@@ -124,7 +130,10 @@ class SubadminWorkflowView extends BaseController
 		  if($row['is_active'] == 0){
             $actionLink = $model_user->getActionLinkOutstanding('',$row['id'],'Workflow','',''); 
             $sub_array[] = $actionLink;
-          }else{
+          }elseif(($row['is_active'] == 1) && (empty($queryResult))){
+            $actionLink = $model_user->getActionLinkOutstanding('',$row['id'],'Workflow','',''); 
+            $sub_array[] = $actionLink;
+            }else{
             $actionLink = $model_user->getActionLinkNew('',$row['id'],'Workflow','',''); 
             $sub_array[] = $actionLink;
           }

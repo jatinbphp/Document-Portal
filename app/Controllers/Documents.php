@@ -38,7 +38,7 @@ class Documents extends BaseController{
 			$companyID = $request->getPost('companyID');
 			$expireDate = $request->getPost('expireDate');
 			$docFile ='';
-			if($_FILES['docFile']['size'] == 0 && $_FILES['docFile']['error'] == 1){
+			if($_FILES['docFile']['size']  > 20000000){
 				$session->setFlashdata("error", "Maximum file size to upload is 20MB");
 				return redirect()->to($_SERVER['HTTP_REFERER']);
 
@@ -50,8 +50,13 @@ class Documents extends BaseController{
 						$ext = pathinfo($_FILES['docFile']['name'],PATHINFO_EXTENSION);
 						$ext1 = strtolower($ext);
 						if(($ext1 == 'xlsx') || ($ext1 == 'pdf') || ($ext1 == 'docx') || ($ext1 == 'csv') || ($ext1 == 'xls') || ($ext1 == 'doc')){
-							$filenm =time().'_profile.'.$ext;
-								$docFile = str_replace(' ', '-', $filenm);
+
+							$x = substr($_FILES['docFile']['name'], 0, strrpos($_FILES['docFile']['name'], '.'));
+							$filenm = $x.'_'.time().'.'.$ext;
+							
+							$docFile = str_replace(' ', '_', $filenm);
+							//$filenm =time().'_profile.'.$ext;
+								//$docFile = str_replace(' ', '-', $filenm);
 								$uploadedFile = $uploadDir.'/'.$docFile;
 
 								move_uploaded_file($_FILES['docFile']['tmp_name'],$uploadedFile);
@@ -81,7 +86,7 @@ class Documents extends BaseController{
 									}
 
 						}else{
-							$session->setFlashdata("error", "Document accept only .xlsx /.csv /.pdf /.csv /.xls /.doc files");
+							$session->setFlashdata("error", "Document accept only .xlsx /.csv /.pdf /.docx /.xls /.doc files");
 							return redirect()->to($_SERVER['HTTP_REFERER']);
 						}
 					}
@@ -260,15 +265,21 @@ class Documents extends BaseController{
 		            $extconvert = strtolower($ext);
 		            if(($extconvert == 'xlsx') || ($extconvert == 'pdf') || ($extconvert == 'docx') || ($extconvert == 'csv') || ($extconvert == 'xls') || ($extconvert == 'doc')){
 
+					$x = substr($_FILES['docFile']['name'], 0, strrpos($_FILES['docFile']['name'], '.'));
 
-		            $filenm = time().'_profile.'.$ext;
-		            $docFile = str_replace(' ', '-', $filenm);
+					//$filenm = $x.'_'.$i.'_'.time().'.'.$ext;
+					$filenm = $x.'_'.time().'.'.$ext;
+					
+					$docFile = str_replace(' ', '_', $filenm);
+		            //$filenm = time().'_profile.'.$ext;
+		           // $docFile = str_replace(' ', '-', $filenm);
+		          
 		            $uploadfile = $uploaddir .'/'. $docFile;
 
 		            move_uploaded_file($_FILES['docFile']['tmp_name'], $uploadfile);
 		        }
 		        else{
-		        	$session->setFlashdata("error", "Document accept only .xlsx /.csv /.pdf /.csv /.xls /.doc files");
+		        	$session->setFlashdata("error", "Document accept only .xlsx /.csv /.pdf /.docx /.xls /.doc files");
 					return redirect()->to($_SERVER['HTTP_REFERER']);
 
 		        }

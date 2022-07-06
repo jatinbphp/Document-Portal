@@ -158,7 +158,7 @@ class UserDocs extends BaseController{
 
 
         if($_POST){
-            
+            //echo "<pre>";print_r($_POST);exit;
             $request = service('request');
             $session = session();
             
@@ -168,88 +168,108 @@ class UserDocs extends BaseController{
             $subCategoryID = $request->getPost('subCategoryID'); 
             $isActive = $request->getPost('isActive');
             $userID = $_SESSION['id'];
-            $companyID = $request->getPost('companyID');
+            $companyID = $request->getPost('companyID1');
             $expireDate = $request->getPost('expireDate');
 
+            $ext11 = pathinfo($_FILES['docFile']['name'],PATHINFO_EXTENSION);
+                    $ext1= strtolower($ext11);
+                    
             $docFile ='';
-
-            if($_FILES['docFile']['size']>0){
-
-                $uploadDir = 'uploads/documents/'.$categoryID.'/'.$subCategoryID;
-                $ext = pathinfo($_FILES['docFile']['name'],PATHINFO_EXTENSION);
-                $filenm =time().'_profile.'.$ext;
-                $docFile = str_replace(' ', '-', $filenm);
-                $uploadedFile = $uploadDir.'/'.$docFile;
-
-                move_uploaded_file($_FILES['docFile']['tmp_name'],$uploadedFile);
+            if($_FILES['docFile']['size']  > 20000000){
+                $session->setFlashdata("error", "Maximum file size to upload is 20MB");
+                return redirect()->to($_SERVER['HTTP_REFERER']);
 
             }
-
-            $data1 = array(
-
-                'docName' =>$docName,
-                'categoryID' => $categoryID,
-                'subCategoryID' => $subCategoryID, 
-                'userID' => $userID, 
-                'companyID' => $companyID,
-                'companyID' => $companyID,
-                'docFile' => $docFile,
-                'expireDate' => '0000-00-00',
-                'is_user' => isset($userID) ? 1 : 0,
-                'isActive' => 0, 
-                );
+            if(($ext1 != 'xlsx') && ($ext1 != 'pdf') && ($ext1 != 'docx') && ($ext1 != 'csv') && ($ext1 != 'xls') && ($ext1 != 'doc')){
                 
-            $insertId = $documents->insert($data1);
-            
-                $users = new UsersModel;
-                $users->select('firstName,lastName');
-                $users->where('id', $_SESSION['id']);
-                $queryResult = $users->get()->getResult();
-                foreach($queryResult as $value){
-                    $userFirstName = $value->firstName;
-                    $userLastName = $value->lastName;
-                }
-                
-                $company = new CompanyModel;
-                $company->select('companyName');
-                $company->where('id', $companyID);
-                $queryResult = $company->get()->getResult();
-                foreach($queryResult as $value){
-                    $userCompanyName = $value->companyName;
-                }
-                
-
-                $url = base_url('documents/edit/'.$insertId);
-                
-                $message = 'Hello! <br> <br>
-                Document uploaded by '.$userFirstName.' '.$userLastName.'
-                <br><br>Document Name: '.$docName.'
-                <br>Company Name: '.$userCompanyName.'
-                <br><br>Please active this document by this link:<a href = "'.$url.'"> Click Here</a>';
-                
-                $email = \Config\Services::email();
-                $email->setFrom('gert@gsdm.co.za', 'HSEQ User');
-                 $email->setTo($recieve_email);
-                $email->setSubject('HSEQ Document');
-                $email->setMessage($message);
-                 if ($email->send()) 
-                {
-                    echo 'Email successfully sent';
-                } 
-                else 
-                {
-                    $data = $email->printDebugger(['headers']);
-                    print_r($data);
-                }
-
-            
-            if($insertId > 0){
-                $session->setFlashdata('session', "Successfully added new Document");
-                return redirect()->to('userdocs');
+                $session->setFlashdata("error", "Document accept only .xlsx /.csv /.pdf /.docx /.xls /.doc files");
+                    return redirect()->to($_SERVER['HTTP_REFERER']);
             }
             else{
-                $session->setFlashdata('session',"document not added Successfully");
-                return redirect()->to('userdocs');
+                if($_FILES['docFile']['size']>0){
+
+                    $uploadDir = 'uploads/documents/'.$categoryID.'/'.$subCategoryID;
+                    $ext = pathinfo($_FILES['docFile']['name'],PATHINFO_EXTENSION);
+                    $ext1= strtolower($ext);
+                   
+                        $x = substr($_FILES['docFile']['name'], 0, strrpos($_FILES['docFile']['name'], '.'));
+                        $filenm = $x.'_'.time().'.'.$ext;
+                            
+                        $docFile = str_replace(' ', '_', $filenm);
+                        // $filenm =time().'_profile.'.$ext;
+                        // $docFile = str_replace(' ', '-', $filenm);
+                        $uploadedFile = $uploadDir.'/'.$docFile;
+
+                        move_uploaded_file($_FILES['docFile']['tmp_name'],$uploadedFile);
+
+                    }
+
+                    $data1 = array(
+
+                        'docName' =>$docName,
+                        'categoryID' => $categoryID,
+                        'subCategoryID' => $subCategoryID, 
+                        'userID' => $userID, 
+                        'companyID' => $companyID,
+                        'docFile' => $docFile,
+                        'expireDate' => '0000-00-00',
+                        'is_user' => isset($userID) ? 1 : 0,
+                        'isActive' => 0, 
+                        );
+                        
+                    $insertId = $documents->insert($data1);
+                    
+                        $users = new UsersModel;
+                        $users->select('firstName,lastName');
+                        $users->where('id', $_SESSION['id']);
+                        $queryResult = $users->get()->getResult();
+                        foreach($queryResult as $value){
+                            $userFirstName = $value->firstName;
+                            $userLastName = $value->lastName;
+                        }
+                        
+                        $company = new CompanyModel;
+                        $company->select('companyName');
+                        $company->where('id', $companyID);
+                        $queryResult = $company->get()->getResult();
+                        foreach($queryResult as $value){
+                            $userCompanyName = $value->companyName;
+                        }
+                        
+
+                        $url = base_url('documents/edit/'.$insertId);
+                        
+                        $message = 'Hello! <br> <br>
+                        Document uploaded by '.$userFirstName.' '.$userLastName.'
+                        <br><br>Document Name: '.$docName.'
+                        <br>Company Name: '.$userCompanyName.'
+                        <br><br>Please active this document by this link:<a href = "'.$url.'"> Click Here</a>';
+                        
+                        $email = \Config\Services::email();
+                        $email->setFrom('gert@gsdm.co.za', 'HSEQ User');
+                         $email->setTo($recieve_email);
+                        $email->setSubject('HSEQ Document');
+                        $email->setMessage($message);
+                         if ($email->send()) 
+                        {
+                            echo 'Email successfully sent';
+                        } 
+                        else 
+                        {
+                            $data = $email->printDebugger(['headers']);
+                            print_r($data);
+                        }
+
+                    
+                    if($insertId > 0){
+                        $session->setFlashdata('session', "Successfully added new Document");
+                        return redirect()->to('userdocs');
+                    }
+                    else{
+                        $session->setFlashdata('session',"document not added Successfully");
+                        return redirect()->to('userdocs');
+                    }
+               
             }
         }
 

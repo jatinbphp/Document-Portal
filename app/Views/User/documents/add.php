@@ -1,3 +1,10 @@
+<style type="text/css">
+    #image-error{color: red;}
+</style>
+
+<div class="loader-main">
+    <div class="loader-inner"></div>
+</div>
 <div class="wrapper">
     <div class="row">
         <div class="col-sm-12">
@@ -20,7 +27,7 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <form id="documentFormAddEdit" method="post" action="<?php echo base_url('userdocs/add'); ?>" enctype="multipart/form-data">
+                        <form id="documentUserForm" method="post" action="<?php echo base_url('userdocs/add'); ?>" enctype="multipart/form-data">
                             
                             <div class="row">
                                 <div class="col-md-4">
@@ -98,7 +105,7 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label class="lableTitle"for="profilePic">Documents : </label>
+                                        <label class="lableTitle"for="profilePic">Documents :<span class="asterisk-sign">*</span> </label>
                                        <!--  <span>(We accept .JPG / .PNG / .GIF / .JPEG)</span> -->
                                         <div class="kv-avatar">
                                             <div class="file-loading">
@@ -118,8 +125,8 @@
                                 
                                <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="lableTitle"for="companyId ">Company :<span class="asterisk-sign">*</span></label>
-											<select name="companyID" id="companyID" class="form-control" REQUIRED>
+                                        <label class="lableTitle"for="companyID ">Company :<span class="asterisk-sign">*</span></label>
+											<select name="companyID1" id="companyID" class="form-control" REQUIRED>
                                          <!--select name="companyId" id="companyId" class="form-control" REQUIRED-->
                                          <!--select id="companyId" class="js-states form-control" name="companyId[]" multiple-->
 													<option value="">-- Select Company --</option>
@@ -150,8 +157,8 @@
                                 </div> -->                     
                             </div>                                
                             
-                            <button type="submit" class="btn btn-info">Submit</button>
-                            <a href="<?php echo base_url('userDocuments'); ?>" type="button" class="btn btn-warning">Back</a>
+                            <button type="submit" class="btn btn-info savebtn">Submit</button>
+                            <a href="<?php echo base_url('userdocs'); ?>" type="button" class="btn btn-warning">Back</a>
                         </form>
                     </div>
                 </div>
@@ -212,6 +219,51 @@
                 }
             });
     });
+
+         $("input[type='file']").on("change", function () {
+        var imageSizeArr = 0;
+         if(this.files[0].size > 20000000) {
+            var imageSizeArr = 1;
+         }
+         if (imageSizeArr == 1)
+            {
+               $('#image-error').text('Maximum file size to upload is 20MB');
+               $(".savebtn").attr('disabled','disabled');
+               
+            }
+            else if (imageSizeArr == 0)
+            {
+                 $('#image-error').text('');
+               $('.savebtn').removeAttr('disabled');
+            }
+    });
+
+     $('button.savebtn').on("click",function() {
+            var docName = $("#docName").val();
+            if(docName != ''){
+                var dt1 =1;
+            }
+             var categoryID = $("#categoryID").val();
+            if(categoryID != ''){
+                var dt2 =1;
+            }
+             var subCategoryID = $("#subCategoryID").val();  
+            if(subCategoryID != ''){
+                var dt3 =1;
+            }
+            var docFile = $("#docFile").val();  
+            if(docFile != ''){
+                var dt4 =1;
+            }
+            var companyID = $("#companyID1").val(); 
+
+            if(companyID != ''){
+                var dt5 =1;
+            }
+            if(dt1 == 1 && dt2 == 1 && dt3 == 1 && dt4==1 && dt5 ==1) {
+                $('.loader-main').css('display','flex');
+            }
+        });
 });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

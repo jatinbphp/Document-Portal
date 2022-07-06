@@ -1,3 +1,10 @@
+<style type="text/css">
+    #image-error{color: red;}
+</style>
+
+<div class="loader-main">
+    <div class="loader-inner"></div>
+</div>
 <div class="wrapper">
     <div class="row">
         <div class="col-sm-12">
@@ -135,7 +142,7 @@
                                 </div>                     
                             </div>                                
                             
-                            <button type="submit" class="btn btn-info">Submit</button>
+                            <button type="submit" class="btn btn-info savebtn">Submit</button>
                             <a href="<?php echo base_url('documents'); ?>" type="button" class="btn btn-warning">Back</a>
                         </form>
                     </div>
@@ -193,5 +200,53 @@
                 }
             });
         });
+
+     $("input[type='file']").on("change", function () {
+        var imageSizeArr = 0;
+         if(this.files[0].size > 20000000) {
+            var imageSizeArr = 1;
+         }
+         if (imageSizeArr == 1)
+            {
+               $('#image-error').text('Maximum file size to upload is 20MB');
+               $(".savebtn").attr('disabled','disabled');
+               
+            }
+            else if (imageSizeArr == 0)
+            {
+                 $('#image-error').text('');
+               $('.savebtn').removeAttr('disabled');
+            }
+    });
+
+     $('button.savebtn').on("click",function() {
+            //$('.loader-main').css('display','flex');
+
+             var docName = $("#docName").val();
+            if(docName != ''){
+                var dt1 =1;
+            }
+             var categoryID = $("#categoryID").val();
+            if(categoryID != ''){
+                var dt2 =1;
+            }
+             var subCategoryID = $("#subCategoryID").val();  
+            if(subCategoryID != ''){
+                var dt3 =1;
+            }
+            var docFile = $("#docFile").val();  
+            if(docFile != ''){
+                var dt4 =1;
+            }
+            var expireDate = $("#expireDate").val(); 
+
+            if(expireDate != ''){
+                var dt5 =1;
+            }
+            if(dt1 == 1 && dt2 == 1 && dt3 == 1 && dt4 ==1 && dt5 ==1) {
+                $('.loader-main').css('display','flex');
+            }
+        });
+
 });
 </script>

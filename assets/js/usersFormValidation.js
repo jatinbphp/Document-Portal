@@ -474,4 +474,44 @@ $(document).ready(function() {
             form.submit();
         }
     });
+    $('#documentUserForm').validate({
+        // errorClass : 'text-danger',
+        rules: {
+            docName: {
+                required: true,
+            },
+            categoryID: {
+                required: true,
+            },
+            subCategoryID: {
+                required: true,
+            },
+            docFile: {
+                required: true,
+            },
+            companyID1: {
+                required: true,
+            }
+        },
+        messages: {
+            docName: {
+                required: "Please enter Document Name",
+            },
+            categoryID: {
+                required: "Please select Category",
+            },
+            subCategoryID: {
+                required: "Please select Sub Category",
+            },
+            docFile: {
+                required: "Please select Document file",
+            },
+            companyID1: {
+                required: "Please select Company",
+            }
+        },
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
 });

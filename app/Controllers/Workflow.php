@@ -606,7 +606,6 @@ class Workflow extends BaseController{
 					
 		    		$additional_img_array = array();
 		    		if(count($_FILES)>0){
-
 			            foreach ($_FILES['file']['name'] as $num_key => $dummy) {
 			                foreach ($_FILES['file'] as $txt_key => $dummy) {
 			                    $additional_img_array[$num_key][$txt_key] = $_FILES['file'][$txt_key][$num_key];
@@ -614,14 +613,12 @@ class Workflow extends BaseController{
 			            }
 						
 			           	$i = 0;
-
 			            if(!empty($additional_img_array)){
-
 			                foreach ($additional_img_array as $key => $value) {
 
 			                	$i++;
 			                	if($value['size'] > 20000000){
-			                		$session->setFlashdata("error", "Maximum file size to upload is 20MB");
+			                		$session->setFlashdata("error", "Maximum file size to upload is 20 MB");
 	            					return redirect()->to($_SERVER['HTTP_REFERER']);
 			                	}else{
 			                	$filename = "";
@@ -634,9 +631,12 @@ class Workflow extends BaseController{
 					                $ext1 =strtolower($ext);
 					                //echo $ext1;exit;
 					                if(($ext1 == 'xlsx') || ($ext1 == 'pdf') || ($ext1 == 'docx') || ($ext1 == 'csv') || ($ext1 == 'xls') || ($ext1 == 'doc')){
-					                	
-					                $filenm = time().rand(10,100).'_workflow_'.$i.'.'.$ext;
-					                $documents = str_replace(' ', '-', $filenm);
+
+					                $x = substr($value['name'], 0, strrpos($value['name'], '.'));
+					                $filenm = $x.'_'.time().$i.'.'.$ext;
+					                
+					               // $filenm = time().rand(10,100).'_workflow_'.$i.'.'.$ext;
+					                $documents = str_replace(' ', '_', $filenm);
 					                $uploadfile = $uploaddir .'/'. $documents;
 
 					                move_uploaded_file($value['tmp_name'], $uploadfile);
@@ -649,7 +649,7 @@ class Workflow extends BaseController{
 							    	$insertd = $db->table('workflow_documents')->insert($dataImage);
 					                }
 					                else{
-					                	$session->setFlashdata("error", "Document accept only .xlsx /.csv /.pdf /.csv /.xls /.doc files");
+					                	$session->setFlashdata("error", "Document accept only .xlsx /.csv /.pdf /.docx /.xls /.doc files");
 	            					return redirect()->to($_SERVER['HTTP_REFERER']);
 					                }
 					                
@@ -928,7 +928,7 @@ class Workflow extends BaseController{
             	$emailval1[] = $emailval['email'];
             }
             $to = implode(",",$emailval1);
-            
+           
           
 				
 				if($flowis_activeData == 1){
@@ -955,15 +955,15 @@ class Workflow extends BaseController{
 				$email->setSubject($companyName);
 				$email->setMessage($message);
 				$email->send();
-				/*
-				 if ($email->send()){
-					echo 'Email successfully sent';
-				} 
-				else {
-					$data = $email->printDebugger(['headers']);
-					print_r($data);
-				}
-				*/
+				
+				//  if ($email->send()){
+				// 	echo 'Email successfully sent';
+				// } 
+				// else {
+				// 	$data = $email->printDebugger(['headers']);
+				// 	print_r($data);
+				// }
+				
 		}	
 
 		

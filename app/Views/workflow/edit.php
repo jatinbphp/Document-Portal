@@ -370,9 +370,9 @@
        $(document).on("change",".uploadFile", function(e)
        {
 
-            $.each('.elements', function() { 
+            /*$.each('.elements', function() { 
                alert($(this).attr('id'))
-            });
+            });*/
             //alert($(this).attr('id'));
             var fileid = $(this).attr('id');
             var items = fileid.split('-');

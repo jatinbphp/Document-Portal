@@ -477,7 +477,7 @@ class Workflow extends BaseController{
 	}
 
 	public function edit($id=''){
-	$redirect_url = $_SERVER['HTTP_REFERER'];
+	
 	//$model_workflow = new WorkflowModel;
 	$model_workflow = new WorkflowModel;
 	$flowData = $model_workflow->Where('id',$id)->first();

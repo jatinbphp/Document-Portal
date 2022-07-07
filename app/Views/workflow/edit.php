@@ -246,9 +246,44 @@
                                     </div>
                                     </div>
                                 </div>
+                                
+                                <!--start table-->
+                               
+                                <div class="col-lg-12 col-md-6 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                        <table class="table">
+										  <thead class="thead-dark">
+											<tr>
+											  <th scope="col" style="width: 10%">#<?php $counter = 1 ?></th>
+											  <th scope="col" style="width: 70%">File Name</th>
+											  <th scope="col" style="width: 20%">Action</th>
+											</tr>
+										  </thead>
+										  <tbody>
+											  <?php if(!empty($documents)): ?> 
+												<?php foreach($documents as $value): ?>
+													<tr>
+														<td scope="row"><?php echo $counter++ ?></td>
+														<td><?php echo $value['documents'] ?></td>
+														<td><a href = "<?php echo base_url( '/uploads/workflow/'.$value['documents']) ?>" class="btn btn-primary" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;" target="_blank"><i class="fa fa-file"></i></a></td>
+													</tr>
+													<?php endforeach ?>
+												<?php endif ?>
+												
+												<?php if(empty($documents)): ?> 
+													<tr><td colspan = "3" style="text-align: center;">No data available<td></tr>
+												<?php endif ?>
+												
+												</tbody>
+										  
+										</table>  
+                                    </div>
+                                </div>
+                              <!--end table-->  
                             </div>
                         </div>
                     </div>
+  
 
           <?php }
             } ?>   

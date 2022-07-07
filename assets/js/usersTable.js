@@ -381,6 +381,9 @@ $(document).ready(function() {
     //company filter in documentlist
     $('#companySearch').change(function(e) {
         $companyId = $('#companySearch').val();
+        //show all documents only when a company is selected
+        $(".docTable").show();
+        $("#userFilter").show();
         $("#documentsTable, #uploadedDocuments").dataTable().fnDestroy();
         filterCompanyData();
     });

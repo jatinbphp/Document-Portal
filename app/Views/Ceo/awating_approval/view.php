@@ -121,13 +121,13 @@
                 <div class="form-group">
 
                                     <label class="lableTitle"for="sec_approval_status">Approval :<span class="asterisk-sign">*</span></label>
-                                    <div class="form-group form-check">
-                                       
+                                    <div class="form-group form-check pl-0">
+                                       <p class= "apperr">
                                         <input type="radio" id="sec_approval_status" name="sec_approval_status" value="1">
                                         <label for="sec_approval_status">APPROVE</label>
                                         <input type="radio" id="sec_approval_status" name="sec_approval_status" value="0">
                                         <label for="sec_approval_status">REJECT</label><br>
-                                       
+                                       </p>
 
                                     </div>
                                
@@ -155,5 +155,4 @@
     $("#getId").val(id);
   }
 </script>
-
 <script src="<?php echo base_url('assets/js/usersFormValidation.js') ?>"></script>

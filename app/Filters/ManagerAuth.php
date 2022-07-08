@@ -4,7 +4,7 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\Filters\FilterInterface;
 
-class CeoAuth implements FilterInterface
+class ManagerAuth implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
@@ -20,9 +20,9 @@ class CeoAuth implements FilterInterface
                     return redirect()->to('userdashboard');
                 } else if (session()->get('loginUserType') == "user") {
                     return redirect()->to('userdashboard');
-                } else if (session()->get('loginUserType') == "manager") {
+                }else if (session()->get('loginUserType') == "ceo") {
                     return redirect()->to('userdashboard');
-                } else if (session()->get('loginUserType') == "technician") {
+                }else if (session()->get('loginUserType') == "technician") {
                     return redirect()->to('userdashboard');
                 }
           

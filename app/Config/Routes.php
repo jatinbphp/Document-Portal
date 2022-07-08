@@ -112,23 +112,23 @@ $routes->get('orderdocuments/(:any)', 'OrderDocuments::$1',['filter' => 'adminau
 $routes->get('OrderDocuments', 'OrderDocuments::index',['filter' => 'adminauth']);
 $routes->get('OrderDocuments/(:any)', 'OrderDocuments::$1',['filter' => 'adminauth']);
 
-$routes->get('subadminworkflow', 'SubadminWorkflow::index',['filter' => 'auth']);
-$routes->get('subadminworkflow/(:any)', 'SubadminWorkflow::$1',['filter' => 'auth']);
-$routes->get('SubadminWorkflow', 'SubadminWorkflow::index',['filter' => 'auth']);
-$routes->get('SubadminWorkflow/(:any)', 'SubadminWorkflow::$1',['filter' => 'auth']);
+$routes->get('subadminworkflow', 'SubadminWorkflow::index',['filter' => 'subad']);
+$routes->get('subadminworkflow/(:any)', 'SubadminWorkflow::$1',['filter' => 'subad']);
+$routes->get('SubadminWorkflow', 'SubadminWorkflow::index',['filter' => 'subad']);
+$routes->get('SubadminWorkflow/(:any)', 'SubadminWorkflow::$1',['filter' => 'subad']);
 
-$routes->get('SubadminWorkflowView', 'SubadminWorkflowView::index',['filter' => 'auth']);
-$routes->get('SubadminWorkflowView/(:any)', 'SubadminWorkflowView::$1',['filter' => 'auth']);
-$routes->get('SubadminWorkflowView', 'SubadminWorkflowView::index',['filter' => 'auth']);
-$routes->get('SubadminWorkflowView/(:any)', 'SubadminWorkflowView::$1',['filter' => 'auth']);
+$routes->get('SubadminWorkflowView', 'SubadminWorkflowView::index',['filter' => 'subad']);
+$routes->get('SubadminWorkflowView/(:any)', 'SubadminWorkflowView::$1',['filter' => 'subad']);
+$routes->get('SubadminWorkflowView', 'SubadminWorkflowView::index',['filter' => 'subad']);
+$routes->get('SubadminWorkflowView/(:any)', 'SubadminWorkflowView::$1',['filter' => 'subad']);
 
 
 
-$routes->match(['get','post'],'subdocuments', 'SubDocuments::index',['filter' => 'auth']);
-$routes->match(['get','post'],'subdocuments/(:any)', 'SubDocuments::$1',['filter' => 'auth']);
+$routes->match(['get','post'],'subdocuments', 'SubDocuments::index',['filter' => 'subad']);
+$routes->match(['get','post'],'subdocuments/(:any)', 'SubDocuments::$1',['filter' => 'subad']);
 
 //sub-admin documents
-$routes->get('subadminDocuments', 'SubadminDocument::index',['filter' => 'auth']);
+$routes->get('subadminDocuments', 'SubadminDocument::index',['filter' => 'subad']);
 
 
 //$routes->get('reporting/documents', 'UploadedDocuments::index',['filter' => 'auth']);
@@ -145,7 +145,7 @@ $routes->match(['get','post'],'change_password/(:any)', 'EditProfile::$1',['filt
 
 // User Routes
 //Document Managemant
-$routes->get('userDocuments', 'UserDocuments::index',['filter' => 'artistauth']);
+$routes->get('userDocuments', 'Mamnager::index',['filter' => 'artistauth']);
 $routes->get('userDocuments/(:any)', 'UserDocuments::$1',['filter' => 'artistauth']);
 $routes->get('UserDocuments', 'UserDocuments::index',['filter' => 'artistauth']);
 $routes->get('UserDocuments/(:any)', 'UserDocuments::$1',['filter' => 'artistauth']);
@@ -164,9 +164,16 @@ $routes->match(['get','post'],'ceoview/(:any)', 'CeoAwatingView::$1',['filter' =
 
 
 
+//manager routes
+
+$routes->get('manager', 'Mamnager::index',['filter' => 'managerauth']);
+$routes->get('manager/(:any)', 'Mamnager::$1',['filter' => 'managerauth']);
 
 
+//technician routes
 
+$routes->get('technician', 'Technician::index',['filter' => 'tecnicianauth']);
+$routes->get('technician/(:any)', 'Technician::$1',['filter' => 'tecnicianauth']);
 
 /*
  * --------------------------------------------------------------------

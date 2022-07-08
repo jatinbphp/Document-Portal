@@ -439,7 +439,7 @@ $(document).ready(function() {
                 url: "documents/fetch_documents",
                 type: "POST",
                 data: {
-					//fetch userdata based in selected company 
+                    //fetch userdata based in selected company 
                     'user_id': $('#userSearch').val(),
                     'company_id': $('#companySearch').val() //get company id
                 }
@@ -931,10 +931,10 @@ $(document).ready(function() {
         $companyId = $('#companyOrderDocument').val();
         $(".orderTable").show();
         $("#orderDocumentsTable").dataTable().fnDestroy();
-        filterCompanyDataWorkflow();
+        filterCompanyDataWorkflow1();
     });
 
-    function filterCompanyDataWorkflow() {
+    function filterCompanyDataWorkflow1() {
         //reporting table
         var table1 = $('#orderDocumentsTable').DataTable({
             "processing": true,

@@ -81,7 +81,7 @@ class Auth extends BaseController
                 $model_users->where('id', $login['id']);
                 $result =  $model_users->update();
                 
-                if($login['userTypeID'] == 1 ||$login['userTypeID'] == 2 || $login['userTypeID'] == 3){
+                if($login['userTypeID'] == 1 ||$login['userTypeID'] == 2 || $login['userTypeID'] == 3 || $login['userTypeID'] == 4 || $login['userTypeID'] == 5){
                     $this->session->set($logged_in_sess); 
                 $session = session();
                 $session->setFlashdata("success", "Login successful!");

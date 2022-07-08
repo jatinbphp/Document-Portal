@@ -164,13 +164,50 @@ if($_SESSION['user_type'] == 3){ ?>
 			<div class="col-md-6 col-lg-3 col-xl-3">
 				<div class="box coleql_height">
 					<div class="media">
-						<a href="<?php echo base_url('/');?>">
+						<a href="<?php echo base_url('/awaitingapprove');?>">
 						<div class="media-body company">
-							<h3><?php echo "0";?></h3>
-							<?php echo strtoupper('Documents'); ?>
+							<h3><?php echo $compTotal; ?></h3>
+							<?php echo strtoupper('Company'); ?>
 						</div>
-						<div class="icon"><a href="<?php echo base_url('/');?>"><img class ="user" src="<?php echo base_url('assets/images/document.png'); ?>" alt=""></a></div>
-						</a>
+						<div class="icon"><a href="<?php echo base_url('/awaitingapprove');?>"><img  class ="company"src="<?php echo base_url('assets/images/company.png'); ?>" alt=""></a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<?php }
+elseif($_SESSION['user_type']==4){ ?>
+	<div class="wrapper">
+		<div class="row stats">
+			
+			<div class="col-md-6 col-lg-3 col-xl-3">
+				<div class="box coleql_height">
+					<div class="media">
+						<a href="<?php echo base_url('/awaitingapprove');?>">
+						<div class="media-body company">
+							<h3><?php echo $compTotal; ?></h3>
+							<?php echo strtoupper('Manager'); ?>
+						</div>
+						<div class="icon"><a href="<?php echo base_url('/awaitingapprove');?>"><img  class ="company"src="<?php echo base_url('assets/images/company.png'); ?>" alt=""></a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<?php }
+elseif($_SESSION['user_type']==5){ ?>
+	<div class="wrapper">
+		<div class="row stats">
+			
+			<div class="col-md-6 col-lg-3 col-xl-3">
+				<div class="box coleql_height">
+					<div class="media">
+						<a href="<?php echo base_url('/awaitingapprove');?>">
+						<div class="media-body company">
+							<h3><?php echo $compTotal; ?></h3>
+							<?php echo strtoupper('Technician'); ?>
+						</div>
+						<div class="icon"><a href="<?php echo base_url('/awaitingapprove');?>"><img  class ="company"src="<?php echo base_url('assets/images/company.png'); ?>" alt=""></a></div>
 					</div>
 				</div>
 			</div>

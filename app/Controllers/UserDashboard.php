@@ -13,7 +13,7 @@ use App\Models\UserCompanyModel;
 class UserDashboard extends BaseController
 {
     public function index()
-    {  if($_SESSION['user_type']== 1 || $_SESSION['user_type']== 2 || $_SESSION['user_type']== 3){
+    {  if($_SESSION['user_type']== 1 || $_SESSION['user_type']== 2 || $_SESSION['user_type']== 3 || $_SESSION['user_type']== 4 || $_SESSION['user_type']== 5){
             $userId = $_SESSION['id'];
             $company_get = new UsersModel;
             $companyId = $company_get->where('id',$_SESSION['id'])->first();

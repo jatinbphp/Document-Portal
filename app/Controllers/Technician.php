@@ -5,12 +5,9 @@ use App\Models\UsersModel;
 use App\Models\User_typesModel;
 use App\Models\CompanyModel;
 use App\Models\UserCompanyModel;
-class AdminWaitApprove extends BaseController{
+class Technician extends BaseController{
 
-	public function index($id = ''){
-		echo "<pre>";print_r($_GET);exit;
-		if($_GET){
-
-		}
+	public function index(){
+		echo "Welcome to manager";exit;
 	}
 }

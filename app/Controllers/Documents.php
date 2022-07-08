@@ -126,9 +126,19 @@ class Documents extends BaseController{
 			
  			  $whereEqual[$global_tblDocuments.'.companyID']= trim($_POST['company_id']);
  		}
+ 		/*
  		if(isset($_POST['user_id']) && $_POST['user_id'] != '' ){
 			
  			  $whereEqual[$global_tblDocuments.'.userID']= trim($_POST['user_id']);
+ 		}
+ 		*/ 
+ 		
+ 		//equal condition
+ 		//fetch the user based on the selected company
+ 		if(isset($_POST['user_id']) && $_POST['user_id'] != '' && isset($_POST['company_id']) && $_POST['company_id'] != '' ){
+			
+ 			  $whereEqual[$global_tblDocuments.'.userID']= trim($_POST['user_id']);
+ 			  $whereEqual[$global_tblDocuments.'.companyID']= trim($_POST['company_id']);
  		}
 
  		$whereIn = array(); 

@@ -439,7 +439,9 @@ $(document).ready(function() {
                 url: "documents/fetch_documents",
                 type: "POST",
                 data: {
-                    'user_id': $('#userSearch').val()
+					//fetch userdata based in selected company 
+                    'user_id': $('#userSearch').val(),
+                    'company_id': $('#companySearch').val() //get company id
                 }
             },
             "columnDefs": [{

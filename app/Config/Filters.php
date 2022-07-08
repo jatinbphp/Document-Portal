@@ -27,6 +27,7 @@ class Filters extends BaseConfig
 		'adminauth'     => \App\Filters\AdminAuth::class,
 		'subadmin'     => \App\Filters\SubAdmin::class,
 		'nosubadminauth'     => \App\Filters\NoSubAuth::class,
+		'ceoauth'     => \App\Filters\CeoAuth::class,
 	];
 
 	/**

@@ -349,38 +349,21 @@ $(document).ready(function() {
             }]
         });
     }
-    // function filterUserfilterData1() {
-    //     $('#UserdocumentsTable').DataTable({
-    //         "processing": true,
-    //         "serverSide": true,
-    //         "responsive": true,
-    //         "order": [],
-    //         "ajax": {
-    //             url: "userdocs/fetch_documents",
-    //             type: "POST",
-    //             data: {
-    //                 'user_id': $('#userSearchuser').val()
-    //             }
-    //         },
-    //         "columnDefs": [{
-    //             "orderable": false,
-    //             "targets": -1
-    //         }, {
-    //             "orderable": false,
-    //             "targets": 0
-    //         }, {
-    //             "orderable": false,
-    //             "targets": 5
-    //         }, {
-    //             "width": "10%",
-    //             "targets": 0
-    //         }, {
-    //             "width": "15%",
-    //             "targets": 1
-    //         }, {
-    //             "width": "10%",
-    //             "targets": 2
-    //         }]
-    //     });
-    // }
+    $('#ceoAwatingTable').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "responsive": true,
+        "order": [],
+        "ajax": {
+            url: "awaitingapprove/fetch_ceo_company_data",
+            type: "POST",
+        },
+        "columnDefs": [{
+            "orderable": false,
+            "targets": -1
+        }, {
+            "width": "85%",
+            "targets": 0
+        }, ]
+    });
 });

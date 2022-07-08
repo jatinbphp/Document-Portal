@@ -514,4 +514,64 @@ $(document).ready(function() {
             form.submit();
         }
     });
+    $('#workflowFormApprove').validate({
+        // errorClass : 'text-danger',
+        rules: {
+            company_id: {
+                required: true,
+            },
+        },
+        messages: {
+            company_id: {
+                required: "Please select company",
+            },
+        },
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
+    $('#workflowFormCeoAprov').validate({
+        // errorClass : 'text-danger',
+        rules: {
+            usertype_id: {
+                required: true,
+            },
+            comments: {
+                required: true,
+            },
+        },
+        messages: {
+            usertype_id: {
+                required: "Please select User",
+            },
+            comments: {
+                required: "Please enter Comments",
+            },
+        },
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
+    $('#waitingApprovalCeoForm').validate({
+        // errorClass : 'text-danger',
+        rules: {
+            comments: {
+                required: true,
+            },
+            sec_approval_status: {
+                required: true,
+            },
+        },
+        messages: {
+            comments: {
+                required: "Please enter Comments",
+            },
+            sec_approval_status: {
+                required: "Please select approval",
+            },
+        },
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
 });

@@ -12,21 +12,22 @@ use App\Models\CompanyModel;
 use App\Models\ReportingModel;
 use App\Models\User_typesModel;
 
-class SubadminWorkflowView extends BaseController
+class CeoAwatingView extends BaseController
 {
     public function index($id)
     {  
        
             $userId = $_SESSION['id'];
-            $this->data['page_title'] = 'SubadminWorkflow';
+            $this->data['page_title'] = 'ceoview';
             
             $this->data['company_id'] = $id;
-            $this->render_user_template('subadminworkflow/view', $this->data);
+            $this->render_user_template('Ceo/awating_approval/view', $this->data);
        
     }
 
    
-   public function fetch_workflow_view($id = null){
+   public function fetch_awaiting_view($id = null){
+   	   
     
         $db = \Config\Database::connect();		
   	 	$global_tblWorkflow = 'document_workfolw';
@@ -38,19 +39,23 @@ class SubadminWorkflowView extends BaseController
 
         // equal condition
 	  	 $whereEqual=array();
-         
          // $wherarr = array(
-         //    $global_tblWorkflow.'.company_id' =>$id,
-         //    $global_tblWorkflow.'.usertype_id' =>3
+         // 	$global_tblWorkflow.'.company_id' =>$id,
+         // 	$global_tblWorkflow.'.usertype_id' =>1
          // ); 
-
-         //$whereEqual = $wherarr;
-	  	$whereEqual=array($global_tblWorkflow.'.company_id'=>$id);
+	  	 $whereEqual=array($global_tblWorkflow.'.company_id'=>$id);
+	  	 //$whereEqual = $wherarr;
         
         // not equal condition
         $whereNotEqual = array();
         $is_deleted = 1;
-        $whereNotEqual=array($global_tblWorkflow.'.is_deleted'=>$is_deleted);
+        $wherarr = array(
+         	$global_tblWorkflow.'.is_deleted' =>$is_deleted,
+         	$global_tblWorkflow.'.approve_company' =>0
+         ); 
+        
+        // $whereNotEqual=array($global_tblWorkflow.'.is_deleted'=>$is_deleted);
+        $whereNotEqual=$wherarr;
 
         $notIn = array();     
 
@@ -99,25 +104,18 @@ class SubadminWorkflowView extends BaseController
             $queryResult = $builder->get()->getResult('array');
             $sub_array = array(); 
             
-            if($_SESSION['user_type'] == 3){
+            
              
             $sub_array[] = $row['document_name'];
             $sub_array[] = $row['userTypeName']; 
             $sub_array[] = $row['categoryName']; 
 			$sub_array[] = $row['SubCatName']; 
-			//$actionLinkCompany  = $model_user->getActionLinkComapany('',$row['id'],'','Workflow','');
 			$sub_array[] = $row['companyName'];
-
-			//$sub_array[] = $row['document_files'];
-
-           $actionLinkComment = $model_user->actionLinkComment('',$row['id'],'',$row['comments'],'');
+          
+            $actionLinkComment = $model_user->actionLinkComment('',$row['id'],'',$row['comments'],'');
             $sub_array[] = $actionLinkComment;
-             $actionLinkCommentbyceo = $model_user->actionLinkCommentCeo('',$row['id'],'',$row['ceo_comments'],'');
-            $sub_array[] =  $actionLinkCommentbyceo;
-			//$sub_array[] = $row['comments']; 
 			$sub_array[] = $row['start_date']; 
-			$sub_array[] = $row['expire_date'];
-           
+			$sub_array[] = $row['expire_date']; 
             if($row['is_active'] == 1){
                 $sub_array[] = '<span class="badge badge-success">APPROVED</span>';
             }else if($row['is_active'] == 2){
@@ -133,91 +131,27 @@ class SubadminWorkflowView extends BaseController
                 $sub_array[] = '<span class="badge badge-danger">OUTSTANDING</span>';
             } 
 
+            $actionLink = $model_user->actionLinkView('',$row['id'],'','','');
+		 	$sub_array[] = $actionLink;
 
-		 	
-
-		  if($row['is_active'] == 0){
-            $actionLink = $model_user->getActionLinkOutstanding('',$row['id'],'Workflow','',''); 
-            $sub_array[] = $actionLink;
-          }elseif(($row['is_active'] == 1) && (empty($queryResult))){
-            $actionLink = $model_user->getActionLinkOutstanding('',$row['id'],'Workflow','',''); 
-            $sub_array[] = $actionLink;
-            }else{
-            $actionLink = $model_user->getActionLinkNew('',$row['id'],'Workflow','',''); 
-            $sub_array[] = $actionLink;
-          }
-        	//$sub_array[] = $row['dateAdded'];
-         	// $actionLink = $model_user->getActionLinkNew('',$row['id'],'Workflow','',''); 
-          //   $sub_array[] = $actionLink;
+		  // if($row['is_active'] == 0){
+    //         $actionLink = $model_user->getActionLinkOutstanding('',$row['id'],'Workflow','',''); 
+    //         $sub_array[] = $actionLink;
+    //       }elseif(($row['is_active'] == 1) && (empty($queryResult))){
+    //         $actionLink = $model_user->getActionLinkOutstanding('',$row['id'],'Workflow','',''); 
+    //         $sub_array[] = $actionLink;
+    //         }else{
+    //         $actionLink = $model_user->getActionLinkNew('',$row['id'],'Workflow','',''); 
+    //         $sub_array[] = $actionLink;
+    //       }
+        	
               $model_user= new WorkflowModel;
             $updateData = $model_user->where('id',$row['id'])->first();
             $expireDate = date('Y-m-d',strtotime($updateData['expire_date']));
             $currentDate = date('Y-m-d');
-            //$currentDate = date('Y-m-d', strtotime('+1 days'));
-           //  if($row['is_active'] == 1){
-           //      $actionLink = $model_user->getActionLinkDataSubmit('',$row['id'],'','Workflow','');
-                
-           //      $sub_array[] = $actionLink;
-           //  }
-           // else if($updateData['id'] == $row['id'] && $updateData['is_update'] == 1 && $row['is_active'] == 2 ){
-           //     $dd1 = "When Approved by Admin then will display file"; 
-           //     $sub_array[] = $dd1;
-           //  }
             
-           //  else if($expireDate == $currentDate || $row['is_active'] == 3){
-           //      $actionLink = $model_user->getActionLinkData('',$row['id'],'','Workflow','');
-           //      $dd = "-"; 
-           //      $sub_array[] = $dd;
-           //    //$dd = "<span class= 'btn-info'></span>"; 
-           //     //$sub_array[] =$actionLink;
-           //  }
-           //  elseif($row['is_active'] == 0){
-           //     $actionLink = $model_user->getActionLinkDatapending('',$row['id'],'','Workflow','');
-                
-           //      $sub_array[] = $actionLink; 
-           //  }
-           //  else{
-           //      $actionLink = $model_user->getActionLinkData('',$row['id'],'','Workflow','');
-                
-           //      $sub_array[] = $actionLink;
-           //  }   
             $data[] = $sub_array;	
-            }
-            else{
-            	
-            // $imgSrc = base_url('assets/images/download1.png');
-            //   $sub_array[] = '<a href = "' . base_url( '/workflow/view_documents/'.$row['id']). '" target="_blank"><button class = "btn btn-primary">View Documents</button></a>';
-            $sub_array[] = $row['document_name'];
-            $sub_array[] = $row['userTypeName']; 
-            $sub_array[] = $row['categoryName']; 
-			$sub_array[] = $row['SubCatName']; 
-			//$actionLinkCompany  = $model_user->getActionLinkComapany('',$row['id'],'','Workflow','');
-			$sub_array[] = $row['companyName'];
-
-			//$sub_array[] = $row['document_files'];
-          
-
-			$sub_array[] = $row['comments']; 
-			$sub_array[] = $row['start_date']; 
-			$sub_array[] = $row['expire_date']; 
-			if($row['is_active'] == 1){
-                $sub_array[] = '<span class="badge badge-success">Active</span>';
-            }else{
-                $sub_array[] = '<span class="badge badge-danger">InActive</span>';
-            } 
-		 	
-
-		    
-        	//$sub_array[] = $row['dateAdded'];
-         	//$actionLink = $model_user->getActionLink('',$row['id'],'Workflow','',$row['userTypeID']); 
-         	
-
-
-            $actionLink = $model_user->getActionLink('',$row['id'],'','Workflow','');
             
-            $sub_array[] = $actionLink;
-            $data[] = $sub_array;
-        }
 
         } 
         $output = array(
@@ -232,6 +166,70 @@ class SubadminWorkflowView extends BaseController
     }
 
     
+    public function update(){
+    	if($_POST){
+			$model_workflow = new WorkflowModel;
+			$request = service('request');
+			$session = session();
+			$comments = $request->getPost('comments');
+			$sec_approval_status = $request->getPost('sec_approval_status');
+			$id = $request->getPost('getId');
+			$data = array(
+				'ceo_comments' => $comments,
+				'sec_approval_status' => $sec_approval_status,
+			);
+
+			$model_workflow->set($data);
+	    	$model_workflow->where('id', $id);
+	    	$result =  $model_workflow->update();
+
+	    	$model_user = new UsersModel;
+	        $email1 = $model_user->where('userTypeID',0)->where('super_admin',1)->first();
+		        if(count($email1)>0){
+		           $recieve_email = $email1['receive_email']; 
+		        }else{
+		           $recieve_email = 'amit.kk.php@gmail.com';
+		        }
+
+		        if($sec_approval_status == 1){
+		        	$status = 'APPROVE';
+		        }
+		        else{
+		        	$status = 'REJECT';
+		        }
+	        
+	        $userFirstName = $email1['firstName'];
+	        $userLastName = $email1['lastName'];
+	        
+	             $message = ' <b>Hello! <br> <br>
+                         '.$userFirstName.' '.$userLastName.' </b>
+                        <br><br><b>Comments-</b> '.$comments.'
+                        <br><b>Status- </b> '.$status.' '; 
+                        
+                        $email = \Config\Services::email();
+                        $email->setFrom('gert@gsdm.co.za', 'HSEQ User');
+                         $email->setTo($recieve_email);
+                        $email->setSubject('HSEQ Document');
+                        $email->setMessage($message);
+                         if ($email->send()) 
+                        {
+                            echo 'Email successfully sent';
+                        } 
+                        else 
+                        {
+                            $data = $email->printDebugger(['headers']);
+                            print_r($data);
+                        }
+
+	    	if($result ){ 
+		            $session->setFlashdata("success", "Data updated Successfully.");
+		            return redirect()->to($_SERVER['HTTP_REFERER']);
+	           	} else {
+		        	$session->setFlashdata("error", "Something went wrong.");
+		            return redirect()->to($_SERVER['HTTP_REFERER']);  
+		        }  
+    	}
+    }
 
     
     

@@ -36,4 +36,18 @@ if($_SESSION['user_type'] == 2){ ?>
 </div>
 <div class="body-overlay"></div>
 
+<?php } elseif($_SESSION['user_type'] == 1){?>
+
+	<div class="sidebar">
+	<div class="sidebar-menu">
+		<button type="button" class="menu-close menu-btn d-block d-xl-none"><span class="sr-only">MENU</span></button>
+		<ul class="accordion">
+			<li class="Dashboard-Menu"><a href="<?php echo base_url('userdashboard'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-1.png'); ?>" alt="">Dashboard</a></li>
+
+			<li class="Document-Menu"><a href="<?php echo base_url('awaitingapprove'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-1.png'); ?>" alt="">AWAITING APPROVAL </a></li>
+
+			
+	</div>
+</div>
+<div class="body-overlay"></div>
 <?php }?>

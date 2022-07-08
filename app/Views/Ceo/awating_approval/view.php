@@ -51,7 +51,7 @@
             </h3>
              <div class="item-wrap item-list-table">
                 <input type="hidden" value="<?php echo $company_id; ?>" id="company_id_pass">
-                <table id="subaddworkflowTable" class="table table-bordered display responsive nowrap" cellspacing="0" width="100%" >
+                <table id="ceoworkflowTable" class="table table-bordered display responsive nowrap" cellspacing="0" width="100%" >
 
                   
                     <thead class="thead-dark">
@@ -63,11 +63,10 @@
                             <th>Sub Category</th>
                             <th>Company</th>
                             <th>Comments</th>
-                            <th>2nd Approval Comments</th>
                             <th>Start Date</th>
                             <th>Expire Date</th>
                             <th>Status</th>
-                            <th style="width: 15%">Action</th>
+                            <th style="width: 15%">Approval</th>
                         </tr>
                     </thead>
                          
@@ -94,3 +93,67 @@
 </script>
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.dataTables.min.css">
 <script src="<?php echo base_url('assets/js/usersTable.js?v='.time()) ?>"></script>
+ <form id="waitingApprovalCeoForm" method="post" action="<?php echo base_url('ceoview/update'); ?>" enctype="multipart/form-data">
+<div class="modal fade" id="approvalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Approval</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+            <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="lableTitle"for="comments"> Comments :<span class="asterisk-sign">*</span></label>
+
+                    <textarea name="comments" id ="comments" ></textarea>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+
+                                    <label class="lableTitle"for="sec_approval_status">Approval :<span class="asterisk-sign">*</span></label>
+                                    <div class="form-group form-check">
+                                       
+                                        <input type="radio" id="sec_approval_status" name="sec_approval_status" value="1">
+                                        <label for="sec_approval_status">APPROVE</label>
+                                        <input type="radio" id="sec_approval_status" name="sec_approval_status" value="0">
+                                        <label for="sec_approval_status">REJECT</label><br>
+                                       
+
+                                    </div>
+                               
+                    
+                </div>
+            </div>
+        </div>
+        <input type="hidden" name="getId" id = "getId" value= "">
+            
+     
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-primary savebtn">Save</button> -->
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+ </form>
+<script>
+  
+  function show_dialog(id = ''){
+    $("#getId").val(id);
+  }
+</script>
+
+<script src="<?php echo base_url('assets/js/usersFormValidation.js') ?>"></script>

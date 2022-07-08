@@ -327,11 +327,15 @@ class Workflow extends BaseController{
 			$sub_array[] = $row['companyName'];
 
 			//$sub_array[] = $row['document_files'];
+			
           
 			$actionLinkComment = $model_user->actionLinkComment('',$row['id'],'',$row['comments'],'');
 			$sub_array[] = $actionLinkComment;
+
+			
 			$sub_array[] = $row['start_date'];
 			$sub_array[] = $row['expire_date'];
+
 			if($row['is_active'] == 1){
                 $sub_array[] = '<span class="badge badge-success">APPROVED</span>';
             }elseif($row['is_active'] == 2){
@@ -347,6 +351,14 @@ class Workflow extends BaseController{
                 $sub_array[] = '<span class="badge badge-danger">OUTSTANDING</span>';
             } 
 		 
+		 $actionLinkCommentbyceo = $model_user->actionLinkCommentCeo('',$row['id'],'',$row['ceo_comments'],'');
+            $sub_array[] =  $actionLinkCommentbyceo;
+
+		    if($row['sec_approval_status'] == 1){
+                $sub_array[] = '<span class="badge badge-success">APPROVED</span>';
+            }else{
+            	$sub_array[] = '<span class="badge badge-danger">REJECTED</span>';
+            }
          	//$actionLink = $model_user->getActionLink('',$row['id'],'Workflow','',$row['userTypeID']); 
          	
             $actionLink = $model_user->getActionLink('',$row['id'],'','Workflow','');
@@ -370,6 +382,11 @@ class Workflow extends BaseController{
             }else{
             	$sub_array[] = $actionLinkFile;
             }
+
+          
+             $actionLinkFile = $model_user->getActionLinkFileWait('',$row['id'],'','Workflow','',$row['document_files']);
+        	$sub_array[] = $actionLinkFile;
+            //
             //$sub_array[] = $row['update_seq'];
             //$actionLinkFile = $model_user->getActionLinkFile('',$row['id'],'','Workflow','');
         	
@@ -965,6 +982,105 @@ class Workflow extends BaseController{
 				// }
 				
 		}	
+
+
+	public function wait_approval($id= ''){
+
+		$model_company = new CompanyModel;
+		$company = $model_company->findAll();
+		$this->data['id'] = $id;
+		$this->data['company'] = $company;
+		$this->data['title'] = 'Approval';
+		$this->render_template('workflow/approval',$this->data);
+
+		
+	}
+
+	public function approve_company($id= ''){
+		$model_workflow = new WorkflowModel;
+		$request = service('request');
+		$session = session();
+		$company = $request->getPost('company_id');
+		
+		$data = array(
+			'approve_company' => $company,
+		);
+
+		$model_workflow->set($data);
+    	$model_workflow->where('id', $id);
+    	$result =  $model_workflow->update();
+
+    	if($result ){ 
+	            //$session->setFlashdata("success", "User updated Successfully.");
+	            return redirect()->to('workflow/approve_ceo/'.$id);
+           	} else {
+	        	$session->setFlashdata("error", "Something went wrong.");
+	            return redirect()->to($_SERVER['HTTP_REFERER']);  
+	        }  
+
+	}
+
+	public function approve_ceo($id= ''){
+		$request = service('request');
+		$session = session();
+		$workflow_model = new WorkflowModel;
+		$company_id = $workflow_model->select('approve_company')->where('id',$id)->first();
+		$comp_id = $company_id['approve_company'];
+
+		$model_user = new UsersModel;
+		
+
+			$db = \Config\Database::connect();  
+ 			$buildersql = $db->table('Users');
+            $buildersql1 =$buildersql->select('Users.*, user_company.company_id as company_id');
+            $buildersql2 = $buildersql1->join('user_company', 'user_company.user_id = Users.id');
+            $buildersql3 =$buildersql2->where('user_company.company_id',$comp_id);
+            $buildersql3 =$buildersql2->where('Users.userTypeID',1);
+            $result = $buildersql3->get()->getResultArray();
+            // echo $query = $db->getLastQuery();exit;
+
+			$this->data['users'] = $result;
+			$this->data['id'] = $id;
+
+		
+		if($_POST){
+			$id = $_POST['usertype_id'];
+			$users = $model_user->where('id',$id)->first();
+		  	
+             $to = $users['email'] ;
+            $url = base_url();
+            $message = ' <b> Hello!  <br> <br>
+           '.$users['firstName'].'  '.$users['lastName'].' </b>
+            <br><br>Please login to this site :<a href = "'.$url.'"> '.$url.'</a> and  varify the documents.';
+			
+			 $email = \Config\Services::email();
+                        $email->setFrom('gert@gsdm.co.za', 'HSEQ User');
+                         $email->setTo($to);
+                        $email->setSubject('HSEQ Document');
+                        $email->setMessage($message);
+                         if ($email->send()) 
+                        {
+                            echo 'Email successfully sent';
+                            $session->setFlashdata("Success", "Email successfully sent");
+                            return redirect()->to('workflow');
+
+                        } 
+                        else 
+                        {
+                            $data = $email->printDebugger(['headers']);
+                            print_r($data);
+                        }
+
+                        return redirect()->to('workflow');
+		}
+
+
+
+
+		$this->data['title'] = 'Approval';
+		$this->render_template('workflow/approval_by _ceo',$this->data);
+
+	}
 
 		
 }

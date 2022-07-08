@@ -40,7 +40,9 @@ $routes->get('appAdmin', 'Auth::login',['filter' => 'nouserauth']);
 $routes->get('auth/login', 'Auth::login',['filter' => 'nouserauth']);
 $routes->get('logout', 'Auth::logout'); 
 $routes->get('dashboard', 'Dashboard::index',['filter' => 'adminauth']);
+//$routes->get('userdashboard', 'UserDashboard::index',['filter' => 'auth']);
 $routes->get('userdashboard', 'UserDashboard::index',['filter' => 'auth']);
+
 
 //useer
 $routes->get('users', 'Users::index',['filter' => 'adminauth']);
@@ -99,6 +101,12 @@ $routes->get('workflow/(:any)', 'Workflow::$1');
 $routes->get('Workflow', 'Workflow::index');
 $routes->get('Workflow/(:any)', 'Workflow::$1');
 
+// $routes->match(['get','post'],'waitapprove', 'AdminWaitApprove::index',['filter' => 'adminauth']);
+// $routes->match(['get','post'],'waitapprove/(:any)', 'AdminWaitApprove::$1',['filter' => 'adminauth']);
+// $routes->match(['get','post'],'WaitApprove', 'AdminWaitApprove::index',['filter' => 'adminauth']);
+// $routes->match(['get','post'],'WaitApprove/(:any)', 'AdminWaitApprove::$1',['filter' => 'adminauth']);
+
+
 $routes->match(['get','post'],'orderdocuments', 'OrderDocuments::index',['filter' => 'adminauth']);
 $routes->get('orderdocuments/(:any)', 'OrderDocuments::$1',['filter' => 'adminauth']);
 $routes->get('OrderDocuments', 'OrderDocuments::index',['filter' => 'adminauth']);
@@ -144,6 +152,15 @@ $routes->get('UserDocuments/(:any)', 'UserDocuments::$1',['filter' => 'artistaut
 
 $routes->match(['get','post'],'userdocs', 'UserDocs::index',['filter' => 'artistauth']);
 $routes->match(['get','post'],'userdocs/(:any)', 'UserDocs::$1',['filter' => 'artistauth']);
+
+
+//ceo routes
+
+$routes->match(['get','post'],'awaitingapprove', 'AwaitingApprove::index',['filter' => 'ceoauth']);
+$routes->match(['get','post'],'awaitingapprove/(:any)', 'AwaitingApprove::$1',['filter' => 'ceoauth']);
+
+$routes->match(['get','post'],'ceoview', 'CeoAwatingView::index',['filter' => 'ceoauth']);
+$routes->match(['get','post'],'ceoview/(:any)', 'CeoAwatingView::$1',['filter' => 'ceoauth']);
 
 
 

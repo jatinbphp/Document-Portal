@@ -24,6 +24,15 @@ class Auth implements FilterInterface
                     return redirect()->to('userdashboard');
                 }  
             }
+            if(session()->get('loginUserType') == "ceo"){
+               if (session()->get('loginUserType') == "admin") {
+                return redirect()->to('dashboard');
+                } else if (session()->get('loginUserType') == "subadmin") {
+                    return redirect()->to('userdashboard');
+                } else if (session()->get('loginUserType') == "user") {
+                    return redirect()->to('userdashboard');
+                }  
+            }
             else{
                 if (session()->get('loginUserType') == "admin") {
                     return redirect()->to('dashboard');

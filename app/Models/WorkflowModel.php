@@ -19,7 +19,7 @@ class WorkflowModel extends Model
 	protected $validationMessages   = [];
 	protected $skipValidation       = false;
 	protected $cleanValidationRules = true;
-	protected $allowedFields = ['document_name', 'usertype_id', 'category_id', 'subcategory_id','document_files', 'comments','company_id','start_date','expire_date','is_update','is_active','is_deleted','update_seq'];
+	protected $allowedFields = ['document_name', 'usertype_id', 'category_id', 'subcategory_id','document_files', 'comments','company_id','start_date','expire_date','is_update','is_active','is_deleted','update_seq','approve_company','ceo_comments','sec_approval_status'];
 
 
 	public function get_all_data($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn)
@@ -62,6 +62,17 @@ class WorkflowModel extends Model
          $actionLinkVar = ''; 
         
             $actionLinkVar .= '<a href = "' . base_url( '/workflow/view_documents/'.$id). '" class="btn btn-primary" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;" target="_blank"><i class="fa fa-file"></i></a>';
+         
+        
+ 
+        return $actionLinkVar;
+
+    }
+    public function getActionLinkFileWait($path,$id,$type,$view=null,$userdelete=null,$file){
+
+         $actionLinkVar = ''; 
+        
+            $actionLinkVar .= '<a href = "' . base_url( '/workflow/wait_approval/'.$id). '" class="btn btn-primary" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;" target="_blank">2nd APPROVAL</i></a>';
          
         
  
@@ -115,6 +126,15 @@ class WorkflowModel extends Model
         return $actionLinkVar;
 
     }
+     public function actionLinkCommentCeo($path,$id,$type,$view,$userdelete=null){
+         $actionLinkVar = '';  
+
+        $actionLinkVar .= '<span class="commentAdd tip" tabindex="0" data-toggle="tooltip" data-placement="top" title="'.$view.'">'.$view.'</span>';
+        
+ 
+        return $actionLinkVar;
+
+    }
     public function actionLinkSeq($path,$id,$type,$view,$userdelete=null){
         $actionLinkVar = '';  
 
@@ -122,6 +142,16 @@ class WorkflowModel extends Model
         
  
         return $actionLinkVar;
+    }
+
+    public function actionLinkView($path,$id,$type,$view,$userdelete=null){
+         $actionLinkVar = '';  
+
+        
+         $actionLinkVar .= '<a  data-toggle="modal" onclick="show_dialog('. $id .')" data-target="#approvalModal" class="btn btn-info" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;" data-id="' . $id . '"><i class="fa fa-eye"></i></a>';
+ 
+        return $actionLinkVar;
+
     }
 
  	public function get_filtered_data($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn)

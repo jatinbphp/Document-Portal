@@ -98,8 +98,11 @@
                             <th style = "width:8%">Start Date</th>
                             <th style = "width:8%">Expire Date</th>
                             <th style = "width:8%">Status</th>
+                            <th style = "width:8%">2nd Approval Comments</th>
+                            <th style = "width:8%">2nd Approval Status</th>
                             <th style = "width:8%">Action</th>
                              <th style = "width:5%">File</th>
+                             <th style = "width:5%">Approval</th>
                              
                             <!-- <th style = "width:8%">Order(Desc)</th> -->
                             <!--  <th>Document file</th> -->

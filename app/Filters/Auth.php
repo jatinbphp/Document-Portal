@@ -10,97 +10,92 @@ class Auth implements FilterInterface
     {
         // Do something here
         
-       //session()->get('loginUserType');exit;
+       //$_SESSION['user_type'];exit;
         if(!session()->get('logged_in')){
             return redirect()->to('auth/login');
         } else {
 
-            if(session()->get('loginUserType') == "user"){
-                
-               if (session()->get('loginUserType') == "admin") {
+            if($_SESSION['user_type'] == 2){
+               if ($_SESSION['user_type'] == "admin") {
                 return redirect()->to('dashboard');
-                } else if (session()->get('loginUserType') == "subadmin") {
+                } else if ($_SESSION['user_type'] == 3) {
                     return redirect()->to('userdashboard');
-                } else if (session()->get('loginUserType') == "ceo") {
+                } else if ($_SESSION['user_type'] == 1) {
                     return redirect()->to('userdashboard');
-                } else if (session()->get('loginUserType') == "manager") {
+                } else if ($_SESSION['user_type'] == 4) {
                     return redirect()->to('userdashboard');
-                }else if (session()->get('loginUserType') == "technician") {
+                }else if ($_SESSION['user_type'] == "technician") {
                     return redirect()->to('userdashboard');
                 } 
 
             }
-            elseif(session()->get('loginUserType') == "ceo"){
-                
-               if (session()->get('loginUserType') == "admin") {
+            elseif($_SESSION['user_type'] == 1){
+               if ($_SESSION['user_type'] == "admin") {
                 return redirect()->to('dashboard');
-                } else if (session()->get('loginUserType') == "subadmin") {
+                } else if ($_SESSION['user_type'] == 3) {
                     return redirect()->to('userdashboard');
-                } else if (session()->get('loginUserType') == "user") {
+                } else if ($_SESSION['user_type'] == 2) {
                     return redirect()->to('userdashboard');
-                }else if (session()->get('loginUserType') == "manager") {
+                }else if ($_SESSION['user_type'] == 4) {
                     return redirect()->to('userdashboard');
-                }else if (session()->get('loginUserType') == "technician") {
+                }else if ($_SESSION['user_type'] == "technician") {
                     return redirect()->to('userdashboard');
                 }  
             }
-             elseif(session()->get('loginUserType') == "manager"){
-                
-               if (session()->get('loginUserType') == "admin") {
+             elseif($_SESSION['user_type'] == 4){
+               if ($_SESSION['user_type'] == "admin") {
                 return redirect()->to('dashboard');
-                } else if (session()->get('loginUserType') == "subadmin") {
+                } else if ($_SESSION['user_type'] == 3) {
                     return redirect()->to('userdashboard');
-                } else if (session()->get('loginUserType') == "user") {
+                } else if ($_SESSION['user_type'] == 2) {
                     return redirect()->to('userdashboard');
-                } else if (session()->get('loginUserType') == "ceo") {
+                } else if ($_SESSION['user_type'] == 1) {
                     return redirect()->to('userdashboard');
-                } else if (session()->get('loginUserType') == "technician") {
+                } else if ($_SESSION['user_type'] == 5) {
                     return redirect()->to('userdashboard');
                 }  
             }
-             elseif(session()->get('loginUserType') == "technician"){
-               
-               if (session()->get('loginUserType') == "admin") {
+             elseif($_SESSION['user_type'] == 5){
+               if ($_SESSION['user_type'] == "admin") {
                 return redirect()->to('dashboard');
-                } else if (session()->get('loginUserType') == "subadmin") {
+                } else if ($_SESSION['user_type'] == 3) {
                     return redirect()->to('userdashboard');
-                } else if (session()->get('loginUserType') == "user") {
+                } else if ($_SESSION['user_type'] == 2) {
                     return redirect()->to('userdashboard');
-                } else if (session()->get('loginUserType') == "ceo") {
+                } else if ($_SESSION['user_type'] == 1) {
                     return redirect()->to('userdashboard');
-                } else if (session()->get('loginUserType') == "manager") {
+                } else if ($_SESSION['user_type'] == 4) {
                     return redirect()->to('userdashboard');
                 }  
             }
-             elseif(session()->get('user_type') == 3){
-                
-               if (session()->get('loginUserType') == "admin") {
+             elseif($_SESSION['user_type'] == 3){
+
+               if ($_SESSION['user_type'] == "admin") {
                 return redirect()->to('dashboard');
-                } else if (session()->get('loginUserType') == "technician") {
+                } else if ($_SESSION['user_type'] == 5) {
                     return redirect()->to('userdashboard');
-                } else if (session()->get('loginUserType') == "user") {
+                } else if ($_SESSION['user_type'] == 2) {
                     return redirect()->to('userdashboard');
-                } else if (session()->get('loginUserType') == "ceo") {
+                } else if ($_SESSION['user_type'] == 1) {
                     return redirect()->to('userdashboard');
-                } else if (session()->get('loginUserType') == "manager") {
+                } else if ($_SESSION['user_type'] == 4) {
                     return redirect()->to('userdashboard');
                 }  
             }
             
-            // else{
-
-            //     if (session()->get('loginUserType') == "admin") {
-            //         return redirect()->to('dashboard');
-            //     } else if (session()->get('loginUserType') == "user") {
-            //         return redirect()->to('userdashboard');
-            //     } else if (session()->get('loginUserType') == "ceo") {
-            //         return redirect()->to('userdashboard');
-            //     }else if (session()->get('loginUserType') == "manager") {
-            //         return redirect()->to('userdashboard');
-            //     }else if (session()->get('loginUserType') == "technician") {
-            //         return redirect()->to('userdashboard');
-            //     }
-            // }
+            else{
+                if ($_SESSION['user_type'] == "admin") {
+                    return redirect()->to('dashboard');
+                } else if ($_SESSION['user_type'] == 2) {
+                    return redirect()->to('userdashboard');
+                } else if ($_SESSION['user_type'] == 1) {
+                    return redirect()->to('userdashboard');
+                }else if ($_SESSION['user_type'] == "manager") {
+                    return redirect()->to('userdashboard');
+                }else if ($_SESSION['user_type'] == 5) {
+                    return redirect()->to('userdashboard');
+                }
+            }
 
         }
     }

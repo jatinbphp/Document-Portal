@@ -4,7 +4,7 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\Filters\FilterInterface;
 
-class Subad implements FilterInterface
+class SubadAuth implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
@@ -16,13 +16,13 @@ class Subad implements FilterInterface
            
                 if (session()->get('loginUserType') == "admin") {
                     return redirect()->to('dashboard');
-                } else if (session()->get('loginUserType') == "technician") {
+                } else if ($_SESSION['user_type'] == 5) {
                     return redirect()->to('userdashboard');
-                } else if (session()->get('loginUserType') == "user") {
+                } else if ($_SESSION['user_type'] == 2) {
                     return redirect()->to('userdashboard');
-                }else if (session()->get('loginUserType') == "ceo") {
+                }else if ($_SESSION['user_type'] == 1) {
                     return redirect()->to('userdashboard');
-                }else if (session()->get('loginUserType') == "manager") {
+                }else if ($_SESSION['user_type'] == 4) {
                     return redirect()->to('userdashboard');
                 }
           

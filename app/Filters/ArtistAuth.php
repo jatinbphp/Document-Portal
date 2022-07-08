@@ -12,43 +12,21 @@ class ArtistAuth implements FilterInterface
          if(!session()->get('logged_in')){
             return redirect()->to('auth/login');
         } else {
-           
-            // if(session()->get('loginUserType') == "ceo"){
-            //    if (session()->get('loginUserType') == "admin") {
-            //     return redirect()->to('dashboard');
-            //     } else if (session()->get('loginUserType') == "subadmin") {
-            //         return redirect()->to('userdashboard');
-            //     } else if (session()->get('loginUserType') == "user") {
-            //         return redirect()->to('userdashboard');
-            //     }  
-            // }
-            
-            // elseif(session()->get('loginUserType') == "subadmin"){
-            //    if (session()->get('loginUserType') == "admin") {
-            //     return redirect()->to('dashboard');
-            //     } else if (session()->get('loginUserType') == "ceo") {
-            //         return redirect()->to('userdashboard');
-            //     } else if (session()->get('loginUserType') == "user") {
-            //         return redirect()->to('userdashboard');
-            //     }  
-            // }
-            // else{
-            
-                if (session()->get('loginUserType') == "admin") {
-                    return redirect()->to('dashboard');
-                } else if (session()->get('loginUserType') == "subadmin") {
-                    return redirect()->to('userdashboard');
-                } else if (session()->get('loginUserType') == "ceo") {
-                    return redirect()->to('userdashboard');
-                }else if (session()->get('loginUserType') == "manager") {
-                    return redirect()->to('userdashboard');
-                }else if (session()->get('loginUserType') == "technician") {
-                    return redirect()->to('userdashboard');
-                }
-                 
 
-            //}
-            
+            if (session()->get('loginUserType') == "admin") {
+                return redirect()->to('dashboard');
+            } else if ($_SESSION['user_type']==3) {
+                return redirect()->to('userdashboard');
+            } else if ($_SESSION['user_type']==1) {
+                return redirect()->to('userdashboard');
+            } else if ($_SESSION['user_type']==4) {
+                return redirect()->to('userdashboard');
+            }else if ($_SESSION['user_type']==5) {
+                return redirect()->to('userdashboard');
+            } 
+
+
+                
         }
 
     }

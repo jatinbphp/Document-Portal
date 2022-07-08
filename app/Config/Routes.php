@@ -112,23 +112,23 @@ $routes->get('orderdocuments/(:any)', 'OrderDocuments::$1',['filter' => 'adminau
 $routes->get('OrderDocuments', 'OrderDocuments::index',['filter' => 'adminauth']);
 $routes->get('OrderDocuments/(:any)', 'OrderDocuments::$1',['filter' => 'adminauth']);
 
-$routes->get('subadminworkflow', 'SubadminWorkflow::index',['filter' => 'subad']);
-$routes->get('subadminworkflow/(:any)', 'SubadminWorkflow::$1',['filter' => 'subad']);
-$routes->get('SubadminWorkflow', 'SubadminWorkflow::index',['filter' => 'subad']);
-$routes->get('SubadminWorkflow/(:any)', 'SubadminWorkflow::$1',['filter' => 'subad']);
+$routes->get('subadminworkflow', 'SubadminWorkflow::index',['filter' => 'subadauth']);
+$routes->get('subadminworkflow/(:any)', 'SubadminWorkflow::$1',['filter' => 'subadauth']);
+$routes->get('SubadminWorkflow', 'SubadminWorkflow::index',['filter' => 'subadauth']);
+$routes->get('SubadminWorkflow/(:any)', 'SubadminWorkflow::$1',['filter' => 'subadauth']);
 
-$routes->get('SubadminWorkflowView', 'SubadminWorkflowView::index',['filter' => 'subad']);
-$routes->get('SubadminWorkflowView/(:any)', 'SubadminWorkflowView::$1',['filter' => 'subad']);
-$routes->get('SubadminWorkflowView', 'SubadminWorkflowView::index',['filter' => 'subad']);
-$routes->get('SubadminWorkflowView/(:any)', 'SubadminWorkflowView::$1',['filter' => 'subad']);
+$routes->get('SubadminWorkflowView', 'SubadminWorkflowView::index',['filter' => 'subadauth']);
+$routes->get('SubadminWorkflowView/(:any)', 'SubadminWorkflowView::$1',['filter' => 'subadauth']);
+$routes->get('SubadminWorkflowView', 'SubadminWorkflowView::index',['filter' => 'subadauth']);
+$routes->get('SubadminWorkflowView/(:any)', 'SubadminWorkflowView::$1',['filter' => 'subadauth']);
 
 
 
-$routes->match(['get','post'],'subdocuments', 'SubDocuments::index',['filter' => 'subad']);
-$routes->match(['get','post'],'subdocuments/(:any)', 'SubDocuments::$1',['filter' => 'subad']);
+$routes->match(['get','post'],'subdocuments', 'SubDocuments::index',['filter' => 'subadauth']);
+$routes->match(['get','post'],'subdocuments/(:any)', 'SubDocuments::$1',['filter' => 'subadauth']);
 
 //sub-admin documents
-$routes->get('subadminDocuments', 'SubadminDocument::index',['filter' => 'subad']);
+$routes->get('subadminDocuments', 'SubadminDocument::index',['filter' => 'subadauth']);
 
 
 //$routes->get('reporting/documents', 'UploadedDocuments::index',['filter' => 'auth']);

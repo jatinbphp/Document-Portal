@@ -25,12 +25,12 @@ class Filters extends BaseConfig
 		'apiauth' => \App\Filters\ApiAuth::class,
 		'cors'     => \App\Filters\Cors::class,
 		'adminauth'     => \App\Filters\AdminAuth::class,
-		'subadmin'     => \App\Filters\SubAdmin::class,
-		'nosubadminauth'     => \App\Filters\NoSubAuth::class,
+		/*'subadmin'     => \App\Filters\SubAdmin::class,*/
+		/*'nosubadminauth'     => \App\Filters\NoSubAuth::class,*/
 		'ceoauth'     => \App\Filters\CeoAuth::class,
 		'managerauth'     => \App\Filters\ManagerAuth::class,
 		'tecnicianauth'     => \App\Filters\TechnicianAuth::class,
-		'subad'  => \App\Filters\Subad::class,
+		'subadauth'  => \App\Filters\SubadAuth::class,
 	];
 
 	/**

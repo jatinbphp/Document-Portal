@@ -120,4 +120,29 @@
     }
 </script>
 
+<script>
+    
+    $('#companySearch').on("change",function(){
+            var compid = $('#companySearch').val();
+            var url = '<?php echo base_url('/documents/getUser');?>';
+
+            $.ajax({ 
+                type: "POST",
+                url: url,
+                data: { compid: compid},
+                success: function(data){
+
+                const user = JSON.parse(data);
+                 $('select[name="userSearch"]').empty();
+                  $('select[name="userSearch"]').prepend("<option value=' '>-- Select Users --</option>");
+                $.each(user, function(key, value){
+
+                        $('select[name="userSearch"]').append('<option  value="'+ value.id +'">'+ value.firstName + ' '+value.lastName+ '</option>');
+                        });
+                    
+                }
+            });
+        });
+</script>
+
 

@@ -65,7 +65,7 @@ class OrderDocuments extends BaseController{
 
         // order by
          $orderBy = array();
-        $orderBy = array($global_tblWorkflow.'.id' => "DESC");
+        $orderBy = array($global_tblWorkflow.'.order_update' => "ASC");
 
         // join table
         $joinTableArray = array();
@@ -132,7 +132,9 @@ class OrderDocuments extends BaseController{
             }else{
             	$sub_array[] = $actionLinkFile;
             }
-            $input = '<input type="text" id="OrderData" name="OrderData>"';
+            $inId = $row['id'];
+            $updateval = $row['order_update'];
+            $input = '<input type="number"  id="ReOrderData-'.$inId.'" class="ReOrderData" value = "'.$updateval.'" name="ReOrderData[]">';
            $sub_array[] = $input;
         	
             $data[] = $sub_array;
@@ -148,6 +150,40 @@ class OrderDocuments extends BaseController{
         echo json_encode($output);
 
 	}
+
+    public function update_order(){
+        
+        
+        $names = $_POST['Nameids'];
+
+        //echo "<pre>";print_r($names);
+        $iids = $_POST['ids'];
+        $kk = array_key_exists('0', $iids);
+
+        if ($kk !== false) {
+            unset($iids[$kk]);
+        }
+
+        
+        $c =array_combine($iids, $names);
+
+       foreach($c as $key=>$value){
+        $db = \Config\Database::connect();
+
+                $builder = $db->table('document_workfolw');
+                $builder->set('order_update', $value);
+                $builder->where('id',$key);
+                $result1 =  $builder->update();
+
+       }
+       if($result1){
+         echo  $result1;exit;
+       }
+       
+   
+        
+       
+    }
 
 }
 ?>

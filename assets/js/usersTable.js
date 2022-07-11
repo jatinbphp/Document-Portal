@@ -968,10 +968,10 @@ $(document).ready(function() {
                 "targets": 2
             }]
         });
-        $('#frm-example').on('submit', function() {
-            var data = table1.$('input').serialize();
-            alert(data);
-        });
+        // $('#frm-example').on('submit', function() {
+        //     var data = table1.$('input').serialize();
+        //     alert(data);
+        // });
         // $('#Savebtn').click(function() {
         //     alert("Sdfsfsdf");
         //     $('#form').submit(function() {

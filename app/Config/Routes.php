@@ -108,7 +108,7 @@ $routes->get('Workflow/(:any)', 'Workflow::$1');
 
 
 $routes->match(['get','post'],'orderdocuments', 'OrderDocuments::index',['filter' => 'adminauth']);
-$routes->get('orderdocuments/(:any)', 'OrderDocuments::$1',['filter' => 'adminauth']);
+$routes->match(['get','post'],'orderdocuments/(:any)', 'OrderDocuments::$1',['filter' => 'adminauth']);
 $routes->get('OrderDocuments', 'OrderDocuments::index',['filter' => 'adminauth']);
 $routes->get('OrderDocuments/(:any)', 'OrderDocuments::$1',['filter' => 'adminauth']);
 

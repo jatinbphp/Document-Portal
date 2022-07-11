@@ -25,6 +25,14 @@
     outline: 2px solid #555;
     outline-offset: -2px;
     }
+
+    .dataTables_filter {
+    text-align: right;
+
+}
+.category-filter {
+    padding-bottom: 10px;
+}
 </style>
 <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css" />
        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.4.0/css/select.dataTables.min.css" />
@@ -67,7 +75,7 @@
             <form name="frm-example" id="frm-example">        
             <div class="item-wrap item-list-table table-responsive orderTable">
                 <table id="orderDocumentsTable" class="table table-bordered display responsive nowrap" cellspacing="0" width="100%" >
-                    <div><button type="submit" class="btn-primary" id="Savebtn">Save Order</button></div>
+                    <div><button type="button" class="btn-primary" id="ReSaveOrder">Save Order</button></div>
                    
                    
                      <thead class="thead-dark">
@@ -124,6 +132,61 @@
 
 <script src="<?php echo base_url('assets/js/usersTable.js') ?>"></script>
 
+<script>
+    
+
+  $("#ReSaveOrder").click(function () {
+
+
+    var Nameids = [];
+    $('input[name^=ReOrderData]').each(function(i, e) {
+          Nameids.push($(this).val());
+        
+        
+    });
+//     if (Nameids.length === 0) {
+//  alert("Please Update orders");
+// }
+// else{
+
+
+    
+     var ids = [];
+     $('input').each(function (i, item)
+            {
+                //console.log(item.id);
+                var ii = item.id;
+
+                 var items = ii.split('-');
+                  ids.push(items[1]);
+
+            });
+
+    $.ajax({
+        url: baseurl + '/orderdocuments/update_order',
+        type: 'post',
+        
+        data: {
+            
+            'Nameids[]': Nameids,
+            'ids[]':ids
+        },
+        success: function(result) {
+            if(result == 1){
+
+                var url1 = baseurl + '/orderdocuments';
+                window.location.href = url1; 
+            }
+            else{
+                alert("Please Update orders");
+            }
+        }
+    });
+//}
+     
+  });
+
+</script>
 
 
 

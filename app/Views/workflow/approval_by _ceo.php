@@ -45,6 +45,7 @@
         .col {min-width: 100%;}
         .variationCounter .add_more_variation {margin: 15px 0px;}
     }
+    .messageDiaplay{color: red;}
 </style>
 <div class="wrapper">
     <div class="row">
@@ -61,14 +62,20 @@
             </div>
             <?php endif; ?>
             <h3></h3>
+            <span class="messageDiaplay"></span>
             <div class="item-wrap item-list-table form-boxes-design">
                 <form id="workflowFormCeoAprov" method="post" action="<?php echo base_url('workflow/approve_ceo/'.$id); ?>" enctype="multipart/form-data">
                     <div class="card mb-3">
                         <div class="card-body">
                             <div class="row">
-                               
+
+                               <?php if(isset($iidd)){ ?>
+                                <input type="hidden" id= "varifyData" value="<?php echo $iidd; ?>">
+                              <?php  }?>
+
                                 <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                                     <div class="form-group">
+                                        
                                         <label class="lableTitle"for="usertype_id">Users type:<span class="asterisk-sign">*</span></label>
                                         <select name="usertype_id" id="usertype_id" class="form-control" REQUIRED>
                                             <option value="">-- Select Users --</option>
@@ -97,7 +104,7 @@
                     </div>
               
                     <div class="d-flex justify-content-end mt-4">
-                        <button type="submit" class="btn btn-info mr-2">Submit</button>
+                        <button type="submit" class="btn btn-info mr-2 savebtn">Submit</button>
                         <a href="<?php echo base_url('workflow'); ?>" type="button" class="btn btn-warning">Back</a>
                     </div>
                 </form>
@@ -151,5 +158,23 @@
             $('.imagePreview').text(geekss);
         });
     });
+    });
+
+    $(document).ready(function(){
+        var wating = $("#varifyData").val();
+       if(wating >0){
+        $(".messageDiaplay").text('Already send request for 2nd approval');
+         //$('#usertype_id').prop('disabled', true);
+         $("#usertype_id").attr('disabled','disabled');
+         $(".savebtn").attr('disabled','disabled');
+         $("#comments").attr('disabled','disabled');
+       }
+       else{
+            $(".messageDiaplay").text('');
+            $('.savebtn').removeAttr('disabled');
+            $('#usertype_id').removeAttr('disabled');
+            $('#comments').removeAttr('disabled');
+
+       }
     });
 </script>

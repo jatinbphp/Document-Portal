@@ -356,8 +356,10 @@ class Workflow extends BaseController{
 
 		    if($row['sec_approval_status'] == 1){
                 $sub_array[] = '<span class="badge badge-success">APPROVED</span>';
-            }else{
+            }elseif($row['sec_approval_status'] == 2){
             	$sub_array[] = '<span class="badge badge-danger">REJECTED</span>';
+            }else{
+            	$sub_array[] = '-';
             }
          	//$actionLink = $model_user->getActionLink('',$row['id'],'Workflow','',$row['userTypeID']); 
          	
@@ -384,8 +386,8 @@ class Workflow extends BaseController{
             }
 
           
-             $actionLinkFile = $model_user->getActionLinkFileWait('',$row['id'],'','Workflow','',$row['document_files']);
-        	$sub_array[] = $actionLinkFile;
+         //     $actionLinkFile = $model_user->getActionLinkFileWait('',$row['id'],'','Workflow','',$row['document_files']);
+        	// $sub_array[] = $actionLinkFile;
             //
             //$sub_array[] = $row['update_seq'];
             //$actionLinkFile = $model_user->getActionLinkFile('',$row['id'],'','Workflow','');
@@ -984,11 +986,11 @@ class Workflow extends BaseController{
 		}	
 
 
-	public function wait_approval($id= ''){
+	public function wait_approval(){
 
 		$model_company = new CompanyModel;
 		$company = $model_company->findAll();
-		$this->data['id'] = $id;
+		//$this->data['id'] = $id;
 		$this->data['company'] = $company;
 		$this->data['title'] = 'Approval';
 		$this->render_template('workflow/approval',$this->data);
@@ -996,23 +998,24 @@ class Workflow extends BaseController{
 		
 	}
 
-	public function approve_company($id= ''){
+	public function approve_company(){
+		
 		$model_workflow = new WorkflowModel;
 		$request = service('request');
 		$session = session();
 		$company = $request->getPost('company_id');
 		
-		$data = array(
-			'approve_company' => $company,
-		);
+		// $data = array(
+		// 	'approve_company' => $company,
+		// );
 
-		$model_workflow->set($data);
-    	$model_workflow->where('id', $id);
-    	$result =  $model_workflow->update();
+		// $model_workflow->set($data);
+  //   	$model_workflow->where('id', $id);
+  //   	$result =  $model_workflow->update();
 
-    	if($result ){ 
+    	if($company ){ 
 	            //$session->setFlashdata("success", "User updated Successfully.");
-	            return redirect()->to('workflow/approve_ceo/'.$id);
+	            return redirect()->to('workflow/approve_ceo/'.$company);
            	} else {
 	        	$session->setFlashdata("error", "Something went wrong.");
 	            return redirect()->to($_SERVER['HTTP_REFERER']);  
@@ -1021,11 +1024,28 @@ class Workflow extends BaseController{
 	}
 
 	public function approve_ceo($id= ''){
+		
 		$request = service('request');
 		$session = session();
+		
+		 
+		$comp_id = $id;
+
 		$workflow_model = new WorkflowModel;
-		$company_id = $workflow_model->select('approve_company')->where('id',$id)->first();
-		$comp_id = $company_id['approve_company'];
+	 	// $company_user_id = $workflow_model->select('id')->where('company_id',$comp_id)->where('awating_user_id','> 0')->findAll();
+	 	// 
+	 	// 
+	 	$db = \Config\Database::connect(); 
+		            		$builder = $db->table('document_workfolw');
+					    	$builder1 = $builder->where('company_id',$comp_id);
+					    	$builder1 = $builder->where('awating_user_id != ',0);
+					    	$query = $builder1->get();
+					    	$company_user_id = $query->getResultArray();
+					    	
+
+	 	if(count($company_user_id)>0){
+	 		$this->data['iidd'] = 1;
+	 	}
 
 		$model_user = new UsersModel;
 		
@@ -1045,11 +1065,27 @@ class Workflow extends BaseController{
 		
 		if($_POST){
 			$id = $_POST['usertype_id'];
+
+
+			$workflow_model = new WorkflowModel;
 			$users = $model_user->where('id',$id)->first();
+
+			 $company_user_id = $workflow_model->select('id')->where('company_id',$comp_id)->findAll();
+			 foreach($company_user_id as $val){
+
+			 	$uid= $val['id'];
+			 	$data = array(
+					'awating_user_id' => $id,
+				);
+
+				$workflow_model->set($data);
+		    	$workflow_model->where('id', $uid);
+		    	$result =  $workflow_model->update();
+	    	}
 		  	
              $to = $users['email'] ;
             $url = base_url();
-            $message = ' <b> Hello!  <br> <br>
+           $message = ' <b> Hello!  <br> <br>
            '.$users['firstName'].'  '.$users['lastName'].' </b>
             <br><br>Please login to this site :<a href = "'.$url.'"> '.$url.'</a> and  varify the documents.';
 			

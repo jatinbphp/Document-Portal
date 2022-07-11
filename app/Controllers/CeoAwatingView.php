@@ -39,19 +39,21 @@ class CeoAwatingView extends BaseController
 
         // equal condition
 	  	 $whereEqual=array();
-         // $wherarr = array(
-         // 	$global_tblWorkflow.'.company_id' =>$id,
-         // 	$global_tblWorkflow.'.usertype_id' =>1
-         // ); 
-	  	 $whereEqual=array($global_tblWorkflow.'.company_id'=>$id);
-	  	 //$whereEqual = $wherarr;
+         $waiting = $_SESSION['id'];
+         $wherarr1 = array(
+         	$global_tblWorkflow.'.company_id' =>$id,
+         	$global_tblWorkflow.'.awating_user_id' =>$waiting,
+         ); 
+	  	// $whereEqual=array($global_tblWorkflow.'.company_id'=>$id);
+	  	 $whereEqual = $wherarr1;
         
         // not equal condition
         $whereNotEqual = array();
         $is_deleted = 1;
+        
         $wherarr = array(
          	$global_tblWorkflow.'.is_deleted' =>$is_deleted,
-         	$global_tblWorkflow.'.approve_company' =>0
+         	
          ); 
         
         // $whereNotEqual=array($global_tblWorkflow.'.is_deleted'=>$is_deleted);
@@ -192,11 +194,14 @@ class CeoAwatingView extends BaseController
 		        }
 
 		        if($sec_approval_status == 1){
-		        	$status = 'APPROVE';
+		        	$status = 'APPROVED';
 		        }
-		        else{
-		        	$status = 'REJECT';
+		        elseif($sec_approval_status == 2){
+		        	$status = 'REJECTED';
 		        }
+                else{
+                    $status = '-';
+                }
 	        
 	        $userFirstName = $email1['firstName'];
 	        $userLastName = $email1['lastName'];

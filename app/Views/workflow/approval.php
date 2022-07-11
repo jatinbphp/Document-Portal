@@ -27,7 +27,7 @@
             <?php endif; ?>
 
             <div class="item-wrap item-list-table">
-            	 <form id="workflowFormApprove" method="post" action="<?php echo base_url('workflow/approve_company/'.$id); ?>" enctype="multipart/form-data">
+            	 <form id="workflowFormApprove" method="post" action="<?php echo base_url('workflow/approve_company/'); ?>" enctype="multipart/form-data">
                 
 				   <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="form-group">

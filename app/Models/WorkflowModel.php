@@ -19,7 +19,7 @@ class WorkflowModel extends Model
 	protected $validationMessages   = [];
 	protected $skipValidation       = false;
 	protected $cleanValidationRules = true;
-	protected $allowedFields = ['document_name', 'usertype_id', 'category_id', 'subcategory_id','document_files', 'comments','company_id','start_date','expire_date','is_update','is_active','is_deleted','update_seq','approve_company','ceo_comments','sec_approval_status'];
+	protected $allowedFields = ['document_name', 'usertype_id', 'category_id', 'subcategory_id','document_files', 'comments','company_id','start_date','expire_date','is_update','is_active','is_deleted','update_seq','approve_company','ceo_comments','sec_approval_status','awating_user_id'];
 
 
 	public function get_all_data($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn)
@@ -68,17 +68,17 @@ class WorkflowModel extends Model
         return $actionLinkVar;
 
     }
-    public function getActionLinkFileWait($path,$id,$type,$view=null,$userdelete=null,$file){
+    // public function getActionLinkFileWait($path,$id,$type,$view=null,$userdelete=null,$file){
 
-         $actionLinkVar = ''; 
+    //      $actionLinkVar = ''; 
         
-            $actionLinkVar .= '<a href = "' . base_url( '/workflow/wait_approval/'.$id). '" class="btn btn-primary" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;" target="_blank">2nd APPROVAL</i></a>';
+    //         $actionLinkVar .= '<a href = "' . base_url( '/workflow/wait_approval/'.$id). '" class="btn btn-primary" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;" target="_blank">2nd APPROVAL</i></a>';
          
         
  
-        return $actionLinkVar;
+    //     return $actionLinkVar;
 
-    }
+    // }
 
     public function getActionLinkNew($path,$id,$type,$view=null,$userdelete=null){
 

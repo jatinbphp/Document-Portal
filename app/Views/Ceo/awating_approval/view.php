@@ -125,7 +125,7 @@
                                        <p class= "apperr">
                                         <input type="radio" id="sec_approval_status" name="sec_approval_status" value="1">
                                         <label for="sec_approval_status">APPROVE</label>
-                                        <input type="radio" id="sec_approval_status" name="sec_approval_status" value="0">
+                                        <input type="radio" id="sec_approval_status" name="sec_approval_status" value="2">
                                         <label for="sec_approval_status">REJECT</label><br>
                                        </p>
 

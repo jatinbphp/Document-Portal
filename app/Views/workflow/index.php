@@ -67,8 +67,10 @@
                                  </select>
                             </div>
                         </div>
-                    
+                     <div><a href = " <?php  echo base_url( '/workflow/wait_approval/') ?>" class="btn btn-primary" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;" target="_blank">2nd APPROVAL</i></a></div>
                     </div>
+
+
 
                    <?php if($_SESSION['user_type'] == 3) { ?>
                     <thead class="thead-dark">
@@ -102,7 +104,7 @@
                             <th style = "width:8%">2nd Approval Status</th>
                             <th style = "width:8%">Action</th>
                              <th style = "width:5%">File</th>
-                             <th style = "width:5%">Approval</th>
+                             <!-- <th style = "width:5%">Approval</th> -->
                              
                             <!-- <th style = "width:8%">Order(Desc)</th> -->
                             <!--  <th>Document file</th> -->

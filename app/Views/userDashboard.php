@@ -94,7 +94,10 @@ if($_SESSION['user_type'] == 3){ ?>
 				<td><b><?php echo $value['companyName']?></b></td></tr>
 
 				<?php   $db = \Config\Database::connect(); 
-				$array = array('company_id' => $value['company_id'], 'is_active' => 3);
+				 $date_now = date("Y-m-d");
+				$forNextMonth= date('Y-m-d', strtotime("+1 month", strtotime($date_now)));
+
+				$array = array('company_id' => $value['company_id'], 'is_active' => 1);
 				$builder = $db->table('document_workfolw');
 				$buildersql1 =$builder->select('document_workfolw.*, Company.companyName as companyName,category.categoryName as categoryName,SubCategory.SubCatName as SubCatName,UserTypes.userTypeName as userTypeName');
 				$buildersql2 = $buildersql1->join('Company', 'document_workfolw.company_id = Company.id');
@@ -102,7 +105,8 @@ if($_SESSION['user_type'] == 3){ ?>
 				$buildersql2 = $buildersql1->join('SubCategory', 'document_workfolw.subcategory_id = SubCategory.id');
 				$buildersql2 = $buildersql1->join('UserTypes', 'document_workfolw.usertype_id = UserTypes.id');
 				$builder3 = $buildersql2->where($array);
-				$data_documents = $builder3->get()->getResultArray(); ?>
+				$builder3 =$buildersql2->where('expire_date BETWEEN "'. date('Y-m-d', strtotime($date_now)). '" and "'. date('Y-m-d', strtotime($forNextMonth)).'"');
+				$data_documents = $builder3->get()->getResultArray();?>
 				<?php if(count($data_documents)>0){ ?>
 
 				
@@ -131,8 +135,44 @@ if($_SESSION['user_type'] == 3){ ?>
 						<td> <span class="commentAdd tip" tabindex="0" data-toggle="tooltip" data-placement="top" title="<?php echo $val['comments']; ?>"><?php echo $val['comments']; ?></span></td>
 						<td> <?php echo $val['expire_date'];?></td>
 						<td>
+							
+							
 						<?php if($val['is_active'] == 1){
-						echo '<span class="badge badge-success">APPROVED</span>';
+						echo '<span class="badge badge-success">APPROVED</span>';echo "<br>";
+						 $date_now = date("Y-m-d");
+ 							$forNextMonth= date('Y-m-d', strtotime("+1 month", strtotime($date_now)));
+ 							$expire_date =  $val['expire_date'];
+
+ 							 $expiretime = date("Y-m-d",strtotime($expire_date));
+
+							if($val['expire_date'] > $date_now && $val['expire_date']< $forNextMonth){
+								//echo "fdfdf";
+								$expirre_date = strtotime($expiretime);
+
+								$nextData = strtotime($forNextMonth);
+								$datediff = $nextData - $expirre_date;
+
+								
+								$days =  round($datediff / (60 * 60 * 24));
+								
+								$foroddNextMonth= date('m', strtotime("+1 month", strtotime($date_now)));
+								$currentMonth = date("m",strtotime($expiretime));
+
+								
+								if($foroddNextMonth == $currentMonth){
+									$ddd = 30-$days;
+									echo $days = $ddd. " " ."Days Left";
+									
+								}
+								else{
+									echo $days. " " ."Days Left";
+								}
+								
+								
+
+								
+							}
+							 
 						}elseif($val['is_active'] == 2){
 						echo '<span class="badge badge-primary">SUBMITED</span>';
 						}elseif($val['is_active'] == 3){

@@ -33,6 +33,9 @@ class Workflow extends BaseController{
 		$data = $workflow->orderBy('update_seq','DESC')->first();
 		$seq_id = $data['update_seq']+1;
 
+		$data1 = $workflow->orderBy('order_update','DESC')->first();
+		$seq_order_id = $data1['order_update']+1;
+
 		if($_POST){
 			
 			$request = service('request');
@@ -78,6 +81,7 @@ class Workflow extends BaseController{
 				'start_date' => isset($start_date) ? $start_date : $current_date, 
 				'expire_date' => isset($expire_date) ? $expire_date : $expire_date, 
 				'is_active' => isset($is_active) ? 1 : 0,
+				'order_update'=>$seq_order_id,
 
 				);
 				$insertId = $workflow->insert($data);

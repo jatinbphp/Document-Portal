@@ -100,7 +100,7 @@ class OrderDocuments extends BaseController{
 			$sub_array[] = $row['companyName'];
           
 			$actionLinkComment = $model_user->actionLinkComment('',$row['id'],'',$row['comments'],'');
-			$sub_array[] = $actionLinkComment;
+			// $sub_array[] = $actionLinkComment;
 			$sub_array[] = $row['start_date'];
 			$sub_array[] = $row['expire_date'];
 			if($row['is_active'] == 1){
@@ -123,15 +123,15 @@ class OrderDocuments extends BaseController{
             
             $sub_array[] = $actionLink;
             $actionLinkFile = '-';
-            if($row['is_update'] == 1){
+         //    if($row['is_update'] == 1){
            
         	
-        	$sub_array[] = '<a href = "' . base_url( '/workflow/download_documents/'.$row['id']). '" class="btn btn-primary" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;" target="_blank"><i class="fa fa-file"></i></a>';	//for workflow id
+        	// $sub_array[] = '<a href = "' . base_url( '/workflow/download_documents/'.$row['id']). '" class="btn btn-primary" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;" target="_blank"><i class="fa fa-file"></i></a>';	//for workflow id
         	
         		
-            }else{
-            	$sub_array[] = $actionLinkFile;
-            }
+         //    }else{
+         //    	$sub_array[] = $actionLinkFile;
+         //    }
             $inId = $row['id'];
             $updateval = $row['order_update'];
             $input = '<input type="number"  id="ReOrderData-'.$inId.'" class="ReOrderData" value = "'.$updateval.'" name="ReOrderData[]">';

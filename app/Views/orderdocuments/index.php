@@ -86,12 +86,12 @@
                             <th style = "width:8%">Category</th>
                             <th style = "width:8%">Sub Category</th>
                             <th style = "width:8%">Company</th>
-                            <th style = "width:4%">Comments</th>
+                            <!-- <th style = "width:4%">Comments</th> -->
                             <th style = "width:8%">Start Date</th>
                             <th style = "width:8%">Expire Date</th>
                             <th style = "width:8%">Status</th>
                             <th style = "width:8%">Action</th>
-                             <th style = "width:5%">File</th>
+                             <!-- <th style = "width:5%">File</th> -->
                              <th style = "width:5%">Input</th>
                              
                             <!-- <th style = "width:8%">Order(Desc)</th> -->

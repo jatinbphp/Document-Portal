@@ -581,4 +581,47 @@ $(document).ready(function() {
             form.submit();
         }
     });
+    $("#clientsFormAddEdit").validate({
+        rules: {
+            first_name: {
+                required: true,
+            },
+            last_name: {
+                required: true,
+            },
+            email: {
+                required: true,
+                email: true
+            },
+            psw: {
+                required: true,
+            },
+            conpassword: {
+                required: true,
+                equalTo: "#psw"
+            },
+        },
+        messages: {
+            firstName: {
+                required: "Please enter First Name",
+            },
+            last_name: {
+                required: "Please enter Last Name",
+            },
+            email: {
+                required: "Please enter Email Address",
+                email: "Please enter Valid Email Address"
+            },
+            psw: {
+                required: "Please enter Password",
+            },
+            conpassword: {
+                required: "Please enter Confirm Password",
+                equalTo: "Password not Match"
+            },
+        },
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
 });

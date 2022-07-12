@@ -89,8 +89,14 @@ class OrderDocuments extends BaseController{
 			
             $sub_array = array(); 
             
+             
             
-             $actionLinkSeq = $model_user->actionLinkSeq('',$row['id'],'',$row['update_seq'],''); 
+             //$actionLinkSeq = $model_user->actionLinkSeq('',$row['id'],'',$row['update_seq'],''); 
+             $inId = $row['id'];
+            $updateval = $row['order_update'];
+            $input = '<input type="number"  id="ReOrderData-'.$inId.'" class="ReOrderData" value = "'.$updateval.'" name="ReOrderData[]" style= "width:60px;">';
+            
+           $sub_array[] = $input;
             
              $sub_array[] = $row['document_name'];
             
@@ -99,7 +105,7 @@ class OrderDocuments extends BaseController{
 			$sub_array[] = $row['SubCatName']; 
 			$sub_array[] = $row['companyName'];
           
-			$actionLinkComment = $model_user->actionLinkComment('',$row['id'],'',$row['comments'],'');
+			//$actionLinkComment = $model_user->actionLinkComment('',$row['id'],'',$row['comments'],'');
 			// $sub_array[] = $actionLinkComment;
 			$sub_array[] = $row['start_date'];
 			$sub_array[] = $row['expire_date'];
@@ -119,9 +125,9 @@ class OrderDocuments extends BaseController{
             } 
 		 
          	
-            $actionLink = $model_user->getActionLink('',$row['id'],'','Workflow','');
+            // $actionLink = $model_user->getActionLink('',$row['id'],'','Workflow','');
             
-            $sub_array[] = $actionLink;
+            // $sub_array[] = $actionLink;
             $actionLinkFile = '-';
          //    if($row['is_update'] == 1){
            
@@ -132,10 +138,7 @@ class OrderDocuments extends BaseController{
          //    }else{
          //    	$sub_array[] = $actionLinkFile;
          //    }
-            $inId = $row['id'];
-            $updateval = $row['order_update'];
-            $input = '<input type="number"  id="ReOrderData-'.$inId.'" class="ReOrderData" value = "'.$updateval.'" name="ReOrderData[]">';
-           $sub_array[] = $input;
+            
         	
             $data[] = $sub_array;
 
@@ -152,11 +155,8 @@ class OrderDocuments extends BaseController{
 	}
 
     public function update_order(){
-        
-        
-        $names = $_POST['Nameids'];
 
-        //echo "<pre>";print_r($names);
+        $names = $_POST['Nameids'];
         $iids = $_POST['ids'];
         $kk = array_key_exists('0', $iids);
 

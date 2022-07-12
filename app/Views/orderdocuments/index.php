@@ -80,6 +80,8 @@
                    
                      <thead class="thead-dark">
                         <tr>
+                           
+                            <th style = "width:5%">Input</th>
                             <th style = "width:8%">Document Name</th>
 
                             <th style = "width:5%">User Type</th>
@@ -90,9 +92,9 @@
                             <th style = "width:8%">Start Date</th>
                             <th style = "width:8%">Expire Date</th>
                             <th style = "width:8%">Status</th>
-                            <th style = "width:8%">Action</th>
+                            <!-- <th style = "width:8%">Action</th> -->
                              <!-- <th style = "width:5%">File</th> -->
-                             <th style = "width:5%">Input</th>
+                             
                              
                             <!-- <th style = "width:8%">Order(Desc)</th> -->
                             <!--  <th>Document file</th> -->
@@ -137,8 +139,22 @@
 
   $("#ReSaveOrder").click(function () {
 
+    // var singleids = [];
+    // // var Nameids = [];
+    // $('.checkSingle:checked').each(function(i, e) {
+    //     singleids.push($(this).val());
+
+    // });
+    
+    // var Dtids = [];
+    // $('input[name="ReOrderData[]"]').each(function(i, e) {
+    //       Dtids.push($(this).val());
+    //   });
+
+    
 
     var Nameids = [];
+    
     $('input[name^=ReOrderData]').each(function(i, e) {
           Nameids.push($(this).val());
         

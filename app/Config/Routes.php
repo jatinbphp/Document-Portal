@@ -112,6 +112,15 @@ $routes->match(['get','post'],'orderdocuments/(:any)', 'OrderDocuments::$1',['fi
 $routes->get('OrderDocuments', 'OrderDocuments::index',['filter' => 'adminauth']);
 $routes->get('OrderDocuments/(:any)', 'OrderDocuments::$1',['filter' => 'adminauth']);
 
+$routes->get('clients', 'Clients::index',['filter' => 'adminauth']);
+$routes->get('clients/(:any)', 'Clients::$1',['filter' => 'adminauth']);
+$routes->get('Clients', 'Clients::index',['filter' => 'adminauth']);
+$routes->get('Clients/(:any)', 'Clients::$1',['filter' => 'adminauth']);
+
+
+//subadmin routes
+
+
 $routes->get('subadminworkflow', 'SubadminWorkflow::index',['filter' => 'subadauth']);
 $routes->get('subadminworkflow/(:any)', 'SubadminWorkflow::$1',['filter' => 'subadauth']);
 $routes->get('SubadminWorkflow', 'SubadminWorkflow::index',['filter' => 'subadauth']);

@@ -922,9 +922,6 @@ $(document).ready(function() {
         }, {
             "width": "4%",
             "targets": 8
-        }, {
-            "width": "4%",
-            "targets": 9
         }]
     });
     $('#companyOrderDocument').change(function(e) {
@@ -949,23 +946,35 @@ $(document).ready(function() {
                 }
             },
             "columnDefs": [{
-                "orderable": false,
+                "width": "4%",
                 "targets": -1
             }, {
-                "orderable": false,
+                "width": "4%",
                 "targets": 0
             }, {
-                "orderable": false,
-                "targets": 5
-            }, {
-                "width": "10%",
-                "targets": 0
-            }, {
-                "width": "15%",
+                "width": "4%",
                 "targets": 1
             }, {
-                "width": "10%",
+                "width": "4%",
                 "targets": 2
+            }, {
+                "width": "4%",
+                "targets": 3
+            }, {
+                "width": "4%",
+                "targets": 4
+            }, {
+                "width": "4%",
+                "targets": 5
+            }, {
+                "width": "4%",
+                "targets": 6
+            }, {
+                "width": "4%",
+                "targets": 7
+            }, {
+                "width": "4%",
+                "targets": 8
             }]
         });
         // $('#frm-example').on('submit', function() {
@@ -1020,6 +1029,32 @@ $(document).ready(function() {
         }, {
             "width": "10%",
             "targets": 8
+        }]
+    });
+    $('#clientsTable').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "responsive": true,
+        "order": [],
+        "ajax": {
+            url: "clients/fetch_Clients",
+            type: "POST",
+        },
+        "columnDefs": [{
+            "orderable": false,
+            "targets": -1
+        }, {
+            "width": "10%",
+            "targets": 0
+        }, {
+            "width": "15%",
+            "targets": 1
+        }, {
+            "width": "10%",
+            "targets": 2
+        }, {
+            "width": "10%",
+            "targets": 3
         }, ]
     });
 });

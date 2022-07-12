@@ -971,13 +971,23 @@ class Workflow extends BaseController{
 				'<b>'.$companyName.' - </b>'.$flowdocument_name.' has been '.$status.' by '.$userType.'<br>'.
 				'<b>Comments:</b> '.$flowcomments.'<br>'.
 				'Kind regards';
+
+				$headers = "MIME-Version: 1.0" . "\r\n";
+                $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+                $headers .= '<noreply@hseqss.co.za>';
+                
+                $to = $to;
+               
+                $subject = $companyName;
+
+                mail($to,$subject,$message,$headers);
 					
-				$email = \Config\Services::email();
-				$email->setFrom('gert@gsdm.co.za', 'HSEQ User');
-				$email->setTo($to);
-				$email->setSubject($companyName);
-				$email->setMessage($message);
-				$email->send();
+				// $email = \Config\Services::email();
+				// $email->setFrom('gert@gsdm.co.za', 'HSEQ User');
+				// $email->setTo($to);
+				// $email->setSubject($companyName);
+				// $email->setMessage($message);
+				// $email->send();
 				
 				//  if ($email->send()){
 				// 	echo 'Email successfully sent';

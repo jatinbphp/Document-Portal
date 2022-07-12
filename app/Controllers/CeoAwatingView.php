@@ -210,21 +210,31 @@ class CeoAwatingView extends BaseController
                          '.$userFirstName.' '.$userLastName.' </b>
                         <br><br><b>Comments-</b> '.$comments.'
                         <br><b>Status- </b> '.$status.' '; 
+
+                        $headers = "MIME-Version: 1.0" . "\r\n";
+                        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+                        $headers .= '<noreply@hseqss.co.za>';
                         
-                        $email = \Config\Services::email();
-                        $email->setFrom('gert@gsdm.co.za', 'HSEQ User');
-                         $email->setTo($recieve_email);
-                        $email->setSubject('HSEQ Document');
-                        $email->setMessage($message);
-                         if ($email->send()) 
-                        {
-                            echo 'Email successfully sent';
-                        } 
-                        else 
-                        {
-                            $data = $email->printDebugger(['headers']);
-                            print_r($data);
-                        }
+                        $to = $recieve_email;
+                       
+                        $subject = 'HSEQ Document';
+
+                        mail($to,$subject,$message,$headers);
+                        
+                        // $email = \Config\Services::email();
+                        // $email->setFrom('gert@gsdm.co.za', 'HSEQ User');
+                        //  $email->setTo($recieve_email);
+                        // $email->setSubject('HSEQ Document');
+                        // $email->setMessage($message);
+                        //  if ($email->send()) 
+                        // {
+                        //     echo 'Email successfully sent';
+                        // } 
+                        // else 
+                        // {
+                        //     $data = $email->printDebugger(['headers']);
+                        //     print_r($data);
+                        // }
 
 	    	if($result ){ 
 		            $session->setFlashdata("success", "Data updated Successfully.");

@@ -137,10 +137,16 @@ $(document).ready(function() {
             companyName: {
                 required: true,
             },
+            client_id: {
+                required: true,
+            },
         },
         messages: {
             companyName: {
                 required: "Please enter Company Name",
+            },
+            client_id: {
+                required: "Please Select Clients",
             },
         },
         submitHandler: function(form) {

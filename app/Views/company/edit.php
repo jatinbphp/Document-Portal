@@ -31,6 +31,24 @@
                                 </div>
                             </div>
 
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="lableTitle"for="client_id">Clients :<span class="asterisk-sign">*</span></label>
+                                        <select name="client_id" id="client_id" class="form-control" REQUIRED>
+                                            <option value="">-- Select Clients --</option>
+                                            <?php 
+                                                if(count($clients)>0){
+                                                    foreach ($clients as $key => $value) { ?>
+                                            <option value="<?php echo $value['id']; ?>" <?php if($company_info['client_id']==$value['id']){ echo "selected";} ?>><?php echo $value['first_name'] .' '. $value['last_name']; ?></option>
+                                            <?php
+                                                }
+                                                } ?>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
                             <button type="submit" class="btn btn-info">Update</button>
                             <a href="<?php echo base_url('company'); ?>" type="button" class="btn btn-warning">Back</a>
                         </form>

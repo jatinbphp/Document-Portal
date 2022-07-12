@@ -19,7 +19,7 @@ class CompanyModel extends Model
 	protected $validationMessages   = [];
 	protected $skipValidation       = false;
 	protected $cleanValidationRules = true;
-	protected $allowedFields = ['companyName'];
+	protected $allowedFields = ['companyName','client_id'];
 
 	public function get_all_data($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn)
     {   

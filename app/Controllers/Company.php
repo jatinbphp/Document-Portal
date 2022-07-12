@@ -3,6 +3,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\CompanyModel;
+use App\Models\ClientsModel;
 
 class Company extends BaseController
 {
@@ -51,9 +52,11 @@ class Company extends BaseController
 			$session = session();
 
 			$companyName = $request->getPost('companyName');
+			$client_id = $request->getPost('client_id');
 		
 			$data = array(
 				'companyName' => $companyName,
+				'client_id' => $client_id,
 			);
 
 			$model_company->set($data);
@@ -70,6 +73,10 @@ class Company extends BaseController
 		}
 
 		$this->data['page_title'] = "Company Edit";
+
+		$model_clients = new ClientsModel;
+		$clientData = $model_clients->findAll();
+		$this->data['clients'] = $clientData;
 
 		$companyData = $model_company->where('id', $id)->first(); 
 		$this->data['company_info'] = $companyData;

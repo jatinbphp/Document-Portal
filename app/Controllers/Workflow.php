@@ -649,24 +649,6 @@ class Workflow extends BaseController{
 		    	
 	    	
 	    	if($result){ 
-
-	    		$imageData1 = '';
-			if (isset($_FILES['file']['name'][0])) {
-
-			  foreach ($_FILES['file']['name'] as $keys => $values) {
-			  	
-			    $fileName = $values;
-			    
-			    if (move_uploaded_file($_FILES['file']['tmp_name'][$keys], 'uploads/workflow/' . $fileName)) {
-			    	$imageData1 .= '<span class="thumbnail">'.$fileName.'</span>';
-
-			    	
-			     // $imageData .= '<img src="uploads/workflow/' . $fileName . '" class="thumbnail" />';
-			    }
-			  }
-			}
-			echo $imageData1;
-					
 		    		$additional_img_array = array();
 		    		if(count($_FILES)>0){
 			            foreach ($_FILES['file']['name'] as $num_key => $dummy) {
@@ -1173,22 +1155,50 @@ class Workflow extends BaseController{
 	}
 
 	public function drag_drop(){
+		$url = explode("/",$_SERVER['HTTP_REFERER']);
+		$id = $url[6];
 		$imageData = '';
 		if (isset($_FILES['file']['name'][0])) {
+			
+			$i = 1;
+			// $uploaddir = 'uploads/workflow/';
 
 		  foreach ($_FILES['file']['name'] as $keys => $values) {
 		  	
-		    $fileName = $values;
-		    
-		    if (move_uploaded_file($_FILES['file']['tmp_name'][$keys], 'uploads/workflow/' . $fileName)) {
-		    	$imageData .= '<span class="thumbnail">'.$fileName.'</span>';
+		  	$ext = pathinfo($values, PATHINFO_EXTENSION);
 
+		  	$x = substr($values, 0, strrpos($values, '.'));
+            //$fileName = $x.'_'.time().$i.'.'.$ext;
+		   // $fileName = $values.time()."_".$i;
+		    //$x = substr($values, 0, strrpos($values, '.'));
+            $filenm = $x.'_'.time().$i.'.'.$ext;
+            
+           // $filenm = time().rand(10,100).'_workflow_'.$i.'.'.$ext;
+            $documents = str_replace(' ', '_', $filenm);
+            //$uploadfile = $uploaddir .'/'. $documents;
+		    //echo $fileName;
+		    
+		    if (move_uploaded_file($_FILES['file']['tmp_name'][$keys], 'uploads/workflow/' . $documents)) {
+		    	$imageData .= '<span class="thumbnail">'.$documents.'</span>';
+
+		    	 $dataImage = array(
+										'workflow_id' => $id,
+										'documents' => $documents,	 
+									);
+									$db = \Config\Database::connect(); 
+							    	$insertd = $db->table('workflow_documents')->insert($dataImage);
+					                
 
 		     // $imageData .= '<img src="uploads/workflow/' . $fileName . '" class="thumbnail" />';
 		    }
+		   
 		  }
+		  $i++;
 		}
 		echo $imageData;
+
+		
+
 	}
 
 		

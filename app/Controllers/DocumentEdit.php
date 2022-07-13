@@ -94,8 +94,9 @@ class DocumentEdit extends BaseController{
 			$sub_array[] = $row['firstName']." ".$row['lastName'];  
 			//$sub_array[] = $row['categoryName']; 
 			//$sub_array[] = $row['SubCatName']; 
-			//$sub_array[] = $row['companyName'];  
-			$sub_array[] = $row['edited_date']; 
+			//$sub_array[] = $row['companyName']; 
+            $edited_date= date("Y-m-d",strtotime($row['edited_date']));
+			$sub_array[] = $edited_date; 
 
 		 	if($row['isActive'] == 1){
                 //$sub_array[] = '<span class="badge badge-success">Active</span>';

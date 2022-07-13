@@ -88,7 +88,8 @@ class DocumentEdit extends BaseController{
             $sub_array = array(); 
             $imgSrc = base_url('assets/images/download1.png');
             $id = $row['id'];
-            $sub_array[] = '<a href = "' . base_url( '/uploads/documents/'.$row['categoryID'].'/'.$row['subCategoryID'].'/'.$row['docFile']). '" target="_blank"><img src="'.$imgSrc.'" style="width: 40px; height: 40px"></a>';
+            // $sub_array[] = '<a href = "' . base_url( '/uploads/documents/'.$row['categoryID'].'/'.$row['subCategoryID'].'/'.$row['docFile']). '" target="_blank"><img src="'.$imgSrc.'" style="width: 40px; height: 40px"></a>';
+            $sub_array[] = '<a href = "' . base_url( '/uploads/documents/'.$row['categoryID'].'/'.$row['subCategoryID'].'/'.$row['docFile']). '" target="_blank"><i class="fa fa-file" style="font-size:36px;"></i></a>';
             $sub_array[] = $row['docName'];  
 			$sub_array[] = $row['firstName']." ".$row['lastName'];  
 			//$sub_array[] = $row['categoryName']; 

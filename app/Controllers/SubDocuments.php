@@ -43,6 +43,7 @@ class SubDocuments extends BaseController{
         $ComID = implode(",",$CompArr );
         $ComID1 = ''.$ComID.',0';
        $CompArr1[] = $ComID1;
+      
 
        $IdArr = array($_SESSION['id'],0);
        $userID = implode(",",$IdArr);

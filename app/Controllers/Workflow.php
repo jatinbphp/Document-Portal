@@ -8,6 +8,7 @@ use App\Models\CategoryModel;
 use App\Models\CompanyModel;
 use App\Models\ReportingModel;
 use App\Models\User_typesModel;
+use App\Models\ClientsModel;
 use ZipArchive;
 class Workflow extends BaseController{
 
@@ -15,6 +16,10 @@ class Workflow extends BaseController{
 
 		$company = new CompanyModel;
 		$this->data['company'] = $company->findall();
+         
+         $client_model = new ClientsModel;
+         $this->data['clients'] = $client_model->findall();
+
 		$model_comments = new WorkflowModel;
 		$this->data['comments'] = $model_comments->select('comments')->findAll();
 		if($_SESSION['user_type'] == 3){
@@ -228,11 +233,28 @@ class Workflow extends BaseController{
 
         // equal condition
 	  	 $whereEqual=array();
+	  	 $whereUser = array();
 	  	 $is_deleted = 0;
          $whereEqual=array($global_tblWorkflow.'.is_deleted'=>$is_deleted);
          if(isset($_POST['company_id']) && $_POST['company_id'] != '' ){
 			
  			  $whereEqual[$global_tblWorkflow.'.company_id']= trim($_POST['company_id']);
+ 		}
+
+ 		 if(isset($_POST['client_id']) && $_POST['client_id'] != '' ){
+ 		 	$client_comp = array();
+ 		 	$db      = \Config\Database::connect();
+			$builder = $db->table('Company');
+			$builder->select('id');
+			$builder->where('client_id', $_POST['client_id']);
+			$queryResult = $builder->get()->getResult('array');
+			foreach($queryResult as $Queryval){
+				$comp[] = $Queryval['id'];
+			}
+			$Comp_id = implode(",",$comp);
+			$client_comp[] = $Comp_id;
+			// echo "<pre>";print_r($client_comp);exit;
+ 			  $whereUser[$global_tblWorkflow.'.company_id']= $client_comp;
  		}
         // not equal condition
         $whereNotEqual = array();
@@ -272,7 +294,7 @@ class Workflow extends BaseController{
 
 
      	$model_user= new WorkflowModel;
-        $fetch_data = $model_user->make_datatables( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn);
+        $fetch_data = $model_user->make_datatables( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$whereUser);
       
      	
         $data = array();
@@ -403,8 +425,8 @@ class Workflow extends BaseController{
         } 
         $output = array(
             "draw" =>  $_POST["draw"] ,
-            "recordsTotal" => $model_user->get_all_data( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn),
-            "recordsFiltered" => $model_user->get_filtered_data( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn),
+            "recordsTotal" => $model_user->get_all_data( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$whereUser),
+            "recordsFiltered" => $model_user->get_filtered_data( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$whereUser),
             "data" => $data,
         );
 

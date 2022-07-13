@@ -878,6 +878,47 @@ $(document).ready(function() {
             }]
         });
     }
+    $('#clientSearchWorkflow').change(function(e) {
+        var client_id = $('#clientSearchWorkflow').val();
+        $("#workflowTable").dataTable().fnDestroy();
+        filterClientDataWorkflow();
+    });
+
+    function filterClientDataWorkflow() {
+        //reporting table
+        $('#workflowTable').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "responsive": true,
+            "order": [],
+            "ajax": {
+                url: "workflow/fetch_workflow",
+                type: "POST",
+                data: {
+                    'client_id': $('#clientSearchWorkflow').val()
+                }
+            },
+            "columnDefs": [{
+                "orderable": false,
+                "targets": -1
+            }, {
+                "orderable": false,
+                "targets": 0
+            }, {
+                "orderable": false,
+                "targets": 5
+            }, {
+                "width": "10%",
+                "targets": 0
+            }, {
+                "width": "15%",
+                "targets": 1
+            }, {
+                "width": "10%",
+                "targets": 2
+            }]
+        });
+    }
     $('#orderDocumentsTable').DataTable({
         "processing": true,
         "serverSide": true,

@@ -67,6 +67,18 @@
                                  </select>
                             </div>
                         </div>
+                        <div class="col-sm-12 col-md-4">
+                            <div class="category-filter">
+                                <select id="clientSearchWorkflow" class="form-control" name="clientSearch">
+                                    <option value="">Select Clients</option>
+                                        <?php if(count($clients) > 0): ?>
+                                            <?php foreach($clients as $key => $value): ?>
+                                                <option value="<?php //echo $value['companyName'] ?> <?php echo $value['id'] ?>"><?php echo $value['first_name'] .' '. $value['last_name'] ?></option>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>                  
+                                 </select>
+                            </div>
+                        </div>
                      <div><a href = " <?php  echo base_url( '/workflow/wait_approval/') ?>" class="btn btn-primary" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;" target="_blank">2nd APPROVAL</i></a></div>
                     </div>
 

@@ -133,10 +133,10 @@ class Clients extends BaseController
         $selectColumn[$global_tblClients.'.*'] = $global_tblClients.'.*';
       	
         // order column
-        $orderColumn = array($global_tblClients.".first_name" );
+        $orderColumn = array($global_tblClients.".first_name",$global_tblClients.".email",$global_tblClients.".is_active" );
 
         // search column
-        $searchColumn = array($global_tblClients.".first_name");
+        $searchColumn = array($global_tblClients.".first_name", $global_tblClients.".last_name",$global_tblClients.".email");
 
         // order by
         $orderBy = array($global_tblClients.'.id' => "ASC");

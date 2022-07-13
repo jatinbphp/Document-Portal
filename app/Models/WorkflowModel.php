@@ -22,9 +22,9 @@ class WorkflowModel extends Model
 	protected $allowedFields = ['document_name', 'usertype_id', 'category_id', 'subcategory_id','document_files', 'comments','company_id','start_date','expire_date','is_update','is_active','is_deleted','update_seq','approve_company','ceo_comments','sec_approval_status','awating_user_id','order_update'];
 
 
-	public function get_all_data($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn)
+	public function get_all_data($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$whereUser)
     {   
-        $this->make_query($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn);
+        $this->make_query($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$whereUser);
 
         return $this->countAllResults();
     }
@@ -154,23 +154,23 @@ class WorkflowModel extends Model
 
     }
 
- 	public function get_filtered_data($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn)
+ 	public function get_filtered_data($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$whereUser)
     {
-        $this->make_query($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn);
+        $this->make_query($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$whereUser);
         return $this->countAllResults();
         //return $query->countResultAll();
     }
 
-    public function make_datatables($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$orwhere=null)
+    public function make_datatables($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$whereUser,$orwhere=null)
     {
-         $this->make_query($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$orwhere);
+         $this->make_query($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$whereUser,$orwhere);
 
         $result = $this->findAll($_POST['length'], $_POST['start']);
         return  $result ;
         
     }
 
-    public function make_query($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$orwhere=null)
+    public function make_query($selectFields,$whereData,$whereNotData,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$whereUser,$orwhere=null)
     {   
        
         //table 
@@ -216,6 +216,33 @@ class WorkflowModel extends Model
                 foreach ($notValue as $notValue) {
 
                     $this->where($notName.' !=', $notValue);
+                }
+            } 
+        }
+
+        if(!empty($whereUser)){            
+            foreach ($whereUser as $whereName => $whereValue1) {
+
+                foreach ($whereValue1 as $whereValue) {
+                 
+            if(!empty($whereValue)){
+
+                $whereString = array();
+                $citizenshipStatusIDArr = explode(",", $whereValue);
+                
+                foreach ($citizenshipStatusIDArr as $keyC => $valueC) {
+                    
+                    $whereString[] = "document_workfolw.company_id = ".$valueC;                   
+                }
+               
+                if(!empty($whereString)){
+                    $this->where("(".implode(" OR ", $whereString).")");
+                }
+
+            }
+
+                    //$this->where($whereName. " = ",$whereValue);
+                    
                 }
             } 
         }

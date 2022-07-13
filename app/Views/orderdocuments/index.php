@@ -189,7 +189,7 @@
         },
         success: function(result) {
             if(result == 1){
-
+                
                 var url1 = baseurl + '/orderdocuments';
                 window.location.href = url1; 
             }

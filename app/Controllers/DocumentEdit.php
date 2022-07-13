@@ -32,6 +32,9 @@ class DocumentEdit extends BaseController{
 
         // equal condition
 	  	 $whereEqual=array();
+         $orwhere =array();
+         $whereIn = array();
+         $whereUser = array();
 	  	 
 	  	 if(isset($_POST['company_id']) && $_POST['company_id'] != '' ){
 			
@@ -79,7 +82,7 @@ class DocumentEdit extends BaseController{
        );
        
      	$model_user= new DocumentsModel;
-        $fetch_data = $model_user->make_datatables( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn);
+        $fetch_data = $model_user->make_datatables( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$orwhere,$whereIn,$whereUser);
         $data = array();
         foreach ($fetch_data as $key => $row) {
             $sub_array = array(); 
@@ -109,8 +112,8 @@ class DocumentEdit extends BaseController{
         } 
         $output = array(
             "draw" =>  $_POST["draw"] ,
-            "recordsTotal" => $model_user->get_all_data( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn),
-            "recordsFiltered" => $model_user->get_filtered_data( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn),
+            "recordsTotal" => $model_user->get_all_data( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$orwhere,$whereIn,$whereUser),
+            "recordsFiltered" => $model_user->get_filtered_data( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$orwhere,$whereIn,$whereUser),
             "data" => $data,
         );
 

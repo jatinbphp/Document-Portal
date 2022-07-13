@@ -966,7 +966,6 @@ $(document).ready(function() {
         }]
     });
     $('#companyOrderDocument').change(function(e) {
-        $companyId = $('#companyOrderDocument').val();
         $(".orderTable").show();
         $("#orderDocumentsTable").dataTable().fnDestroy();
         filterCompanyDataWorkflow1();

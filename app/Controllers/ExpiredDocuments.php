@@ -36,6 +36,7 @@ class ExpiredDocuments extends BaseController{
         
         // equal condition
 	  	 $whereEqual=array();
+         
 	  	 
 	  	 //$whereEqual[$global_tblWorkflow.'.expire_date'] = trim($currentDate);
 	  	

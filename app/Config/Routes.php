@@ -175,8 +175,8 @@ $routes->match(['get','post'],'ceoview/(:any)', 'CeoAwatingView::$1',['filter' =
 
 //manager routes
 
-$routes->get('manager', 'Mamnager::index',['filter' => 'managerauth']);
-$routes->get('manager/(:any)', 'Mamnager::$1',['filter' => 'managerauth']);
+$routes->get('manager', 'Manager::index',['filter' => 'managerauth']);
+$routes->get('manager/(:any)', 'Manager::$1',['filter' => 'managerauth']);
 
 
 //technician routes

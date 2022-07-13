@@ -156,18 +156,19 @@ class OrderDocuments extends BaseController{
 	}
 
     public function update_order(){
+        
 
         $names = $_POST['Nameids'];
         $iids = $_POST['ids'];
-        $kk = array_key_exists('0', $iids);
+        // $kk = array_key_exists('0', $iids);
 
-        if ($kk !== false) {
-            unset($iids[$kk]);
-        }
-
+        // if ($kk !== false) {
+        //     unset($iids[$kk]);
+        // }
+        // echo "<pre>";print_r($iids);
         
         $c =array_combine($iids, $names);
-
+       
        foreach($c as $key=>$value){
         $db = \Config\Database::connect();
 

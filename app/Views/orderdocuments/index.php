@@ -168,7 +168,7 @@
 
     
      var ids = [];
-     $('input').each(function (i, item)
+     $('.ReOrderData').each(function (i, item)
             {
                 //console.log(item.id);
                 var ii = item.id;

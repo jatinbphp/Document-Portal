@@ -280,7 +280,7 @@ class Workflow extends BaseController{
 
         // order by
          $orderBy = array();
-        $orderBy = array($global_tblWorkflow.'.id' => "DESC");
+        $orderBy = array($global_tblWorkflow.'.order_update' => "ASC");
 
         // join table
         $joinTableArray = array();
@@ -522,6 +522,7 @@ class Workflow extends BaseController{
 	}
 
 	public function edit($id=''){
+		
 	
 	//$model_workflow = new WorkflowModel;
 	$model_workflow = new WorkflowModel;
@@ -648,6 +649,23 @@ class Workflow extends BaseController{
 		    	
 	    	
 	    	if($result){ 
+
+	    		$imageData1 = '';
+			if (isset($_FILES['file']['name'][0])) {
+
+			  foreach ($_FILES['file']['name'] as $keys => $values) {
+			  	
+			    $fileName = $values;
+			    
+			    if (move_uploaded_file($_FILES['file']['tmp_name'][$keys], 'uploads/workflow/' . $fileName)) {
+			    	$imageData1 .= '<span class="thumbnail">'.$fileName.'</span>';
+
+			    	
+			     // $imageData .= '<img src="uploads/workflow/' . $fileName . '" class="thumbnail" />';
+			    }
+			  }
+			}
+			echo $imageData1;
 					
 		    		$additional_img_array = array();
 		    		if(count($_FILES)>0){
@@ -1152,6 +1170,25 @@ class Workflow extends BaseController{
 		$this->data['title'] = 'Approval';
 		$this->render_template('workflow/approval_by _ceo',$this->data);
 
+	}
+
+	public function drag_drop(){
+		$imageData = '';
+		if (isset($_FILES['file']['name'][0])) {
+
+		  foreach ($_FILES['file']['name'] as $keys => $values) {
+		  	
+		    $fileName = $values;
+		    
+		    if (move_uploaded_file($_FILES['file']['tmp_name'][$keys], 'uploads/workflow/' . $fileName)) {
+		    	$imageData .= '<span class="thumbnail">'.$fileName.'</span>';
+
+
+		     // $imageData .= '<img src="uploads/workflow/' . $fileName . '" class="thumbnail" />';
+		    }
+		  }
+		}
+		echo $imageData;
 	}
 
 		

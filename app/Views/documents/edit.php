@@ -126,17 +126,28 @@
                                     </div>
                                 </div>
                                 <div class="col-md-3">
-                                    <label class="lableTitle"for="expireDate">Expire Date :</label>
+                                     <div class="form-group">
+                                    <!-- <label class="lableTitle"for="expireDate">Expire Date :</label>
                                     <div class="form-group form-check">
                                        <input type="date" name="expireDate" class="form-check-input" id="expireDate" value="<?php echo date('Y-m-d',strtotime($docData['expireDate'])); ?>">
-                                        
+                                         
                                     </div>
+                                    <span class="error expireDate-error" style="display: none;">Please select expire date.</span> -->
+
+                                     <label class="lableTitle"for="expireDate">Expire Date:<span class="asterisk-sign11"></span></label>
+                                       <input type="date" name="expireDate" class="form-control" id="expireDate" placeholder="Expire Date" value="<?php echo date('Y-m-d',strtotime($docData['expireDate'])); ?>" >
+
+                                       <span class="error expireDate-error" style="display: none;">Please select expire date.</span>
+                                </div>
                                 </div> 
+
                                 <div class="col-md-3">
+                                    
                                     <label class="lableTitle"for="isActive">Active/InActive :</label>
                                     <div class="form-group form-check">
                                          <input type="checkbox" name="isActive" class="form-check-input" id="isActive" <?php echo ($docData['isActive'] == 1)?"checked":""; ?>>
                                         <label class="form-check-label" for="isActive">is Active</label>
+                                         <span class="error isActive-error" style="display: none;">Please check the checkbox.</span>
                                     </div>
                                 </div>                     
                             </div>                                
@@ -220,6 +231,8 @@
 
      $('button.savebtn').on("click",function() {
            // $('.loader-main').css('display','flex');
+           
+           
              var docName = $("#docName").val();
             if(docName != ''){
                 var dt1 =1;
@@ -236,10 +249,63 @@
             if(docFile != ''){
                 var dt4 =1;
             }
+
+            var approve = $('input:checkbox[name=isActive]').is(':checked');
+            var expireDate = $("#expireDate").val();
+            if(approve == false && expireDate !=''){
+                $("#isActive").focus();
+                $(".isActive-error").css("display", "");
+                return false;
+            }
+            
+            
             
             if(dt1 == 1 && dt2 == 1 && dt3 == 1 && dt4 ==1) {
                 $('.loader-main').css('display','flex');
             }
         });
+});
+
+$(document).ready(function(){
+    $('#isActive').click(function(){
+        $(".isActive-error").css("display", "none"); 
+        var approve = $('input:checkbox[name=isActive]').is(':checked');
+        if(approve == true){
+           var expireDate = $("#expireDate").val();
+            if(expireDate == ''){
+                $("#expireDate").focus();
+                $(".expireDate-error").css("display", "");
+                return false;
+            } else {
+                $(".expireDate-error").css("display", "none");
+               // $(".isActive-error").css("display", "none");
+               // $('#isActive').is(":checked");
+            }
+        }
+        else{
+           $('#expireDate').val('');
+        }
+        
+
+    });   
+
+    // $('#expireDate').on("change",function(){
+    //     var isapprove = $('input:checkbox[name=isActive]').is(':checked');
+    //     if(isapprove == false){
+    //         var expireDateset = $("#expireDate").val();
+    //         if(expireDateset != ''){
+    //             $("#isActive").focus();
+    //             $(".isActive-error").css("display", "");
+    //             return false;
+    //         }
+    //        else{
+    //         $(".expireDate-error").css("display", "none");
+           
+    //         }
+    //     }
+    // });
+
+    
+  
 });
 </script>

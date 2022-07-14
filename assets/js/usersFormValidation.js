@@ -208,9 +208,9 @@ $(document).ready(function() {
             // docFile: {
             //     required: true,
             // },
-            expireDate: {
-                required: true,
-            },
+            // expireDate: {
+            //     required: true,
+            // },
         },
         messages: {
             docName: {
@@ -225,9 +225,9 @@ $(document).ready(function() {
             // docFile: {
             //     required: "Please select Document file",
             // },
-            expireDate: {
-                required: "Please select Expire Date",
-            },
+            // expireDate: {
+            //     required: "Please select Expire Date",
+            // },
         },
         submitHandler: function(form) {
             form.submit();

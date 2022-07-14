@@ -204,12 +204,33 @@ class Documents extends BaseController{
 			$sub_array[] = $row['companyName'];  
 			$sub_array[] = $row['expireDate']; 
 
-		 	if($row['isActive'] == 1){
-                $sub_array[] = '<span class="badge badge-success">Active</span>';
-            }else{
-                $sub_array[] = '<span class="badge badge-danger">InActive</span>';
-            }  
+		 	// if($row['isActive'] == 1){
+    //             $sub_array[] = '<span class="badge badge-success">Active</span>';
+    //         }else{
+    //             $sub_array[] = '<span class="badge badge-danger">InActive</span>';
+    //         }  
 
+			//show document expiration status in status colomn
+			
+            if($row['isActive'] == 1 && $row['expireDate'] > date('Y-m-d')){
+                $sub_array[] = '<span class="badge badge-success">Active</span>';            
+            }
+            elseif($row['isActive'] == 1 && $row['expireDate'] < date('Y-m-d')){
+                $sub_array[] = '<span class="badge badge-danger">Expired</span>';
+            }
+            elseif($row['isActive'] != 1 && $row['expireDate'] == '0000-00-00'){
+            	$sub_array[] = '<span class="badge badge-dark">InActive</span>';
+            }
+            elseif($row['isActive'] != 1 && $row['expireDate'] < date('Y-m-d')){
+                $sub_array[] = '<span class="badge badge-danger">Expired</span>';
+            }
+            elseif($row['isActive'] == 1 && $row['expireDate'] ==  date('Y-m-d')){
+               $sub_array[] = '<span class="badge badge-success">Active</span>';
+            }
+            
+            else{
+                $sub_array[] = '<span class="badge badge-dark">InActive</span>';
+            }
 		    
         	//$sub_array[] = $row['dateAdded'];
          	//$actionLink = $model_user->getActionLink('',$row['id'],'Documents','',$row['userTypeID']); 

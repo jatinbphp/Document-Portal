@@ -124,7 +124,19 @@
             selector: '.tip'
         });
 
-        $(".orderTable").hide();
+        $(".OrderWorkflow").click(function(){
+            alert("Sfsdfds");
+        });
+          sessionStorage.clear(); 
+         var updata =$.session.get("upOrder");
+         alert(updata);
+         // if(updata == 1){
+         //     $(".orderTable").show();
+         // }else{
+
+         //     $(".orderTable").hide();
+         // }
+       
     });
 </script>
 
@@ -189,9 +201,14 @@
         },
         success: function(result) {
             if(result == 1){
-                
-                var url1 = baseurl + '/orderdocuments';
-                window.location.href = url1; 
+               var id =  $("#companyOrderDocument").val();
+              
+               $.session.set("upOrder", result);
+                location.reload();
+                $('option[value=' + id + ']')
+            .attr('selected',true);
+                //var url1 = baseurl + '/orderdocuments';
+                //window.location.href = url1; 
             }
             else{
                 alert("Please Update orders");

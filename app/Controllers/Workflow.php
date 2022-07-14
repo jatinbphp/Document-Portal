@@ -31,6 +31,50 @@ class Workflow extends BaseController{
 		}
 	}
 
+public function ajax(){
+		$company = new CompanyModel;
+		$this->data['company'] = $company->findall();
+		$model_comments = new WorkflowModel;
+		$this->data['comments'] = $model_comments->select('comments')->findAll();
+		$this->data['page_title'] = 'Workflow';
+			
+		$id = $_POST['docValue'];
+		$db = \Config\Database::connect(); 
+		$builder = $db->table('workflow_documents');
+		$builder1 = $builder->where('workflow_id',$id);
+		$query = $builder1->get();
+		$datadoc = $query->getResultArray();
+
+		$counter = 0;
+
+		$response = "<table class='table'>";
+		$response .= " <thead class='thead-dark'>";
+		$response .= "<tr>";
+		$response .= "<th scope='col' style='width: 10%'>#</th>";
+		$response .= "<th scope='col' style='width: 70%'>Document Name</th>";
+		$response .= "<th scope='col' style='width: 20%'>Action</th>";
+		$response .= "</tr>";
+		$response .= "</thead>";
+		$response .= "<tbody>";
+		
+		
+		
+		
+		foreach($datadoc as $value){
+			$response .= "<tr>";
+			$response .= "<td>".$counter = $counter + '1'."</td>";
+			$response .= "<td>".$value['documents']."</td>";
+			$response .= "<td><a href = ".base_url( '/uploads/workflow/'.$value['documents'])." class='btn btn-primary' style='margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;' target='_blank'><i class='fa fa-file'></i></a></td>";
+			$response .= "</tr>";
+		}
+
+		$response .= "</tbody>";
+		$response .= "</table>";
+
+		echo $response;
+
+		
+	}
 	public function add(){
 		$workflow = new WorkflowModel;
 
@@ -401,7 +445,10 @@ class Workflow extends BaseController{
         	
         	//$sub_array[] = '<a href = "' . base_url( '/uploads/workflow/'.$row['documents']). '" class="btn btn-primary" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;" target="_blank"><i class="fa fa-file"></i></a>';  // for document name
         	
-        	$sub_array[] = '<a href = "' . base_url( '/workflow/download_documents/'.$row['id']). '" class="btn btn-primary" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;" target="_blank"><i class="fa fa-file"></i></a>';	//for workflow id
+        	$sub_array[] = '<a href = "' . base_url( '/workflow/download_documents/'.$row['id']). '" class="btn btn-primary" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;" target="_blank"><i class="fa fa-file"></i></a>	
+        	        	
+        	<a href = "#" onclick="return false" class="btn btn-primary modalButton" data-custom-value="'.$row['id'].'" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;" ><i class="fa fa-eye"></i></a>';
+        	
         	
         	//$sub_array[] = '<a href = "' . base_url( '/workflow/download_documents/'.$row['id']). '" class="btn btn-primary" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;" target="_self"><i class="fa fa-file"></i></a>';	//for workflow id
         		
@@ -1154,52 +1201,52 @@ class Workflow extends BaseController{
 
 	}
 
-	public function drag_drop(){
-		$url = explode("/",$_SERVER['HTTP_REFERER']);
-		$id = $url[6];
-		$imageData = '';
-		if (isset($_FILES['file']['name'][0])) {
+	// public function drag_drop(){
+	// 	$url = explode("/",$_SERVER['HTTP_REFERER']);
+	// 	$id = $url[6];
+	// 	$imageData = '';
+	// 	if (isset($_FILES['file']['name'][0])) {
 			
-			$i = 1;
-			// $uploaddir = 'uploads/workflow/';
+	// 		$i = 1;
+	// 		// $uploaddir = 'uploads/workflow/';
 
-		  foreach ($_FILES['file']['name'] as $keys => $values) {
+	// 	  foreach ($_FILES['file']['name'] as $keys => $values) {
 		  	
-		  	$ext = pathinfo($values, PATHINFO_EXTENSION);
+	// 	  	$ext = pathinfo($values, PATHINFO_EXTENSION);
 
-		  	$x = substr($values, 0, strrpos($values, '.'));
-            //$fileName = $x.'_'.time().$i.'.'.$ext;
-		   // $fileName = $values.time()."_".$i;
-		    //$x = substr($values, 0, strrpos($values, '.'));
-            $filenm = $x.'_'.time().$i.'.'.$ext;
+	// 	  	$x = substr($values, 0, strrpos($values, '.'));
+ //            //$fileName = $x.'_'.time().$i.'.'.$ext;
+	// 	   // $fileName = $values.time()."_".$i;
+	// 	    //$x = substr($values, 0, strrpos($values, '.'));
+ //            $filenm = $x.'_'.time().$i.'.'.$ext;
             
-           // $filenm = time().rand(10,100).'_workflow_'.$i.'.'.$ext;
-            $documents = str_replace(' ', '_', $filenm);
-            //$uploadfile = $uploaddir .'/'. $documents;
-		    //echo $fileName;
+ //           // $filenm = time().rand(10,100).'_workflow_'.$i.'.'.$ext;
+ //            $documents = str_replace(' ', '_', $filenm);
+ //            //$uploadfile = $uploaddir .'/'. $documents;
+	// 	    //echo $fileName;
 		    
-		    if (move_uploaded_file($_FILES['file']['tmp_name'][$keys], 'uploads/workflow/' . $documents)) {
-		    	$imageData .= '<span class="thumbnail">'.$documents.'</span>';
+	// 	    if (move_uploaded_file($_FILES['file']['tmp_name'][$keys], 'uploads/workflow/' . $documents)) {
+	// 	    	$imageData .= '<span class="thumbnail">'.$documents.'</span>';
 
-		    	 $dataImage = array(
-										'workflow_id' => $id,
-										'documents' => $documents,	 
-									);
-									$db = \Config\Database::connect(); 
-							    	$insertd = $db->table('workflow_documents')->insert($dataImage);
+	// 	    	 $dataImage = array(
+	// 									'workflow_id' => $id,
+	// 									'documents' => $documents,	 
+	// 								);
+	// 								$db = \Config\Database::connect(); 
+	// 						    	$insertd = $db->table('workflow_documents')->insert($dataImage);
 					                
 
-		     // $imageData .= '<img src="uploads/workflow/' . $fileName . '" class="thumbnail" />';
-		    }
+	// 	     // $imageData .= '<img src="uploads/workflow/' . $fileName . '" class="thumbnail" />';
+	// 	    }
 		   
-		  }
-		  $i++;
-		}
-		echo $imageData;
+	// 	  }
+	// 	  $i++;
+	// 	}
+	// 	echo $imageData;
 
 		
 
-	}
+	// }
 
 		
 }

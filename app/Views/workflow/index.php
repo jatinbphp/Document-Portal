@@ -31,6 +31,28 @@
        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/datetime/1.1.2/css/dataTables.dateTime.min.css" />
        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/rowreorder/1.2.8/css/rowReorder.dataTables.min.css" />
        <link rel="stylesheet" type="text/css" href="../../extensions/Editor/css/editor.dataTables.min.css"> -->
+
+       <!-- Workflow Modal -->
+<div class="modal fade" id="workflowModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Workflow List</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+            
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!--button type="button" class="btn btn-primary">Save changes</button-->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
 <div class="wrapper">
     <div class="row">
         <div class="col-sm-12">
@@ -154,7 +176,23 @@
 
 <script src="<?php echo base_url('assets/js/usersTable.js') ?>"></script>
 
-
+<script>
+    $(".modalButton").live('click', function(){
+        
+        var url = '<?php echo base_url('workflow/ajax');?>';
+        var docValue = $(this).data("custom-value");
+        //alert(docValue);
+        $.ajax({ 
+                type: "POST",
+                url: url,
+                data: { docValue: docValue},
+                success: function(response){
+                    $('.modal-body').html(response);
+                    $('#workflowModal').modal('show'); 
+                }
+            });  
+    });
+</script>
 
 
 

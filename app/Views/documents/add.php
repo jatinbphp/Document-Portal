@@ -109,7 +109,7 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label class="lableTitle"for="profilePic">Documents : </label>
+                                        <label class="lableTitle"for="profilePic">Documents :<span class="asterisk-sign">*</span </label>
                                        <!--  <span>(We accept .JPG / .PNG / .GIF / .JPEG)</span> -->
                                         <div class="kv-avatar">
                                             <div class="file-loading">
@@ -125,13 +125,14 @@
                                         <label class="lableTitle"id="image-error" class="error" for="Document"></label>
                                     </div>
                                 </div>
-
+                                <?php $currntDate = date('Y-m-d');?>
                                  <div class="col-md-3">
-                                    <label class="lableTitle"for="expireDate">Expire Date :</label>
-                                    <div class="form-group form-check">
-                                        <input type="date" name="expireDate" class="form-check-input" id="expireDate">
-                                        
-                                    </div>
+                                     <div class="form-group">
+                                     <label class="lableTitle"for="expireDate">Expire Date:<span class="asterisk-sign11"></span></label>
+                                       <input type="date" min = "<?php echo $currntDate; ?>" name="expireDate" class="form-control" id="expireDate" placeholder="Expire Date">
+
+                                      
+                                </div>
                                 </div>    
                                 <div class="col-md-3">
                                     <label class="lableTitle"for="isActive">Active/InActive :</label>

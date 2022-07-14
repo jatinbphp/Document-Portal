@@ -156,7 +156,7 @@ class OrderDocuments extends BaseController{
 	}
 
     public function update_order(){
-        
+        $session = session();
 
         $names = $_POST['Nameids'];
         $iids = $_POST['ids'];
@@ -178,7 +178,11 @@ class OrderDocuments extends BaseController{
                 $result1 =  $builder->update();
 
        }
+
        if($result1){
+        // $logged_in_sess = ['OrderUpdate' => $result1];
+        // $this->session->set($logged_in_sess); 
+
          echo  $result1;exit;
        }
        

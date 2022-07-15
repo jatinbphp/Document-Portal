@@ -31,11 +31,11 @@
 				  <div class="card">
 					<div class="card-header" id="headingOne">
 					  <h5 class="mb-0">
-						<a href="" role="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><?php echo $compValue['companyName'] ?></a>
+						<a href="" role="button" data-toggle="collapse" data-target="#collapseOne-<?php echo $compValue['id'] ?>" aria-expanded="true" aria-controls="collapseOne"><?php echo $compValue['companyName'] ?></a>
 						<!--button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"><?php echo $compValue['companyName'] ?></button-->
 					  </h5>
 					</div>
-					<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+					<div id="collapseOne-<?php echo $compValue['id'] ?>" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
 					  <div class="card-body">
 						<!--table-->
 						<table id="" class="table table-bordered" cellspacing="0" width="100%">

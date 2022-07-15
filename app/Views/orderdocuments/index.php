@@ -54,7 +54,7 @@
                 <?php echo session()->getFlashdata('error'); ?>
             </div>
             <?php endif; ?>
-          <!--  <?php echo "<pre>";print_r($_SESSION);?> -->
+           <!-- <?php echo "<pre>";print_r($_SESSION);?>  -->
              <div class="row">
                         <div class="col-sm-12 col-md-4">
                             <div class="category-filter">
@@ -124,16 +124,7 @@
             selector: '.tip'
         });
 
-
-          //sessionStorage.clear(); 
-          var updata =$.session.get("upOrder1");
-        
-         if(updata == 'success'){
-             $(".orderTable").show();
-         }else{
-
-             $(".orderTable").hide();
-         }
+         $(".orderTable").hide();
        
     });
 </script>
@@ -198,15 +189,12 @@
             'ids[]':ids
         },
         success: function(result1) {
-            alert("here"+result1);
             if(result1 == 1){
-               var id =  $("#companyOrderDocument").val();
+               var id1 =  $("#companyOrderDocument").val();
               
-              // $.session.set("upOrder", result);
-              var sss = $(".orderTable").show();
-              alert(sss);
+              
                 location.reload();
-                 $('option[value=' + id + ']')
+                 $('option[value=' + id1 + ']')
              .attr('selected',true);
                 //var url1 = baseurl + '/orderdocuments';
                // window.location.href = url1; 

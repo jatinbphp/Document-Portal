@@ -179,7 +179,7 @@ class OrderDocuments extends BaseController{
        }
 
        if($result1){
-        $logged_in_sess = ['upOrder1' => 'success'];
+        $logged_in_sess = ['upOrder' => 'Success'];
         $this->session->set($logged_in_sess); 
 
          echo  $result1;exit;

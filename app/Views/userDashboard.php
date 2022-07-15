@@ -148,10 +148,12 @@ if($_SESSION['user_type'] == 3){ ?>
 							if($val['expire_date'] > $date_now && $val['expire_date']< $forNextMonth){
 								//echo "fdfdf";
 								$expirre_date = strtotime($expiretime);
+								$currnt_date = strtotime($date_now);
 
 								$nextData = strtotime($forNextMonth);
-								$datediff = $nextData - $expirre_date;
-
+								//$datediff = $nextData - $expirre_date;
+								$datediff = $expirre_date - $currnt_date;
+								
 								
 								$days =  round($datediff / (60 * 60 * 24));
 								
@@ -160,9 +162,9 @@ if($_SESSION['user_type'] == 3){ ?>
 
 								
 								if($foroddNextMonth == $currentMonth){
-									$ddd = 30-$days;
-									echo $days = $ddd. " " ."Days Left";
-									
+									//$ddd = 30-$days;
+									//echo $days = $ddd. " " ."Days Left";
+									echo $days. " " ."Days Left";
 								}
 								else{
 									echo $days. " " ."Days Left";

@@ -179,7 +179,7 @@
 <script>
     $(".modalButton").live('click', function(){
         
-        var url = '<?php echo base_url('workflow/ajax');?>';
+        var url = '<?php echo base_url('workflow/ajaxpopup');?>';
         var docValue = $(this).data("custom-value");
         //alert(docValue);
         $.ajax({ 

@@ -27,7 +27,18 @@ class SubadminWorkflowView extends BaseController
 
    
    public function fetch_workflow_view($id = null){
-    
+
+        $sesVal =  $_SERVER['HTTP_REFERER'];
+        $ses_id = explode("/",$sesVal);
+
+        $comp_id = end($ses_id);
+
+        $session = session();
+        $logged_in_sess = [
+            'company_id' => $comp_id
+                   
+        ]; 
+        $this->session->set($logged_in_sess);    
         $db = \Config\Database::connect();		
   	 	$global_tblWorkflow = 'document_workfolw';
  	  	$global_tblusers_types = 'UserTypes';

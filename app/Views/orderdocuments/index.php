@@ -54,7 +54,7 @@
                 <?php echo session()->getFlashdata('error'); ?>
             </div>
             <?php endif; ?>
-           
+          <!--  <?php echo "<pre>";print_r($_SESSION);?> -->
              <div class="row">
                         <div class="col-sm-12 col-md-4">
                             <div class="category-filter">
@@ -124,18 +124,16 @@
             selector: '.tip'
         });
 
-        $(".OrderWorkflow").click(function(){
-            alert("Sfsdfds");
-        });
-          sessionStorage.clear(); 
-         var updata =$.session.get("upOrder");
-         alert(updata);
-         // if(updata == 1){
-         //     $(".orderTable").show();
-         // }else{
 
-         //     $(".orderTable").hide();
-         // }
+          //sessionStorage.clear(); 
+          var updata =$.session.get("upOrder1");
+        
+         if(updata == 'success'){
+             $(".orderTable").show();
+         }else{
+
+             $(".orderTable").hide();
+         }
        
     });
 </script>
@@ -199,16 +197,20 @@
             'Nameids[]': Nameids,
             'ids[]':ids
         },
-        success: function(result) {
-            if(result == 1){
+        success: function(result1) {
+            alert("here"+result1);
+            if(result1 == 1){
                var id =  $("#companyOrderDocument").val();
               
-               $.session.set("upOrder", result);
+              // $.session.set("upOrder", result);
+              var sss = $(".orderTable").show();
+              alert(sss);
                 location.reload();
-                $('option[value=' + id + ']')
-            .attr('selected',true);
+                 $('option[value=' + id + ']')
+             .attr('selected',true);
                 //var url1 = baseurl + '/orderdocuments';
-                //window.location.href = url1; 
+               // window.location.href = url1; 
+                 $(".orderTable").show();
             }
             else{
                 alert("Please Update orders");

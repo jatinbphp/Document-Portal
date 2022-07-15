@@ -31,7 +31,7 @@ class Workflow extends BaseController{
 		}
 	}
 
-public function ajax(){
+public function ajaxpopup(){
 		$company = new CompanyModel;
 		$this->data['company'] = $company->findall();
 		$model_comments = new WorkflowModel;
@@ -324,7 +324,7 @@ public function ajax(){
 
         // order by
          $orderBy = array();
-        $orderBy = array($global_tblWorkflow.'.order_update' => "ASC");
+        $orderBy = array($global_tblWorkflow.'.id' => "DESC");
 
         // join table
         $joinTableArray = array();
@@ -448,7 +448,6 @@ public function ajax(){
         	$sub_array[] = '<a href = "' . base_url( '/workflow/download_documents/'.$row['id']). '" class="btn btn-primary" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;" target="_blank"><i class="fa fa-file"></i></a>	
         	        	
         	<a href = "#" onclick="return false" class="btn btn-primary modalButton" data-custom-value="'.$row['id'].'" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;" ><i class="fa fa-eye"></i></a>';
-        	
         	
         	//$sub_array[] = '<a href = "' . base_url( '/workflow/download_documents/'.$row['id']). '" class="btn btn-primary" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;" target="_self"><i class="fa fa-file"></i></a>';	//for workflow id
         		
@@ -779,9 +778,11 @@ public function ajax(){
 		            		$model_workflow->set($upData);
 		    				$model_workflow->where('id', $id);
 		    				$result =  $model_workflow->update();
+		    				$com_id = $_SESSION['company_id'];
+		    				$url = base_url('SubadminWorkflowView/index/'.$com_id);
 
 		            		$session->setFlashdata("success", "Workflow Document updated Successfully.");
-	            			return redirect()->to('subadminworkflow');
+	            			return redirect()->to($url);
 		            	}else{
 		            		$session->setFlashdata("success", "Workflow Document updated Successfully.");
 		            		return redirect()->to('workflow');
@@ -790,9 +791,11 @@ public function ajax(){
 			           		
 		            
 		       		}else{
-	       				if($_SESSION['user_type'] == 3){	
+	       				if($_SESSION['user_type'] == 3){
+	       					$com_id = $_SESSION['company_id'];
+		    				$url = base_url('SubadminWorkflowView/index/'.$com_id);
 		            		$session->setFlashdata("success", "Workflow Document updated Successfully.");
-	            			return redirect()->to('SubadminWorkflowView');
+	            			return redirect()->to($url);
 		            	}else{
 		            		$session->setFlashdata("success", "Workflow Document updated Successfully.");
 		            		return redirect()->to('workflow');

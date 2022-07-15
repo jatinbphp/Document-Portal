@@ -95,7 +95,7 @@
                     
                     <li class="SubMenu" id="" ><a class="" href="<?php echo base_url('Expired-Documents'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-4.png'); ?>" alt="">Expired Documents</a></li>
                     
-                    <li class="SubMenu" id="complianceReport" ><a class="" href="<?php echo base_url('complianceReport'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-4.png'); ?>" alt="">Compliance Report</a></li>
+                    <!--li class="SubMenu" id="complianceReport" ><a class="" href="<?php echo base_url('complianceReport'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-4.png'); ?>" alt="">Compliance Report</a></li-->
                 </ul>
             </li>
 

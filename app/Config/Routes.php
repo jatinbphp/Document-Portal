@@ -183,10 +183,13 @@ $routes->get('manager/(:any)', 'Manager::$1',['filter' => 'managerauth']);
 
 $routes->get('technician', 'Technician::index',['filter' => 'tecnicianauth']);
 $routes->get('technician/(:any)', 'Technician::$1',['filter' => 'tecnicianauth']);
+$routes->get('medicalAndTrainingDocs', 'MedicalAndTrainingDocs::index',['filter' => 'tecnicianauth']);
+$routes->get('viewTechnicianDoc/(:any)', 'MedicalAndTrainingDocs::$1',['filter' => 'tecnicianauth']);
+$routes->get('complianceReport', 'ComplianceReport::index',['filter' => 'tecnicianauth']);
 
 //Compliance Report
 
-$routes->get('complianceReport', 'ComplianceReport::index',['filter' => 'adminauth']);
+//$routes->get('complianceReport', 'ComplianceReport::index',['filter' => 'adminauth']);
 
 
 /*

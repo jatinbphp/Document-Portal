@@ -1097,4 +1097,49 @@ $(document).ready(function() {
             "targets": 3
         }, ]
     });
+    
+    
+    $('#medicalandTrainingDocsTable').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "responsive": true,
+        "order": [],
+        "ajax": {
+            url: baseurl + "/MedicalAndTrainingDocs/fetch_technician_doc/" + $("#company_id_pass").val(),
+            type: "POST",
+        },
+        "columnDefs": [{
+            "orderable": false,
+            "targets": -1
+        }, {
+            "width": "10%",
+            "targets": 0
+        }, {
+            "width": "10%",
+            "targets": 1
+        }, {
+            "width": "10%",
+            "targets": 2
+        }, {
+            "width": "10%",
+            "targets": 3
+        }, {
+            "width": "10%",
+            "targets": 4
+        }, {
+            "width": "10%",
+            "targets": 5
+        }, {
+            "width": "10%",
+            "targets": 6
+        }, {
+            "width": "10%",
+            "targets": 7
+        }, {
+            "width": "10%",
+            "targets": 8
+        }, ]
+    });
+    
+    
 });

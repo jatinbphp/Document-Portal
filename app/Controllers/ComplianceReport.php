@@ -27,7 +27,7 @@ class ComplianceReport extends BaseController{
 		$this->data['Documentfiles'] = $documents->findAll();
 
 		$this->data['page_title'] = 'Compliance Report';
-		$this->render_template('reporting/compliance_report/index',$this->data);
+		$this->render_user_template('compliance_report/index',$this->data);
 	}
 
 }

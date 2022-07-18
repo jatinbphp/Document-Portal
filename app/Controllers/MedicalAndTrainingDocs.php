@@ -285,41 +285,6 @@ class MedicalAndTrainingDocs extends BaseController
            //  }   
             $data[] = $sub_array;	
             }
-            else{
-            	
-            // $imgSrc = base_url('assets/images/download1.png');
-            //   $sub_array[] = '<a href = "' . base_url( '/workflow/view_documents/'.$row['id']). '" target="_blank"><button class = "btn btn-primary">View Documents</button></a>';
-            $sub_array[] = $row['document_name'];
-            $sub_array[] = $row['userTypeName']; 
-            $sub_array[] = $row['categoryName']; 
-			$sub_array[] = $row['SubCatName']; 
-			//$actionLinkCompany  = $model_user->getActionLinkComapany('',$row['id'],'','Workflow','');
-			$sub_array[] = $row['companyName'];
-
-			//$sub_array[] = $row['document_files'];
-          
-
-			$sub_array[] = $row['comments']; 
-			$sub_array[] = $row['start_date']; 
-			$sub_array[] = $row['expire_date']; 
-			if($row['is_active'] == 1){
-                $sub_array[] = '<span class="badge badge-success">Active</span>';
-            }else{
-                $sub_array[] = '<span class="badge badge-danger">InActive</span>';
-            } 
-		 	
-
-		    
-        	//$sub_array[] = $row['dateAdded'];
-         	//$actionLink = $model_user->getActionLink('',$row['id'],'Workflow','',$row['userTypeID']); 
-         	
-
-
-            $actionLink = $model_user->getActionLink('',$row['id'],'','Workflow','');
-            
-            $sub_array[] = $actionLink;
-            $data[] = $sub_array;
-        }
 
         } 
         $output = array(

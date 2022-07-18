@@ -33,15 +33,27 @@
             </h3>
 
              <div class="item-wrap item-list-table">
-                <table id="technicianCompanyTable" class="table table-bordered" cellspacing="0" width="100%" >
+                <!--table id="technicianCompanyTable" class="table table-bordered" cellspacing="0" width="100%"-->
+					<table id="technicianDataTable" class="table table-bordered" cellspacing="0" width="100%">
                     <thead class="thead-dark">
                         <tr>
                             <th style="width: 15%">Company</th>
                         </tr>
                          
                     </thead>
+                    
                     <tbody>
+						<?php foreach($companyName as $value): ?>
+							<tr>
+								<?php
+									$url = base_url('/MedicalAndTrainingDocs/view/'.$value['company_id']);
+									echo "<td><a href = '".$url."'.>".$value['companyName']."</a></td>";
+								 ?>
+							</tr>
+						<?php endforeach ?>
                     </tbody>
+                    
+                    <!--tbody></tbody-->
                 </table>
             </div>
         </div>
@@ -55,4 +67,10 @@
       $('.MedicalAndTrainingDocs-Menu').addClass('active');
 </script>
 <script src="<?php echo base_url('assets/js/usersDataTable.js') ?>"></script>
+<script>
+	$(document).ready( function () {
+		$('#technicianDataTable').DataTable();
+	} );
+</script>
+
 

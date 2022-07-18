@@ -32,6 +32,31 @@
         transition: all .4s ease-in-out;
     }
 </style>
+
+
+<!-- Workflow Modal -->
+<div class="modal fade" id="workflowModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Workflow List</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+            
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!--button type="button" class="btn btn-primary">Save changes</button-->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+
+
 <div class="wrapper">
     <div class="row">
         <div class="col-sm-12">
@@ -46,9 +71,8 @@
                 <?php echo session()->getFlashdata('error'); ?>
             </div>
             <?php endif; ?>
-            <h3>
-                Medical and Training Docs
-            </h3>
+            <h3>Medical and Training Docs</h3>
+            <h6><b>Company Name: </b><?php echo $companyName ?></h6><br>
              <div class="item-wrap item-list-table">
                 <input type="hidden" value="<?php echo $company_id; ?>" id="company_id_pass">
                 <table id="medicalandTrainingDocsTable" class="table table-bordered display responsive nowrap" cellspacing="0" width="100%" >
@@ -94,3 +118,21 @@
 </script>
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.dataTables.min.css">
 <script src="<?php echo base_url('assets/js/usersTable.js?v='.time()) ?>"></script>
+
+<script>
+    $(".modalButton").live('click', function(){
+        
+        var url = '<?php echo base_url('MedicalAndTrainingDocs/ajaxpopup');?>';
+        var docValue = $(this).data("custom-value");
+        //alert(docValue);
+        $.ajax({ 
+                type: "POST",
+                url: url,
+                data: { docValue: docValue},
+                success: function(response){
+                    $('.modal-body').html(response);
+                    $('#workflowModal').modal('show'); 
+                }
+            });  
+    });
+</script>

@@ -198,10 +198,12 @@ class Workflow extends BaseController{
         $subCategory = new SubCategoryModel;
         $this->data['subCategory'] = $subCategory->where('is_deleted',0)->findall();
 
-        $db = \Config\Database::connect(); 
-		$builder = $db->table('Technicians');
-		$query = $builder->get();
-		$technician_data = $query->getResultArray();
+  //       $db = \Config\Database::connect(); 
+		// $builder = $db->table('Technicians');
+		// $query = $builder->get();
+		// $technician_data = $query->getResultArray();
+		$model_user = new UsersModel;
+		$technician_data = $model_user->where('userTypeID',5)->findAll();
         $this->data['technician'] = $technician_data;
 
         $company = new CompanyModel;

@@ -141,7 +141,7 @@
                                             <?php 
                                                 if(count($technician)>0){
                                                     foreach ($technician as $key => $value) { ?>
-                                            <option value="<?php echo $value['id']; ?>"><?php echo $value['first_name']." ". $value['last_name']; ?></option>
+                                            <option value="<?php echo $value['id']; ?>"><?php echo $value['firstName']." ". $value['lastName']; ?></option>
                                             <?php
                                                 }
                                                 } ?>

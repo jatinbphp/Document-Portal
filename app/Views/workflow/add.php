@@ -118,7 +118,7 @@
                                     </div>
                                 </div>
 
-                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                 <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                                     <div class="form-group">
                                         <label class="lableTitle"for="company_id">Company :<span class="asterisk-sign">*</span></label>
                                         <select name="company_id" id="company_id" class="form-control" REQUIRED>
@@ -133,7 +133,22 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                 <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                        <label class="lableTitle"for="technician_id">Technician :<span class="asterisk-sign"></span></label>
+                                        <select name="technician_id" id="technician_id" class="form-control" REQUIRED>
+                                            <option value="">-- Select Technician --</option>
+                                            <?php 
+                                                if(count($technician)>0){
+                                                    foreach ($technician as $key => $value) { ?>
+                                            <option value="<?php echo $value['id']; ?>"><?php echo $value['first_name']." ". $value['last_name']; ?></option>
+                                            <?php
+                                                }
+                                                } ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                                     <div class="form-group">
                                         <label class="lableTitle"for="comments">Comments:<span class="asterisk-sign">*</span></label>
                                         <textarea name="comments" id ="comments" ></textarea>

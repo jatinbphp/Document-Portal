@@ -102,6 +102,7 @@ class Workflow extends BaseController{
 			$is_active = $request->getPost('is_active');
 			$current_date = date('Y-m-d');
 			$expire_date = date('0000-00-00');
+			$technician_id = $request->getPost('technician_id');
 			// $document_files ='';
 
 			// if($_FILES['document_files']['size']>0){
@@ -131,6 +132,7 @@ class Workflow extends BaseController{
 				'expire_date' => isset($expire_date) ? $expire_date : $expire_date, 
 				'is_active' => isset($is_active) ? 1 : 0,
 				'order_update'=>$seq_order_id,
+				'technician_id' => $technician_id,
 
 				);
 				$insertId = $workflow->insert($data);
@@ -195,6 +197,12 @@ class Workflow extends BaseController{
 
         $subCategory = new SubCategoryModel;
         $this->data['subCategory'] = $subCategory->where('is_deleted',0)->findall();
+
+        $db = \Config\Database::connect(); 
+		$builder = $db->table('Technicians');
+		$query = $builder->get();
+		$technician_data = $query->getResultArray();
+        $this->data['technician'] = $technician_data;
 
         $company = new CompanyModel;
         $this->data['company'] = $company->findall();

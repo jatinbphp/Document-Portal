@@ -965,112 +965,111 @@ $(document).ready(function() {
             "targets": 8
         }]
     });
-    $('#companyOrderDocument').change(function(e) {
-        $(".orderTable").show();
-        $("#orderDocumentsTable").dataTable().fnDestroy();
-        filterCompanyDataWorkflow1();
-    });
-
-    function filterCompanyDataWorkflow1() {
-        //reporting table
-        var table1 = $('#orderDocumentsTable').DataTable({
-            "processing": true,
-            "serverSide": true,
-            "responsive": true,
-            "order": [],
-            "ajax": {
-                url: "OrderDocuments/fetch_data",
-                type: "POST",
-                data: {
-                    'company_id': $('#companyOrderDocument').val()
-                }
-            },
-            "columnDefs": [{
-                "width": "4%",
-                "targets": -1
-            }, {
-                "width": "4%",
-                "targets": 0
-            }, {
-                "width": "4%",
-                "targets": 1
-            }, {
-                "width": "4%",
-                "targets": 2
-            }, {
-                "width": "4%",
-                "targets": 3
-            }, {
-                "width": "4%",
-                "targets": 4
-            }, {
-                "width": "4%",
-                "targets": 5
-            }, {
-                "width": "4%",
-                "targets": 6
-            }, {
-                "width": "4%",
-                "targets": 7
-            }, {
-                "width": "4%",
-                "targets": 8
-            }]
-        });
-        // $('#frm-example').on('submit', function() {
-        //     var data = table1.$('input').serialize();
-        //     alert(data);
-        // });
-        // $('#Savebtn').click(function() {
-        //     alert("Sdfsfsdf");
-        //     $('#form').submit(function() {
-        //         var sData = table1.$('input').serialize();
-        //         alert("The following data would have been submitted to the server: \n\n" + sData);
-        //         return false;
-        //     });
-        // });
-    }
-    $('#ceoworkflowTable').DataTable({
-        "processing": true,
-        "serverSide": true,
-        "responsive": true,
-        "order": [],
-        "ajax": {
-            url: baseurl + "/CeoAwatingView/fetch_awaiting_view/" + $("#company_id_pass").val(),
-            type: "POST",
-        },
-        "columnDefs": [{
-            "orderable": false,
-            "targets": -1
-        }, {
-            "width": "10%",
-            "targets": 0
-        }, {
-            "width": "10%",
-            "targets": 1
-        }, {
-            "width": "10%",
-            "targets": 2
-        }, {
-            "width": "10%",
-            "targets": 3
-        }, {
-            "width": "10%",
-            "targets": 4
-        }, {
-            "width": "10%",
-            "targets": 5
-        }, {
-            "width": "10%",
-            "targets": 6
-        }, {
-            "width": "10%",
-            "targets": 7
-        }, {
-            "width": "10%",
-            "targets": 8
-        }]
-    });
+    // $('#companyOrderDocument').change(function(e) {
+    //     $(".orderTable").show();
+    //     $("#orderDocumentsTable").dataTable().fnDestroy();
+    //     filterCompanyDataWorkflow1();
+    // });
+    // function filterCompanyDataWorkflow1() {
+    //     //reporting table
+    //     var table1 = $('#orderDocumentsTable').DataTable({
+    //         "processing": true,
+    //         "serverSide": true,
+    //         "responsive": true,
+    //         "order": [],
+    //         "ajax": {
+    //             url: "OrderDocuments/fetch_data",
+    //             type: "POST",
+    //             data: {
+    //                 'company_id': $('#companyOrderDocument').val()
+    //             }
+    //         },
+    //         "columnDefs": [{
+    //             "width": "4%",
+    //             "targets": -1
+    //         }, {
+    //             "width": "4%",
+    //             "targets": 0
+    //         }, {
+    //             "width": "4%",
+    //             "targets": 1
+    //         }, {
+    //             "width": "4%",
+    //             "targets": 2
+    //         }, {
+    //             "width": "4%",
+    //             "targets": 3
+    //         }, {
+    //             "width": "4%",
+    //             "targets": 4
+    //         }, {
+    //             "width": "4%",
+    //             "targets": 5
+    //         }, {
+    //             "width": "4%",
+    //             "targets": 6
+    //         }, {
+    //             "width": "4%",
+    //             "targets": 7
+    //         }, {
+    //             "width": "4%",
+    //             "targets": 8
+    //         }]
+    //     });
+    //     // $('#frm-example').on('submit', function() {
+    //     //     var data = table1.$('input').serialize();
+    //     //     alert(data);
+    //     // });
+    //     // $('#Savebtn').click(function() {
+    //     //     alert("Sdfsfsdf");
+    //     //     $('#form').submit(function() {
+    //     //         var sData = table1.$('input').serialize();
+    //     //         alert("The following data would have been submitted to the server: \n\n" + sData);
+    //     //         return false;
+    //     //     });
+    //     // });
+    // }
+    // $('#ceoworkflowTable').DataTable({
+    //     "processing": true,
+    //     "serverSide": true,
+    //     "responsive": true,
+    //     "order": [],
+    //     "ajax": {
+    //         url: baseurl + "/CeoAwatingView/fetch_awaiting_view/" + $("#company_id_pass").val(),
+    //         type: "POST",
+    //     },
+    //     "columnDefs": [{
+    //         "orderable": false,
+    //         "targets": -1
+    //     }, {
+    //         "width": "10%",
+    //         "targets": 0
+    //     }, {
+    //         "width": "10%",
+    //         "targets": 1
+    //     }, {
+    //         "width": "10%",
+    //         "targets": 2
+    //     }, {
+    //         "width": "10%",
+    //         "targets": 3
+    //     }, {
+    //         "width": "10%",
+    //         "targets": 4
+    //     }, {
+    //         "width": "10%",
+    //         "targets": 5
+    //     }, {
+    //         "width": "10%",
+    //         "targets": 6
+    //     }, {
+    //         "width": "10%",
+    //         "targets": 7
+    //     }, {
+    //         "width": "10%",
+    //         "targets": 8
+    //     }]
+    // });
     $('#clientsTable').DataTable({
         "processing": true,
         "serverSide": true,
@@ -1097,8 +1096,6 @@ $(document).ready(function() {
             "targets": 3
         }, ]
     });
-    
-    
     $('#medicalandTrainingDocsTable').DataTable({
         "processing": true,
         "serverSide": true,
@@ -1140,6 +1137,4 @@ $(document).ready(function() {
             "targets": 8
         }, ]
     });
-    
-    
 });

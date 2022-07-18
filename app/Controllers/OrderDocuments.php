@@ -23,7 +23,7 @@ class OrderDocuments extends BaseController{
 	public function fetch_data(){
 		$model_user= new WorkflowModel;
 		
-
+        
 		$db = \Config\Database::connect();		
   	 	$global_tblWorkflow = 'document_workfolw';
  	  	$global_tblusers_types = 'UserTypes';
@@ -44,6 +44,12 @@ class OrderDocuments extends BaseController{
 			
  			  $whereEqual[$global_tblWorkflow.'.company_id']= trim($_POST['company_id']);
  		}
+         if(isset($_POST['compdata']) && $_POST['compdata'] != '' ){
+
+            
+              $whereEqual[$global_tblWorkflow.'.company_id']= trim($_POST['compdata']);
+        }
+
         // not equal condition
         $whereNotEqual = array();
 
@@ -156,6 +162,8 @@ class OrderDocuments extends BaseController{
 	}
 
     public function update_order(){
+        
+        $company_id = $_POST['company_id'];
         $session = session();
         $names = $_POST['Nameids'];
         $iids = $_POST['ids'];
@@ -179,7 +187,7 @@ class OrderDocuments extends BaseController{
        }
 
        if($result1){
-        $logged_in_sess = ['upOrder' => 'Success'];
+        $logged_in_sess = ['upOrder' => $company_id];
         $this->session->set($logged_in_sess); 
 
          echo  $result1;exit;

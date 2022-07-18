@@ -674,9 +674,11 @@
           $(this).removeClass("drag_over");
           var formData = new FormData();
           var files = e.originalEvent.dataTransfer.files;
+          
           for (var i = 0; i < files.length; i++) {
             formData.append("file[]", files[i]);
           }
+        
           uploadFormData(formData);
         });
 
@@ -694,7 +696,6 @@
         // }
 
         function uploadFormData(form_data) {
-
           $(".loading")
             .removeClass("d-none")
             .addClass("d-block");
@@ -714,6 +715,22 @@
             }
           });
         }
+$('#ddArea').on('dragenter', function (e) {
+    alert("Fdsfsf");
+    var files = e.originalEvent.dataTransfer.files;
+          
+          for (var i = 0; i < files.length; i++) {
+
+
+            console.log(e.originalEvent.dataTransfer.files[i]);
+          }
+    
+    // var file1 = e.originalEvent.dataTransfer.files;
+    // console.log(file1);exit;
+
+    e.preventDefault();
+    e.stopPropagation();
+});
       });
 
 </script>

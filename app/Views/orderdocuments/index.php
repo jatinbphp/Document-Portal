@@ -54,11 +54,28 @@
                 <?php echo session()->getFlashdata('error'); ?>
             </div>
             <?php endif; ?>
-           <!-- <?php echo "<pre>";print_r($_SESSION);?>  -->
-             <div class="row">
+             <!-- <div class="row">
                         <div class="col-sm-12 col-md-4">
                             <div class="category-filter">
                                 <select id="companyOrderDocument" class="form-control" name="companySearch">
+                                    <option value="">Select Company</option>
+                                        <?php if(count($company) > 0): ?>
+                                            <?php foreach($company as $key => $value): ?>
+                                                <option value="<?php //echo $value['companyName'] ?> <?php echo $value['id'] ?>"><?php echo $value['companyName'] ?></option>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>                  
+                                 </select>
+
+                            </div>
+
+                        </div>
+                    
+                    </div> -->
+
+                     <div class="row">
+                        <div class="col-sm-12 col-md-4">
+                            <div class="category-filter">
+                                <select id="companyOrderDocument1" class="form-control" name="companySearch1"onchange="compInfo(this.value);">
                                     <option value="">Select Company</option>
                                         <?php if(count($company) > 0): ?>
                                             <?php foreach($company as $key => $value): ?>
@@ -118,15 +135,81 @@
     // $(".manageDocuments-Menu .inner").css("display", "block")
     $('.OrderWorkflow-Menu').addClass('active');
 
+ 
+
      // Tooltips
     $(document).ready(function () {
         new bootstrap.Tooltip(document.body, {
             selector: '.tip'
         });
+        $(".orderTable").hide();
 
-         $(".orderTable").hide();
+    
        
     });
+
+   function compInfo(value){
+        
+        $.session.set("selComId",value);
+        //$('#companyOrderDocument1').change(function(e) {
+        $(".orderTable").show();
+        $("#orderDocumentsTable").dataTable().fnDestroy();
+        filterCompanyDataWorkflow1();
+   // });
+    }
+
+    function filterCompanyDataWorkflow1() {
+        var compdata =$.session.get("selComId");
+      
+        //reporting table
+        var table1 = $('#orderDocumentsTable').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "responsive": true,
+            "stateSave": true,
+            "order": [],
+            "ajax": {
+                url: "OrderDocuments/fetch_data",
+                type: "POST",
+                data: {
+                    'company_id': $('#companyOrderDocument1').val(),
+                    'compdata': compdata
+                }
+            },
+            "columnDefs": [{
+                "width": "4%",
+                "targets": -1
+            }, {
+                "width": "4%",
+                "targets": 0
+            }, {
+                "width": "4%",
+                "targets": 1
+            }, {
+                "width": "4%",
+                "targets": 2
+            }, {
+                "width": "4%",
+                "targets": 3
+            }, {
+                "width": "4%",
+                "targets": 4
+            }, {
+                "width": "4%",
+                "targets": 5
+            }, {
+                "width": "4%",
+                "targets": 6
+            }, {
+                "width": "4%",
+                "targets": 7
+            }, {
+                "width": "4%",
+                "targets": 8
+            }]
+        });
+       
+    }
 </script>
 
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.dataTables.min.css">
@@ -139,7 +222,7 @@
     
 
   $("#ReSaveOrder").click(function () {
-
+    var com_Id = $('#companyOrderDocument1').val();
     // var singleids = [];
     // // var Nameids = [];
     // $('.checkSingle:checked').each(function(i, e) {
@@ -186,19 +269,36 @@
         data: {
             
             'Nameids[]': Nameids,
-            'ids[]':ids
+            'ids[]':ids,
+            'company_id':com_Id
         },
         success: function(result1) {
             if(result1 == 1){
-               var id1 =  $("#companyOrderDocument").val();
-              
-              
-                location.reload();
-                 $('option[value=' + id1 + ']')
-             .attr('selected',true);
-                //var url1 = baseurl + '/orderdocuments';
-               // window.location.href = url1; 
-                 $(".orderTable").show();
+               var compdata =$.session.get("selComId");
+               alert("Successfully update order");
+               //location.reload();
+                
+                var table1 = $('#orderDocumentsTable').DataTable();
+                    table1.ajax.reload();
+           //$('#orderDocumentsTable').DataTable({});
+           // $("#orderDocumentsTable").dataTable().fnReloadAjax();
+               //location.reload();
+                // alert(compdata);
+                // if(compdata > 0){
+                //    $(".orderTable").show();
+                //    return false; 
+                // }
+
+                // $(window).on('reload', function() {   
+                // $('select[name="companySearch1"]').val(compdata) 
+                //  });
+            //     var url = baseurl + '/workflow';
+            //     window.setTimeout(function() {
+            //     window.location.href = url;
+            // }, 1000);
+
+               // sessionStorage.removeItem('selComId'); 
+                // $(".orderTable").show();
             }
             else{
                 alert("Please Update orders");

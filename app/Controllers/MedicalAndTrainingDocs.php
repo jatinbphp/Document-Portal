@@ -17,12 +17,9 @@ class MedicalAndTrainingDocs extends BaseController
 {
     public function index()
     {  
-        
-         $userId = $_SESSION['id'];
-
+        $userId = $_SESSION['id'];
         $this->data['page_title'] = 'Medical and Training Docs';
         $this->render_user_template('medicalAndTrainingDocs/index', $this->data);
-        
     }
 
    
@@ -89,17 +86,12 @@ class MedicalAndTrainingDocs extends BaseController
     }
     
     
-		public function view($id=""){
-			$userId = $_SESSION['id'];
-            $this->data['page_title'] = 'Medical and Training Docs';
-            $this->data['company_id'] = $id;
-            $this->render_user_template('medicalAndTrainingDocs/view', $this->data);
-		}
-		
-		
-		
-		
-		
+	public function view($id=""){
+		$userId = $_SESSION['id'];
+		$this->data['page_title'] = 'Medical and Training Docs';
+		$this->data['company_id'] = $id;
+		$this->render_user_template('medicalAndTrainingDocs/view', $this->data);
+	}
 		
 	public function fetch_technician_doc($id = null){
         $sesVal =  $_SERVER['HTTP_REFERER'];
@@ -122,11 +114,6 @@ class MedicalAndTrainingDocs extends BaseController
 	  	 $whereEqual=array();
          $whereUser = array();
          
-         // $wherarr = array(
-         //    $global_tblWorkflow.'.company_id' =>$id,
-         //    $global_tblWorkflow.'.usertype_id' =>3
-         // ); 
-
          //$whereEqual = $wherarr;
 	  	$whereEqual=array($global_tblWorkflow.'.company_id'=>$id);
 	  	
@@ -172,11 +159,7 @@ class MedicalAndTrainingDocs extends BaseController
 
      	$model_user= new WorkflowModel;
         $fetch_data = $model_user->make_datatables( $selectColumn,$whereEqual,$whereNotEqual,$orderColumn,$orderBy,$searchColumn,$joinTableArray,$notIn,$whereUser);
-      
-        //echo "<pre>";
-        //gprint_r($fetch_data);
-        //exit;
-     	
+      	
         $data = array();
         foreach ($fetch_data as $key => $row) {
 
@@ -188,9 +171,7 @@ class MedicalAndTrainingDocs extends BaseController
             $sub_array = array(); 
             
             if($_SESSION['user_type'] == 5){
-				//echo "true";
-				//exit;
-             
+				
             $sub_array[] = $row['document_name'];
             $sub_array[] = $row['userTypeName']; 
             $sub_array[] = $row['categoryName']; 
@@ -200,10 +181,10 @@ class MedicalAndTrainingDocs extends BaseController
 
 			//$sub_array[] = $row['document_files'];
 
-           $actionLinkComment = $model_user->actionLinkComment('',$row['id'],'',$row['comments'],'');
-            $sub_array[] = $actionLinkComment;
-             $actionLinkCommentbyceo = $model_user->actionLinkCommentCeo('',$row['id'],'',$row['ceo_comments'],'');
-            $sub_array[] =  $actionLinkCommentbyceo;
+			$actionLinkComment = $model_user->actionLinkComment('',$row['id'],'',$row['comments'],'');
+			$sub_array[] = $actionLinkComment;
+			$actionLinkCommentbyceo = $model_user->actionLinkCommentCeo('',$row['id'],'',$row['ceo_comments'],'');
+			$sub_array[] =  $actionLinkCommentbyceo;
 			//$sub_array[] = $row['comments']; 
 			$sub_array[] = $row['start_date']; 
 			$sub_array[] = $row['expire_date'];
@@ -222,10 +203,7 @@ class MedicalAndTrainingDocs extends BaseController
             else{
                 $sub_array[] = '<span class="badge badge-danger">OUTSTANDING</span>';
             } 
-
-
 		 	
-
 		  if($row['is_active'] == 0){
             $actionLink = $model_user->getActionLinkOutstanding('',$row['id'],'Workflow','',''); 
             $sub_array[] = $actionLink;
@@ -236,41 +214,12 @@ class MedicalAndTrainingDocs extends BaseController
             $actionLink = $model_user->getActionLinkNew('',$row['id'],'Workflow','',''); 
             $sub_array[] = $actionLink;
           }
-        	//$sub_array[] = $row['dateAdded'];
-         	// $actionLink = $model_user->getActionLinkNew('',$row['id'],'Workflow','',''); 
-          //   $sub_array[] = $actionLink;
-              $model_user= new WorkflowModel;
+   
+            $model_user= new WorkflowModel;
             $updateData = $model_user->where('id',$row['id'])->first();
             $expireDate = date('Y-m-d',strtotime($updateData['expire_date']));
             $currentDate = date('Y-m-d');
-            //$currentDate = date('Y-m-d', strtotime('+1 days'));
-           //  if($row['is_active'] == 1){
-           //      $actionLink = $model_user->getActionLinkDataSubmit('',$row['id'],'','Workflow','');
-                
-           //      $sub_array[] = $actionLink;
-           //  }
-           // else if($updateData['id'] == $row['id'] && $updateData['is_update'] == 1 && $row['is_active'] == 2 ){
-           //     $dd1 = "When Approved by Admin then will display file"; 
-           //     $sub_array[] = $dd1;
-           //  }
-            
-           //  else if($expireDate == $currentDate || $row['is_active'] == 3){
-           //      $actionLink = $model_user->getActionLinkData('',$row['id'],'','Workflow','');
-           //      $dd = "-"; 
-           //      $sub_array[] = $dd;
-           //    //$dd = "<span class= 'btn-info'></span>"; 
-           //     //$sub_array[] =$actionLink;
-           //  }
-           //  elseif($row['is_active'] == 0){
-           //     $actionLink = $model_user->getActionLinkDatapending('',$row['id'],'','Workflow','');
-                
-           //      $sub_array[] = $actionLink; 
-           //  }
-           //  else{
-           //      $actionLink = $model_user->getActionLinkData('',$row['id'],'','Workflow','');
-                
-           //      $sub_array[] = $actionLink;
-           //  }   
+           
             $data[] = $sub_array;	
             }
 
@@ -286,4 +235,3 @@ class MedicalAndTrainingDocs extends BaseController
         
     }    
 }
-

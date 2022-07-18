@@ -695,8 +695,11 @@ public function ajaxpopup(){
 		    	
 	    	
 	    	if($result){ 
+	    		
 		    		$additional_img_array = array();
+		    		
 		    		if(count($_FILES)>0){
+
 			            foreach ($_FILES['file']['name'] as $num_key => $dummy) {
 			                foreach ($_FILES['file'] as $txt_key => $dummy) {
 			                    $additional_img_array[$num_key][$txt_key] = $_FILES['file'][$txt_key][$num_key];
@@ -1205,10 +1208,12 @@ public function ajaxpopup(){
 	}
 
 	public function drag_drop(){
-
+		//echo "<pre>";print_r($_FILES);exit;
+		$session = session();
 		$url = explode("/",$_SERVER['HTTP_REFERER']);
 		 $id = end($url);
 		$imageData = '';
+
 		if (isset($_FILES['file']['name'][0])) {
 			
 			$i = 0;
@@ -1223,23 +1228,31 @@ public function ajaxpopup(){
 		  	$i++;
 
 		  	$ext = pathinfo($values, PATHINFO_EXTENSION);
+		  	$extconvert= strtolower($ext);
+		  	if(($extconvert == 'xlsx') || ($extconvert == 'pdf') || ($extconvert == 'docx') || ($extconvert == 'csv') || ($extconvert == 'xls') || ($extconvert == 'doc')){
 		  	$x = substr($values, 0, strrpos($values, '.'));
             $filenm = $x.'_'.time().$i.'.'.$ext;
             $documents = str_replace(' ', '_', $filenm);
-		    
+		   
 		    if (move_uploaded_file($_FILES['file']['tmp_name'][$keys], 'uploads/workflow/' . $documents)) {
 		    	$imageData .= '<span class="thumbnail">'.$documents.'</span>';
 
-		    	 // $dataImage = array(
-								// 		'workflow_id' => $id,
-								// 		'documents' => $documents,	 
-								// 	);
-								// 	$db = \Config\Database::connect(); 
-							 //    	$insertd = $db->table('workflow_documents')->insert($dataImage);
+		    	 $dataImage = array(
+										'workflow_id' => $id,
+										'documents' => $documents,	 
+									);
+									$db = \Config\Database::connect(); 
+							    	$insertd = $db->table('workflow_documents')->insert($dataImage);
 					                
 
-		     // $imageData .= '<img src="uploads/workflow/' . $fileName . '" class="thumbnail" />';
+		     $imageData .= '<img src="uploads/workflow/' . $fileName . '" class="thumbnail" />';
 		    }
+		}
+		else{
+			echo "extension error ";exit;
+			
+
+		}
 		   
 		  }
 		//}
@@ -1251,6 +1264,61 @@ public function ajaxpopup(){
 
 	}
 
+	public function drag_drop_validation(){
+		//echo "<pre>";print_r($_FILES);exit;
+		$session = session();
+		$url = explode("/",$_SERVER['HTTP_REFERER']);
+		 $id = end($url);
+		$imageData = '';
 		
+		if (isset($_FILES['images']['name'][0])) {
+			
+			$i = 0;
+			
+			// if($_FILES['file']['size'][0] > 211600){
+			// 	echo "Maximum file size to upload is 20 MB";exit;
+
+			// }
+			// else{
+
+		  foreach ($_FILES['images']['name'] as $keys => $values) {
+		  	$i++;
+
+		  	$ext = pathinfo($values, PATHINFO_EXTENSION);
+		  	$extconvert= strtolower($ext);
+		  	if(($extconvert == 'xlsx') || ($extconvert == 'pdf') || ($extconvert == 'docx') || ($extconvert == 'csv') || ($extconvert == 'xls') || ($extconvert == 'doc')){
+		  	$x = substr($values, 0, strrpos($values, '.'));
+            $filenm = $x.'_'.time().$i.'.'.$ext;
+            $documents = str_replace(' ', '_', $filenm);
+		   	
+		    if (move_uploaded_file($_FILES['images']['tmp_name'][$keys], 'uploads/workflow/' . $documents)) {
+		    	$imageData .= '<span class="thumbnail">'.$documents.'</span>';
+
+		    	 $dataImage = array(
+										'workflow_id' => $id,
+										'documents' => $documents,	 
+									);
+									$db = \Config\Database::connect(); 
+							    	$insertd = $db->table('workflow_documents')->insert($dataImage);
+					                
+
+		     // $imageData .= '<img src="uploads/workflow/' . $fileName . '" class="thumbnail" />';
+		    }
+		}
+		else{
+			echo "extension error ";exit;
+			
+
+		}
+		   
+		  }
+		//}
+		  
+		}
+		echo $imageData;
+
+		
+
+	}	
 }
 ?>

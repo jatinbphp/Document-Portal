@@ -83,7 +83,15 @@
         .col {min-width: 100%;}
         .variationCounter .add_more_variation {margin: 15px 0px;}
     }
-    #ddArea {
+    #drag_drop{
+    background-color : #f9f9f9;
+    border : #ccc 4px dashed;
+    line-height : 250px;
+    padding : 12px;
+    font-size : 24px;
+    text-align : center;
+}
+ /*   #ddArea {
         height: 200px;
         border: 2px dashed #ccc;
         line-height: 200px;
@@ -110,7 +118,7 @@
 
       .d-none {
         display: none;
-      }
+      }*/
 </style>
 <div class="loader-main">
     <div class="loader-inner"></div>
@@ -366,13 +374,37 @@
                         </div>
                     </div>
 
-                    <div id="ddArea">
-    Drag and Drop Files Here
+                   <!--  <div id="ddArea">
+    Drag and Drop Files Here -->
    <!--  <a class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
         Select File(s)
     </a> -->
-</div>
-<div id="showThumb"></div>
+<!-- </div>
+<div id="showThumb"></div> -->
+
+<div class="container">
+           <!--  <h1 class="mt-5 mb-5 text-center text-primary"><b>Drag & Drop Upload Multiple File with Progress Bar using JavaScript in PHP</b></h1> -->
+
+            <div class="card">
+                <div class="card-header">Drag & Drop File Here</div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3">&nbsp;</div>
+                        <div class="col-md-6">
+                            <div id="drag_drop">Drag & Drop File Here</div>
+                        </div>
+                        <div class="col-md-3">&nbsp;</div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="progress" id="progress_bar" style="display:none; height:50px;">
+                <div class="progress-bar bg-success" id="progress_bar_process" role="progressbar" style="width:0%; height:50px;">0%
+
+                </div>
+            </div>
+            <div id="uploaded_image" class="row mt-5"></div>
+        </div>
 <input type="file" class="d-none" id="selectfile" multiple />
 
                 <?php } ?>
@@ -655,32 +687,32 @@
 
  
  $(document).ready(function() {
-        $("#ddArea").on("dragover", function() {
-          $(this).addClass("drag_over");
-          return false;
-        });
-
-        $("#ddArea").on("dragleave", function() {
-          $(this).removeClass("drag_over");
-          return false;
-        });
-
-        // $("#ddArea").on("click", function(e) {
-        //   file_explorer();
+        // $("#ddArea").on("dragover", function() {
+        //   $(this).addClass("drag_over");
+        //   return false;
         // });
 
-        $("#ddArea").on("drop", function(e) {
-          e.preventDefault();
-          $(this).removeClass("drag_over");
-          var formData = new FormData();
-          var files = e.originalEvent.dataTransfer.files;
+        // $("#ddArea").on("dragleave", function() {
+        //   $(this).removeClass("drag_over");
+        //   return false;
+        // });
+
+        // // $("#ddArea").on("click", function(e) {
+        // //   file_explorer();
+        // // });
+
+        // $("#ddArea").on("drop", function(e) {
+        //   e.preventDefault();
+        //   $(this).removeClass("drag_over");
+        //   var formData = new FormData();
+        //   var files = e.originalEvent.dataTransfer.files;
           
-          for (var i = 0; i < files.length; i++) {
-            formData.append("file[]", files[i]);
-          }
+        //   for (var i = 0; i < files.length; i++) {
+        //     formData.append("file[]", files[i]);
+        //   }
         
-          uploadFormData(formData);
-        });
+        //   uploadFormData(formData);
+        // });
 
         // function file_explorer() {
         //   document.getElementById("selectfile").click();
@@ -695,42 +727,135 @@
         //   };
         // }
 
-        function uploadFormData(form_data) {
-          $(".loading")
-            .removeClass("d-none")
-            .addClass("d-block");
-          $.ajax({
-            url: baseurl+"/workflow/drag_drop",
-            //url: " ",
-            method: "POST",
-            data: form_data,
-            contentType: false,
-            cache: false,
-            processData: false,
-            success: function(data) {
-              $(".loading")
-                .removeClass("d-block")
-                .addClass("d-none");
-              $("#showThumb").append(data);
-            }
-          });
-        }
-$('#ddArea').on('dragenter', function (e) {
-    alert("Fdsfsf");
-    var files = e.originalEvent.dataTransfer.files;
+        // function uploadFormData(form_data) {
+        //   $(".loading")
+        //     .removeClass("d-none")
+        //     .addClass("d-block");
+        //   $.ajax({
+        //     url: baseurl+"/workflow/drag_drop",
+        //     //url: " ",
+        //     method: "POST",
+        //     data: form_data,
+        //     contentType: false,
+        //     cache: false,
+        //     processData: false,
+        //     success: function(data) {
+        //       $(".loading")
+        //         .removeClass("d-block")
+        //         .addClass("d-none");
+        //       $("#showThumb").append(data);
+        //     }
+        //   });
+        // }
+// $('#ddArea').on('dragenter', function (e) {
+//     alert("Fdsfsf");
+//     var files = e.originalEvent.dataTransfer.files;
           
-          for (var i = 0; i < files.length; i++) {
+//           for (var i = 0; i < files.length; i++) {
 
 
-            console.log(e.originalEvent.dataTransfer.files[i]);
-          }
+//             console.log(e.originalEvent.dataTransfer.files[i]);
+//           }
     
-    // var file1 = e.originalEvent.dataTransfer.files;
-    // console.log(file1);exit;
+//     // var file1 = e.originalEvent.dataTransfer.files;
+//     // console.log(file1);exit;
 
-    e.preventDefault();
-    e.stopPropagation();
-});
+//     e.preventDefault();
+//     e.stopPropagation();
+// });
       });
 
+
+function _(element)
+{
+    return document.getElementById(element);
+}
+
+_('drag_drop').ondragover = function(event)
+{
+    this.style.borderColor = '#333';
+    return false;
+}
+
+_('drag_drop').ondragleave = function(event)
+{
+    this.style.borderColor = '#ccc';
+    return false;
+}
+
+
+_('drag_drop').ondrop = function(event)
+{
+    event.preventDefault();
+
+    var form_data  = new FormData();
+
+    var image_number = 1;
+
+    var error = '';
+
+    var drop_files = event.dataTransfer.files;
+
+
+    for(var count = 0; count < drop_files.length; count++)
+    {
+        
+       
+        if(['image/jpeg', 'image/png','image/jpg','image/gif','image/svg', 'video/mp4'].includes(drop_files[count].type))
+        {
+            error += '<div class="alert alert-danger"><b>'+image_number+'</b> Selected File must be .pdf or .xlsx or .csv or .xlsx or .xls or .doc or .docx Only</div>';
+           $(".savebtn").attr('disabled','disabled');
+
+        }else if(drop_files[count].size > 20000000){
+            error += '<div class="alert alert-danger"><b>'+image_number+'</b> Maximum file size to upload is 20 MB</div>';
+           $(".savebtn").attr('disabled','disabled');
+        }else
+        {
+            form_data.append("images[]", drop_files[count]);
+        }
+
+        image_number++;
+    }
+
+    if(error != '')
+    {
+        _('uploaded_image').innerHTML = error;
+        _('drag_drop').style.borderColor = '#ccc';
+    }
+    else
+    {
+        _('progress_bar').style.display = 'block';
+
+        var ajax_request = new XMLHttpRequest();
+        var url1 = window.location.href;
+       var parts = url1.split('/');
+        var lastSegment = parts.pop() || parts.pop();  // handle potential trailing slash
+
+        
+         $url =  baseurl+"/workflow/drag_drop_validation";
+        ajax_request.open("post", $url);
+
+        ajax_request.upload.addEventListener('progress', function(event){
+
+            var percent_completed = Math.round((event.loaded / event.total) * 100);
+
+            _('progress_bar_process').style.width = percent_completed + '%';
+
+            _('progress_bar_process').innerHTML = percent_completed + '% completed';
+
+        });
+
+        ajax_request.addEventListener('load', function(event){
+
+            _('uploaded_image').innerHTML = '<div class="alert alert-success">Files Uploaded Successfully</div>';
+
+            _('drag_drop').style.borderColor = '#ccc';
+
+            $('.savebtn').removeAttr('disabled');
+
+        });
+
+        ajax_request.send(form_data);
+    }
+}
 </script>

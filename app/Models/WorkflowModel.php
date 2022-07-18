@@ -98,6 +98,24 @@ class WorkflowModel extends Model
 
     }
 
+    public function getActionLinkNewSubad($path,$id,$type,$view=null,$userdelete=null){
+
+         $actionLinkVar = '';  
+
+        
+         $actionLinkVar .= '<a href = "' . base_url( 'workflow/edit/'.$id). '" class="btn btn-warning" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 10px;"><i class="fa fa-upload"></i></a>';
+
+       
+        
+        $actionLinkVar .= '<a href = "' . base_url( 'workflow/download_documents/'.$id). '" class="btn btn-primary" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 10px;" target="_blank"><i class="fa fa-file"></i></a>';
+
+        $actionLinkVar .= '<a href = "#" onclick="return false" class="btn btn-primary modalButton" data-custom-value="'.$id.'" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 10px;" ><i class="fa fa-eye"></i></a>';
+
+       
+        return $actionLinkVar;
+
+    }
+
       public function getActionLinkOutstanding($path,$id,$type,$view=null,$userdelete=null){
 
          $actionLinkVar = '';  

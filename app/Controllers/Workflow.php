@@ -31,7 +31,7 @@ class Workflow extends BaseController{
 		}
 	}
 
-public function ajaxpopup(){
+    public function ajaxpopup(){
 		$company = new CompanyModel;
 		$this->data['company'] = $company->findall();
 		$model_comments = new WorkflowModel;

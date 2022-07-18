@@ -155,7 +155,7 @@ class SubadminWorkflowView extends BaseController
             $actionLink = $model_user->getActionLinkOutstanding('',$row['id'],'Workflow','',''); 
             $sub_array[] = $actionLink;
             }else{
-            $actionLink = $model_user->getActionLinkNew('',$row['id'],'Workflow','',''); 
+            $actionLink = $model_user->getActionLinkNewSubad('',$row['id'],'Workflow','',''); 
             $sub_array[] = $actionLink;
           }
         	//$sub_array[] = $row['dateAdded'];
@@ -244,7 +244,50 @@ class SubadminWorkflowView extends BaseController
     }
 
     
+    public function ajaxpopup(){
+        $company = new CompanyModel;
+        $this->data['company'] = $company->findall();
+        $model_comments = new WorkflowModel;
+        $this->data['comments'] = $model_comments->select('comments')->findAll();
+        $this->data['page_title'] = 'Workflow';
+            
+        $id = $_POST['docValue'];
+        $db = \Config\Database::connect(); 
+        $builder = $db->table('workflow_documents');
+        $builder1 = $builder->where('workflow_id',$id);
+        $query = $builder1->get();
+        $datadoc = $query->getResultArray();
 
+        $counter = 0;
+
+        $response = "<table class='table'>";
+        $response .= " <thead class='thead-dark'>";
+        $response .= "<tr>";
+        $response .= "<th scope='col' style='width: 10%'>#</th>";
+        $response .= "<th scope='col' style='width: 70%'>Document Name</th>";
+        $response .= "<th scope='col' style='width: 20%'>Action</th>";
+        $response .= "</tr>";
+        $response .= "</thead>";
+        $response .= "<tbody>";
+        
+        
+        
+        
+        foreach($datadoc as $value){
+            $response .= "<tr>";
+            $response .= "<td>".$counter = $counter + '1'."</td>";
+            $response .= "<td>".$value['documents']."</td>";
+            $response .= "<td><a href = ".base_url( '/uploads/workflow/'.$value['documents'])." class='btn btn-primary' style='margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;' target='_blank'><i class='fa fa-file'></i></a></td>";
+            $response .= "</tr>";
+        }
+
+        $response .= "</tbody>";
+        $response .= "</table>";
+
+        echo $response;
+
+        
+    }
     
     
 }

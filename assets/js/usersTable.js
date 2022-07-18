@@ -144,6 +144,7 @@ $(document).ready(function() {
         "processing": true,
         "serverSide": true,
         "responsive": true,
+        "stateSave": true,
         "order": [],
         "ajax": {
             url: "documents/fetch_documents",
@@ -557,6 +558,7 @@ $(document).ready(function() {
         "processing": true,
         "serverSide": true,
         "responsive": true,
+        "stateSave": true,
         "order": [],
         "ajax": {
             url: baseurl + "/SubadminWorkflowView/fetch_workflow_view/" + $("#company_id_pass").val(),

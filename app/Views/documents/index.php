@@ -2,6 +2,8 @@
     <div class="row">
         <div class="col-sm-12">
 
+	<input type="hidden" id="hdnSession" data-value="@Request.RequestContext.HttpContext.Session['success']" />
+
             <?php if(session()->has('success')): ?>
 				<?php
 					if(!empty(session()->getFlashdata('success'))){
@@ -154,9 +156,11 @@
 
 <script>
 	$(window).on("load", function () {
-		var sessionStatus = '<?php echo $sessionStatus; ?>';
+		//var sessionStatus = '<?php echo $sessionStatus; ?>';
 		//check if data has be updated successfully
-		if(sessionStatus == 1){
+		//if(sessionStatus == 1){
+		var sessionStatus = "<?php echo $_SESSION['success'] ?>";
+		if(sessionStatus){
 			//alert(sessionStatus);
 			$(".docTable").show();
 			$("#userFilter").show();
@@ -171,7 +175,8 @@
 				url: "documents/fetch_documents",
 				type: "POST",
 				data: {
-					'company_id': '<?php echo $companyIdSession; ?>'
+					//'company_id': '<?php echo $companyIdSession; ?>'
+					'company_id': "<?php echo $_SESSION['companyIdSession'] ?>"
 				}
 			},
 			"columnDefs": [{
@@ -197,6 +202,19 @@
 	}	
 });	
 </script>
+
+<script>
+//var sessionValue= $("#hdnSession").data('value');
+//alert(sessionValue);
+ //var userName = "<?php echo $_SESSION['success'] ?>";
+ //if(userName){
+	 //alert(userName);
+//}//
+ 
+</script>
+
+
+
 
 <!--script>
 	//var conceptName = $('#companySearch').find(":selected").text();
@@ -277,6 +295,9 @@
 		});
 		
 </script-->
-
+<script>
+	//var sess = <?php echo $_SESSION['companyIdSession'] ?>;
+	//alert(sess);
+</script>
 
 

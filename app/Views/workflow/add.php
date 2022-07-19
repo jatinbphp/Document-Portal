@@ -136,7 +136,7 @@
                                  <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                                     <div class="form-group">
                                         <label class="lableTitle"for="technician_id">Technician :<span class="asterisk-sign"></span></label>
-                                        <select name="technician_id" id="technician_id" class="form-control" REQUIRED>
+                                        <select name="technician_id" id="technician_id" class="form-control">
                                             <option value="">-- Select Technician --</option>
                                             <?php 
                                                 if(count($technician)>0){

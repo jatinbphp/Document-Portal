@@ -794,8 +794,19 @@ class Workflow extends BaseController{
 		    				$com_id = $_SESSION['company_id'];
 		    				$url = base_url('SubadminWorkflowView/index/'.$com_id);
 
-		            		$session->setFlashdata("success", "Workflow Document updated Successfully.");
-	            			return redirect()->to($url);
+		    				$workflow_model = new WorkflowModel;
+
+		    				$error_data = $workflow_model->select('drag_drop_error')->where('id',$id)->first();
+		    				$is_error = $error_data['drag_drop_error'];
+		    				if($is_error == 1){
+
+		    					$session->setFlashdata("error", "Document accept only .xlsx /.csv /.pdf /.docx /.xls /.doc files");
+	            			return redirect()->to($_SERVER['HTTP_REFERER']);
+		    				}else{
+		    					$session->setFlashdata("success", "Workflow Document updated Successfully.");
+	            			return redirect()->to($url);	
+		    				}
+		            		
 		            	}else{
 		            		$session->setFlashdata("success", "Workflow Document updated Successfully.");
 		            		return redirect()->to('workflow');
@@ -1217,62 +1228,62 @@ class Workflow extends BaseController{
 
 	}
 
-	public function drag_drop(){
-		//echo "<pre>";print_r($_FILES);exit;
-		$session = session();
-		$url = explode("/",$_SERVER['HTTP_REFERER']);
-		 $id = end($url);
-		$imageData = '';
+	// public function drag_drop(){
+	// 	//echo "<pre>";print_r($_FILES);exit;
+	// 	$session = session();
+	// 	$url = explode("/",$_SERVER['HTTP_REFERER']);
+	// 	 $id = end($url);
+	// 	$imageData = '';
 
-		if (isset($_FILES['file']['name'][0])) {
+	// 	if (isset($_FILES['file']['name'][0])) {
 			
-			$i = 0;
+	// 		$i = 0;
 			
-			// if($_FILES['file']['size'][0] > 211600){
-			// 	echo "Maximum file size to upload is 20 MB";exit;
+	// 		// if($_FILES['file']['size'][0] > 211600){
+	// 		// 	echo "Maximum file size to upload is 20 MB";exit;
 
-			// }
-			// else{
+	// 		// }
+	// 		// else{
 
-		  foreach ($_FILES['file']['name'] as $keys => $values) {
-		  	$i++;
+	// 	  foreach ($_FILES['file']['name'] as $keys => $values) {
+	// 	  	$i++;
 
-		  	$ext = pathinfo($values, PATHINFO_EXTENSION);
-		  	$extconvert= strtolower($ext);
-		  	if(($extconvert == 'xlsx') || ($extconvert == 'pdf') || ($extconvert == 'docx') || ($extconvert == 'csv') || ($extconvert == 'xls') || ($extconvert == 'doc')){
-		  	$x = substr($values, 0, strrpos($values, '.'));
-            $filenm = $x.'_'.time().$i.'.'.$ext;
-            $documents = str_replace(' ', '_', $filenm);
+	// 	  	$ext = pathinfo($values, PATHINFO_EXTENSION);
+	// 	  	$extconvert= strtolower($ext);
+	// 	  	if(($extconvert == 'xlsx') || ($extconvert == 'pdf') || ($extconvert == 'docx') || ($extconvert == 'csv') || ($extconvert == 'xls') || ($extconvert == 'doc')){
+	// 	  	$x = substr($values, 0, strrpos($values, '.'));
+ //            $filenm = $x.'_'.time().$i.'.'.$ext;
+ //            $documents = str_replace(' ', '_', $filenm);
 		   
-		    if (move_uploaded_file($_FILES['file']['tmp_name'][$keys], 'uploads/workflow/' . $documents)) {
-		    	$imageData .= '<span class="thumbnail">'.$documents.'</span>';
+	// 	    if (move_uploaded_file($_FILES['file']['tmp_name'][$keys], 'uploads/workflow/' . $documents)) {
+	// 	    	$imageData .= '<span class="thumbnail">'.$documents.'</span>';
 
-		    	 $dataImage = array(
-										'workflow_id' => $id,
-										'documents' => $documents,	 
-									);
-									$db = \Config\Database::connect(); 
-							    	$insertd = $db->table('workflow_documents')->insert($dataImage);
+	// 	    	 $dataImage = array(
+	// 									'workflow_id' => $id,
+	// 									'documents' => $documents,	 
+	// 								);
+	// 								$db = \Config\Database::connect(); 
+	// 						    	$insertd = $db->table('workflow_documents')->insert($dataImage);
 					                
 
-		     $imageData .= '<img src="uploads/workflow/' . $fileName . '" class="thumbnail" />';
-		    }
-		}
-		else{
-			echo "extension error ";exit;
+	// 	     $imageData .= '<img src="uploads/workflow/' . $fileName . '" class="thumbnail" />';
+	// 	    }
+	// 	}
+	// 	else{
+	// 		echo "extension error ";exit;
 			
 
-		}
+	// 	}
 		   
-		  }
-		//}
+	// 	  }
+	// 	//}
 		  
-		}
-		echo $imageData;
+	// 	}
+	// 	echo $imageData;
 
 		
 
-	}
+	// }
 
 	public function drag_drop_validation(){
 		//echo "<pre>";print_r($_FILES);exit;
@@ -1310,14 +1321,30 @@ class Workflow extends BaseController{
 									);
 									$db = \Config\Database::connect(); 
 							    	$insertd = $db->table('workflow_documents')->insert($dataImage);
+
+							    	$model_workflow = new WorkflowModel;
+									$dataUpdate = array(
+										'drag_drop_error'=>0
+									);
+
+									$model_workflow->set($dataUpdate);
+									$model_workflow->where('id', $id);
+									$result =  $model_workflow->update();
 					                
 
 		     // $imageData .= '<img src="uploads/workflow/' . $fileName . '" class="thumbnail" />';
 		    }
 		}
 		else{
+			$model_workflow = new WorkflowModel;
+			$dataUpdate = array(
+				'drag_drop_error'=>1
+			);
+
+			$model_workflow->set($dataUpdate);
+			$model_workflow->where('id', $id);
+			$result =  $model_workflow->update();
 			echo "extension error ";exit;
-			
 
 		}
 		   

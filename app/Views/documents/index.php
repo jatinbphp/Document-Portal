@@ -3,6 +3,13 @@
         <div class="col-sm-12">
 
             <?php if(session()->has('success')): ?>
+				<?php
+					if(!empty(session()->getFlashdata('success'))){
+							//set sessionStatus to true on update successfully
+							$sessionStatus = TRUE;
+							$companyIdSession = session()->get('companyIdSession'); 
+					}	
+				?>
             <div class="alert alert-success alert-dismissible" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <?php echo session()->getFlashdata('success'); ?>
@@ -144,5 +151,132 @@
             });
         });
 </script>
+
+<script>
+	$(window).on("load", function () {
+		var sessionStatus = '<?php echo $sessionStatus	; ?>';
+		//check if data has be updated successfully
+		if(sessionStatus == 1){
+			//alert(sessionStatus);
+			$(".docTable").show();
+			$("#userFilter").show();
+			$("#documentsTable, #uploadedDocuments").dataTable().fnDestroy();
+			
+				$('#documentsTable').DataTable({
+				"processing": true,
+				"serverSide": true,
+				"responsive": true,
+				"order": [],
+				"ajax": {
+					url: "documents/fetch_documents",
+					type: "POST",
+					data: {
+						'company_id': '<?php echo $companyIdSession; ?>'
+					}
+				},
+				"columnDefs": [{
+					"orderable": false,
+					"targets": -1
+				}, {
+					"orderable": false,
+					"targets": 0
+				}, {
+					"orderable": false,
+					"targets": 5
+				}, {
+					"width": "10%",
+					"targets": 0
+				}, {
+					"width": "15%",
+					"targets": 1
+				}, {
+					"width": "10%",
+					"targets": 2
+				}]
+			});
+		}	
+	});	
+</script>
+
+<!--script>
+	//var conceptName = $('#companySearch').find(":selected").text();
+	//alert(conceptName);
+	//$(window).on("load", function () {
+		//$("#companySearch").val('nxol').change();
+		//$('#companySearch option[value="TATA"]');
+		//$("#country option[value='AO']").prop('selected',true);
+		//$("#companySearch option[value = 6]").prop('selected',true);
+		//$('#country').val(“AO”).trigger(‘change’);
+	//});	
+	
+	$('#companySearch').on('change', function() {
+		//alert( this.value );
+		//var selectedVal = $("#companySearch").val();
+		//$("#companySearch").val(selectedVal);
+		var selectedCompany = $(this).children("option:selected").val();
+		//alert(selectedCompanys);
+	});
+	
+	
+</script-->
+
+
+<!--script>
+	
+	
+		
+		$( document ).ready(function() {
+			var company_id;
+			$('#companySearch').on('change', function() {
+		//alert( this.value );
+		
+			var company_id = $( "#companySearch" ).val();
+			myFunc(company_id);
+			
+			//company_id = $( "#companySearch" ).val();
+			//alert(company_id);
+		});
+				
+					$(window).on("load", function () {
+							//alert("true");
+							//alert(data);
+							//$("select").val('6');
+							var selectedVal = $("#companySearch").val();
+								//alert(selectedVal);
+							});
+						
+				
+				
+					function myFunc(data){
+						$(window).on("load", function () {
+							alert("true");
+							//alert(data);
+						});
+						
+						
+						//alert(data)
+						//var url = '<?php //echo base_url('Documents/fetch_documents');?>';
+						//alert(company_id);
+						//var docValue = $(this).data("custom-value");
+						//alert(docValue);
+					
+					
+					/*
+					$.ajax({ 
+							type: "POST",
+							url: url,
+							data: { company_id: company_id},
+							success: function(response){
+								//$(".docTable").show();
+								//$('.modal-body').html(response);
+								//$('#workflowModal').modal('show'); 
+								
+							}
+					}); */ 
+				}		
+		});
+		
+</script-->
+
 
 

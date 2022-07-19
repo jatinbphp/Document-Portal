@@ -112,9 +112,6 @@ class Documents extends BaseController{
 	
 
 	public function fetch_documents(){
-		//$id = $_POST['company_id'];
-		//echo $id;
-		//exit;
 
 		$db = \Config\Database::connect();		
   	 	$global_tblDocuments = 'DocumentsManage';
@@ -279,11 +276,6 @@ class Documents extends BaseController{
 			$request = service('request');
 			$session = session();
 			
-			//setting session for storing company id
-			$companyId = $request->getPost('companyID');
-			$session->set('companyIdSession', $companyId);
-			
-			
 			$categoryID = $_POST['categoryID'];
 			$subCategoryID = $_POST['subCategoryID'];
 			$docFile = '';
@@ -364,7 +356,7 @@ class Documents extends BaseController{
 	        
 	        }    
 		}
-		
+
 		$this->data['page_title'] = "Document Edit";
 
 		$users = new UsersModel;

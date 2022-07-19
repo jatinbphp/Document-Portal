@@ -255,7 +255,8 @@ class MedicalAndTrainingDocs extends BaseController
          //$whereEqual = $wherarr;
 	  	//$whereEqual=array($global_tblWorkflow.'.company_id'=>$id);
 	  	
-	  	$whereEqual=array($global_tblWorkflow.'.usertype_id' => $_SESSION['user_type'], $global_tblWorkflow.'.company_id'=>$comp_id);
+	  	// $whereEqual=array($global_tblWorkflow.'.usertype_id' => $_SESSION['user_type'], $global_tblWorkflow.'.company_id'=>$comp_id);
+         $whereEqual=array($global_tblWorkflow.'.technician_id' => $_SESSION['id'], $global_tblWorkflow.'.company_id'=>$comp_id);
         
         // not equal condition
         $whereNotEqual = array();
@@ -328,7 +329,7 @@ class MedicalAndTrainingDocs extends BaseController
            $actionLinkComment = $model_user->actionLinkComment('',$row['id'],'',$row['comments'],'');
             $sub_array[] = $actionLinkComment;
              $actionLinkCommentbyceo = $model_user->actionLinkCommentCeo('',$row['id'],'',$row['ceo_comments'],'');
-            $sub_array[] =  $actionLinkCommentbyceo;
+            // $sub_array[] =  $actionLinkCommentbyceo;
 			//$sub_array[] = $row['comments']; 
 			$sub_array[] = $row['start_date']; 
 			$sub_array[] = $row['expire_date'];
@@ -362,9 +363,15 @@ class MedicalAndTrainingDocs extends BaseController
             $sub_array[] = $actionLink;
           }
           */
-          
-          $sub_array[] = '<a href = "' . base_url( 'workflow/download_documents/'.$row['id']). '" class="btn btn-primary" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 10px;" target="_blank"><i class="fa fa-file"></i></a>
+          if($row['is_active'] == 0){
+             
+            $sub_array[] = '<a  class="" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 20px;"></a><i class="fa fa-file" style="color: grey;font-size: 20px; margin-left:8px"></i>';
+          }
+          else{
+            $sub_array[] = '<a href = "' . base_url( 'workflow/download_documents/'.$row['id']). '" class="btn btn-primary" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 10px;" target="_blank"><i class="fa fa-file"></i></a>
                   <a href = "#" onclick="return false" class="btn btn-primary modalButton" data-custom-value="'.$row['id'].'" style="margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 10px;" ><i class="fa fa-eye"></i></a>';
+          }
+          
 
           
            

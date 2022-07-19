@@ -31,6 +31,12 @@
     table.dataTable tbody td, table.dataTable tbody td .commentAdd {
         transition: all .4s ease-in-out;
     }
+    .table th, .table td {
+        padding: 0.75rem;
+        vertical-align: top;
+        border-top: 1px solid #dee2e6;
+        word-break: break-all;
+    }
 </style>
 
 
@@ -87,7 +93,7 @@
                             <th>Sub Category</th>
                             <th>Company</th>
                             <th>Comments</th>
-                            <th>2nd Approval Comments</th>
+                            <!-- <th>2nd Approval Comments</th> -->
                             <th>Start Date</th>
                             <th>Expire Date</th>
                             <th>Status</th>

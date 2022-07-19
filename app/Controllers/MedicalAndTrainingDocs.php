@@ -37,7 +37,7 @@ class MedicalAndTrainingDocs extends BaseController
         
     }
     
-    /*
+    
       public function fetch_company_data(){
         $db = \Config\Database::connect();      
         $global_tbluser_company = 'user_company';
@@ -99,7 +99,7 @@ class MedicalAndTrainingDocs extends BaseController
 
         echo json_encode($output);
     }
-   */
+   
    
   
    

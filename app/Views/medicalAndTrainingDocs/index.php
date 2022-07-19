@@ -33,8 +33,8 @@
             </h3>
 
              <div class="item-wrap item-list-table">
-                <!--table id="technicianCompanyTable" class="table table-bordered" cellspacing="0" width="100%"-->
-					<table id="technicianDataTable" class="table table-bordered" cellspacing="0" width="100%">
+                <table id="technicianCompanyTable" class="table table-bordered" cellspacing="0" width="100%">
+					<!--table id="technicianDataTable" class="table table-bordered" cellspacing="0" width="100%"-->
                     <thead class="thead-dark">
                         <tr>
                             <th style="width: 15%">Company</th>
@@ -42,7 +42,7 @@
                          
                     </thead>
                     
-                    <tbody>
+                    <!--tbody>
 						<?php foreach($companyName as $value): ?>
 							<tr>
 								<?php
@@ -51,9 +51,9 @@
 								 ?>
 							</tr>
 						<?php endforeach ?>
-                    </tbody>
+                    </tbody-->
                     
-                    <!--tbody></tbody-->
+                    <tbody></tbody>
                 </table>
             </div>
         </div>

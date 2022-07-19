@@ -154,7 +154,7 @@
 
 <script>
 	$(window).on("load", function () {
-		var sessionStatus = '<?php echo $sessionStatus	; ?>';
+		var sessionStatus = '<?php echo $sessionStatus; ?>';
 		//check if data has be updated successfully
 		if(sessionStatus == 1){
 			//alert(sessionStatus);
@@ -162,40 +162,40 @@
 			$("#userFilter").show();
 			$("#documentsTable, #uploadedDocuments").dataTable().fnDestroy();
 			
-				$('#documentsTable').DataTable({
-				"processing": true,
-				"serverSide": true,
-				"responsive": true,
-				"order": [],
-				"ajax": {
-					url: "documents/fetch_documents",
-					type: "POST",
-					data: {
-						'company_id': '<?php echo $companyIdSession; ?>'
-					}
-				},
-				"columnDefs": [{
-					"orderable": false,
-					"targets": -1
-				}, {
-					"orderable": false,
-					"targets": 0
-				}, {
-					"orderable": false,
-					"targets": 5
-				}, {
-					"width": "10%",
-					"targets": 0
-				}, {
-					"width": "15%",
-					"targets": 1
-				}, {
-					"width": "10%",
-					"targets": 2
-				}]
-			});
-		}	
-	});	
+			$('#documentsTable').DataTable({
+			"processing": true,
+			"serverSide": true,
+			"responsive": true,
+			"order": [],
+			"ajax": {
+				url: "documents/fetch_documents",
+				type: "POST",
+				data: {
+					'company_id': '<?php echo $companyIdSession; ?>'
+				}
+			},
+			"columnDefs": [{
+				"orderable": false,
+				"targets": -1
+			}, {
+				"orderable": false,
+				"targets": 0
+			}, {
+				"orderable": false,
+				"targets": 5
+			}, {
+				"width": "10%",
+				"targets": 0
+			}, {
+				"width": "15%",
+				"targets": 1
+			}, {
+				"width": "10%",
+				"targets": 2
+			}]
+		});
+	}	
+});	
 </script>
 
 <!--script>

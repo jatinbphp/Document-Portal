@@ -2,15 +2,15 @@
     <div class="row">
         <div class="col-sm-12">
 
-	<input type="hidden" id="hdnSession" data-value="@Request.RequestContext.HttpContext.Session['success']" />
+	<!--input type="hidden" id="hdnSession" data-value="@Request.RequestContext.HttpContext.Session['success']" /-->
 
             <?php if(session()->has('success')): ?>
 				<?php
-					if(!empty(session()->getFlashdata('success'))){
+					//if(!empty(session()->getFlashdata('success'))){
 							//set sessionStatus to true on update successfully
-							$sessionStatus = TRUE;
-							$companyIdSession = session()->get('companyIdSession'); 
-					}	
+							//$sessionStatus = TRUE;
+							//$companyIdSession = session()->get('companyIdSession'); 
+					//}//	
 				?>
             <div class="alert alert-success alert-dismissible" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>

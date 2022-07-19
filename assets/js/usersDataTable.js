@@ -366,7 +366,6 @@ $(document).ready(function() {
             "targets": 0
         }, ]
     });
-    
     $('#technicianCompanyTable').DataTable({
         "processing": true,
         "serverSide": true,
@@ -384,5 +383,21 @@ $(document).ready(function() {
             "targets": 0
         }, ]
     });
-    
+    $('#ceoComplianceReportTable').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "responsive": true,
+        "order": [],
+        "ajax": {
+            url: "ceocompliancereport/fetch_ceo_compliance_report",
+            type: "POST",
+        },
+        "columnDefs": [{
+            "orderable": false,
+            "targets": -1
+        }, {
+            "width": "85%",
+            "targets": 0
+        }, ]
+    });
 });

@@ -1139,4 +1139,21 @@ $(document).ready(function() {
             "targets": 8
         }, ]
     });
+    $('#ceocompliancereportTable').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "responsive": true,
+        "order": [],
+        "ajax": {
+            url: baseurl + "/CeoComplianceReportView/fetch_compliance_report_view/" + $("#company_id_pass").val(),
+            type: "POST",
+        },
+        "columnDefs": [{
+            "orderable": false,
+            "targets": -1
+        }, {
+            "width": "10%",
+            "targets": 0
+        }, ]
+    });
 });

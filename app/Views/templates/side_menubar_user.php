@@ -45,6 +45,7 @@ if($_SESSION['user_type'] == 2){ ?>
 			<li class="Dashboard-Menu"><a href="<?php echo base_url('userdashboard'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-1.png'); ?>" alt="">Dashboard</a></li>
 
 			<li class="Document-Menu"><a href="<?php echo base_url('awaitingapprove'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-1.png'); ?>" alt="">AWAITING APPROVAL </a></li>
+			<li class="ComplianceReport-Menu"><a href="<?php echo base_url('ceocompliancereport'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-1.png'); ?>" alt="">Compliance Report </a></li>
 
 			
 	</div>

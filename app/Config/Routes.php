@@ -171,6 +171,12 @@ $routes->match(['get','post'],'awaitingapprove/(:any)', 'AwaitingApprove::$1',['
 $routes->match(['get','post'],'ceoview', 'CeoAwatingView::index',['filter' => 'ceoauth']);
 $routes->match(['get','post'],'ceoview/(:any)', 'CeoAwatingView::$1',['filter' => 'ceoauth']);
 
+$routes->match(['get','post'],'ceocompliancereport', 'CeoComplianceReport::index',['filter' => 'ceoauth']);
+$routes->match(['get','post'],'ceocompliancereport/(:any)', 'CeoComplianceReport::$1',['filter' => 'ceoauth']);
+
+$routes->match(['get','post'],'ceoreportview', 'CeoComplianceReportView::index',['filter' => 'ceoauth']);
+$routes->match(['get','post'],'ceoreportview/(:any)', 'CeoComplianceReportView::$1',['filter' => 'ceoauth']);
+
 
 
 //manager routes

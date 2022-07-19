@@ -31,32 +31,7 @@
     table.dataTable tbody td, table.dataTable tbody td .commentAdd {
         transition: all .4s ease-in-out;
     }
-  table.table.quickView {
-    word-break: break-all;
-}
 </style>
-
-  <!-- Workflow Modal -->
-<div class="modal fade" id="workflowModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Workflow List</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-            
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!--button type="button" class="btn btn-primary">Save changes</button-->
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Modal -->
 <div class="wrapper">
     <div class="row">
         <div class="col-sm-12">
@@ -71,41 +46,28 @@
                 <?php echo session()->getFlashdata('error'); ?>
             </div>
             <?php endif; ?>
-            <?php 
-            $sesVal =  $_SERVER['REQUEST_URI'];
-            $ses_id = explode("/",$sesVal);
-
-            $company_id = end($ses_id);
-
-            $db      = \Config\Database::connect();
-            $builder = $db->table('Company');
-            $builder->select('companyName');
-            $builder->where('id', $company_id);
-            $queryResult = $builder->get()->getResult('array');
-            $company_name = $queryResult[0]['companyName'];
-             ?>
             <h3>
-                Manage Workflow  <br> <h6> <b>Company Name : </b> <?php echo $company_name;?> </h6><br>
+                Manage Workflow
             </h3>
+            
              <div class="item-wrap item-list-table">
                 <input type="hidden" value="<?php echo $company_id; ?>" id="company_id_pass">
-                <table id="subaddworkflowTable" class="table table-bordered display responsive nowrap" cellspacing="0" width="100%" >
+                <table id="ceocompliancereportTable" class="table table-bordered display responsive nowrap" cellspacing="0" width="100%" >
 
                   
                     <thead class="thead-dark">
                         <tr>
                              
-                            <th>Document Name</th>
-                            <th>User Type</th>
+                            <th> Technician Name</th>
+                            <!-- <th>User Type</th>
                             <th>Category</th>
                             <th>Sub Category</th>
                             <th>Company</th>
                             <th>Comments</th>
-                            <th>2nd Approval Comments</th>
                             <th>Start Date</th>
                             <th>Expire Date</th>
                             <th>Status</th>
-                            <th style="width: 15%">Action</th>
+                            <th style="width: 15%">Approval</th> -->
                         </tr>
                     </thead>
                          
@@ -132,21 +94,4 @@
 </script>
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.dataTables.min.css">
 <script src="<?php echo base_url('assets/js/usersTable.js?v='.time()) ?>"></script>
-
-<script>
-    $(".modalButton").live('click', function(){
-        
-        var url = '<?php echo base_url('workflow/ajaxpopup');?>';
-        var docValue = $(this).data("custom-value");
-        //alert(docValue);
-        $.ajax({ 
-                type: "POST",
-                url: url,
-                data: { docValue: docValue},
-                success: function(response){
-                    $('.modal-body').html(response);
-                    $('#workflowModal').modal('show'); 
-                }
-            });  
-    });
-</script>
+ 

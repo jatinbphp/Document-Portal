@@ -260,7 +260,7 @@ class SubadminWorkflowView extends BaseController
 
         $counter = 0;
 
-        $response = "<table class='table'>";
+        $response = "<table class='table quickView'>";
         $response .= " <thead class='thead-dark'>";
         $response .= "<tr>";
         $response .= "<th scope='col' style='width: 10%'>#</th>";

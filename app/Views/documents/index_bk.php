@@ -1,15 +1,15 @@
 <div class="wrapper">
     <div class="row">
         <div class="col-sm-12">
-
-	<input type="hidden" id="hdnSession" data-value="@Request.RequestContext.HttpContext.Session['success']" />
-
+        	
             <?php if(session()->has('success')): ?>
 				<?php
+
 					if(!empty(session()->getFlashdata('success'))){
 							//set sessionStatus to true on update successfully
 							$sessionStatus = TRUE;
 							$companyIdSession = session()->get('companyIdSession'); 
+							
 					}	
 				?>
             <div class="alert alert-success alert-dismissible" role="alert">
@@ -156,11 +156,9 @@
 
 <script>
 	$(window).on("load", function () {
-		
+		var sessionStatus = '<?php echo $sessionStatus; ?>';
 		//check if data has be updated successfully
-		
-		var sessionStatus = "<?php echo $_SESSION['success'] ?>";
-		if(sessionStatus){
+		if(sessionStatus == 1){
 			//alert(sessionStatus);
 			$(".docTable").show();
 			$("#userFilter").show();
@@ -175,8 +173,7 @@
 				url: "documents/fetch_documents",
 				type: "POST",
 				data: {
-					//'company_id': '<?php echo $companyIdSession; ?>'
-					'company_id': "<?php echo $_SESSION['companyIdSession'] ?>"
+					'company_id': '<?php echo $companyIdSession; ?>'
 				}
 			},
 			"columnDefs": [{
@@ -202,19 +199,6 @@
 	}	
 });	
 </script>
-
-<script>
-//var sessionValue= $("#hdnSession").data('value');
-//alert(sessionValue);
- //var userName = "<?php echo $_SESSION['success'] ?>";
- //if(userName){
-	 //alert(userName);
-//}//
- 
-</script>
-
-
-
 
 <!--script>
 	//var conceptName = $('#companySearch').find(":selected").text();
@@ -295,9 +279,6 @@
 		});
 		
 </script-->
-<script>
-	//var sess = <?php echo $_SESSION['companyIdSession'] ?>;
-	//alert(sess);
-</script>
+
 
 

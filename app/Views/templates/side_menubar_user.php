@@ -74,7 +74,7 @@ if($_SESSION['user_type'] == 2){ ?>
 		<ul class="accordion">
 			<li class="Dashboard-Menu"><a href="<?php echo base_url('userdashboard'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-1.png'); ?>" alt="">Dashboard</a></li>
 
-			<li class="Document-Menu"><a href="<?php echo base_url('technician'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-1.png'); ?>" alt="">Technician </a></li>
+			<!-- <li class="Document-Menu"><a href="<?php echo base_url('technician'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-1.png'); ?>" alt="">Technician </a></li> -->
 			
 			<li class="MedicalAndTrainingDocs-Menu"><a href="<?php echo base_url('medicalAndTrainingDocs'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-1.png'); ?>" alt="">Medical and Training Docs </a></li>
 			

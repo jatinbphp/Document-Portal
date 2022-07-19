@@ -10,6 +10,7 @@ use App\Models\CategoryModel;
 use App\Models\CompanyModel;
 use App\Models\ReportingModel;
 use App\Models\User_typesModel;
+use App\Models\ManageDocumentsModel;
 
 class CeoComplianceReportView extends BaseController
 {
@@ -86,13 +87,14 @@ class CeoComplianceReportView extends BaseController
       
      	
         $data = array();
-       //echo "<pre>";print_r($fetch_data);exit;
+      
+       
         foreach ($fetch_data as $key => $row) {
             $sub_array = array(); 
-            
-            // $url = base_url('/CeoComplianceReportView/index/'.$row['company_id']);
-            // $company = "<a href = '".$url."'.>".$row['companyName']."</a>";
-            $sub_array[] = $row['firstName'] .' '. $row['lastName'];  
+           
+             $url = base_url('/CeoComplianceReportView/Compliance_report/'.$id.'/'. $row['user_id']);
+            $list = "<a href = '".$url."'.>".$row['firstName'] .' '. $row['lastName']."</a>";
+            $sub_array[] =$list ;  
             
            // $actionLink = $model_category->getActionLink('',$row['id'],'Category','',1); 
             
@@ -108,6 +110,26 @@ class CeoComplianceReportView extends BaseController
 
         echo json_encode($output);
         
+    }
+
+    public function Compliance_report($com_id = '',$tech_id = ''){
+
+        $company = new CompanyModel;
+        $this->data['company'] = $company->where('id',$com_id)->findall();
+        $users = new UsersModel;
+        $this->data['users'] = $users->findall();
+
+        $category = new CategoryModel;
+        $this->data['category'] = $category->where('is_deleted',0)->findall();
+
+        $subCategory = new SubCategoryModel;
+        $this->data['subCategory'] = $subCategory->where('is_deleted',0)->findall();
+        $documents = new ManageDocumentsModel;
+        $this->data['Documentfiles'] = $documents->where('companyID', $com_id)->findAll();
+
+        $this->data['page_title'] = 'Compliance Report';
+        $this->render_user_template('Ceo/compliance_report/report_list',$this->data);
+
     }
     
 }

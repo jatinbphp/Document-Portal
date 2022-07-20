@@ -29,7 +29,7 @@
             </div>
             <?php endif; ?>
             <h3>
-                Manage Workflow
+                Company
             </h3>
 
              <div class="item-wrap item-list-table">

@@ -125,7 +125,8 @@ class CeoComplianceReportView extends BaseController
         $subCategory = new SubCategoryModel;
         $this->data['subCategory'] = $subCategory->where('is_deleted',0)->findall();
         $documents = new WorkflowModel;
-        $this->data['Documentfiles'] = $documents->where('company_id', $com_id)->where('technician_id',$tech_id)->findAll();
+         $where =  "(is_active = 1 OR is_active = 3 OR is_active = 4)";
+        $this->data['Documentfiles'] = $documents->where('company_id', $com_id)->where('technician_id',$tech_id)->where($where)->findAll();
 
         $this->data['page_title'] = 'Compliance Report';
         $this->render_user_template('Ceo/compliance_report/report_list',$this->data);

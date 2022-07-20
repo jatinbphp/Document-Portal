@@ -47,36 +47,43 @@
 							</tr>
 						  </thead>
 						  <tbody>
-							<?php foreach($Documentfiles as $key => $docValue): ?>
-							<?php if($docValue['companyID'] == $compValue['id']): ?>
-							<tr>
-							  <td><?php echo $docValue['docName'] ?></td>
-							  <td><?php echo $docValue['expireDate'] ?></td>
-							  <td>
-								<?php
-								  if($docValue['isActive'] == 1 && $docValue['expireDate'] > date('Y-m-d')){
-								  echo '<span class="badge badge-success">Active</span>';            
-								  }
-								  elseif($docValue['isActive'] == 1 && $docValue['expireDate'] < date('Y-m-d')){
-								  echo '<span class="badge badge-danger">Expired</span>';
-								  }
-								  elseif($docValue['isActive'] != 1 && $docValue['expireDate'] == '0000-00-00'){
-								  echo '<span class="badge badge-dark">InActive</span>';
-								  }
-								  elseif($docValue['isActive'] != 1 && $docValue['expireDate'] < date('Y-m-d')){
-								  echo '<span class="badge badge-danger">Expired</span>';
-								  }
-								  elseif($docValue['isActive'] == 1 && $docValue['expireDate'] ==  date('Y-m-d')){
-									 echo '<span class="badge badge-success">Active</span>';
-								  }	
-								  else{
-								  echo '<span class="badge badge-dark">InActive</span>';
-								  }
-								  ?>
-							  </td>
-							</tr>
-							<?php endif ?>
-							<?php endforeach ?>
+								<?php if(count($Documentfiles)>0){
+									foreach($Documentfiles as $key => $docValue){
+										if($docValue['company_id'] == $compValue['id']){ ?>
+
+											<tr>
+											  <td><?php echo $docValue['document_name'] ?></td>
+											  <td><?php echo $docValue['expire_date'] ?></td>
+											  <td>
+													<?php
+													  if($docValue['is_active'] == 1 && $docValue['expire_date'] > date('Y-m-d')){
+													  echo '<span class="badge badge-success">Active</span>';            
+													  }
+													  elseif($docValue['is_active'] == 1 && $docValue['expire_date'] < date('Y-m-d')){
+													  echo '<span class="badge badge-danger">Expired</span>';
+													  }
+													  elseif($docValue['is_active'] != 1 && $docValue['expire_date'] == '0000-00-00'){
+													  echo '<span class="badge badge-dark">InActive</span>';
+													  }
+													  elseif($docValue['is_active'] != 1 && $docValue['expire_date'] < date('Y-m-d')){
+													  echo '<span class="badge badge-danger">Expired</span>';
+													  }
+													  elseif($docValue['is_active'] == 1 && $docValue['expire_date'] ==  date('Y-m-d')){
+														 echo '<span class="badge badge-success">Active</span>';
+													  }	
+													  else{
+													  echo '<span class="badge badge-dark">InActive</span>';
+													  }
+													  ?>
+											  	</td>
+											</tr>
+
+									<?php	}
+									}
+								}else { ?>
+
+									<tr> <td><?php echo "No Found Data";?></td></tr>
+								<?php }?>
 						  </tbody>
 						</table>
 						<!--end table-->

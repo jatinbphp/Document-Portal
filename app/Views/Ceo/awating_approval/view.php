@@ -46,8 +46,21 @@
                 <?php echo session()->getFlashdata('error'); ?>
             </div>
             <?php endif; ?>
+             <?php 
+            $sesVal =  $_SERVER['REQUEST_URI'];
+            $ses_id = explode("/",$sesVal);
+
+            $company_id = end($ses_id);
+
+            $db      = \Config\Database::connect();
+            $builder = $db->table('Company');
+            $builder->select('companyName');
+            $builder->where('id', $company_id);
+            $queryResult = $builder->get()->getResult('array');
+            $company_name = $queryResult[0]['companyName'];
+             ?>
             <h3>
-                Manage Workflow
+                Awating Approval  <br> <h6> <b>Company Name : </b> <?php echo $company_name;?> </h6><br>
             </h3>
              <div class="item-wrap item-list-table">
                 <input type="hidden" value="<?php echo $company_id; ?>" id="company_id_pass">

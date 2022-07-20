@@ -8,6 +8,7 @@ use App\Models\CategoryModel;
 use App\Models\CompanyModel;
 use App\Models\ReportingModel;
 use App\Models\User_typesModel;
+use App\Models\WorkflowModel;
 class ComplianceReport extends BaseController{
 
 	public function index(){
@@ -23,8 +24,9 @@ class ComplianceReport extends BaseController{
 		$subCategory = new SubCategoryModel;
 		$this->data['subCategory'] = $subCategory->where('is_deleted',0)->findall();
 
-		$documents = new ManageDocumentsModel;
+		$documents = new WorkflowModel;
 		$this->data['Documentfiles'] = $documents->findAll();
+		//echo "<pre>";print_r($this->data['Documentfiles']);exit;
 
 		$this->data['page_title'] = 'Compliance Report';
 		$this->render_user_template('compliance_report/index',$this->data);

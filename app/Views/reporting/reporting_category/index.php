@@ -17,7 +17,7 @@
             <h3>Category Report <!--a class="btn btn-info" style="float: right;" href="<?php echo base_url(''); ?>">Add Category</a--></h3>
 
             <div class="item-wrap item-list-table">
-                <table id="repCatTable" class="table table-bordered" cellspacing="0" width="100%">
+                <table id="repCatTable" class="table table-bordered reportCategoryTable" cellspacing="0" width="100%">
                     <thead class="thead-dark">
                         <tr>
                             <th>Category</th>
@@ -62,3 +62,8 @@ $('#nestedtable tr').each(function () {
     $('.Reporting-Menu').addClass('active');
 </script>
 <script src="<?php echo base_url('assets/js/usersTable.js') ?>"></script>
+<script>
+$(document).ready( function () {
+    $('.reportCategoryTable').DataTable();
+} );
+</script>

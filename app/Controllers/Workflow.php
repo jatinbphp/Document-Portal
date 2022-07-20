@@ -296,19 +296,24 @@ class Workflow extends BaseController{
  		}
 
  		 if(isset($_POST['client_id']) && $_POST['client_id'] != '' ){
+
  		 	$client_comp = array();
  		 	$db      = \Config\Database::connect();
 			$builder = $db->table('Company');
 			$builder->select('id');
 			$builder->where('client_id', $_POST['client_id']);
 			$queryResult = $builder->get()->getResult('array');
-			foreach($queryResult as $Queryval){
-				$comp[] = $Queryval['id'];
+			if(count($queryResult)>0){
+				foreach($queryResult as $Queryval){
+					$comp[] = $Queryval['id'];
+				}
+				$Comp_id = implode(",",$comp);
+				$client_comp[] = $Comp_id;
+
+				// echo "<pre>";print_r($client_comp);exit;
+	 			  $whereUser[$global_tblWorkflow.'.company_id']= $client_comp;
 			}
-			$Comp_id = implode(",",$comp);
-			$client_comp[] = $Comp_id;
-			// echo "<pre>";print_r($client_comp);exit;
- 			  $whereUser[$global_tblWorkflow.'.company_id']= $client_comp;
+			
  		}
         // not equal condition
         $whereNotEqual = array();
@@ -793,19 +798,20 @@ class Workflow extends BaseController{
 		    				$result =  $model_workflow->update();
 		    				$com_id = $_SESSION['company_id'];
 		    				$url = base_url('SubadminWorkflowView/index/'.$com_id);
+		    				$session->setFlashdata("success", "Workflow Document updated Successfully.");
+	            			return redirect()->to($url);
+		    				// $workflow_model = new WorkflowModel;
 
-		    				$workflow_model = new WorkflowModel;
+		    				// $error_data = $workflow_model->select('drag_drop_error')->where('id',$id)->first();
+		    				// $is_error = $error_data['drag_drop_error'];
+		    				// if($is_error == 1){
 
-		    				$error_data = $workflow_model->select('drag_drop_error')->where('id',$id)->first();
-		    				$is_error = $error_data['drag_drop_error'];
-		    				if($is_error == 1){
-
-		    					$session->setFlashdata("error", "Document accept only .xlsx /.csv /.pdf /.docx /.xls /.doc files");
-	            			return redirect()->to($_SERVER['HTTP_REFERER']);
-		    				}else{
-		    					$session->setFlashdata("success", "Workflow Document updated Successfully.");
-	            			return redirect()->to($url);	
-		    				}
+		    				// 	$session->setFlashdata("error", "Document accept only .xlsx /.csv /.pdf /.docx /.xls /.doc files");
+	         //    			return redirect()->to($_SERVER['HTTP_REFERER']);
+		    				// }else{
+		    				// 	$session->setFlashdata("success", "Workflow Document updated Successfully.");
+	         //    			return redirect()->to($url);	
+		    				// }
 		            		
 		            	}else{
 		            		$session->setFlashdata("success", "Workflow Document updated Successfully.");
@@ -1322,28 +1328,28 @@ class Workflow extends BaseController{
 									$db = \Config\Database::connect(); 
 							    	$insertd = $db->table('workflow_documents')->insert($dataImage);
 
-							    	$model_workflow = new WorkflowModel;
-									$dataUpdate = array(
-										'drag_drop_error'=>0
-									);
+							  //   	$model_workflow = new WorkflowModel;
+									// $dataUpdate = array(
+									// 	'drag_drop_error'=>0
+									// );
 
-									$model_workflow->set($dataUpdate);
-									$model_workflow->where('id', $id);
-									$result =  $model_workflow->update();
+									// $model_workflow->set($dataUpdate);
+									// $model_workflow->where('id', $id);
+									// $result =  $model_workflow->update();
 					                
 
 		     // $imageData .= '<img src="uploads/workflow/' . $fileName . '" class="thumbnail" />';
 		    }
 		}
 		else{
-			$model_workflow = new WorkflowModel;
-			$dataUpdate = array(
-				'drag_drop_error'=>1
-			);
+			// $model_workflow = new WorkflowModel;
+			// $dataUpdate = array(
+			// 	'drag_drop_error'=>1
+			// );
 
-			$model_workflow->set($dataUpdate);
-			$model_workflow->where('id', $id);
-			$result =  $model_workflow->update();
+			// $model_workflow->set($dataUpdate);
+			// $model_workflow->where('id', $id);
+			// $result =  $model_workflow->update();
 			echo "extension error ";exit;
 
 		}

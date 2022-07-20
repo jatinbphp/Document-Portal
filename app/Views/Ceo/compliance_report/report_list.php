@@ -22,58 +22,79 @@
         <div class="col-sm-12">
             <h3>Compliance Report</h3>
             <div class="item-wrap item-list-table">
-                
+                <?php 
+                 $sesVal =  $_SERVER['REQUEST_URI'];
+	            $ses_id = explode("/",$sesVal);
+
+	            $user_id = end($ses_id);
+
+	            $db      = \Config\Database::connect();
+	            $builder = $db->table('Users');
+	            $builder->select('firstName');
+	            $builder->select('lastName');
+	            $builder->where('id', $user_id);
+	            $queryResult = $builder->get()->getResult('array');
+	            $user_fname = $queryResult[0]['firstName'];
+	            $user_lname = $queryResult[0]['lastName'];
+	          	$user_name = $user_fname .' '. $user_lname;
+
+                ?>
                 
 				<!--accordion begin-->
 				<div class="accordion" id="accordionExample">
 				  <!--start card-->
+
 				  <?php foreach($company as $key => $compValue): ?>
 				  <div class="card">
-					<div class="card-header" id="headingOne">
-					  <h5 class="mb-0">
-						<a href="" role="button" data-toggle="collapse" data-target="#collapseOne-<?php echo $compValue['id'] ?>" aria-expanded="true" aria-controls="collapseOne"><?php echo $compValue['companyName'] ?></a>
+					<!-- <div class="card-header" id="headingOne"> -->
+					  <!-- <h5 class="mb-0"> -->
+						<!-- <a href="" role="button" data-toggle="collapse" data-target="#collapseOne-<?php echo $compValue['id'] ?>" aria-expanded="true" aria-controls="collapseOne"><?php echo $compValue['companyName'] ?></a> -->
 						<!--button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"><?php echo $compValue['companyName'] ?></button-->
-					  </h5>
-					</div>
+					 <!--  </h5> -->
+					<!-- </div> -->
 					<div id="collapseOne-<?php echo $compValue['id'] ?>" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
 					  <div class="card-body">
 						<!--table-->
 						<table id="" class="table table-bordered" cellspacing="0" width="100%">
 						  <thead class="thead-dark">
 							<tr>
-							  <th style='width: 50%'>Document Name</th>
-							  <th style='width: 40%'>Expire Date </th>
+							  <th style='width: 25%'>Document Name</th>
+							  <th style='width: 25%'>client Name</th>
+							  <th style='width: 20%'>Company</th>
+							  <th style='width: 20%'>Expire Date </th>
 							  <th style='width: 10%'>Status </th>
 							</tr>
 						  </thead>
 						  <tbody>
+
 								<?php if(count($Documentfiles)>0){
 									foreach($Documentfiles as $key => $docValue){
 										if($docValue['company_id'] == $compValue['id']){ ?>
 
 											<tr>
 											  <td><?php echo $docValue['document_name'] ?></td>
+											  
+											  <td><?php echo $user_name; ?></td>
+											  <td><?php echo $compValue['companyName']; ?></td>
 											  <td><?php echo $docValue['expire_date'] ?></td>
 											  <td>
 													<?php
-													  if($docValue['is_active'] == 1 && $docValue['expire_date'] > date('Y-m-d')){
-													  echo '<span class="badge badge-success">Active</span>';            
-													  }
-													  elseif($docValue['is_active'] == 1 && $docValue['expire_date'] < date('Y-m-d')){
-													  echo '<span class="badge badge-danger">Expired</span>';
-													  }
-													  elseif($docValue['is_active'] != 1 && $docValue['expire_date'] == '0000-00-00'){
-													  echo '<span class="badge badge-dark">InActive</span>';
-													  }
-													  elseif($docValue['is_active'] != 1 && $docValue['expire_date'] < date('Y-m-d')){
-													  echo '<span class="badge badge-danger">Expired</span>';
-													  }
-													  elseif($docValue['is_active'] == 1 && $docValue['expire_date'] ==  date('Y-m-d')){
-														 echo '<span class="badge badge-success">Active</span>';
-													  }	
-													  else{
-													  echo '<span class="badge badge-dark">InActive</span>';
-													  }
+
+													if($docValue['is_active'] == 1){
+									                echo '<span class="badge badge-success">APPROVED</span>';
+									            }elseif($docValue['is_active'] == 2){
+									            	echo '<span class="badge badge-primary">SUBMITED</span>';
+									            }elseif($docValue['is_active'] == 3){
+									            	echo '<span class="badge badge-danger">EXPIRED</span>';
+									            }
+									            elseif($docValue['is_active'] == 4){
+									            	echo '<span class="badge badge-danger">REJECTED</span>';
+									            }
+									            
+									            else{
+									                echo '<span class="badge badge-danger">OUTSTANDING</span>';
+									            } 
+														
 													  ?>
 											  	</td>
 											</tr>
@@ -103,6 +124,6 @@
     // $(".manageDocuments-Menu .inner").addClass("show");
     // $(".manageDocuments-Menu .toggle").addClass("activAcc");
     // $(".manageDocuments-Menu .inner").css("display", "block")
-    $('.Reporting-Menu').addClass('active');
+    $('.ComplianceReport-Menu').addClass('active');
 </script>
 <script src="<?php echo base_url('assets/js/usersTable.js') ?>"></script>

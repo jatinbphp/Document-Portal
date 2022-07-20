@@ -97,7 +97,7 @@
     // $(".manageDocuments-Menu .inner").addClass("show");
       // $(".manageDocuments-Menu .toggle").addClass("activAcc");
       // $(".manageDocuments-Menu .inner").css("display", "block")
-      $('.AllDocument-Menu').addClass('active');
+      $('.ComplianceReport-Menu').addClass('active');
 
        $(document).ready(function () {
         new bootstrap.Tooltip(document.body, {

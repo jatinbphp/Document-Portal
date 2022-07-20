@@ -81,7 +81,8 @@
 									}
 								}else { ?>
 
-									<tr> <td><?php echo "No Found Data";?></td></tr>
+									<!--tr> <td><?php echo "No Found Data";?></td></tr-->
+									<tr> <td colspan = "3" style="text-align: center;"><?php echo "No data available";?></td></tr>
 								<?php }?>
 						  </tbody>
 						</table>

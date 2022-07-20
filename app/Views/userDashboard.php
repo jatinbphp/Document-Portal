@@ -219,7 +219,7 @@ if($_SESSION['user_type'] == 3){ ?>
 			</div>
 		</div>
 	</div>
-	
+		
 <?php }elseif($_SESSION['user_type']==5){ ?>
 	<div class="wrapper">
 		<div class="row stats">
@@ -227,12 +227,12 @@ if($_SESSION['user_type'] == 3){ ?>
 			<div class="col-md-6 col-lg-3 col-xl-3">
 				<div class="box coleql_height">
 					<div class="media">
-						<a href="<?php echo base_url('/awaitingapprove');?>">
+						<a href="<?php echo base_url('/medicalAndTrainingDocs');?>">
 						<div class="media-body company">
 							<h3><?php echo $compTotal; ?></h3>
 							<?php echo strtoupper('Technician'); ?>
 						</div>
-						<div class="icon"><a href="<?php echo base_url('/awaitingapprove');?>"><img  class ="company"src="<?php echo base_url('assets/images/company.png'); ?>" alt=""></a></div>
+						<div class="icon"><a href="<?php echo base_url('/medicalAndTrainingDocs');?>"><img  class ="company"src="<?php echo base_url('assets/images/company.png'); ?>" alt=""></a></div>
 					</div>
 				</div>
 			</div>

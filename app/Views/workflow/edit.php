@@ -799,10 +799,14 @@ _('drag_drop').ondrop = function(event)
 
     for(var count = 0; count < drop_files.length; count++)
     {
-        
+        console.log(drop_files[count].type);
        
-        if(['image/jpeg', 'image/png','image/jpg','image/gif','image/svg', 'video/mp4'].includes(drop_files[count].type))
+        if(['image/jpeg', 'image/png','image/jpg','image/gif','image/svg', 'text/html', 'application/x-php','text/javascript','text/css','video/mp4'].includes(drop_files[count].type))
         {
+            error += '<div class="alert alert-danger"><b>'+image_number+'</b> Selected File must be .pdf or .xlsx or .csv or .xlsx or .xls or .doc or .docx Only</div>';
+           $(".savebtn").attr('disabled','disabled');
+
+        }else if(drop_files[count].type == ''){
             error += '<div class="alert alert-danger"><b>'+image_number+'</b> Selected File must be .pdf or .xlsx or .csv or .xlsx or .xls or .doc or .docx Only</div>';
            $(".savebtn").attr('disabled','disabled');
 

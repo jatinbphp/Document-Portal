@@ -69,7 +69,11 @@
 
 								<?php if(count($Documentfiles)>0){
 									foreach($Documentfiles as $key => $docValue){
-										if($docValue['company_id'] == $compValue['id']){ ?>
+										if($docValue['company_id'] == $compValue['id']){ 
+
+											if($docValue['is_active'] == 1 || $docValue['is_active'] == 3 || $docValue['is_active'] == 4 ){
+
+											?>
 
 											<tr>
 											  <td><?php echo $docValue['document_name'] ?></td>
@@ -82,22 +86,16 @@
 
 													if($docValue['is_active'] == 1){
 									                echo '<span class="badge badge-success">APPROVED</span>';
-									            }elseif($docValue['is_active'] == 2){
-									            	echo '<span class="badge badge-primary">SUBMITED</span>';
 									            }elseif($docValue['is_active'] == 3){
 									            	echo '<span class="badge badge-danger">EXPIRED</span>';
 									            }
 									            elseif($docValue['is_active'] == 4){
 									            	echo '<span class="badge badge-danger">REJECTED</span>';
-									            }
-									            
-									            else{
-									                echo '<span class="badge badge-danger">OUTSTANDING</span>';
-									            } 
-														
+									            }	
 													  ?>
 											  	</td>
 											</tr>
+											<?php } ?>
 
 									<?php	}
 									}

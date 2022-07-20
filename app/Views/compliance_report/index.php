@@ -47,36 +47,35 @@
 							</tr>
 						  </thead>
 						  <tbody>
+						  	
 								<?php if(count($Documentfiles)>0){
 									foreach($Documentfiles as $key => $docValue){
-										if($docValue['company_id'] == $compValue['id']){ ?>
+										if($docValue['company_id'] == $compValue['id']){ 
+											if($docValue['is_active'] == 1 || $docValue['is_active'] == 3 || $docValue['is_active'] == 4 ){
+											?>
 
 											<tr>
 											  <td><?php echo $docValue['document_name'] ?></td>
 											  <td><?php echo $docValue['expire_date'] ?></td>
 											  <td>
 													<?php
-													  if($docValue['is_active'] == 1 && $docValue['expire_date'] > date('Y-m-d')){
-													  echo '<span class="badge badge-success">Active</span>';            
-													  }
-													  elseif($docValue['is_active'] == 1 && $docValue['expire_date'] < date('Y-m-d')){
-													  echo '<span class="badge badge-danger">Expired</span>';
-													  }
-													  elseif($docValue['is_active'] != 1 && $docValue['expire_date'] == '0000-00-00'){
-													  echo '<span class="badge badge-dark">InActive</span>';
-													  }
-													  elseif($docValue['is_active'] != 1 && $docValue['expire_date'] < date('Y-m-d')){
-													  echo '<span class="badge badge-danger">Expired</span>';
-													  }
-													  elseif($docValue['is_active'] == 1 && $docValue['expire_date'] ==  date('Y-m-d')){
-														 echo '<span class="badge badge-success">Active</span>';
-													  }	
-													  else{
-													  echo '<span class="badge badge-dark">InActive</span>';
-													  }
+													 if($docValue['is_active'] == 1){
+									                echo '<span class="badge badge-success">APPROVED</span>';
+									            }elseif($docValue['is_active'] == 3){
+									            	echo '<span class="badge badge-danger">EXPIRED</span>';
+									            }
+									            elseif($docValue['is_active'] == 4){
+									            	echo '<span class="badge badge-danger">REJECTED</span>';
+									            }
+									            
+									            
+														
+													  
 													  ?>
 											  	</td>
+
 											</tr>
+										<?php } ?>
 
 									<?php	}
 									}

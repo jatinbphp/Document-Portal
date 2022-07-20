@@ -36,7 +36,7 @@ if($_SESSION['user_type'] == 2){ ?>
 </div>
 <div class="body-overlay"></div>
 
-<?php } elseif($_SESSION['user_type'] == 1){?>
+<?php } elseif($_SESSION['user_type'] == 1 || $_SESSION['user_type'] == 4){?>
 
 	<div class="sidebar">
 	<div class="sidebar-menu">
@@ -51,22 +51,7 @@ if($_SESSION['user_type'] == 2){ ?>
 	</div>
 </div>
 <div class="body-overlay"></div>
-<?php } elseif($_SESSION['user_type'] == 4){?>
-
-	<div class="sidebar">
-	<div class="sidebar-menu">
-		<button type="button" class="menu-close menu-btn d-block d-xl-none"><span class="sr-only">MENU</span></button>
-		<ul class="accordion">
-			<li class="Dashboard-Menu"><a href="<?php echo base_url('userdashboard'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-1.png'); ?>" alt="">Dashboard</a></li>
-
-			<li class="Document-Menu"><a href="<?php echo base_url('manager'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-1.png'); ?>" alt="">Manager </a></li>
-
-			
-	</div>
-</div>
-<div class="body-overlay"></div>
-<!--Technician-->
-<?php } elseif($_SESSION['user_type'] == 5){?>
+<?php }elseif($_SESSION['user_type'] == 5){?>
 
 	<div class="sidebar">
 	<div class="sidebar-menu">

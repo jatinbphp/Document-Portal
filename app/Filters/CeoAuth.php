@@ -20,9 +20,11 @@ class CeoAuth implements FilterInterface
                     return redirect()->to('userdashboard');
                 } else if ($_SESSION['user_type']  == 2) {
                     return redirect()->to('userdashboard');
-                } else if ($_SESSION['user_type']  == 4) {
-                    return redirect()->to('userdashboard');
-                } else if ($_SESSION['user_type']  == 5) {
+                } 
+                // else if ($_SESSION['user_type']  == 4) {
+                //     return redirect()->to('userdashboard');
+                // } 
+                else if ($_SESSION['user_type']  == 5) {
                     return redirect()->to('userdashboard');
                 }
           

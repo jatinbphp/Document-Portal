@@ -805,23 +805,23 @@ _('drag_drop').ondrop = function(event)
         {
             error += '<div class="alert alert-danger"><b>'+image_number+'</b> Selected File must be .pdf or .xlsx or .csv or .xlsx or .xls or .doc or .docx Only</div>';
            $(".savebtn").attr('disabled','disabled');
-           setTimeout(function () {
-                    location.reload(true);
-              }, 1000);
+           // setTimeout(function () {
+           //          location.reload(true);
+           //    }, 1000);
 
         }else if(drop_files[count].type == ''){
             error += '<div class="alert alert-danger"><b>'+image_number+'</b> Selected File must be .pdf or .xlsx or .csv or .xlsx or .xls or .doc or .docx Only</div>';
            $(".savebtn").attr('disabled','disabled');
-           setTimeout(function () {
-                    location.reload(true);
-              }, 1000);
+           // setTimeout(function () {
+           //          location.reload(true);
+           //    }, 1000);
 
         }else if(drop_files[count].size > 20000000){
             error += '<div class="alert alert-danger"><b>'+image_number+'</b> Maximum file size to upload is 20 MB</div>';
            $(".savebtn").attr('disabled','disabled');
-           setTimeout(function () {
-                    location.reload(true);
-              }, 1000);
+           // setTimeout(function () {
+           //          location.reload(true);
+           //    }, 1000);
         }else
         {
             form_data.append("images[]", drop_files[count]);
@@ -867,7 +867,7 @@ _('drag_drop').ondrop = function(event)
             $('.savebtn').removeAttr('disabled');
                 setTimeout(function () {
                     location.reload(true);
-              }, 1000);
+              }, 5000);
 
         });
 

@@ -3,12 +3,12 @@
     padding-left: 10px;
     color: white;
 }
-img.company {
+/*img.company {
     padding-left: 90px;
 }
 img.user {
     padding-left: 73px;
-}
+}*/
  table tbody td .commentAdd {
         width: 100%;
         max-width: 100px;
@@ -36,7 +36,7 @@ if($_SESSION['user_type'] == 3){ ?>
 			
 			<div class="col-md-6 col-lg-3 col-xl-3">
 				<div class="box coleql_height">
-					<div class="media">
+					<div class="media justify-content-between">
 						<a href="<?php echo base_url('/subadminworkflow');?>">
 						<div class="media-body company">
 							<h3><?php echo $compTotal; ?></h3>
@@ -206,7 +206,7 @@ if($_SESSION['user_type'] == 3){ ?>
 			
 			<div class="col-md-6 col-lg-3 col-xl-3">
 				<div class="box coleql_height">
-					<div class="media">
+					<div class="media justify-content-between">
 						<a href="<?php echo base_url('/userdocs');?>">
 						<div class="media-body company">
 							<h3><?php echo $tatalDoc; ?></h3>
@@ -226,7 +226,7 @@ if($_SESSION['user_type'] == 3){ ?>
 			
 			<div class="col-md-6 col-lg-3 col-xl-3">
 				<div class="box coleql_height">
-					<div class="media">
+					<div class="media justify-content-between">
 						<a href="<?php echo base_url('/medicalAndTrainingDocs');?>">
 						<div class="media-body company">
 							<h3><?php echo $compTotal; ?></h3>
@@ -247,7 +247,7 @@ else{ ?>
 			
 			<div class="col-md-6 col-lg-3 col-xl-3">
 				<div class="box coleql_height">
-					<div class="media">
+					<div class="media justify-content-between">
 						<a href="<?php echo base_url('/awaitingapprove');?>">
 						<div class="media-body company">
 							<h3><?php echo $compTotal; ?></h3>

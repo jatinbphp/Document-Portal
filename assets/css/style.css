@@ -416,5 +416,7 @@ ul.accordion li a.toggle {
         to {-webkit-transform: rotate(360deg);}
     }
 
-
+    .dataTables_filter {
+    text-align: right;
+	}
 

@@ -3,7 +3,7 @@
     padding-left: 10px;
     color: white;
 }
-img.company {
+/*img.company {
     padding-left: 180px;
 }
 img.user {
@@ -11,7 +11,7 @@ img.user {
 }
 img.document {
     padding-left: 160px;
-}
+}*/
 </style>
 <div class="wrapper">
 	
@@ -19,7 +19,7 @@ img.document {
 		<div class="col-md-6 col-lg-4 col-xl-4">
 			<div class="box coleql_height">
 				<a href="<?php echo base_url('/company');?>">
-				<div class="media">
+				<div class="media justify-content-between">
 						<div class="media-body dashboard">
 							<h3><?php echo $companyData; ?></h3>
 							<?php echo strtoupper('Company'); ?>
@@ -33,7 +33,7 @@ img.document {
 		<div class="col-md-6 col-lg-4 col-xl-4">
 			<div class="box coleql_height">
 				<a href="<?php echo base_url('/users');?>">
-				<div class="media">
+				<div class="media justify-content-between">
 					<div class="media-body dashboard">
 						<h3><?php echo $usersData; ?></h3>
 						<?php echo strtoupper('Users'); ?>
@@ -47,7 +47,7 @@ img.document {
 		<div class="col-md-6 col-lg-4 col-xl-4">
 			<div class="box coleql_height">
 				<a href="<?php echo base_url('/documents');?>">
-				<div class="media">
+				<div class="media justify-content-between">
 					<div class="media-body dashboard">
 						<h3><?php echo $documentsData; ?></h3>
 						<?php echo strtoupper('Documents'); ?>

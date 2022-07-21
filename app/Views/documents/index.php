@@ -10,12 +10,14 @@
 							//$companyIdSession = session()->get('companyIdSession'); 
 							$session = session();
 							//$session->markAsTempdata('item', 300);
+							$companyIdSess = $session->get('companyIdSession');
 							$session->set('onUpdate',1);
+							
 					}
 					else{
 						$session = session();
 						//$session->remove('onUpdate');
-						
+						$companyIdSess = "";
 						$session->set('onUpdate',0);
 					}	
 				?>
@@ -182,9 +184,18 @@
 </script>
 
 <script>
+	
 $( document ).ready(function() {
+	
 	$(window).on("load", function () {
+		
 			var onUpdate = "<?php echo $_SESSION['onUpdate'] ?>";
+			//var comIdSess = "<?php echo $_SESSION['companyIdSession'] ?>";
+			//var companyIdSes = '<php echo $companyIdSess ?>';
+			//var simple = '<?php echo $companyIdSess; ?>';
+			
+			//alert(simple);
+			//alert(comIdSess);
 			//alert(onUpdate);
 			//check if data has be updated successfully
 			
@@ -192,6 +203,8 @@ $( document ).ready(function() {
 			//alert(sessionStatus);
 			//if(sessionStatus){
 			if(onUpdate == 1){
+				//var companyIdSess = '<?php echo $companyIdSess; ?>';
+				//alert(companyIdSess);
 				//alert("true");
 				//alert(sessionStatus);
 				$(".docTable").show();
@@ -208,7 +221,9 @@ $( document ).ready(function() {
 					type: "POST",
 					data: {
 						//'company_id': '<?php echo $companyIdSession; ?>'
-						'company_id': "<?php echo $_SESSION['companyIdSession'] ?>"
+						//'company_id': "<?php echo $_SESSION['companyIdSession'] ?>"
+						
+						'company_id': '<?php echo $companyIdSess; ?>'
 					}
 				},
 				"columnDefs": [{

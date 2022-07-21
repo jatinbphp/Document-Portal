@@ -258,7 +258,7 @@ class SubadminWorkflowView extends BaseController
         $query = $builder1->get();
         $datadoc = $query->getResultArray();
 
-        $counter = 0;
+        
 
         $response = "<table class='table quickView'>";
         $response .= " <thead class='thead-dark'>";
@@ -273,9 +273,9 @@ class SubadminWorkflowView extends BaseController
         
         
         
-        foreach($datadoc as $value){
+        foreach($datadoc as $key => $value){
             $response .= "<tr>";
-            $response .= "<td>".$counter = $counter + '1'."</td>";
+            $response .= "<td>".++$key."</td>";
             $response .= "<td>".$value['documents']."</td>";
             $response .= "<td><a href = ".base_url( '/uploads/workflow/'.$value['documents'])." class='btn btn-primary' style='margin: 0px 5px 5px 0px;padding: 4px 9px;font-size: 14px;' target='_blank'><i class='fa fa-file'></i></a></td>";
             $response .= "</tr>";

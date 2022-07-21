@@ -190,22 +190,10 @@ $( document ).ready(function() {
 	$(window).on("load", function () {
 		
 			var onUpdate = "<?php echo $_SESSION['onUpdate'] ?>";
-			//var comIdSess = "<?php echo $_SESSION['companyIdSession'] ?>";
-			//var companyIdSes = '<php echo $companyIdSess ?>';
-			//var simple = '<?php echo $companyIdSess; ?>';
 			
-			//alert(simple);
-			//alert(comIdSess);
-			//alert(onUpdate);
-			//check if data has be updated successfully
-			
-			//var sessionStatus = "<?php echo $_SESSION['success'] ?>";
-			//alert(sessionStatus);
 			//if(sessionStatus){
 			if(onUpdate == 1){
-				//var companyIdSess = '<?php echo $companyIdSess; ?>';
-				//alert(companyIdSess);
-				//alert("true");
+				
 				//alert(sessionStatus);
 				$(".docTable").show();
 				$("#userFilter").show();
@@ -220,8 +208,7 @@ $( document ).ready(function() {
 					url: "documents/fetch_documents",
 					type: "POST",
 					data: {
-						//'company_id': '<?php echo $companyIdSession; ?>'
-						//'company_id': "<?php echo $_SESSION['companyIdSession'] ?>"
+						
 						
 						'company_id': '<?php echo $companyIdSess; ?>'
 					}
@@ -250,103 +237,4 @@ $( document ).ready(function() {
 	});
 });	
 </script>
-
-<script>
-//var sessionValue= $("#hdnSession").data('value');
-//alert(sessionValue);
- //var userName = "<?php echo $_SESSION['success'] ?>";
- //if(userName){
-	 //alert(userName);
-//}//
- 
-</script>
-
-
-
-
-<!--script>
-	//var conceptName = $('#companySearch').find(":selected").text();
-	//alert(conceptName);
-	//$(window).on("load", function () {
-		//$("#companySearch").val('nxol').change();
-		//$('#companySearch option[value="TATA"]');
-		//$("#country option[value='AO']").prop('selected',true);
-		//$("#companySearch option[value = 6]").prop('selected',true);
-		//$('#country').val(“AO”).trigger(‘change’);
-	//});	
-	
-	$('#companySearch').on('change', function() {
-		//alert( this.value );
-		//var selectedVal = $("#companySearch").val();
-		//$("#companySearch").val(selectedVal);
-		var selectedCompany = $(this).children("option:selected").val();
-		//alert(selectedCompanys);
-	});
-	
-	
-</script-->
-
-
-<!--script>
-	
-	
-		
-		$( document ).ready(function() {
-			var company_id;
-			$('#companySearch').on('change', function() {
-		//alert( this.value );
-		
-			var company_id = $( "#companySearch" ).val();
-			myFunc(company_id);
-			
-			//company_id = $( "#companySearch" ).val();
-			//alert(company_id);
-		});
-				
-					$(window).on("load", function () {
-							//alert("true");
-							//alert(data);
-							//$("select").val('6');
-							var selectedVal = $("#companySearch").val();
-								//alert(selectedVal);
-							});
-						
-				
-				
-					function myFunc(data){
-						$(window).on("load", function () {
-							alert("true");
-							//alert(data);
-						});
-						
-						
-						//alert(data)
-						//var url = '<?php //echo base_url('Documents/fetch_documents');?>';
-						//alert(company_id);
-						//var docValue = $(this).data("custom-value");
-						//alert(docValue);
-					
-					
-					/*
-					$.ajax({ 
-							type: "POST",
-							url: url,
-							data: { company_id: company_id},
-							success: function(response){
-								//$(".docTable").show();
-								//$('.modal-body').html(response);
-								//$('#workflowModal').modal('show'); 
-								
-							}
-					}); */ 
-				}		
-		});
-		
-</script-->
-<script>
-	//var sess = <?php echo $_SESSION['companyIdSession'] ?>;
-	//alert(sess);
-</script>
-
-
 

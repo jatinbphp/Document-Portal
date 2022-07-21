@@ -1,43 +1,16 @@
 <div class="wrapper">
     <div class="row">
         <div class="col-sm-12">
-			
-			
-			<?php
-					if(!empty(session()->getFlashdata('success'))){
-							//set sessionStatus to true on update successfully
-							//$sessionStatus = TRUE;
-							//$companyIdSession = session()->get('companyIdSession'); 
-							$session = session();
-							//$session->markAsTempdata('item', 300);
-							$session->set('onUpdate',1);
-					}
-					else{
-						$session = session();
-						//$session->remove('onUpdate');
-						
-						$session->set('onUpdate',0);
-					}	
-				?>
-			
 
 	<!--input type="hidden" id="hdnSession" data-value="@Request.RequestContext.HttpContext.Session['success']" /-->
 
             <?php if(session()->has('success')): ?>
 				<?php
-					if(!empty(session()->getFlashdata('success'))){
+					//if(!empty(session()->getFlashdata('success'))){
 							//set sessionStatus to true on update successfully
 							//$sessionStatus = TRUE;
 							//$companyIdSession = session()->get('companyIdSession'); 
-							$session = session();
-							//$session->markAsTempdata('item', 300);
-							$session->set('onUpdate',1);
-					}
-					else{
-						$session->remove('onUpdate');
-						$session = session();
-						$session->set('onUpdate',0);
-					}	
+					//}//	
 				?>
             <div class="alert alert-success alert-dismissible" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -182,57 +155,51 @@
 </script>
 
 <script>
-$( document ).ready(function() {
 	$(window).on("load", function () {
-			var onUpdate = "<?php echo $_SESSION['onUpdate'] ?>";
-			//alert(onUpdate);
-			//check if data has be updated successfully
-			
-			//var sessionStatus = "<?php echo $_SESSION['success'] ?>";
+		
+		//check if data has be updated successfully
+		
+		var sessionStatus = "<?php echo $_SESSION['success'] ?>";
+		if(sessionStatus){
 			//alert(sessionStatus);
-			//if(sessionStatus){
-			if(onUpdate == 1){
-				//alert("true");
-				//alert(sessionStatus);
-				$(".docTable").show();
-				$("#userFilter").show();
-				$("#documentsTable, #uploadedDocuments").dataTable().fnDestroy();
-				
-				$('#documentsTable').DataTable({
-				"processing": true,
-				"serverSide": true,
-				"responsive": true,
-				"order": [],
-				"ajax": {
-					url: "documents/fetch_documents",
-					type: "POST",
-					data: {
-						//'company_id': '<?php echo $companyIdSession; ?>'
-						'company_id': "<?php echo $_SESSION['companyIdSession'] ?>"
-					}
-				},
-				"columnDefs": [{
-					"orderable": false,
-					"targets": -1
-				}, {
-					"orderable": false,
-					"targets": 0
-				}, {
-					"orderable": false,
-					"targets": 5
-				}, {
-					"width": "10%",
-					"targets": 0
-				}, {
-					"width": "15%",
-					"targets": 1
-				}, {
-					"width": "10%",
-					"targets": 2
-				}]
-			});
-		}
-	});
+			$(".docTable").show();
+			$("#userFilter").show();
+			$("#documentsTable, #uploadedDocuments").dataTable().fnDestroy();
+			
+			$('#documentsTable').DataTable({
+			"processing": true,
+			"serverSide": true,
+			"responsive": true,
+			"order": [],
+			"ajax": {
+				url: "documents/fetch_documents",
+				type: "POST",
+				data: {
+					//'company_id': '<?php echo $companyIdSession; ?>'
+					'company_id': "<?php echo $_SESSION['companyIdSession'] ?>"
+				}
+			},
+			"columnDefs": [{
+				"orderable": false,
+				"targets": -1
+			}, {
+				"orderable": false,
+				"targets": 0
+			}, {
+				"orderable": false,
+				"targets": 5
+			}, {
+				"width": "10%",
+				"targets": 0
+			}, {
+				"width": "15%",
+				"targets": 1
+			}, {
+				"width": "10%",
+				"targets": 2
+			}]
+		});
+	}	
 });	
 </script>
 
@@ -332,6 +299,5 @@ $( document ).ready(function() {
 	//var sess = <?php echo $_SESSION['companyIdSession'] ?>;
 	//alert(sess);
 </script>
-
 
 

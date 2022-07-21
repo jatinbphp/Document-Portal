@@ -1172,7 +1172,8 @@ class Workflow extends BaseController{
             $buildersql1 =$buildersql->select('Users.*, user_company.company_id as company_id');
             $buildersql2 = $buildersql1->join('user_company', 'user_company.user_id = Users.id');
             $buildersql3 =$buildersql2->where('user_company.company_id',$comp_id);
-            $buildersql3 =$buildersql2->where('Users.userTypeID',1);
+            $where =  "(Users.userTypeID = 1 OR Users.userTypeID = 4)";
+            $buildersql3 =$buildersql2->where($where);
             $result = $buildersql3->get()->getResultArray();
             // echo $query = $db->getLastQuery();exit;
 
@@ -1205,24 +1206,34 @@ class Workflow extends BaseController{
            $message = ' <b> Hello!  <br> <br>
            '.$users['firstName'].'  '.$users['lastName'].' </b>
             <br><br>Please login to this site :<a href = "'.$url.'"> '.$url.'</a> and  varify the documents.';
-			
-			 $email = \Config\Services::email();
-                        $email->setFrom('gert@gsdm.co.za', 'HSEQ User');
-                         $email->setTo($to);
-                        $email->setSubject('HSEQ Document');
-                        $email->setMessage($message);
-                         if ($email->send()) 
-                        {
-                            echo 'Email successfully sent';
-                            $session->setFlashdata("Success", "Email successfully sent");
-                            return redirect()->to('workflow');
 
-                        } 
-                        else 
-                        {
-                            $data = $email->printDebugger(['headers']);
-                            print_r($data);
-                        }
+            $headers = "MIME-Version: 1.0" . "\r\n";
+                $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+                $headers .= '<noreply@hseqss.co.za>';
+                
+                $to = $to;
+               
+                $subject = 'HSEQ Document';
+
+                mail($to,$subject,$message,$headers);
+			
+			 // $email = \Config\Services::email();
+    //                     $email->setFrom('gert@gsdm.co.za', 'HSEQ User');
+    //                      $email->setTo($to);
+    //                     $email->setSubject('HSEQ Document');
+    //                     $email->setMessage($message);
+    //                      if ($email->send()) 
+    //                     {
+    //                         echo 'Email successfully sent';
+    //                         $session->setFlashdata("Success", "Email successfully sent");
+    //                         return redirect()->to('workflow');
+
+    //                     } 
+    //                     else 
+    //                     {
+    //                         $data = $email->printDebugger(['headers']);
+    //                         print_r($data);
+    //                     }
 
                         return redirect()->to('workflow');
 		}

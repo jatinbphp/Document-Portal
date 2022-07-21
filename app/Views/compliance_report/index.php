@@ -44,13 +44,37 @@
 							  <th style='width: 50%'>Document Name</th>
 							  <th style='width: 40%'>Expire Date </th>
 							  <th style='width: 10%'>Status </th>
+							  <th style='width: 10%'>Compliance Score </th>
 							</tr>
 						  </thead>
 						  <tbody>
-						  	
+						  		
 								<?php if(count($Documentfiles)>0){
 									foreach($Documentfiles as $key => $docValue){
 										if($docValue['company_id'] == $compValue['id']){ 
+
+											$db      = \Config\Database::connect();
+											$builder = $db->table('document_workfolw');
+											$builder->select('id');
+											$builder->where('company_id', $compValue['id']);
+											$builder->where('technician_id',$_SESSION['id']);
+											$queryResult = $builder->get()->getResult('array');
+											$total = count($queryResult);
+											//echo "total".$total; echo "<br>";
+
+											$db      = \Config\Database::connect();
+											$builder = $db->table('document_workfolw');
+											$builder->select('id');
+											$builder->where('company_id', $compValue['id']);
+											$builder->where('technician_id',$_SESSION['id']);
+											$builder->where('is_active',$docValue['is_active']);
+											$queryResult = $builder->get()->getResult('array');
+											$activeTotal = count($queryResult);
+											//echo "activeTotal".$activeTotal; echo "<br>";
+											$complianceScore1 = (($activeTotal/$total) *100);
+											$complianceScore = number_format($complianceScore1, 0);
+											//echo $complianceScore; echo "<br>";
+											
 											if($docValue['is_active'] == 1 || $docValue['is_active'] == 3 || $docValue['is_active'] == 4 ){
 											?>
 
@@ -73,7 +97,7 @@
 													  
 													  ?>
 											  	</td>
-
+											  	<td><?php echo $complianceScore;?>%</td>
 											</tr>
 										<?php } ?>
 

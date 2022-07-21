@@ -58,18 +58,40 @@
 						<table id="" class="table table-bordered" cellspacing="0" width="100%">
 						  <thead class="thead-dark">
 							<tr>
-							  <th style='width: 25%'>Document Name</th>
-							  <th style='width: 25%'>client Name</th>
+							  <th style='width: 20%'>Document Name</th>
+							  <th style='width: 20%'>client Name</th>
 							  <th style='width: 20%'>Company</th>
 							  <th style='width: 20%'>Expire Date </th>
 							  <th style='width: 10%'>Status </th>
+							  <th style='width: 10%'>Compliance Score </th>
 							</tr>
 						  </thead>
 						  <tbody>
-
+						  
 								<?php if(count($Documentfiles)>0){
 									foreach($Documentfiles as $key => $docValue){
 										if($docValue['company_id'] == $compValue['id']){ 
+
+											$db      = \Config\Database::connect();
+											$builder = $db->table('document_workfolw');
+											$builder->select('id');
+											$builder->where('company_id', $compValue['id']);
+											$builder->where('technician_id',$user_id);
+											$queryResult = $builder->get()->getResult('array');
+											$total = count($queryResult);
+											
+
+											$db      = \Config\Database::connect();
+											$builder = $db->table('document_workfolw');
+											$builder->select('id');
+											$builder->where('company_id', $compValue['id']);
+											$builder->where('technician_id',$user_id);
+											$builder->where('is_active',$docValue['is_active']);
+											$queryResult = $builder->get()->getResult('array');
+											$activeTotal = count($queryResult);
+											//echo "activeTotal".$activeTotal; echo "<br>";
+											$complianceScore1 = (($activeTotal/$total) *100);
+											$complianceScore = number_format($complianceScore1, 0);
 
 											if($docValue['is_active'] == 1 || $docValue['is_active'] == 3 || $docValue['is_active'] == 4 ){
 
@@ -94,6 +116,7 @@
 									            }	
 													  ?>
 											  	</td>
+											  	<td><?php echo $complianceScore;?>%</td>
 											</tr>
 											<?php } ?>
 

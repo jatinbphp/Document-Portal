@@ -410,9 +410,15 @@
                 <?php } ?>
                     <hr>
                     <?php if($_SESSION['user_type'] == 3){ ?>
+
+                        <?php  $sesVal =  $_SERVER['HTTP_REFERER'];
+                        $ses_id = explode("/",$sesVal);
+
+                        $comp_id = end($ses_id);
+                        $url = base_url('SubadminWorkflowView/index/'.$comp_id);?>
                          <div class="d-flex justify-content-end mt-4">
                         <button type="submit" class="btn btn-info mr-2 savebtn">Submit</button>
-                        <a href="<?php echo base_url('workflow'); ?>" type="button" class="btn btn-warning">Back</a>
+                        <a href="<?php echo $url; ?>" type="button" class="btn btn-warning">Back</a>
                     </div>
                   <?php  } else{ ?>
                         <div class="d-flex justify-content-end mt-4">

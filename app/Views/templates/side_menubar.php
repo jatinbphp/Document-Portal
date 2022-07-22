@@ -82,7 +82,7 @@
             
             <li class="Reporting-Menu">
                 <a class="drpdwn" href="javascript:void(0)"><img src="<?php echo base_url('assets/images/dash-icon-4.png'); ?>" alt=""> Reporting</a>
-                <ul class="inner">
+                <ul class="inner" id="innerUl" >
                     <li class="SubMenu" id="userReport" ><a class="" href="<?php echo base_url('reporting'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-4.png'); ?>" alt=""> User Report</a></li>
  
                     <li class="SubMenu" id="categoryReport" ><a class="" href="<?php echo base_url('reporting/category'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-4.png'); ?>" alt="">Category Report</a></li>
@@ -93,7 +93,7 @@
                     
                     <li class="SubMenu" id="outstandingDocumentsReport" ><a class="" href="<?php echo base_url('outstandingDocuments'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-4.png'); ?>" alt="">Outstanding Documents</a></li>
                     
-                    <li class="SubMenu" id="" ><a class="" href="<?php echo base_url('Expired-Documents'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-4.png'); ?>" alt="">Expired Documents</a></li>
+                    <li class="SubMenu" id="expiredocumentsReport" ><a class="" href="<?php echo base_url('Expired-Documents'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-4.png'); ?>" alt="">Expired Documents</a></li>
                     
                     <!--li class="SubMenu" id="complianceReport" ><a class="" href="<?php echo base_url('complianceReport'); ?>"><img src="<?php echo base_url('assets/images/dash-icon-4.png'); ?>" alt="">Compliance Report</a></li-->
                 </ul>

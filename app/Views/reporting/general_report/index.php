@@ -150,10 +150,13 @@ $("select").click(function(){
     // $(".manageUsers-Menu .inner").addClass("show");
     // $(".manageUsers-Menu .toggle").addClass("activAcc");
     // $(".manageUsers-Menu .inner").css("display", "block")
-    $('.Reporting-Menu').addClass('active');
-    
-    
-    
+    //$('.Reporting-Menu').addClass('active');
+  
+    $("#drpdwn").addClass('active'); 
+    $("#innerUl").addClass('show');
+    $("#innerUl").css("display", "block");
+    $("#userReport").addClass('active'); 
+    $(".Reporting-Menu").addClass('active');
 </script>
 <script src="<?php echo base_url('assets/js/usersTable.js') ?>"></script>
 

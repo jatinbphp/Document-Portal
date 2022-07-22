@@ -35,7 +35,13 @@
   // $(".manageDocuments-Menu .inner").addClass("show");
     // $(".manageDocuments-Menu .toggle").addClass("activAcc");
     // $(".manageDocuments-Menu .inner").css("display", "block")
-    $('.Reporting-Menu').addClass('active');
+    //$('.Reporting-Menu').addClass('active');
+    
+    $("#drpdwn").addClass('active'); 
+	$("#innerUl").addClass('show'); 
+	$("#innerUl").css("display", "block");
+	$("#editReport").addClass('active'); 
+	$(".Reporting-Menu").addClass('active');
 </script>
 <script src="<?php echo base_url('assets/js/usersTable.js') ?>"></script>
 <!--script src="<?php //echo base_url('assets/js/tables.js') ?>"></script-->

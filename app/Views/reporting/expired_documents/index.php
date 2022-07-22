@@ -82,7 +82,13 @@
   // $(".manageDocuments-Menu .inner").addClass("show");
     // $(".manageDocuments-Menu .toggle").addClass("activAcc");
     // $(".manageDocuments-Menu .inner").css("display", "block")
-    $('.Reporting-Menu').addClass('active');
+    //$('.Reporting-Menu').addClass('active');
+    
+    $("#drpdwn").addClass('active'); 
+    $("#innerUl").addClass('show'); 
+    $("#innerUl").css("display", "block");
+    $("#expiredocumentsReport").addClass('active'); 
+    $(".Reporting-Menu").addClass('active');
 
      $(document).ready(function () {
         new bootstrap.Tooltip(document.body, {

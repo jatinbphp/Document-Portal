@@ -177,4 +177,52 @@ class Clients extends BaseController
         echo json_encode($output);
         
     }
+
+    public function checkEmailExists(){
+		$request = service('request');
+		$email = $request->getPost('email');
+
+		 $email_data = new ClientsModel;
+         $emailExist = $email_data->where('email',$email)->first();
+         if(!empty($emailExist))
+         {
+         	$exist = false;
+         }
+         else{
+         	$exist = true;
+         }
+         return json_encode($exist);
+	}
+
+	public function checkEditEmailExists()
+	{
+
+		$request = service('request');
+		
+		$email = $request->getPost('email');
+		$old_email = $request->getPost('old_email');
+
+		if($email != '' && $old_email != ''){  
+			$model_user = new ClientsModel;
+
+			$emailExist = $model_user->where('Email',$email)->first();
+
+			$exist = '';
+            if(!empty($emailExist) || $old_email == $email){
+            	if($old_email == $email){
+            		$exist = true;
+            	}else{
+           	 		$exist = false;
+            	}
+            }elseif($old_email == $email){
+            	$exist = true;
+            } else {
+                $exist = true;
+            }
+
+			echo json_encode($exist);
+		}
+	}
+
+
 }

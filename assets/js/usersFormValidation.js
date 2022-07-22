@@ -587,7 +587,7 @@ $(document).ready(function() {
             form.submit();
         }
     });
-    $("#clientsFormAddEdit").validate({
+    $("#clientsFormAdd").validate({
         rules: {
             first_name: {
                 required: true,
@@ -597,7 +597,11 @@ $(document).ready(function() {
             },
             email: {
                 required: true,
-                email: true
+                email: true,
+                remote: {
+                    url: baseurl + "/clients/checkEmailExists",
+                    type: "post",
+                }
             },
             psw: {
                 required: true,
@@ -616,7 +620,8 @@ $(document).ready(function() {
             },
             email: {
                 required: "Please enter Email Address",
-                email: "Please enter Valid Email Address"
+                email: "Please enter Valid Email Address",
+                remote: "This email address already exist"
             },
             psw: {
                 required: "Please enter Password",
@@ -624,6 +629,45 @@ $(document).ready(function() {
             conpassword: {
                 required: "Please enter Confirm Password",
                 equalTo: "Password not Match"
+            },
+        },
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
+    $("#clientsFormEdit").validate({
+        rules: {
+            first_name: {
+                required: true,
+            },
+            last_name: {
+                required: true,
+            },
+            email: {
+                required: true,
+                email: true,
+                remote: {
+                    url: baseurl + "/clients/checkEditEmailExists",
+                    type: "post",
+                    data: {
+                        old_email: function() {
+                            return $('input#old_email').val();
+                        }
+                    }
+                }
+            },
+        },
+        messages: {
+            firstName: {
+                required: "Please enter First Name",
+            },
+            last_name: {
+                required: "Please enter Last Name",
+            },
+            email: {
+                required: "Please enter Email Address",
+                email: "Please enter Valid Email Address",
+                remote: "This email address already exist"
             },
         },
         submitHandler: function(form) {

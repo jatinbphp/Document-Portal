@@ -20,13 +20,15 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <form id="clientsFormAddEdit" method="post" action="<?php echo base_url('clients/edit/'.$clients_info['id']); ?>" enctype="multipart/form-data">
+                        <form id="clientsFormEdit" method="post" action="<?php echo base_url('clients/edit/'.$clients_info['id']); ?>" enctype="multipart/form-data">
                             
                              <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label class="lableTitle"for="email">Email Address :<span class="asterisk-sign">*</span></label>
                                         <input type="text" name="email" class="form-control" id="email" placeholder="Email Address" value="<?php echo $clients_info['email']; ?>">
+
+                                         <input type="hidden" name="old_email" id="old_email" value="<?php echo $clients_info['email']; ?>">
                                     </div>
                                 </div>
                             </div>
@@ -48,13 +50,13 @@
                              <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="lableTitle"for="psw">Password :<span class="asterisk-sign">*</span></label>
+                                        <label class="lableTitle"for="psw">Password :<span class="asterisk-sign"></span></label>
                                         <input type="password" name="psw" class="form-control" id="psw" placeholder="Password">
                                     </div>
                                 </div>
                                  <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="lableTitle"for="conpassword">Confirm Password:<span class="asterisk-sign">*</span></label>
+                                        <label class="lableTitle"for="conpassword">Confirm Password:<span class="asterisk-sign"></span></label>
                                         <input type="password" name="conpassword" class="form-control" id="conpassword" placeholder="Conform Password">
                                     </div>
                                 </div>

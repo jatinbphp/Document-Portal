@@ -20,7 +20,7 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <form id="clientsFormAddEdit" method="post" action="<?php echo base_url('clients/add'); ?>" enctype="multipart/form-data">
+                        <form id="clientsFormAdd" method="post" action="<?php echo base_url('clients/add'); ?>" enctype="multipart/form-data">
                             
                             <div class="row">
                                 <div class="col-md-12">

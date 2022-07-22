@@ -31,10 +31,7 @@
     table.dataTable tbody td, table.dataTable tbody td .commentAdd {
         transition: all .4s ease-in-out;
     }
-    .table th, .table td {
-        padding: 0.75rem;
-        vertical-align: top;
-        border-top: 1px solid #dee2e6;
+    table.table.quickView {
         word-break: break-all;
     }
 </style>

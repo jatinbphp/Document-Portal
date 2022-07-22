@@ -314,6 +314,10 @@ class Workflow extends BaseController{
 				// echo "<pre>";print_r($client_comp);exit;
 	 			  $whereUser[$global_tblWorkflow.'.company_id']= $client_comp;
 			}
+			else{
+
+				 $whereEqual[$global_tblWorkflow.'.company_id']= 0;
+			}
 			
  		}
         // not equal condition

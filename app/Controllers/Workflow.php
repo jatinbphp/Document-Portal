@@ -340,7 +340,7 @@ class Workflow extends BaseController{
 
         // order by
          $orderBy = array();
-        $orderBy = array($global_tblWorkflow.'.id' => "DESC");
+        $orderBy = array($global_tblWorkflow.'.order_update' => "ASC");
 
         // join table
         $joinTableArray = array();

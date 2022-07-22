@@ -221,7 +221,7 @@
 <script>
     
 
-  $("#ReSaveOrder").click(function () {
+$("#ReSaveOrder").click(function () {
     var com_Id = $('#companyOrderDocument1').val();
     // var singleids = [];
     // // var Nameids = [];
@@ -244,17 +244,10 @@
         
         
     });
-//     if (Nameids.length === 0) {
-//  alert("Please Update orders");
-// }
-// else{
-
-
-    
      var ids = [];
      $('.ReOrderData').each(function (i, item)
             {
-                //console.log(item.id);
+               
                 var ii = item.id;
 
                  var items = ii.split('-');
@@ -274,40 +267,33 @@
         },
         success: function(result1) {
             if(result1 == 1){
-               var compdata =$.session.get("selComId");
-               alert("Successfully update order");
-               //location.reload();
-                
-                var table1 = $('#orderDocumentsTable').DataTable();
-                    table1.ajax.reload();
-           //$('#orderDocumentsTable').DataTable({});
-           // $("#orderDocumentsTable").dataTable().fnReloadAjax();
-               //location.reload();
-                // alert(compdata);
-                // if(compdata > 0){
-                //    $(".orderTable").show();
-                //    return false; 
-                // }
-
-                // $(window).on('reload', function() {   
-                // $('select[name="companySearch1"]').val(compdata) 
-                //  });
-            //     var url = baseurl + '/workflow';
-            //     window.setTimeout(function() {
-            //     window.location.href = url;
-            // }, 1000);
-
-               // sessionStorage.removeItem('selComId'); 
-                // $(".orderTable").show();
-            }
-            else{
-                alert("Please Update orders");
-            }
+                var compdata =$.session.get("selComId");
+                   //alert("Successfully update order");
+                   //location.reload();
+                swal({
+                    title: "success",
+                    text: "Successfully updated orders",
+                    
+                    confirmButtonColor: '#87CEEB',
+                    confirmButtonText: 'Ok',
+                    
+                    closeOnConfirm: true,
+                    closeOnCancel: false
+                }, function(isConfirmed) {
+                        if (isConfirmed) {
+                            
+                           var table1 = $('#orderDocumentsTable').DataTable();
+                                table1.ajax.reload();
+                        } else {
+                            //swal("Cancelled", "Your data safe!", "error");
+                        }
+                    });
+                }else{
+                    alert("Please Update orders");
+                }
         }
     });
-//}
-     
-  });
+});
 
 </script>
 

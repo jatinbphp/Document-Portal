@@ -25,8 +25,8 @@ class ComplianceReport extends BaseController{
 		$this->data['subCategory'] = $subCategory->where('is_deleted',0)->findall();
 
 		$documents = new WorkflowModel;
-		$where =  "(is_active = 1 OR is_active = 3 OR is_active = 4)";
-		$this->data['Documentfiles'] = $documents->where('technician_id',$_SESSION['id'])->where($where)->findAll();
+		//$where =  "(is_active = 1 OR is_active = 3 OR is_active = 4)";
+		$this->data['Documentfiles'] = $documents->where('technician_id',$_SESSION['id'])->findAll();
 		//echo "<pre>";print_r($this->data['Documentfiles']);exit;
 
 		$this->data['page_title'] = 'Compliance Report';

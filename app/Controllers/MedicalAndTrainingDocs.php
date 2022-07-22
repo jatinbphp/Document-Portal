@@ -280,7 +280,7 @@ class MedicalAndTrainingDocs extends BaseController
         $searchColumn = array($global_tblWorkflow.".document_name",$global_tblusers_types.".userTypeName",$global_tblcategory.".categoryName",$global_tblsubcategory.".SubCatName",$global_tblWorkflow.".document_files",$global_tblcompany.".companyName");
 
         // order by
-        $orderBy = array($global_tblWorkflow.'.id' => "DESC");
+        $orderBy = array($global_tblWorkflow.'.order_update' => "ASC");
 
         // join table
         $joinTableArray = array();
